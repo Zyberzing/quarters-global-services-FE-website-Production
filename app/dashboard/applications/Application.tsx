@@ -18,7 +18,7 @@ const ApplicationsPage = ({
     applicationsData: ApiPagination & { data: any[] };
     selectedApplicationSources: ApplicationSource;
 }) => {
-    const [isDeleting, setIsDeleting] = useState(false);
+    const [isDeleting, ] = useState(false);
     console.log(isDeleting);
 
     // Delete handler function

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useEffect, useState } from "react";
 import DocumentForm from "./DocumentForm";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -28,7 +28,6 @@ import {
   CreateApplicationType,
 } from "./schemas/index";
 
-import { emailSchema } from "@/lib/formSchemaFunctions";
 import {
   changeStatusApplication,
   createApplication,
@@ -37,7 +36,6 @@ import {
 import handleAsync from "@/lib/handleAsync";
 
 import Link from "next/link";
-import { getUsers } from "@/services/usersService";
 
 import PersonalInfo from "./PersonalInfo";
 import PassportDetails from "./PassportDetails";
@@ -77,7 +75,6 @@ const ApplicationForm = ({
   );
   const [countrySlug, setCountrySlug] = useState("");
   const [serviceSlug, setServiceSlug] = useState("");
-  const [_startCheckUserLoading, setCheckUserLoading] = useTransition();
   const form = useForm<CreateApplicationType>({
     resolver: zodResolver(createApplicationValidator),
     defaultValues: {

@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
 import handleAsync from '@/lib/handleAsync';
 import { createApplication } from '@/services/applicatonService';
 
@@ -54,7 +53,6 @@ const GlobalEntryTSAForm = ({
   platformServiceId?: string;
   platformServiceCategoryPackageId?: string;
 }) => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const applicationSources = ['AdminPortal', 'AgentPortal', 'Website'];
 

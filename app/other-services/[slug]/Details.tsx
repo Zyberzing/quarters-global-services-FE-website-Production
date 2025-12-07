@@ -8,6 +8,7 @@ import WhyChoose from '@/components/WhyChoose/WhyChoose'
 import { useParams } from 'next/navigation'
 import React from 'react'
 import { vehicleList } from '@/lib/vehicleList'
+import Image from 'next/image'
 
 const Details = () => {
   const params = useParams();
@@ -42,7 +43,7 @@ const Details = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-12 px-4">
           {vehicleList.map(v => (
             <div key={v.id} className="border rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-              <img src={v.image} className="h-52 w-full object-cover" />
+              <Image width={150} height={150} src={v.image}  alt={v.name}   className="h-52 w-full object-cover" />
               <div className="p-4 space-y-3">
                 <h2 className="font-semibold text-lg">{v.name}</h2>
                 

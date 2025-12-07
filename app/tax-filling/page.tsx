@@ -8,7 +8,7 @@ export default function TaxFilingPage() {
 
   const router = useRouter();
 
-  const { data, isLoading } = useGetPlatformServiceSubCategoriesQuery({platformServiceSlug: "tax-filling", toCountrySlug: ""});
+  const { data } = useGetPlatformServiceSubCategoriesQuery({platformServiceSlug: "tax-filling", toCountrySlug: ""});
   console.log(data, "tax-filing-data");
 
   const handleSelectPackage = (pkg: string) => {

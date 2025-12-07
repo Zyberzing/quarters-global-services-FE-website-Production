@@ -6,7 +6,6 @@ import NextTopLoader from 'nextjs-toploader';
 import ReduxProvider from "@/providers/ReduxProvider";
 import { Toaster } from "@/components/ui/sonner";
 import BasicLayout from "@/layout/BasicLaypout";
-import Script from "next/script";
 import LiveChatIntegration from "@/components/LiveChatIntegration";
 
 const poppins = Poppins({

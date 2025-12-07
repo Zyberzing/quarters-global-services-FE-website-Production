@@ -53,7 +53,7 @@ export const fetchPlatformServicePackage = async (
   }
 };
 
-const ServiceForm = ({ isView }: { isView?: boolean }) => {
+const ServiceForm = () => {
   const [serviceType, setServiceType] = useState<string>('');
   const [serviceCategories, setServiceCategories] = useState<PlatformServiceCategory[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

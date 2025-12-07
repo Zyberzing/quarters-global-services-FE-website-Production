@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
 import handleAsync from '@/lib/handleAsync';
 import { createApplication } from '@/services/applicatonService';
 
@@ -54,18 +53,15 @@ const formSchema = z.object({
 const FlightCharterServicesForm = ({
   isView,
   charterData,
-  isEdit = false,
   platformServiceId,
   packageId,
 }: {
   isView?: boolean;
   charterData?: any;
-  isEdit?: boolean;
   platformServiceId?: string;
   packageId?: string;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

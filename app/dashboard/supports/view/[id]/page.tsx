@@ -2,8 +2,6 @@ import React from 'react';
 import { getSupportById } from '@/services/supportsService';
 import { hasSession } from '@/lib/session';
 import { redirect } from 'next/navigation';
-import hasAccess from '@/hooks/useAccessControl/hasAccess';
-import { PERMISSIONS_LIST_ENUM } from '@/hooks/useAccessControl/permissions';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';

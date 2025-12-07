@@ -47,11 +47,13 @@ const SupportForm = () => {
         supportType: "",
         message: "",
       });
-    } catch (err: any) {
+    } catch (error) {
+      console.error(error);
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
+
   };
 
   return (

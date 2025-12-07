@@ -4,10 +4,9 @@ import BannerLayout from "@/components/Banner/BannerLayout";
 import SectionHeading from "@/components/SectionTitle/SectionHeading";
 import SupportForm from "@/components/SupportForm";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 const ContectUs = () => {
-  const [selectedCode, setSelectedCode] = useState("+1");
 
   return (
     <div>

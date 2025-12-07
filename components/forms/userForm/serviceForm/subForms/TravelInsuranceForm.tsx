@@ -25,7 +25,6 @@ import {
 import { PhoneInput2 } from '@/components/ui/PhoneInput2';
 import handleAsync from '@/lib/handleAsync';
 import { createApplication } from '@/services/applicatonService';
-import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 const genders = ['Male', 'Female', 'Other'];
@@ -79,7 +78,6 @@ const TravelInsuranceForm = ({
   platformServiceId?: string;
   platformServiceCategoryPackageId?: string;
 }) => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const applicationSources = ['AdminPortal', 'AgentPortal', 'Website'];
 

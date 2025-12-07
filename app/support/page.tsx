@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { allCountries } from "country-telephone-data";
 import { Phone, ShieldCheck, FileText, BookOpen } from "lucide-react";
 import SectionHeading from "@/components/SectionTitle/SectionHeading";
 import SupportForm from "@/components/SupportForm";
 
 const SupportPage = () => {
-  const [selectedCode, setSelectedCode] = useState("+1");
 
   const sections = [
     {
