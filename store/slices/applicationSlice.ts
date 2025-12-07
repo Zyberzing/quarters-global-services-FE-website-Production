@@ -47,6 +47,11 @@ export const saveSingleApplication = (app: Application) => {
 
 const loadState = (): ApplicationState => {
   try {
+    // 🛑 Prevent error during SSR (localStorage not available on server)
+    if (typeof window === "undefined") {
+      return { applications: [], activeId: null };
+    }
+
     const currentStatusData = localStorage.getItem(STATUS_KEY);
     const applicationsData = localStorage.getItem(STORAGE_KEY);
 
@@ -64,15 +69,16 @@ const loadState = (): ApplicationState => {
         );
 
         if (existingAppIndex !== -1) {
-          // Update existing application (replace old version)
+          // Replace existing application
           parsedApplications.applications[existingAppIndex] = parsedStatus.data;
         } else {
-          // Append new application if not already present
+          // Append new application
           parsedApplications.applications.push(parsedStatus.data);
         }
 
-        // Update active ID from the latest single app
-        parsedApplications.activeId = parsedStatus.activeId || parsedApplications.activeId;
+        // Update active ID from the single app entry
+        parsedApplications.activeId =
+          parsedStatus.activeId || parsedApplications.activeId;
       }
     }
 
@@ -82,6 +88,7 @@ const loadState = (): ApplicationState => {
     return { applications: [], activeId: null };
   }
 };
+
 
 
 const initialState: ApplicationState = loadState();

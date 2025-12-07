@@ -30,7 +30,7 @@ const Header = () => {
 
   // Fetch cart count
   useEffect(() => {
-    const saved = localStorage.getItem("applications");
+    const saved = window.localStorage.getItem("applications");
     if (saved) {
       try {
         const parsed = JSON.parse(saved);

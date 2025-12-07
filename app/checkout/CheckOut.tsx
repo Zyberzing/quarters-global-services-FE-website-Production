@@ -12,7 +12,7 @@ export default function CheckoutPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const formType = sessionStorage.getItem("formType");
-      const application = localStorage.getItem("applications");
+      const application = window.localStorage.getItem("applications");
       setType(formType);
       setHasApplication(!!application);
     }

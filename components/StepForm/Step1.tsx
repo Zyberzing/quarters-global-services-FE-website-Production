@@ -109,7 +109,7 @@ export default function Step1() {
 
     // --- Prefill from localStorage ---
     useEffect(() => {
-        const saved = localStorage.getItem("applications");
+        const saved = window.window.localStorage.getItem("applications");
 
         if (!saved) return;
 
@@ -145,7 +145,7 @@ export default function Step1() {
         try {
 
             console.log(platformServices, "platformServices")
-            const applicationData = localStorage.getItem("applications")
+            const applicationData = window.localStorage.getItem("applications")
             console.log(applicationData, "applicationData")
             //  Build one common address object from currentLegalAddress
             const fullAddress = {
@@ -174,8 +174,8 @@ export default function Step1() {
                         currentLegalAddress: fullAddress,
                         isSubmittedFromApplication: true,
                         isSubmittedFromService: false,
-                        fromCountryId: localStorage.getItem("fromCountryId"),
-                        toCountryId: localStorage.getItem("toCountryId"),
+                        fromCountryId: window.localStorage.getItem("fromCountryId"),
+                        toCountryId: window.localStorage.getItem("toCountryId"),
                         platformServices: (() => {
                             const merged = (platformServices || []).reduce((acc: any, s: any) => {
                                 for (const [key, value] of Object.entries(s)) {
