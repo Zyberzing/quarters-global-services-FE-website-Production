@@ -443,7 +443,7 @@ export default function Step1() {
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="grid gap-6 px-4 sm:px-6 md:px-8 w-full max-w-full"
+                    className="grid gap-6 w-full max-w-full"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField
