@@ -144,18 +144,22 @@ const MultiStepForm = () => {
           </p>
         </div>
       ) : (
-        <div className="flex gap-8 justify-between mt-6">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-between mt-6">
+
           {/* Form Steps */}
-          <div className={`${step === 3 ? "w-full" : "w-1/2 ml-4"}`}>
+          <div className={`${step === 3 ? "w-full" : "w-full lg:w-1/2"} lg:ml-4`}>
             {step === 1 && <Step1 />}
             {step === 3 && <Step3 />}
           </div>
 
-          {/* Sticky Order Summary */}
+          {/* Order Summary */}
           {(step === 1 || step === 2) && (
-            <div className="w-full lg:w-1/4 md:w-1/2 mt-6 lg:mt-0">
+            <div className="w-full md:w-2/3 lg:w-1/3 mt-6 lg:mt-0">
               <div className="lg:sticky top-20 pr-0 lg:pr-3">
+
+                {/* Card */}
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+
                   {/* Header */}
                   <div className="bg-[#00408D] text-white p-4">
                     <h2 className="text-lg md:text-xl font-bold text-center lg:text-left">
@@ -165,7 +169,7 @@ const MultiStepForm = () => {
 
                   {/* Body */}
                   <div className="p-4 sm:p-6 space-y-4 text-sm">
-                    {/* ✅ Main Services */}
+                    {/* Main Services */}
                     {getPlatformServices()
                       .filter((s) => !s.additionService && Number(s.price) > 0)
                       .map((s, idx) => (
@@ -189,7 +193,7 @@ const MultiStepForm = () => {
                         </div>
                       ))}
 
-                    {/* ➕ Additional Services */}
+                    {/* Additional Services */}
                     <h3 className="font-semibold text-gray-900 mt-5 mb-2 text-sm sm:text-base">
                       Additional Services
                     </h3>
@@ -200,7 +204,7 @@ const MultiStepForm = () => {
                           key={idx}
                           className="flex justify-between items-center py-2 border-b last:border-none"
                         >
-                          <span className="font-medium text-gray-700 flex items-center gap-2 text-xs sm:text-sm">
+                          <span className="font-medium text-gray-700 text-xs sm:text-sm">
                             {s.additionService_name}
                           </span>
                           <span className="text-gray-900 font-semibold text-xs sm:text-sm">
@@ -209,7 +213,7 @@ const MultiStepForm = () => {
                         </div>
                       ))}
 
-                    {/* ✅ Total */}
+                    {/* Total */}
                     <div className="flex justify-between items-center pt-4 font-bold text-sm sm:text-base">
                       <span>Total</span>
                       <span>
@@ -234,11 +238,13 @@ const MultiStepForm = () => {
                     </Link>
                   ))}
                 </div>
+
               </div>
             </div>
           )}
 
         </div>
+
       )}
     </div>
   );

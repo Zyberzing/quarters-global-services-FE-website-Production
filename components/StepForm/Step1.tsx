@@ -438,8 +438,6 @@ export default function Step1() {
                 </div>
             </div>
 
-
-
             <h3 className="text-xl font-semibold mb-4 mt-4">Your Information</h3>
 
             <Form {...form}>
