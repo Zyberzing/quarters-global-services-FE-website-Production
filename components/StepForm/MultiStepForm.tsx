@@ -144,7 +144,7 @@ const MultiStepForm = () => {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-between mt-6">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 lg:justify-between md:justify-center mt-6">
 
           {/* Form Steps */}
           <div className={`${step === 3 ? "w-full" : "w-full lg:w-1/2"} lg:ml-4`}>
@@ -154,8 +154,8 @@ const MultiStepForm = () => {
 
           {/* Order Summary */}
           {(step === 1 || step === 2) && (
-            <div className="w-full md:w-2/3 lg:w-1/3 mt-6 lg:mt-0">
-              <div className="lg:sticky top-20 pr-0 lg:pr-3">
+            <div className="w-full md:w-full lg:w-1/3  md lg:m-0 mt-6 lg:mt-0">
+              <div className="relative lg:sticky lg:top-20 pr-0 lg:pr-3">
 
                 {/* Card */}
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
