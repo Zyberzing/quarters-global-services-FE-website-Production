@@ -12,6 +12,7 @@ import FormWrapper from './FormWrapper';
 import handleAsync from '@/lib/handleAsync';
 import { saveSession } from '@/lib/session';
 import { UserTypeENUM } from '@/lib/Types';
+import Link from 'next/link';
 
 // ---------------- Schema ----------------
 const formSchema = z.object({
@@ -97,7 +98,7 @@ const LoginForm = () => {
               Remember me
             </Label>
           </div>
-          <p className="font-normal text-xs md:text-sm text-primary">Forget Password?</p>
+          <p className="font-normal text-xs md:text-sm text-primary"><Link href={"/forget-password"}>Forget Password?</Link></p>
         </div>
 
         {/* Submit Button */}

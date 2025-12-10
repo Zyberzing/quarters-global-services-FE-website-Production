@@ -35,7 +35,7 @@ const PlanSelection = () => {
   });
 
   const packages = data?.data?.data || [];
-
+console.log(subCategorySlug,"subCategorySlug")
   // ✅ Get banner details dynamically
   const bannerData = getVisaDetails(subCategorySlug, toCountrySlug);
 

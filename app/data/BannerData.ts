@@ -17,9 +17,9 @@ export const Banner_data = {
 
   // --- Tourist Visa ---
   "tourist-visa": {
-     "india": {
+    "india": {
       "title": "Explore India Hassle-Free with Our Tourist Visa Services",
-      "description": "Experience the colors, culture, and heritage of India. Get your tourist visa processed quickly with Quartus Global’s secure, step-by-step assistance.",
+      "description": "Experience the colors, culture, and heritage of India. Get your tourist visa processed quickly with Quartus usa’s secure, step-by-step assistance.",
       "image": "/images/india-tourist.jpg",
       "buttonText": "Apply Now",
       "packages": {
@@ -85,7 +85,7 @@ export const Banner_data = {
     }
   },
   // --- Medical Visa ---
-   "medical-visa": {
+  "medical-visa": {
     "india": {
       "title": "India Medical Visa – Quick and Compassionate Processing",
       "description": "Access world-class healthcare facilities in India with ease. Our team ensures your medical visa process is fast, secure, and fully compliant.",
@@ -109,7 +109,7 @@ export const Banner_data = {
   },
 
   // --- Conference Visa ---
- "conference-visa": {
+  "conference-visa": {
     "india": {
       "title": "Attend International Conferences in India with Ease",
       "description": "Simplify your conference travel with our fast and guided Indian Conference Visa assistance. Get approvals quickly for professional and academic events.",
@@ -133,7 +133,7 @@ export const Banner_data = {
   },
 
   // --- Employment Visa ---
- "employment-visa": {
+  "employment-visa": {
     "india": {
       "title": "Employment Visa for India – Hassle-Free Work Authorization",
       "description": "Start your professional journey in India with our reliable employment visa services. We handle all paperwork and compliance for smooth visa approval.",
@@ -377,8 +377,8 @@ export const Banner_data = {
     },
   },
 
-  
-  
+
+
   "work-visa": {
     "india": {
       "title": "Work in India – Fast, Secure, and Professional Visa Support",
@@ -400,13 +400,13 @@ export const Banner_data = {
       ]
     }
   },
- 
- 
-  
+
+
+
   "adult-renewal": {
     "india": {
       "title": "Renew Your Indian Passport Quickly and Securely",
-      "description": "Whether your passport is expiring soon or already expired, Quartus Global Services helps you renew it with accurate documentation and expedited processing options.",
+      "description": "Whether your passport is expiring soon or already expired, Quartus usa Services helps you renew it with accurate documentation and expedited processing options.",
       "image": "/images/india-passport-renewal-adult.jpg",
       "buttonText": "Apply Now",
       "packages": {
@@ -537,144 +537,144 @@ export const Banner_data = {
         "processing-time": "15 business days after reaching Consulate/Embassy"
       }
     },
-    
-  "oci-adult-application": {
-    "india": {
-      "title": "Apply for OCI – Adult Application Support",
-      "description": "Get expert assistance for your OCI (Overseas Citizenship of India) adult application, including notarization, documentation, and apostille processing with same-day expedited options.",
-      "image": "/images/india-oci-adult.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$350.00",
-        "professional-service-fee": "$150.00 (Notary, Copying, Application Support)",
-        "pictures": "$10.00",
-        "birth-certificate-apostille": "Normal $150.00 | Expedited $250.00 (2 days)",
-        "marriage-certificate-apostille": "Normal $150.00 | Expedited $200.00",
-        "expedited": "$50.00"
+
+    "oci-adult-application": {
+      "india": {
+        "title": "Apply for OCI – Adult Application Support",
+        "description": "Get expert assistance for your OCI (Overseas Citizenship of India) adult application, including notarization, documentation, and apostille processing with same-day expedited options.",
+        "image": "/images/india-oci-adult.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$350.00",
+          "professional-service-fee": "$150.00 (Notary, Copying, Application Support)",
+          "pictures": "$10.00",
+          "birth-certificate-apostille": "Normal $150.00 | Expedited $250.00 (2 days)",
+          "marriage-certificate-apostille": "Normal $150.00 | Expedited $200.00",
+          "expedited": "$50.00"
+        }
+      }
+    },
+
+    "oci-minor-application": {
+      "india": {
+        "title": "Apply for OCI – Minor Application Support",
+        "description": "Easily apply for your child’s OCI card with our guided assistance, covering notarization, documentation, and submission tracking for a smooth approval process.",
+        "image": "/images/india-oci-minor.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$350.00",
+          "service-fee": "$100.00",
+          "expedited": "$50.00",
+          "pictures": "$10.00",
+          "processing-time": "45 business days after reaching Consulate/Embassy"
+        }
+      }
+    },
+    "oci-spouse-foreign-national": {
+      "india": {
+        "title": "Apply for OCI – Spouse of Indian Origin or OCI Holder",
+        "description": "For foreign nationals married to Indian citizens or OCI holders, we provide complete guidance for OCI registration — covering documentation, apostilles, and affidavits.",
+        "image": "/images/india-oci-spouse.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$350.00",
+          "service-fee": "$100.00",
+          "expedited": "$50.00",
+          "pictures": "$10.00",
+          "processing-time": "45 business days after reaching Consulate/Embassy"
+        }
+      }
+    },
+    "oci-registration-pio": {
+      "india": {
+        "title": "OCI Registration – In Lieu of Valid PIO Card",
+        "description": "Convert your existing PIO card to an OCI card effortlessly. We assist with end-to-end documentation, notarization, and expedited processing options.",
+        "image": "/images/india-oci-registration-pio.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "government-fee": "$183.90",
+          "service-fee": "$150.00",
+          "expedited": "$50.00",
+          "pictures": "$10.00",
+          "total": "$293.90",
+          "processing-time": "45 business days after reaching Consulate/Embassy"
+        }
+      }
+    },
+    "oci-registration-lost-pio": {
+      "india": {
+        "title": "OCI Registration – In Lieu of Lost or Damaged PIO Card",
+        "description": "If your PIO card is lost or damaged, we’ll help you replace it with a new OCI card through quick, verified, and consulate-compliant procedures.",
+        "image": "/images/india-oci-registration-lost.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "government-fee": "$118.90",
+          "service-fee": "$100.00",
+          "expedited": "$50.00",
+          "pictures": "$10.00"
+        }
+      }
+    },
+    "oci-lost-damaged": {
+      "india": {
+        "title": "Replace Lost or Damaged OCI Card",
+        "description": "Lost or damaged your OCI card? We provide assistance with police reports, affidavits, and re-issuance through consulate-approved processing channels.",
+        "image": "/images/india-oci-lost-damaged.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$250.00",
+          "service-fee": "$150.00",
+          "expedited": "$50.00",
+          "pictures": "$10.00"
+        }
+      }
+    },
+    "oci-surrender": {
+      "india": {
+        "title": "Surrender Your OCI Card",
+        "description": "When surrendering your OCI card, we simplify the process with expert support, document verification, and consulate submission for smooth closure.",
+        "image": "/images/india-oci-surrender.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$350.00",
+          "professional-service-fee": "$150.00",
+          "pictures": "$10.00"
+        }
+      }
+    },
+    "pio-to-oci": {
+      "india": {
+        "title": "Convert Your PIO Card to OCI",
+        "description": "If you hold a PIO card, convert it into an OCI card easily through our professional assistance, ensuring complete compliance and faster processing.",
+        "image": "/images/india-pio-to-oci.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$200.00",
+          "service-fee": "$150.00",
+          "pictures": "$10.00",
+          "expedited": "$50.00",
+          "total": "$293.90",
+          "processing-time": "45 business days after reaching Consulate/Embassy"
+        }
+      }
+    },
+    "oci-misc-service-adult": {
+      "india": {
+        "title": "OCI Miscellaneous Service – Adult Applicants",
+        "description": "Update or modify your OCI details — including re-issuance, new passport linking, or corrections — with our complete documentation and submission support.",
+        "image": "/images/india-oci-misc.jpg",
+        "buttonText": "Apply Now",
+        "packages": {
+          "consular-fee": "$250.00",
+          "service-fee": "$150.00",
+          "expedited": "$50.00",
+          "pictures": "$10.00",
+          "apostille-birth-certificate": "Normal $150.00 | Expedited $250.00"
+        }
       }
     }
   },
 
-  "oci-minor-application": {
-    "india": {
-      "title": "Apply for OCI – Minor Application Support",
-      "description": "Easily apply for your child’s OCI card with our guided assistance, covering notarization, documentation, and submission tracking for a smooth approval process.",
-      "image": "/images/india-oci-minor.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$350.00",
-        "service-fee": "$100.00",
-        "expedited": "$50.00",
-        "pictures": "$10.00",
-        "processing-time": "45 business days after reaching Consulate/Embassy"
-      }
-    }
-  },
-  "oci-spouse-foreign-national": {
-    "india": {
-      "title": "Apply for OCI – Spouse of Indian Origin or OCI Holder",
-      "description": "For foreign nationals married to Indian citizens or OCI holders, we provide complete guidance for OCI registration — covering documentation, apostilles, and affidavits.",
-      "image": "/images/india-oci-spouse.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$350.00",
-        "service-fee": "$100.00",
-        "expedited": "$50.00",
-        "pictures": "$10.00",
-        "processing-time": "45 business days after reaching Consulate/Embassy"
-      }
-    }
-  },
-  "oci-registration-pio": {
-    "india": {
-      "title": "OCI Registration – In Lieu of Valid PIO Card",
-      "description": "Convert your existing PIO card to an OCI card effortlessly. We assist with end-to-end documentation, notarization, and expedited processing options.",
-      "image": "/images/india-oci-registration-pio.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "government-fee": "$183.90",
-        "service-fee": "$150.00",
-        "expedited": "$50.00",
-        "pictures": "$10.00",
-        "total": "$293.90",
-        "processing-time": "45 business days after reaching Consulate/Embassy"
-      }
-    }
-  },
-  "oci-registration-lost-pio": {
-    "india": {
-      "title": "OCI Registration – In Lieu of Lost or Damaged PIO Card",
-      "description": "If your PIO card is lost or damaged, we’ll help you replace it with a new OCI card through quick, verified, and consulate-compliant procedures.",
-      "image": "/images/india-oci-registration-lost.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "government-fee": "$118.90",
-        "service-fee": "$100.00",
-        "expedited": "$50.00",
-        "pictures": "$10.00"
-      }
-    }
-  },
-  "oci-lost-damaged": {
-    "india": {
-      "title": "Replace Lost or Damaged OCI Card",
-      "description": "Lost or damaged your OCI card? We provide assistance with police reports, affidavits, and re-issuance through consulate-approved processing channels.",
-      "image": "/images/india-oci-lost-damaged.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$250.00",
-        "service-fee": "$150.00",
-        "expedited": "$50.00",
-        "pictures": "$10.00"
-      }
-    }
-  },
-  "oci-surrender": {
-    "india": {
-      "title": "Surrender Your OCI Card",
-      "description": "When surrendering your OCI card, we simplify the process with expert support, document verification, and consulate submission for smooth closure.",
-      "image": "/images/india-oci-surrender.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$350.00",
-        "professional-service-fee": "$150.00",
-        "pictures": "$10.00"
-      }
-    }
-  },
-  "pio-to-oci": {
-    "india": {
-      "title": "Convert Your PIO Card to OCI",
-      "description": "If you hold a PIO card, convert it into an OCI card easily through our professional assistance, ensuring complete compliance and faster processing.",
-      "image": "/images/india-pio-to-oci.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$200.00",
-        "service-fee": "$150.00",
-        "pictures": "$10.00",
-        "expedited": "$50.00",
-        "total": "$293.90",
-        "processing-time": "45 business days after reaching Consulate/Embassy"
-      }
-    }
-  },
-  "oci-misc-service-adult": {
-    "india": {
-      "title": "OCI Miscellaneous Service – Adult Applicants",
-      "description": "Update or modify your OCI details — including re-issuance, new passport linking, or corrections — with our complete documentation and submission support.",
-      "image": "/images/india-oci-misc.jpg",
-      "buttonText": "Apply Now",
-      "packages": {
-        "consular-fee": "$250.00",
-        "service-fee": "$150.00",
-        "expedited": "$50.00",
-        "pictures": "$10.00",
-        "apostille-birth-certificate": "Normal $150.00 | Expedited $250.00"
-      }
-    }
-  }
-  },
-  
   "oci-adult-application-checklist": {
     "india": {
       "title": "OCI Adult Application – Complete Guidance & Support",
@@ -828,7 +828,7 @@ export const Banner_data = {
   },
   "birth-certificate-attestation": {
     "india": {
-      "title": "Verify and Authenticate Birth Certificates for Global or Indian Use",
+      "title": "Verify and Authenticate Birth Certificates for usa or Indian Use",
       "description": "We provide quick and reliable attestation for birth certificates required for visa, education, or legal purposes in India.",
       "image": "/images/india-birth-attestation.jpg",
       "buttonText": "Apply Now"
@@ -947,10 +947,10 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  
+
   "document-apostille": {
     "india": {
-      "title": "Fast and Secure Document Apostille Service for Global Use",
+      "title": "Fast and Secure Document Apostille Service for usa Use",
       "description": "We provide end-to-end Apostille services through the Ministry of External Affairs (MEA) for documents needed in Hague Convention countries.",
       "image": "/images/india-document-apostille.jpg",
       "buttonText": "Apply Now"
@@ -999,7 +999,7 @@ export const Banner_data = {
   "educational-certificate-apostille": {
     "india": {
       "title": "Apostille for Academic and Educational Documents",
-      "description": "We assist students and professionals in Apostille and attesting their degrees, diplomas, and transcripts for global education and employment use.",
+      "description": "We assist students and professionals in Apostille and attesting their degrees, diplomas, and transcripts for usa education and employment use.",
       "image": "/images/india-educational-apostille.jpg",
       "buttonText": "Apply Now"
     }
@@ -1009,6 +1009,572 @@ export const Banner_data = {
       "title": "Commercial Invoice Attestation for International Trade",
       "description": "Ensure your export, import, and business invoices are properly attested by Chamber of Commerce and respective authorities for customs and trade compliance.",
       "image": "/images/india-commercial-invoice-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "b1b2-visitor-visa": {
+    "usa": {
+      "title": "B1/B2 Visitor Visa",
+      "description": "Apply for the US B1/B2 Visitor Visa for business and tourism purposes, short-term visits, meetings, leisure travel, and medical treatment.",
+      "image": "/images/us-b1-b2-visitor-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "f1-student-visa": {
+    "usa": {
+      "title": "F1 Student Visa",
+      "description": "Apply for the US F1 Student Visa to study at accredited universities, colleges, language schools, and academic institutions in the United States.",
+      "image": "/images/us-f1-student-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "h1b-work-visa": {
+    "usa": {
+      "title": "H1B Work Visa",
+      "description": "Apply for the US H1B Work Visa for specialty occupations requiring technical expertise and professional qualifications.",
+      "image": "/images/us-h1b-work-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "j1-exchange-visa": {
+    "usa": {
+      "title": "J1 Exchange Visa",
+      "description": "Apply for the US J1 Exchange Visitor Visa for cultural exchange programs, internships, training, research, and work-study opportunities.",
+      "image": "/images/us-j1-exchange-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "l1-intra-company-transfer": {
+    "usa": {
+      "title": "L1 Intra-Company Transfer Visa",
+      "description": "Apply for the US L1 Visa for managers, executives, and specialized knowledge employees transferring within multinational companies.",
+      "image": "/images/us-l1-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "o1-extraordinary-ability": {
+    "usa": {
+      "title": "O1 Extraordinary Ability Visa",
+      "description": "Apply for the US O1 Visa designed for individuals with extraordinary ability in arts, science, education, business, athletics, film, or television.",
+      "image": "/images/us-o1-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "k1-fiancee-visa": {
+    "usa": {
+      "title": "K1 Fiancé(e) Visa",
+      "description": "Apply for the K1 Fiancé(e) Visa that allows foreign nationals engaged to US citizens to enter the United States and finalize their marriage.",
+      "image": "/images/us-k1-fiance-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "tntd-nafta-visa": {
+    "usa": {
+      "title": "TN/TD NAFTA Visa",
+      "description": "Apply for the TN/TD NAFTA Visa for qualified Canadian and Mexican professionals seeking work authorization under the USMCA agreement.",
+      "image": "/images/us-tn-td-nafta-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "ir1cr1-spouse-visa": {
+    "usa": {
+      "title": "IR1/CR1 (Spouse Visa)",
+      "description": "Apply for the IR1/CR1 Spouse Visa for legally married spouses of US citizens, providing a direct path to permanent residency.",
+      "image": "/images/us-ir1-cr1-spouse-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "eb3-skilledprofessional-visa": {
+    "usa": {
+      "title": "EB3 Skilled/Professional Visa",
+      "description": "Apply for the US EB3 Visa for skilled workers, professionals, and other workers seeking permanent residency through employment.",
+      "image": "/images/us-eb3-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+
+  "petitioner-us-citizen-documents": {
+    "usa": {
+      "title": "Petitioner (U.S. Citizen) Documents",
+      "description": "Required documents for the U.S. citizen petitioner, including proof of citizenship, identity, and relationship for immigration applications.",
+      "image": "/images/usa-petitioner-us-citizen-documents.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "beneficiary-relative-documents": {
+    "usa": {
+      "title": "Beneficiary (Relative) Documents",
+      "description": "Documents needed from the beneficiary or sponsored relative, including identity proofs, civil documents, and relationship evidence.",
+      "image": "/images/usa-beneficiary-relative-documents.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "if-adjusting-status-in-the-us": {
+    "usa": {
+      "title": "If Adjusting Status in the U.S.",
+      "description": "Guidelines and required documentation for individuals applying for a green card through adjustment of status within the United States.",
+      "image": "/images/usa-adjusting-status.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "if-applying-from-abroad-consular-processing": {
+    "usa": {
+      "title": "Financial Evidence",
+      "description": "Required financial documents including Affidavit of Support, income proof, tax returns, and assets to meet U.S. immigration requirements.",
+      "image": "/images/usa-financial-evidence.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "financial-evidence": {
+    "usa": {
+      "title": "Financial Evidence",
+      "description": "Required financial documents including Affidavit of Support, income proof, tax returns, and assets to meet U.S. immigration requirements.",
+      "image": "/images/usa-financial-evidence.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+
+  "consular-processing-from-abroad": {
+    "usa": {
+      "title": "If Applying from Abroad (Consular Processing)",
+      "description": "Documents and steps for applicants processing their immigration case through a U.S. embassy or consulate outside the United States.",
+      "image": "/images/usa-consular-processing.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+
+  "k1-fiancee-visa-1": {
+    "usa": {
+      "title": "K1 Fiancé(e) Visa",
+      "description": "Apply for the K1 Fiancé(e) Visa, allowing a foreign fiancé(e) of a U.S. citizen to enter the United States for marriage within 90 days.",
+      "image": "/images/usa-k1-fiance-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "k3-spouse-visa": {
+    "usa": {
+      "title": "K3 Spouse Visa",
+      "description": "Apply for the K3 Spouse Visa, designed to help the foreign spouse of a U.S. citizen enter the United States while waiting for an immigrant visa.",
+      "image": "/images/usa-k3-spouse-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "s-visa-witnessesinformants": {
+    "usa": {
+      "title": "S Visa (Witnesses/Informants)",
+      "description": "Apply for the S Visa for individuals who can provide critical information related to criminal or terrorist activities to U.S. law enforcement.",
+      "image": "/images/usa-s-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "t-visa-trafficking-victims": {
+    "usa": {
+      "title": "T Visa (Trafficking Victims)",
+      "description": "Apply for the T Visa for victims of human trafficking who assist law enforcement and seek protection and legal status in the United States.",
+      "image": "/images/usa-t-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "u-visa-crime-victims": {
+    "usa": {
+      "title": "U Visa (Crime Victims)",
+      "description": "Apply for the U Visa for victims of specific crimes who have suffered physical or mental abuse and are willing to assist U.S. authorities.",
+      "image": "/images/usa-u-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+
+  "new-passport": {
+    "usa": {
+      "title": "New Passport",
+      "description": "Apply for a new U.S. passport for first-time applicants, including adults and children meeting eligibility requirements.",
+      "image": "/images/usa-new-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "renewal": {
+    "usa": {
+      "title": "Renewal",
+      "description": "Renew your existing U.S. passport quickly and securely, whether it is expiring or has already expired.",
+      "image": "/images/usa-passport-renewal.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "lost-passport": {
+    "usa": {
+      "title": "Lost Passport",
+      "description": "Report and replace a lost U.S. passport with the required documents and expedited replacement options.",
+      "image": "/images/usa-lost-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "child-passport": {
+    "usa": {
+      "title": "Child Passport",
+      "description": "Apply for or renew a U.S. passport for children under 16, including parental consent and documentation requirements.",
+      "image": "/images/usa-child-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "second-passport": {
+    "usa": {
+      "title": "Second Passport",
+      "description": "Apply for a second U.S. passport for frequent travelers or those with visa conflicts requiring an additional valid passport.",
+      "image": "/images/usa-second-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "name-change": {
+    "usa": {
+      "title": "Name Change",
+      "description": "Update your U.S. passport to reflect a legal name change due to marriage, divorce, or other documentation.",
+      "image": "/images/usa-name-change.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "damaged-passport": {
+    "usa": {
+      "title": "Damaged Passport",
+      "description": "Replace a U.S. passport that is significantly damaged, torn, or unusable according to government guidelines.",
+      "image": "/images/usa-damaged-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "stolen-passport": {
+    "usa": {
+      "title": "Stolen Passport",
+      "description": "Report and replace a stolen U.S. passport with proper documentation and emergency support options.",
+      "image": "/images/usa-stolen-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "second-valid-passport": {
+    "usa": {
+      "title": "Second Valid Passport",
+      "description": "Apply for a second valid U.S. passport for situations requiring two simultaneously active passports.",
+      "image": "/images/usa-second-valid-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "emergency-or-same-day-passport": {
+    "usa": {
+      "title": "Emergency or Same-Day Passport",
+      "description": "Request an urgent or same-day U.S. passport in emergency travel situations with expedited appointments.",
+      "image": "/images/usa-emergency-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "expedited-passport-service": {
+    "usa": {
+      "title": "Expedited Passport Service",
+      "description": "Fast-track your U.S. passport application or renewal with expedited processing and priority service options.",
+      "image": "/images/usa-expedited-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+
+  //@ts-ignore
+  "tourist-e-visa": {
+    "usa": {
+      "title": "Tourist E-Visa",
+      "description": "Apply for a Tourist E-Visa for international travel, sightseeing, leisure activities, and short-term visits to eligible countries worldwide.",
+      "image": "/images/usa-tourist-e-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "business-e-visa": {
+    "usa": {
+      "title": "Business E-Visa",
+      "description": "Apply for a Business E-Visa for attending meetings, conferences, trade events, and conducting business activities across usa destinations.",
+      "image": "/images/usa-business-e-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "medical-e-visa": {
+    "usa": {
+      "title": "Medical E-Visa",
+      "description": "Apply for a Medical E-Visa for international medical treatment, hospital visits, surgeries, and ongoing health consultations abroad.",
+      "image": "/images/usa-medical-e-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "crew-e-visa": {
+    "usa": {
+      "title": "Crew E-Visa",
+      "description": "Apply for a Crew E-Visa for airline, maritime, and transport crew members traveling internationally for work-related assignments.",
+      "image": "/images/usa-crew-e-visa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  // @ts-ignore
+  
+  "power-of-attorney-or-affidavit-attestation": {
+    "usa": {
+      "title": "Power of Attorney or Affidavit Attestation",
+      "description": "Attestation services for Power of Attorney and affidavits required for legal, financial, or property-related matters in India or abroad.",
+      "image": "/images/usa-power-of-attorney-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "marriage-certificate-attestation": {
+    "usa": {
+      "title": "Marriage Certificate Attestation",
+      "description": "Attestation of marriage certificates for usa use including immigration, visa, and legal verification purposes.",
+      "image": "/images/usa-marriage-certificate-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "nri-certificate-issuance": {
+    "usa": {
+      "title": "NRI Certificate Issuance",
+      "description": "Issuance of NRI status certificates required for legal, financial, or property-related transactions.",
+      "image": "/images/usa-nri-certificate.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "registration-of-marriage-usa": {
+    "usa": {
+      "title": "Registration of Marriage (Solemnized in USA)",
+      "description": "Service for registering marriages solemnized in the USA for legal recognition in India.",
+      "image": "/images/usa-marriage-registration-usa.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "attestation-documents-statement-need-license-authentication": {
+    "usa": {
+      "title": "Attestation of Documents / Statement of Need / Indian Driving License Authentication",
+      "description": "Attestation and verification of general documents, statements of need, and Indian driving licenses for usa acceptance.",
+      "image": "/images/usa-document-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "affidavit-for-child-passport-issuance-in-india": {
+    "usa": {
+      "title": "Affidavit for Child Passport Issuance in India",
+      "description": "Affidavit services required for minor passport issuance in India while residing abroad.",
+      "image": "/images/usa-child-passport-affidavit.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  // @ts-ignore
+
+  "no-obligation-to-return-to-india-nori": {
+    "usa": {
+      "title": "No Obligation to Return to India (NORI)",
+      "description": "NORI service required for J-1 waiver applications, enabling individuals to waive their two-year home residency requirement.",
+      "image": "/images/usa-nori-service.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+
+  "death-certificate-attestation-carrying-mortal-remains": {
+    "usa": {
+      "title": "Death Certificate Attestation / Carrying Mortal Remains",
+      "description": "Attestation of death certificates and documentation needed for transporting mortal remains internationally.",
+      "image": "/images/usa-death-certificate-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "police-clearance-certificate-pcc-for-non-indian-nationals": {
+    "usa": {
+      "title": "Police Clearance Certificate (PCC) for Non-Indian Nationals",
+      "description": "PCC issuance for non-Indian nationals requiring background verification for visa, residency, or employment.",
+      "image": "/images/usa-pcc-non-indian.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+
+  "renewal-of-international-driving-permit": {
+    "usa": {
+      "title": "Renewal of International Driving Permit",
+      "description": "Renewal services for International Driving Permits (IDP) issued in India, available to residents living abroad.",
+      "image": "/images/usa-idp-renewal.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  "power-of-attorney-sub-types": {
+    "usa": {
+      "title": "Power of Attorney Sub-Types",
+      "description": "Guidance and attestation for various Power of Attorney categories including property, financial, and general authorization.",
+      "image": "/images/usa-poa-subtypes.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "birth-certificate-attestation": {
+    "usa": {
+      "title": "Birth Certificate Attestation",
+      "description": "Attestation of birth certificates for use in education, immigration, employment, and legal verification abroad.",
+      "image": "/images/usa-birth-certificate-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "life-certificate-for-pension-or-verification": {
+    "usa": {
+      "title": "Life Certificate (For Pension or Verification)",
+      "description": "Issuance and attestation of life certificates required for pension verification and financial continuity.",
+      "image": "/images/usa-life-certificate.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "registration-of-marriage-solemnized-in-usa": {
+    "usa": {
+      "title": "Registration of Birth",
+      "description": "Registration of births occurring abroad for official recognition by Indian authorities.",
+      "image": "/images/usa-birth-registration.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  // @ts-ignore
+
+  "attestation-of-documents-statement-of-need-indian-driving-license-authentication": {
+    "usa": {
+      "title": "Attestation of Will",
+      "description": "Attestation of wills for legal validity in inheritance, probate, and estate-related matters across jurisdictions.",
+      "image": "/images/usa-will-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+
+  // @ts-ignore
+  
+  "document-apostille": {
+    "usa": {
+      "title": "Document Apostille",
+      "description": "Apostille services for personal, educational, and commercial documents required for international use under the Hague Convention.",
+      "image": "/images/usa-document-apostille.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "embassy-attestation": {
+    "usa": {
+      "title": "Embassy Attestation",
+      "description": "Attestation of documents through relevant embassies for countries that do not accept apostille certification.",
+      "image": "/images/usa-embassy-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "power-of-attorney-legalization": {
+    "usa": {
+      "title": "Power of Attorney Legalization",
+      "description": "Legalization services for Power of Attorney documents intended for international legal or financial processes.",
+      "image": "/images/usa-poa-legalization.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "birth-or-marriage-certificate-apostille": {
+    "usa": {
+      "title": "Birth or Marriage Certificate Apostille",
+      "description": "Apostille authentication for birth and marriage certificates required for immigration, education, or legal purposes.",
+      "image": "/images/usa-birth-marriage-apostille.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "corporate-document-legalization": {
+    "usa": {
+      "title": "Corporate Document Legalization",
+      "description": "Legalization of corporate documents including MOA, AOA, board resolutions, and commercial registrations for international business use.",
+      "image": "/images/usa-corporate-legalization.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "medical-document-attestation": {
+    "usa": {
+      "title": "Medical Document Attestation",
+      "description": "Attestation of medical reports, medical leave certificates, and health-related documents for overseas treatments or employment.",
+      "image": "/images/usa-medical-attestation.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "educational-certificate-apostille": {
+    "usa": {
+      "title": "Educational Certificate Apostille",
+      "description": "Apostille services for degree certificates, diplomas, transcripts, and other academic records for international education or employment.",
+      "image": "/images/usa-educational-apostille.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
+  // @ts-ignore
+
+  "commercial-invoice-attestation": {
+    "usa": {
+      "title": "Commercial Invoice Attestation",
+      "description": "Attestation of commercial invoices for export, trade compliance, and customs clearance for usa business operations.",
+      "image": "/images/usa-commercial-invoice-attestation.jpg",
       "buttonText": "Apply Now"
     }
   }
