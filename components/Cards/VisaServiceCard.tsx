@@ -12,7 +12,7 @@ interface VisaServiceCardProps {
   link?: string;
   shouldStartApplication?: boolean; // ✅ renamed
   save?: (id: string) => void;
-  mainType?: boolean
+  mainType?: boolean;
 }
 
 const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
@@ -23,7 +23,7 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
   id,
   shouldStartApplication,
   save,
-  mainType = false
+  mainType = false,
 }) => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -35,7 +35,6 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
     if (link) {
       router.push(link);
     }
-
   };
 
   return (
@@ -75,15 +74,19 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
 
             console.log(shouldStartApplication, "shouldStartApplication");
             if (shouldStartApplication) {
+              console.log(title, "title");
               dispatch(startApplication({ type: title ?? "" }));
+              if (link) {
+                router.push(link);
+              }
+              return;
             }
 
             if (title === "OCI Card") {
               sessionStorage.setItem("formType", "OCI");
             }
             if (mainType) {
-             
-              sessionStorage.setItem("main_service_type", title)
+              sessionStorage.setItem("main_service_type", title);
             }
             if (save) {
               save(id);

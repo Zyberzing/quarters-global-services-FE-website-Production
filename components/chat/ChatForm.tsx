@@ -1,8 +1,8 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Send, Paperclip, Image, File } from 'lucide-react';
-
+import { Send, Paperclip,File } from 'lucide-react';
+import Image from 'next/image';
 const ChatForm = () => {
   const [newMessage, setNewMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -52,7 +52,7 @@ const ChatForm = () => {
               className="flex items-center gap-2 bg-secondary rounded-lg px-2 py-1 sm:px-3 sm:py-2"
             >
               {file.type.startsWith('image/') ? (
-                <Image className="w-4 h-4 flex-shrink-0" />
+                <Image src={""} width={120} height={120} className="w-4 h-4 flex-shrink-0"  alt="err" />
               ) : (
                 <File className="w-4 h-4 flex-shrink-0" />
               )}

@@ -1315,7 +1315,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "business-e-visa": {
     "usa": {
@@ -1325,7 +1325,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "medical-e-visa": {
     "usa": {
@@ -1335,7 +1335,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "crew-e-visa": {
     "usa": {
@@ -1346,7 +1346,7 @@ export const Banner_data = {
     }
   },
 
-  // @ts-ignore
+  //@ts-expect-error
   
   "power-of-attorney-or-affidavit-attestation": {
     "usa": {
@@ -1356,7 +1356,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "marriage-certificate-attestation": {
     "usa": {
@@ -1366,7 +1366,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "nri-certificate-issuance": {
     "usa": {
@@ -1394,7 +1394,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "affidavit-for-child-passport-issuance-in-india": {
     "usa": {
@@ -1405,7 +1405,7 @@ export const Banner_data = {
     }
   },
 
-  // @ts-ignore
+  //@ts-expect-error
 
   "no-obligation-to-return-to-india-nori": {
     "usa": {
@@ -1415,7 +1415,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
 
   "death-certificate-attestation-carrying-mortal-remains": {
@@ -1426,7 +1426,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "police-clearance-certificate-pcc-for-non-indian-nationals": {
     "usa": {
@@ -1436,7 +1436,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
 
   "renewal-of-international-driving-permit": {
@@ -1456,7 +1456,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "birth-certificate-attestation": {
     "usa": {
@@ -1466,7 +1466,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "life-certificate-for-pension-or-verification": {
     "usa": {
@@ -1476,7 +1476,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "registration-of-marriage-solemnized-in-usa": {
     "usa": {
@@ -1487,7 +1487,7 @@ export const Banner_data = {
     }
   },
 
-  // @ts-ignore
+  //@ts-expect-error
 
   "attestation-of-documents-statement-of-need-indian-driving-license-authentication": {
     "usa": {
@@ -1498,7 +1498,7 @@ export const Banner_data = {
     }
   },
 
-  // @ts-ignore
+  //@ts-expect-error
   
   "document-apostille": {
     "usa": {
@@ -1508,7 +1508,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "embassy-attestation": {
     "usa": {
@@ -1518,7 +1518,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "power-of-attorney-legalization": {
     "usa": {
@@ -1528,7 +1528,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "birth-or-marriage-certificate-apostille": {
     "usa": {
@@ -1538,7 +1538,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  //@ts-expect-error
 
   "corporate-document-legalization": {
     "usa": {
@@ -1548,7 +1548,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  // @ts-expect-error
 
   "medical-document-attestation": {
     "usa": {
@@ -1558,7 +1558,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  // @ts-expect-error
 
   "educational-certificate-apostille": {
     "usa": {
@@ -1568,7 +1568,7 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   },
-  // @ts-ignore
+  // @ts-expect-error
 
   "commercial-invoice-attestation": {
     "usa": {

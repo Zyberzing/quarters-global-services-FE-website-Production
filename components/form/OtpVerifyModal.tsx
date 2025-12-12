@@ -35,6 +35,7 @@ const OtpVerifyModal = ({ open, setOpen, email, onSuccess }: any) => {
       // Move to next step → login redirect
       onSuccess();
     } catch (err) {
+      console.log(err)
       toast.error("Server error");
     } finally {
       setLoading(false);

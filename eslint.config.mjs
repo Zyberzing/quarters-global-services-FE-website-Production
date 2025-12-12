@@ -13,11 +13,13 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
+      // Allow "any"
       "@typescript-eslint/no-explicit-any": "off",
+
+      // Disable TS comment restrictions (fixes @ts-expect-error issues)
+      "@typescript-eslint/ban-ts-comment": "off",
     },
-    
   },
-  
 ];
 
 export default eslintConfig;

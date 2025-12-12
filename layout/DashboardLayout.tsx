@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Menu, FileText, X, LogOut, Users, Briefcase, MessageCircle, Ticket, Headphones } from "lucide-react";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
@@ -24,7 +24,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
   const pathname = usePathname();
+  
   const router = useRouter();
+    const [users, setUsers] = useState([]);
+console.log(users,"users")
 
   const topNavItems = [
     { name: "Applications", icon: Users, path: "/dashboard/applications" },
@@ -34,6 +37,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     { name: "Support", icon: Headphones, path: "/dashboard/supports" } // 🎧 added Support
   ];
 
+  
   const handleLogoutConfirm = async () => {
     try {
       await logoutAction();
@@ -47,6 +51,33 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       setSidebarOpen(false);
     }
   };
+
+   useEffect(() => {
+  const fetchUsers = async () => {
+    try {
+      const token = localStorage.getItem("QUATRUS_ADMIN_PANEL_SESSION");
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_QUARTUS_API_URL}/user/get-all-user?page=1&search=&roles=user`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token ? `Bearer ${token}` : "",
+          },
+        }
+      );
+
+      const data = await res.json();
+      setUsers(data?.data ?? []); 
+    } catch (error) {
+      console.error("User API error:", error);
+    }
+  };
+
+  fetchUsers();
+}, []);
+
 
   return (
     <>

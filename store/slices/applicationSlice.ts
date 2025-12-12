@@ -16,6 +16,7 @@ export interface Application {
 
 interface ApplicationState {
   applications: Application[];
+  draftApplications: Application[];
   activeId: string | null; // which one user is working on
 }
 
@@ -47,48 +48,41 @@ export const saveSingleApplication = (app: Application) => {
 
 const loadState = (): ApplicationState => {
   try {
-    // 🛑 Prevent error during SSR (localStorage not available on server)
-    if (typeof window === "undefined") {
-      return { applications: [], activeId: null };
-    }
-
     const currentStatusData = localStorage.getItem(STATUS_KEY);
     const applicationsData = localStorage.getItem(STORAGE_KEY);
 
     const parsedApplications: ApplicationState = applicationsData
       ? JSON.parse(applicationsData)
-      : { applications: [], activeId: null };
+      : { applications: [], activeId: null, draftApplications: [] };
 
     // If a single application is saved, merge it into the existing array
     if (currentStatusData) {
       const parsedStatus = JSON.parse(currentStatusData);
 
       if (parsedStatus?.data) {
-        const existingAppIndex = parsedApplications.applications.findIndex(
+        const existingAppIndex = parsedApplications.draftApplications.findIndex(
           (a) => a.id === parsedStatus.data.id
         );
 
         if (existingAppIndex !== -1) {
-          // Replace existing application
-          parsedApplications.applications[existingAppIndex] = parsedStatus.data;
+          // Update existing application (replace old version)
+          parsedApplications.draftApplications[existingAppIndex] = parsedStatus.data;
         } else {
-          // Append new application
-          parsedApplications.applications.push(parsedStatus.data);
+          // Append new application if not already present
+          parsedApplications.draftApplications.push(parsedStatus.data);
         }
 
-        // Update active ID from the single app entry
-        parsedApplications.activeId =
-          parsedStatus.activeId || parsedApplications.activeId;
+        // Update active ID from the latest single app
+        parsedApplications.activeId = parsedStatus.activeId || parsedApplications.activeId;
       }
     }
 
     return parsedApplications;
   } catch (e) {
     console.error("Failed to load state", e);
-    return { applications: [], activeId: null };
+    return { applications: [], activeId: null, draftApplications: [] };
   }
 };
-
 
 
 const initialState: ApplicationState = loadState();
@@ -111,7 +105,7 @@ const applicationSlice = createSlice({
         platformServiceCategoryPackageId: null,
         platformServiceId: null,
       };
-      state.applications.push(newApp);
+      state.draftApplications.push(newApp);
       state.activeId = id;
       saveSingleApplication(newApp);
     },
@@ -120,7 +114,7 @@ const applicationSlice = createSlice({
       state,
       action: PayloadAction<{ id: string; name: string; platformServiceCategoryId: string }>
     ) {
-      const app = state.applications.find((a) => a.id === action.payload.id);
+      const app = state.draftApplications.find((a) => a.id === action.payload.id);
       if (app) {
         app.name = action.payload.name;
         app.platformServiceCategoryId = action.payload.platformServiceCategoryId;
@@ -139,7 +133,7 @@ const applicationSlice = createSlice({
         price: string;
       }>
     ) {
-      const app = state.applications.find((a) => a.id === action.payload.id);
+      const app = state.draftApplications.find((a) => a.id === action.payload.id);
       console.log(app, "app")
       if (app) {
         app.package = action.payload.package;
@@ -151,7 +145,7 @@ const applicationSlice = createSlice({
     },
 
     addAddon(state, action: PayloadAction<{ id: string; addon: string }>) {
-      const app = state.applications.find((a) => a.id === action.payload.id);
+      const app = state.draftApplications.find((a) => a.id === action.payload.id);
       if (app && !app.addons.includes(action.payload.addon)) {
         app.addons.push(action.payload.addon);
         saveSingleApplication(app);
@@ -174,6 +168,12 @@ const applicationSlice = createSlice({
     },
 
     saveApplication(state) {
+      state.applications = state.applications.filter((a) => a.package);
+
+      const raw = localStorage.getItem(STATUS_KEY);
+      if (raw) {
+        state.applications.push(JSON.parse(raw).data);
+      }
       saveState(state);
     },
 
@@ -187,7 +187,7 @@ const applicationSlice = createSlice({
 
     // ✅ Optional: reset all (for debugging/testing)
     resetApplications() {
-      return { applications: [], activeId: null };
+      return { applications: [], activeId: null, draftApplications: [] };
     },
   },
 });

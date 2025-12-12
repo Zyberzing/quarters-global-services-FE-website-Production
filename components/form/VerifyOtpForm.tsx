@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import {  useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -14,7 +14,6 @@ import {
 const VerifyOtpForm = () => {
   const params = useSearchParams();
   const userId = params.get("userId") || "";
-  const router= useRouter()
 
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,7 +30,7 @@ const VerifyOtpForm = () => {
 
     try {
       const res = await fetch(
-        process.env.NEXT_PUBLIC_QUARTUS_API_URL + "/auth/verify-user",
+        process.env.NEXT_PUBLIC_QUARTUS_API_URL + "/auth/verify-user-by-otp",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -45,11 +44,12 @@ const VerifyOtpForm = () => {
         toast.error(data.message || "Invalid OTP");
         return;
       }
-
+console.log(data)
       toast.success("Account Verified Successfully!");
       // router.push("/reset-password?userId=userId&token=")
-      window.location.href = "/auth/sign-in";
+      // window.location.href = "/auth/sign-in";
     } catch (error) {
+      console.log(error)
       toast.error("Server error");
     } finally {
       setLoading(false);
