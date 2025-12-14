@@ -79,6 +79,7 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
               if (link) {
                 router.push(link);
               }
+              sessionStorage.setItem("main_service_type", title);
               return;
             }
 

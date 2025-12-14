@@ -25,6 +25,9 @@ const Services = () => {
     const activeId = useSelector((state: any) => state.application.activeId);
 
     const save = (id: string) => {
+       
+              
+           
         savePlatformServiceStep({ platformServiceId: String(id) });
     }
 
