@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -160,6 +160,7 @@ export default function Step1() {
     const platformServices = getPlatformServices() || [];
     const [isSwitchingCard, setIsSwitchingCard] = useState(false);
 
+    const activeFormIdRef = useRef<string | null>(null);
 
 
     const { draftApplications, activeId } = useSelector(
@@ -280,7 +281,7 @@ export default function Step1() {
     useEffect(() => {
         if (!activeId) return;
         if (isSwitchingCard) return;
-        if (!hasUserTyped) return; // 🛑 EMPTY SAVE STOP
+        if (!hasUserTyped) return;
 
         const timeout = setTimeout(() => {
             dispatch(
@@ -294,7 +295,8 @@ export default function Step1() {
         }, 400);
 
         return () => clearTimeout(timeout);
-    }, [watchedValues, activeId, isSwitchingCard, hasUserTyped, dispatch]);
+    }, [watchedValues, activeId]);
+
 
     return (
         <div className="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
@@ -306,20 +308,35 @@ export default function Step1() {
                             key={index}
                             onClick={() => {
                                 setIsSwitchingCard(true);
-                                setActiveIndex(index);
-                                dispatch(setActiveApplication(app.id));
 
-                                setTimeout(() => setIsSwitchingCard(false), 0);
+                                // 1️⃣ update refs FIRST
+                                activeFormIdRef.current = app.id;
+
+                                // 2️⃣ update redux active id
+                                dispatch(setActiveApplication(app.id));
+                                setActiveIndex(index);
+
+                                // 3️⃣ reset form ONLY with this card data
+                                const formData = app.form?.applications?.[0];
+                                form.reset(mapDraftToForm(formData || {}), {
+                                    keepDirty: false,
+                                    keepTouched: false,
+                                });
+
+                                // 4️⃣ allow autosave AFTER reset completes
+                                setTimeout(() => {
+                                    setIsSwitchingCard(false);
+                                }, 50);
                             }}
 
-                        className={`min-w-[220px] sm:min-w-[250px] md:min-w-[280px]
+
+                            className={`min-w-[220px] sm:min-w-[250px] md:min-w-[280px]
   rounded-2xl shadow-lg p-4 sm:p-5 flex-shrink-0 cursor-pointer
   transition-all duration-300
-  ${
-    activeIndex === index
-      ? "bg-red-800 scale-105 shadow-xl ring-2 ring-red-500"
-      : "bg-[#00408D] hover:scale-105"
-  }`}
+  ${activeIndex === index
+                                    ? "bg-red-800 scale-105 shadow-xl ring-2 ring-red-500"
+                                    : "bg-[#00408D] hover:scale-105"
+                                }`}
 
                         >
                             <div className="flex items-start justify-between">
