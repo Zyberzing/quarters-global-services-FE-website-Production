@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+type FormErrors = Partial<Record<keyof FormState, string>>;
 
 type FormState = {
   fullName: string;
@@ -51,8 +52,81 @@ export default function QuartusEnrollmentPage() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
 
+  const [errors, setErrors] = useState<FormErrors>({});
+
+
   function handleChange<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((s) => ({ ...s, [key]: value }));
+  }
+
+
+  function validateForm(): boolean {
+    const newErrors: FormErrors = {};
+
+    // Personal
+    if (!form.fullName.trim()) newErrors.fullName = "Full name is required";
+    if (!form.dob) newErrors.dob = "Date of birth is required";
+
+    if (!form.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(form.phone)) {
+      newErrors.phone = "Phone must be 10 digits";
+    }
+
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!form.homeAddress.trim()) newErrors.homeAddress = "Home address is required";
+
+    // Business
+    if (!form.businessName.trim()) newErrors.businessName = "Business name is required";
+    if (!form.businessPhone.trim()) newErrors.businessPhone = "Business phone is required";
+    if (!form.officeAddress.trim()) newErrors.officeAddress = "Office address is required";
+
+    if (form.businessType.length === 0) {
+      newErrors.businessType = "Select at least one business type";
+    }
+
+    // Credentials
+    if (!form.efinStatus) newErrors.efinStatus = "EFIN status is required";
+
+    // Services
+    if (form.services.length === 0) {
+      newErrors.services = "Select at least one service";
+    }
+
+    // Experience & preferences
+    if (!form.experience) newErrors.experience = "Select experience level";
+    if (!form.expectedVolume) newErrors.expectedVolume = "Select expected volume";
+    if (!form.preferredSoftware) newErrors.preferredSoftware = "Select software preference";
+
+    // Agreement
+    if (!form.signature.trim()) newErrors.signature = "Signature is required";
+
+    if (!form.additionalInfo.trim()) {
+      newErrors.additionalInfo = "Additional information is required";
+    }
+
+    if (!form.ptin.trim()) {
+      newErrors.ptin = "PTIN number is required";
+    }
+
+    if (!form.efinStatus) {
+      newErrors.efinStatus = "EFIN status is required";
+    }
+
+
+    if (!form.efin.trim()) {
+      newErrors.efin = "EFIN number is required";
+    } else if (!/^\d{6}$/.test(form.efin)) {
+      newErrors.efin = "EFIN must be 6 digits";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   }
 
   function toggleArrayField(field: keyof FormState, value: string) {
@@ -69,11 +143,15 @@ export default function QuartusEnrollmentPage() {
     e.preventDefault();
     setSubmitted(true);
 
+    if (!validateForm()) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const selectedPackage = searchParams.get("package");
 
     const payload = {
       firstName: form.fullName.split(" ")[0] || "",
-      lastName: form.fullName.replace(form.fullName.split(" ")[0], "").trim() || "",
+      lastName: form.fullName.split(" ")[0] || "",
       dateOfBirth: form.dob,
       countryCode: "+1",
       phone: form.phone,
@@ -112,10 +190,17 @@ export default function QuartusEnrollmentPage() {
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) throw new Error("Failed to submit");
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
 
-      alert("Form submitted successfully!");
-      setForm(initialState);
+      const result = await response.json();
+
+      if (result?.data?.redirectURL) {
+        setForm(initialState);
+        window.location.href = result.data.redirectURL;
+        return;
+      }
     } catch (err) {
       alert("Submit failed — please try again.");
       console.error(err);
@@ -151,6 +236,9 @@ export default function QuartusEnrollmentPage() {
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                   required
                 />
+                {errors.fullName && (
+                  <p className="mt-1 text-xs text-red-600">{errors.fullName}</p>
+                )}
               </label>
 
               <label className="block">
@@ -161,15 +249,23 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("dob", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+                {errors.dob && (
+                  <p className="mt-1 text-xs text-red-600">{errors.dob}</p>
+                )}
               </label>
 
               <label className="block">
                 <span className="text-sm text-gray-700">Phone Number</span>
                 <input
+                  type="number"
                   value={form.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.phone && (
+                  <p className="mt-1 text-xs text-red-600">{errors.phone}</p>
+                )}
               </label>
 
               <label className="block">
@@ -180,6 +276,10 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("email", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.email && (
+                  <p className="mt-1 text-xs text-red-600">{errors.email}</p>
+                )}
               </label>
 
               <label className="block md:col-span-2">
@@ -189,6 +289,10 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("homeAddress", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.homeAddress && (
+                  <p className="mt-1 text-xs text-red-600">{errors.homeAddress}</p>
+                )}
               </label>
             </div>
           </section>
@@ -204,24 +308,38 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("businessName", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.businessName && (
+                  <p className="mt-1 text-xs text-red-600">{errors.businessName}</p>
+                )}
               </label>
 
               <label className="block">
                 <span className="text-sm text-gray-700">Business Phone Number</span>
                 <input
+                  type="number"
                   value={form.businessPhone}
                   onChange={(e) => handleChange("businessPhone", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.businessPhone && (
+                  <p className="mt-1 text-xs text-red-600">{errors.businessPhone}</p>
+                )}
               </label>
 
               <label className="block">
                 <span className="text-sm text-gray-700">Business Email (if different)</span>
                 <input
+                  type="email"
                   value={form.businessEmail}
                   onChange={(e) => handleChange("businessEmail", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.businessEmail && (
+                  <p className="mt-1 text-xs text-red-600">{errors.businessEmail}</p>
+                )}
               </label>
 
               <label className="block md:col-span-2">
@@ -231,6 +349,10 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("officeAddress", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.officeAddress && (
+                  <p className="mt-1 text-xs text-red-600">{errors.officeAddress}</p>
+                )}
               </label>
 
               <div className="md:col-span-2">
@@ -252,6 +374,10 @@ export default function QuartusEnrollmentPage() {
                       <span className="ml-2 text-sm text-gray-700">{bt}</span>
                     </label>
                   ))}
+
+                  {errors.businessType && (
+                    <p className="mt-1 text-xs text-red-600">{errors.businessType}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -268,6 +394,10 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("ptin", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.ptin && (
+                  <p className="mt-1 text-xs text-red-600">{errors.ptin}</p>
+                )}
               </label>
 
               <label className="block md:col-span-1">
@@ -277,6 +407,10 @@ export default function QuartusEnrollmentPage() {
                   onChange={(e) => handleChange("efin", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.efin && (
+                  <p className="mt-1 text-xs text-red-600">{errors.efin}</p>
+                )}
               </label>
 
               <div className="md:col-span-1">
@@ -294,6 +428,10 @@ export default function QuartusEnrollmentPage() {
                       <span className="ml-2 text-sm text-gray-700">{s}</span>
                     </label>
                   ))}
+                  {errors.efinStatus && (
+                    <p className="mt-1 text-xs text-red-600">{errors.efinStatus}</p>
+                  )}
+
                 </div>
               </div>
             </div>
@@ -323,6 +461,10 @@ export default function QuartusEnrollmentPage() {
                   <span className="ml-2 text-sm text-gray-700">{s}</span>
                 </label>
               ))}
+              {errors.services && (
+                <p className="mt-2 text-xs text-red-600">{errors.services}</p>
+              )}
+
             </div>
             <p className="mt-2 text-xs text-gray-500">*Bank products subject to approval.</p>
           </section>
@@ -343,6 +485,10 @@ export default function QuartusEnrollmentPage() {
                   <span className="ml-2 text-sm text-gray-700">{exp}</span>
                 </label>
               ))}
+              {errors.experience && (
+                <p className="mt-2 text-xs text-red-600">{errors.experience}</p>
+              )}
+
             </div>
           </section>
 
@@ -362,6 +508,10 @@ export default function QuartusEnrollmentPage() {
                   <span className="ml-2 text-sm text-gray-700">{vol}</span>
                 </label>
               ))}
+              {errors.expectedVolume && (
+                <p className="mt-2 text-xs text-red-600">{errors.expectedVolume}</p>
+              )}
+
             </div>
           </section>
 
@@ -381,6 +531,10 @@ export default function QuartusEnrollmentPage() {
                   <span className="ml-2 text-sm text-gray-700">{s}</span>
                 </label>
               ))}
+              {errors.preferredSoftware && (
+                <p className="mt-2 text-xs text-red-600">{errors.preferredSoftware}</p>
+              )}
+
             </div>
           </section>
 
@@ -394,6 +548,10 @@ export default function QuartusEnrollmentPage() {
               rows={4}
               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
             />
+
+            {errors.additionalInfo && (
+              <p className="mt-1 text-xs text-red-600">{errors.additionalInfo}</p>
+            )}
           </section>
 
           {/* 9. Agreement & Signature */}
@@ -412,6 +570,10 @@ export default function QuartusEnrollmentPage() {
                   placeholder="Type your full name as signature"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+                {errors.signature && (
+                  <p className="mt-1 text-xs text-red-600">{errors.signature}</p>
+                )}
               </label>
 
               <label className="block md:col-span-1">
@@ -430,6 +592,8 @@ export default function QuartusEnrollmentPage() {
                   type="date"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
+
+
               </label>
             </div>
           </section>
