@@ -30,9 +30,9 @@ const saveState = (state: ApplicationState) => {
   }
 };
 const STATUS_KEY = "applicationStatus";
+
 export const saveSingleApplication = (app: Application) => {
 
-  console.log(app, "appDa6a")
   try {
     localStorage.setItem(
       STATUS_KEY,
@@ -84,14 +84,13 @@ const loadState = (): ApplicationState => {
   }
 };
 
-
 const initialState: ApplicationState = loadState();
 
 const applicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    startApplication(state, action: PayloadAction<{ type: string }>) {
+    startApplication(state, action: PayloadAction<{ type: string,platformServiceId:string }>) {
       const id = uuid4();
       console.log(action.payload.type, "app")
       const newApp: Application = {
@@ -103,13 +102,15 @@ const applicationSlice = createSlice({
         form: {},
         platformServiceCategoryId: null,
         platformServiceCategoryPackageId: null,
-        platformServiceId: null,
+        platformServiceId: action.payload.platformServiceId,
       };
       state.draftApplications.push(newApp);
       state.activeId = id;
       saveSingleApplication(newApp);
     },
-
+    setActiveApplication(state, action: PayloadAction<string>) {
+      state.activeId = action.payload;
+    },
     setCategory(
       state,
       action: PayloadAction<{ id: string; name: string; platformServiceCategoryId: string }>
@@ -192,7 +193,7 @@ const applicationSlice = createSlice({
   },
 });
 
-export const { startApplication, setCategory, setPackage, addAddon, setFormData, resetApplications, saveApplication, clearStatus } =
+export const { startApplication, setCategory, setPackage, addAddon, setFormData, resetApplications, saveApplication, clearStatus, setActiveApplication } =
   applicationSlice.actions;
 
 export default applicationSlice.reducer;

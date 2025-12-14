@@ -13,6 +13,7 @@ import { savePlatformServiceStep } from '@/lib/platformServiceStorage';
 import { useGetPlatformServiceByIdQuery } from '@/services/platformApi';
 import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
 const Services = () => {
     const searchParams = useSearchParams();
@@ -20,6 +21,8 @@ const Services = () => {
     const [activeTab, setActiveTab] = useState<"Services" | "apostille" | "e-visa">("Services");
     const { data, isLoading } = useGetPlatformServiceByIdQuery(country);
     const packages = data?.data?.data;
+    const dispatch = useDispatch();
+    const activeId = useSelector((state: any) => state.application.activeId);
 
     const save = (id: string) => {
         savePlatformServiceStep({ platformServiceId: String(id) });

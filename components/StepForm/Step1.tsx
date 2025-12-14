@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
     Form,
@@ -17,9 +17,8 @@ import { FileEdit } from "lucide-react";
 import { step1Schema, Step1Data } from "@/lib/validationSchemas";
 import { useCreateApplicationMutation } from "@/services/applicationApi";
 import { getPlatformServices, removeFromPlatformServices } from "@/lib/platformServiceStorage";
-import { useDispatch } from "react-redux";
-import { setFormData } from "@/store/slices/applicationSlice";
-import { store } from "@/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveApplication, setFormData } from "@/store/slices/applicationSlice";
 import { useRouter } from "nextjs-toploader/app";
 import { toast } from "sonner";
 import EmailVerifyDialog from "./EmailVerifyDialog";
@@ -50,32 +49,102 @@ interface Application {
     platformServices?: any[];
 }
 
+const getAllStoredApplications = () => {
+    const raw = localStorage.getItem("applications");
+    if (!raw) return [];
+
+    try {
+        const parsed = JSON.parse(raw);
+        return parsed?.applications || [];
+    } catch {
+        return [];
+    }
+};
+
+
 // --- Map API response to form values ---
-const mapApiToForm = (app: Application): Step1Data => ({
-    firstName: app.firstName || "",
-    lastName: app.lastName || "",
-    email: app.email || "",
-    phone: app.phone || "",
-    company: app.company || "",
-    departureDate: app.departureDate?.split("T")[0] || "",
+const mapStoredAppToApi = (app: any) => {
+    const form = app?.form?.applications?.[0] || {};
+
+    const fullAddress = {
+        addressLine1: form.currentLegalAddress?.addressLine1 || "",
+        addressLine2: form.currentLegalAddress?.addressLine2 || "",
+        city: form.currentLegalAddress?.city || "",
+        state: form.currentLegalAddress?.state || "",
+        zipCode: form.currentLegalAddress?.zipCode || "",
+        country: form.currentLegalAddress?.country || "",
+    };
+
+    return {
+        firstName: form.firstName || "",
+        lastName: form.lastName || "",
+        email: form.email || "",
+        phone: form.phone || "",
+        countryCode: "+1",
+        company: form.company || "",
+        departureDate: form.departureDate || "",
+
+        status: "Submitted",
+        applicationSource: "Website",
+
+        address: fullAddress,
+        currentLegalAddress: fullAddress,
+
+        isSubmittedFromApplication: true,
+        isSubmittedFromService: false,
+
+        fromCountryId: "68e966dde7bd0d029655d358",
+        toCountryId: "68e966dde7bd0d029655d359",
+
+        platformServices: [
+            {
+                platformServiceId: app.platformServiceId,
+                platformServiceCategoryId: app.platformServiceCategoryId,
+                platformServiceCategoryPackageId:
+                    app.platformServiceCategoryPackageId,
+                platformServiceCategoryPackageAddonsId: app.addons || [],
+                price: app.price || 0,
+                currency: "USD",
+                Price_name: app.package,
+                additionService: false,
+                additionService_price: 0,
+                additionService_name: "",
+            },
+        ],
+
+        serviceFields: {
+            serviceType: "CourierDelivery",
+        },
+    };
+};
+
+const mapDraftToForm = (form: any): Step1Data => ({
+    firstName: form.firstName || "",
+    lastName: form.lastName || "",
+    email: form.email || "",
+    phone: form.phone || "",
+    company: form.company || "",
+    departureDate: form.departureDate || "",
+
     physicalAddress: {
-        addressLine1: app.physicalAddress?.addressLine1 || "",
-        addressLine2: app.physicalAddress?.addressLine2 || "",
-        city: app.physicalAddress?.city || "",
-        state: app.physicalAddress?.state || "",
-        zipCode: app.physicalAddress?.zipCode || "",
-        country: app.physicalAddress?.country || "",
-    },
-    currentLegalAddress: {
-        addressLine1: app.currentLegalAddress?.addressLine1 || "",
-        addressLine2: app.currentLegalAddress?.addressLine2 || "",
-        city: app.currentLegalAddress?.city || "",
-        state: app.currentLegalAddress?.state || "",
-        zipCode: app.currentLegalAddress?.zipCode || "",
-        country: app.currentLegalAddress?.country || "",
+        addressLine1: form.physicalAddress?.addressLine1 || "",
+        addressLine2: form.physicalAddress?.addressLine2 || "",
+        city: form.physicalAddress?.city || "",
+        state: form.physicalAddress?.state || "",
+        zipCode: form.physicalAddress?.zipCode || "",
+        country: form.physicalAddress?.country || "",
     },
 
+    currentLegalAddress: {
+        addressLine1: form.currentLegalAddress?.addressLine1 || "",
+        addressLine2: form.currentLegalAddress?.addressLine2 || "",
+        city: form.currentLegalAddress?.city || "",
+        state: form.currentLegalAddress?.state || "",
+        zipCode: form.currentLegalAddress?.zipCode || "",
+        country: form.currentLegalAddress?.country || "",
+    },
 });
+
 
 
 export default function Step1() {
@@ -88,279 +157,80 @@ export default function Step1() {
     const [verifyEmail] = useVerifyEmailMutation();
     const [emailOtpVerify, setEmailVerify] = useState(false)
     const [payload, setPayload] = useState<ApplicationPayload>()
-    console.log(payload, "payload")
     const platformServices = getPlatformServices() || [];
+    const [isSwitchingCard, setIsSwitchingCard] = useState(false);
+
+
+
+    const { draftApplications, activeId } = useSelector(
+        (state: any) => state.application
+    );
 
 
     const form = useForm<Step1Data>({
         resolver: zodResolver(step1Schema),
-        defaultValues: mapApiToForm({}),
     });
+
+    const watchedValues = useWatch({
+        control: form.control,
+    });
+
+    const hasUserTyped =
+        watchedValues?.firstName ||
+        watchedValues?.lastName ||
+        watchedValues?.email ||
+        watchedValues?.phone;
 
 
     // --- Prefill from API ---
     useEffect(() => {
         if (data?.applications?.length) {
             setApplications(data.applications);
-            form.reset(mapApiToForm(data.applications[0]));
+            form.reset(mapStoredAppToApi(data.applications[0]));
             setActiveIndex(0);
         }
     }, [data, form]);
 
     // --- Prefill from localStorage ---
-    useEffect(() => {
-        const saved = window.window.localStorage.getItem("applications");
 
-        if (!saved) return;
 
+    const onSubmit = async () => {
         try {
-            const parsed = JSON.parse(saved);
+            const storedApps = getAllStoredApplications();
 
-            if (Array.isArray(parsed.applications)) {
-                // ✅ Keep only apps where platformServiceCategoryId is a non-empty string
-                const validApps = parsed.applications.filter(
-                    (app: any) =>
-                        typeof app?.platformServiceCategoryId === "string" &&
-                        app.platformServiceCategoryId.trim() !== ""
-                );
-
-                if (validApps.length > 0) {
-                    setApplications(validApps);
-
-                    const firstFormData = validApps[0]?.form?.applications?.[0] || {};
-                    form.reset(mapApiToForm(firstFormData));
-                } else {
-                    setApplications([]);
-                    form.reset(mapApiToForm({}));
-                }
+            if (!storedApps.length) {
+                toast.error("No applications found");
+                return;
             }
-        } catch (e) {
-            console.error("Failed to parse applications from localStorage", e);
-            setApplications([]);
-            form.reset(mapApiToForm({}));
-        }
-    }, [form]);
 
-    const onSubmit = async (values: Step1Data) => {
-        try {
-
-            console.log(platformServices, "platformServices")
-            const applicationData = window.localStorage.getItem("applications")
-            console.log(applicationData, "applicationData")
-            //  Build one common address object from currentLegalAddress
-            const fullAddress = {
-                addressLine1: values.currentLegalAddress?.addressLine1 || "",
-                addressLine2: values.currentLegalAddress?.addressLine2 || "",
-                city: values.currentLegalAddress?.city || "",
-                state: values.currentLegalAddress?.state || "",
-                zipCode: values.currentLegalAddress?.zipCode || "",
-                country: values.currentLegalAddress?.country || "",
+            const payload: ApplicationPayload = {
+                applications: storedApps.map(mapStoredAppToApi),
             };
-            //  Build payload
-            const payload = {
-                applications: [
-                    {
-                        firstName: values.firstName,
-                        lastName: values.lastName,
-                        email: values.email,
-                        phone: values.phone,
-                        countryCode: "+1",
-                        company: values.company || "",
-                        status: "Submitted",
-                        applicationSource: "Website", // Website | AgentPortal | AdminPortal
 
-                        //  Use same object for both
-                        address: fullAddress,
-                        currentLegalAddress: fullAddress,
-                        isSubmittedFromApplication: true,
-                        isSubmittedFromService: false,
-                        fromCountryId: window.localStorage.getItem("fromCountryId"),
-                        toCountryId: window.localStorage.getItem("toCountryId"),
-                        platformServices: (() => {
-                            const merged = (platformServices || []).reduce((acc: any, s: any) => {
-                                for (const [key, value] of Object.entries(s)) {
-                                    if (Array.isArray(value)) {
-                                        // merge arrays safely, even if empty
-                                        acc[key] = [...(acc[key] || []), ...value];
-                                    } else if (value !== "" && value !== null && value !== undefined) {
-                                        // keep last non-empty string/number/boolean
-                                        acc[key] = value;
-                                    }
-                                }
-                                return acc;
-                            }, {
-                                platformServiceId: "",
-                                platformServiceCategoryId: "",
-                                platformServiceCategoryPackageId: "",
-                                platformServiceCategoryPackageAddonsId: [],
-                                price: 0,
-                                currency: "USD",
-                                Price_name: "",
-                                additionService: false,
-                                additionService_price: 0,
-                                additionService_name: ""
-                            });
+            setPayload(payload);
 
-                            // return as array (to keep the same structure)
-                            return [merged];
-                        })(),
+            // verify email using first application
+            const email = storedApps[0]?.form?.applications?.[0]?.email;
 
-                        serviceFields: {
-                            serviceType: "CourierDelivery",
-                        },
-                    },
+            const res = await verifyEmail({ email }).unwrap();
 
-                ],
-            };
-            //  Save to Redux if editing existing app
-            const activeId = store.getState().application.activeId;
-            if (activeId) {
-                dispatch(
-                    setFormData({
-                        id: activeId,
-                        form: payload,
-                    })
-                );
-            }
-            setPayload(payload)
+            if (res.status) {
+                if (res.message === "Email is already verified.") {
+                    const response = await createApplication(payload).unwrap();
 
-
-            try {
-                const res = await verifyEmail({
-                    email: values.email
-                }).unwrap();
-
-                console.log(res, "ressss")
-
-                if (res.status) {
-                    if (res?.message === "Email is already verified.") {
-                        const response = await createApplication(payload).unwrap();
-                        if (response?.status && response.data?.redirectURL) {
-                            // clearPlatformServices();
-                            // localStorage.removeItem("applications");
-                            window.location.href = response.data.redirectURL;
-                        }
-
-                    } else {
-                        setEmailVerify(true);
+                    if (response?.status && response.data?.redirectURL) {
+                        localStorage.removeItem("platformServices");
+                        window.location.href = response.data.redirectURL;
                     }
+                } else {
+                    setEmailVerify(true);
                 }
-            } catch (err: any) {
-                const message =
-                    err?.message ||
-                    err?.data?.message ||
-                    "Something went wrong while verifying email.";
-
-                // Show toast message
-                toast.error(message);
             }
-
-        } catch (error: any) {
-            toast.error(error?.data?.message || "Something went wrong while creating application");
-
+        } catch (err: any) {
+            toast.error(err?.message || "Submission failed");
         }
     };
 
-    // const onSubmit = async (values: Step1Data) => {
-    //     try {
-    //         // 🌍 Read existing applications from localStorage
-    //         const stored = JSON.parse(localStorage.getItem("applications") || "{}");
-    //         const existingApps = stored.applications || [];
-
-    //         // 🧱 Common address object
-    //         const fullAddress = {
-    //             addressLine1: values.currentLegalAddress?.addressLine1 || "",
-    //             addressLine2: values.currentLegalAddress?.addressLine2 || "",
-    //             city: values.currentLegalAddress?.city || "",
-    //             state: values.currentLegalAddress?.state || "",
-    //             zipCode: values.currentLegalAddress?.zipCode || "",
-    //             country: values.currentLegalAddress?.country || "",
-    //         };
-
-    //         // 🏗 Build full payload
-    //         const payload = {
-    //             applications: existingApps.map((app: any) => {
-    //                 const mergedServices = (platformServices || []).reduce((acc: any, s: any) => {
-    //                     for (const [key, value] of Object.entries(s)) {
-    //                         if (Array.isArray(value)) {
-    //                             acc[key] = [...(acc[key] || []), ...value];
-    //                         } else if (value !== "" && value !== null && value !== undefined) {
-    //                             acc[key] = value;
-    //                         }
-    //                     }
-    //                     return acc;
-    //                 }, {
-    //                     platformServiceId: "",
-    //                     platformServiceCategoryId: "",
-    //                     platformServiceCategoryPackageId: "",
-    //                     platformServiceCategoryPackageAddonsId: [],
-    //                     price: 0,
-    //                     currency: "USD",
-    //                     Price_name: "",
-    //                     additionService: false,
-    //                     additionService_price: 0,
-    //                     additionService_name: ""
-    //                 });
-
-    //                 return {
-    //                     ...app, // keep id, type, etc.
-    //                     form: {
-    //                         applications: [
-    //                             {
-    //                                 firstName: values.firstName,
-    //                                 lastName: values.lastName,
-    //                                 email: values.email,
-    //                                 phone: values.phone,
-    //                                 countryCode: "+1",
-    //                                 company: values.company || "",
-    //                                 status: "Submitted",
-    //                                 applicationSource: "Website",
-    //                                 address: fullAddress,
-    //                                 currentLegalAddress: fullAddress,
-    //                                 fromCountryId: localStorage.getItem("fromCountryId"),
-    //                                 toCountryId: localStorage.getItem("toCountryId"),
-    //                                 platformServices: [mergedServices],
-    //                                 serviceFields: {
-    //                                     serviceType: "CourierDelivery",
-    //                                 },
-    //                             },
-    //                         ],
-    //                     },
-    //                 };
-    //             }),
-    //         };
-
-    //         // 🧾 Save back to localStorage
-    //         const finalState = {
-    //             ...stored,
-    //             applications: payload.applications,
-    //         };
-    //         localStorage.setItem("applications", JSON.stringify(finalState));
-
-    //         // 🧠 Save to redux (optional)
-    //         const activeId = stored.activeId;
-    //         if (activeId) {
-    //             dispatch(setFormData({ id: activeId, form: payload }));
-    //         }
-
-    //         // ✉️ Continue email verification flow
-    //         const res = await verifyEmail({ email: values.email }).unwrap();
-    //         if (res.status) {
-    //             if (res?.message === "Email is already verified.") {
-    //                 const response = await createApplication(payload).unwrap();
-    //                 if (response?.status && response.data?.redirectURL) {
-    //                     window.location.href = response.data.redirectURL;
-    //                 }
-    //             } else {
-    //                 setEmailVerify(true);
-    //             }
-    //         }
-    //     } catch (error: any) {
-    //         toast.error(
-    //             error?.data?.message || "Something went wrong while creating application"
-    //         );
-    //     }
-    // };
 
     const handleVerify = async () => {
         const response = await createApplication(payload as ApplicationPayload).unwrap();
@@ -379,30 +249,78 @@ export default function Step1() {
 
     };
 
+    useEffect(() => {
+        if (!activeId || !draftApplications?.length) return;
+
+        const activeApp = draftApplications.find(
+            (app: any) => app.id === activeId
+        );
+
+        const formData = activeApp?.form?.applications?.[0];
+
+        if (formData) {
+            form.reset(mapDraftToForm(formData));
+        }
+    }, [activeId, draftApplications, form]);
+
+
+    useEffect(() => {
+        if (!activeId || !draftApplications.length) return;
+
+        const index = draftApplications.findIndex(
+            (a: any) => a.id === activeId
+        );
+
+        if (index !== -1) {
+            setActiveIndex(index);
+        }
+    }, [activeId, draftApplications]);
+
+
+    useEffect(() => {
+        if (!activeId) return;
+        if (isSwitchingCard) return;
+        if (!hasUserTyped) return; // 🛑 EMPTY SAVE STOP
+
+        const timeout = setTimeout(() => {
+            dispatch(
+                setFormData({
+                    id: activeId,
+                    form: {
+                        applications: [{ ...watchedValues }],
+                    },
+                })
+            );
+        }, 400);
+
+        return () => clearTimeout(timeout);
+    }, [watchedValues, activeId, isSwitchingCard, hasUserTyped, dispatch]);
+
     return (
         <div className="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
             {/* Header */}
             <div className="w-full overflow-x-auto scrollbar-hide">
                 <div className="flex gap-4 px-2 sm:px-4 md:px-2">
-                    {applications.map((app: any, index) => (
+                    {draftApplications.map((app: any, index: number) => (
                         <div
                             key={index}
                             onClick={() => {
+                                setIsSwitchingCard(true);
                                 setActiveIndex(index);
-                                // Each card has its own form.applications[0]
+                                dispatch(setActiveApplication(app.id));
 
-                                const formData = app.form?.applications?.[activeIndex];
-                                console.log(formData, "formData")
-
-                                if (formData) {
-                                    form.reset(mapApiToForm(formData));
-                                }
+                                setTimeout(() => setIsSwitchingCard(false), 0);
                             }}
-                            className={`min-w-[220px] sm:min-w-[250px] md:min-w-[280px] rounded-2xl shadow-lg p-4 sm:p-5 flex-shrink-0 cursor-pointer transition-transform duration-300 
-              ${activeIndex === index
-                                    ? "bg-blue-800 scale-105"
-                                    : "bg-[#00408D] hover:scale-105"
-                                }`}
+
+                        className={`min-w-[220px] sm:min-w-[250px] md:min-w-[280px]
+  rounded-2xl shadow-lg p-4 sm:p-5 flex-shrink-0 cursor-pointer
+  transition-all duration-300
+  ${
+    activeIndex === index
+      ? "bg-red-800 scale-105 shadow-xl ring-2 ring-red-500"
+      : "bg-[#00408D] hover:scale-105"
+  }`}
+
                         >
                             <div className="flex items-start justify-between">
                                 <h2 className="text-base sm:text-lg font-bold text-white leading-snug">

@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import axios from "axios";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
@@ -17,6 +16,7 @@ import {
   CloudLightning,
   CloudFog,
 } from "lucide-react";
+import { getWeatherForecast } from "@/lib/weatherUtils";
 
 // ✅ Types
 type Condition =
@@ -31,7 +31,12 @@ type Condition =
   | "Fog"
   | "Overcast";
 
-type DayForecast = { dow: string; highC: number; lowC: number; condition: Condition };
+type DayForecast = {
+  dow: string;
+  highC: number;
+  lowC: number;
+  condition: Condition;
+};
 type Normalized = {
   country: string;
   countryCode: string;
@@ -95,16 +100,14 @@ function adapt(api: any, countryCode: string): Normalized {
     return "Sunny";
   };
 
-  const daysSrc: any[] = api?.data?.forecast ?? [];
+  const daysSrc: any[] = api?.forecast ?? [];
   const firstDay = daysSrc[0];
 
   return {
-    country: api?.data?.country ?? "—",
+    country: api?.country ?? "—",
     countryCode,
     now: {
-      tempC: Number(
-        ((firstDay?.maxTemp ?? 0) + (firstDay?.minTemp ?? 0)) / 2
-      ),
+      tempC: Number(((firstDay?.maxTemp ?? 0) + (firstDay?.minTemp ?? 0)) / 2),
       condition: normCond(firstDay?.condition ?? "Sunny"),
     },
     days: daysSrc.map((d: any) => ({
@@ -130,36 +133,27 @@ export default function WeatherStripAxiosDirect({
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
-  const base = process.env.NEXT_PUBLIC_QUARTUS_API_URL;
-  const url = useMemo(
-    () => `${base?.replace(/\/$/, "")}/common/get-wather-forecast`,
-    [base]
-  );
-
   useEffect(() => {
     const ctrl = new AbortController();
     (async () => {
       try {
         setLoading(true);
         setErr(null);
-        const res = await axios.get(url, {
-          params: { countryCode },
-          signal: ctrl.signal as any,
-        });
-        if (res.data?.status) {
-          const normalized = adapt(res.data, countryCode);
-          setData(normalized);
-        } else {
-          setErr("Invalid API response");
-        }
+
+        // Call the weather API directly from the frontend
+        const weatherData = await getWeatherForecast(countryCode);
+        const normalized = adapt(weatherData, countryCode);
+        setData(normalized);
       } catch (e: any) {
-        if (!axios.isCancel(e)) setErr(e?.message ?? "Failed to load weather");
+        if (e.name !== "AbortError") {
+          setErr(e?.message ?? "Failed to load weather");
+        }
       } finally {
         setLoading(false);
       }
     })();
     return () => ctrl.abort();
-  }, [url, countryCode]);
+  }, [countryCode]);
 
   return (
     <Card
@@ -235,41 +229,39 @@ export default function WeatherStripAxiosDirect({
 
         {/* Days scroller */}
         <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
-          {loading
-            ? Array.from({ length: 7 }).map((_, i) => (
-                <Skeleton key={i} className="h-[110px] w-[90px] rounded-xl" />
-              ))
-            : err
-            ? (
-              <div className="text-sm text-red-600">
-                Failed to load forecast.
-              </div>
-            )
-            : data?.days?.map((d, i) => (
-                <motion.div
-                  key={d.dow + i}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="shrink-0 w-[90px]"
-                >
-                  <div className="rounded-xl bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-200 p-3 text-center hover:shadow-md transition-all">
-                    <p className="text-[12px] font-medium text-gray-600 dark:text-gray-300">
-                      {d.dow}
-                    </p>
-                    <div className="grid place-items-center my-2">
-                      {iconFor(d.condition)}
-                    </div>
-                    <p className="text-[11px] text-gray-500">
-                      {d.highC.toFixed(1)}°/
-                      <span className="opacity-70">{d.lowC.toFixed(1)}°</span>
-                    </p>
-                    <p className="text-[11px] mt-1 line-clamp-1 text-gray-700 dark:text-gray-100">
-                      {d.condition}
-                    </p>
+          {loading ? (
+            Array.from({ length: 7 }).map((_, i) => (
+              <Skeleton key={i} className="h-[110px] w-[90px] rounded-xl" />
+            ))
+          ) : err ? (
+            <div className="text-sm text-red-600">Failed to load forecast.</div>
+          ) : (
+            data?.days?.map((d, i) => (
+              <motion.div
+                key={d.dow + i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className="shrink-0 w-[90px]"
+              >
+                <div className="rounded-xl bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-200 p-3 text-center hover:shadow-md transition-all">
+                  <p className="text-[12px] font-medium text-gray-600 dark:text-gray-300">
+                    {d.dow}
+                  </p>
+                  <div className="grid place-items-center my-2">
+                    {iconFor(d.condition)}
                   </div>
-                </motion.div>
-              ))}
+                  <p className="text-[11px] text-gray-500">
+                    {d.highC.toFixed(1)}°/
+                    <span className="opacity-70">{d.lowC.toFixed(1)}°</span>
+                  </p>
+                  <p className="text-[11px] mt-1 line-clamp-1 text-gray-700 dark:text-gray-100">
+                    {d.condition}
+                  </p>
+                </div>
+              </motion.div>
+            ))
+          )}
         </div>
       </CardContent>
     </Card>
