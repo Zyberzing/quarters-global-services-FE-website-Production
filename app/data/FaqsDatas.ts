@@ -1,164 +1,5 @@
 export const FaqsDatas = {
-    // "visa": {
-    //     "india": {
-    //         "Tourist Visa": [
-    //             {
-    //                 "title": "US EMBASSY DELAYS",
-    //                 "description": "US embassies are experiencing a backlog for visa appointments, therefore processing time starts from the date of appointment."
-    //             },
-    //             {
-    //                 "title": "Appointments are currently not available",
-    //                 "description": "Please be aware that appointments are currently not available. We are waiting for further notice."
-    //             },
-    //             {
-    //                 "title": "DS-160 Application form",
-    //                 "description": "DS-160 Application form will be prepared within 5 business hours or 3 business hours for corporate."
-    //             },
-    //             {
-    //                 "title": "ACRO POLICE REPORT NOT MANDATORY FOR TRAVELLERS WITHOUT CRIMINAL RECORD",
-    //                 "description": "Applicants who have ever been arrested, cautioned or convicted or a previous offence, must declare this information in their visa application. This will require ‘administrative processing’ by the US Embassy, and will extend the consular processing time up to 60 days from the date of the visa interview. As timing is based on individual circumstances of each case, the US Embassy cannot guarantee visa issuance or visa processing times in advance of the interview. If you have a criminal conviction, we recommend that you apply well in advance of your intended travel date. A Police Certificate or Court records pertaining to the arrest or conviction must be taken to the appointment, this applies even if the sentence is considered spent."
-    //             },
-    //             {
-    //                 "title": "IF YOU HAVE A MEDICAL CONDITION THAT COULD HAVE A BEARING ON YOUR ELIGIBILITY FOR A VISA",
-    //                 "description": "Travelers to the United States who have been afflicted with a disease of public health significance, a mental disorder which is associated with a display of harmful behavior, or are a drug abuser or addict may be ineligible to receive a visa. If found ineligible, they will require a waiver of ineligibility in order to travel. At the time you apply for a nonimmigrant visa you are required to furnish from a doctor, specialist and/or other professional person familiar with your case a letter that addresses diagnosis and relevant medical history of your condition, current state of health, the likelihood of a need for care or hospitalization during your stay in the United States, whether you are likely to remain stable during the trip and cope with a strange environment, and details of any history of harmful behavior you have shown towards yourself, others, or property."
-    //             },
-    //             {
-    //                 "title": "IF YOU HAVE OVERSTAYED IN, BEEN DENIED ENTRY TO OR DEPORTED FROM THE UNITED STATES",
-    //                 "description": "If you are applying for a nonimmigrant visa and have ever been denied entry into the United States by a US Customs and Border Protection (CBP) officer, you should bring a copy of the report of the incident, Form I-877 or I-867, to the visa interview. If you were not provided with these forms or no longer have them, you may apply with just the personal data form VCU1. If you have ever been deported or removed from the United States you may be prohibited from reapplying for a visa depending on the circumstances for up to ten years. If you wish to travel during the period of exclusion you will require a visa and waiver of ineligibility. You must also furnish documentation relating to your deportation or removal. If you have overstayed the period of time granted under the Visa Waiver Program (VWP) or violated a previous U.S. visa, you must apply for a visa and present full details of your overstay. In all such cases, you must complete and bring a personal data form VCU1."
-    //             },
-    //             {
-    //                 "title": "Availability of appointments",
-    //                 "description": "Please be aware that availability of appointments may delay the process."
-    //             }
-    //         ],
-    //         "Business Visa": [
-    //             {
-    //                 "title": "Original passport",
-    //                 "description": "The passport must be valid at least six months after the intended date of departure from the territory of the destination country and has at least two blank visa pages."
-    //             },
-    //             {
-    //                 "title": "US EMBASSY DELAYS",
-    //                 "description": "US embassies are experiencing a backlog for visa appointments, therefore processing time starts from the date of appointment."
-    //             },
-    //             {
-    //                 "title": "DS-160 Application form",
-    //                 "description": "DS-160 Application form will be prepared within 5 business hours or 3 business hours for corporate."
-    //             },
-    //             {
-    //                 "title": "Passport Digital Photograph",
-    //                 "description": "Passport Digital Photograph."
-    //             },
-    //             {
-    //                 "title": "Bank Statement",
-    //                 "description": "Copy of a recent bank statement showing proof of sufficient funds."
-    //             },
-    //             {
-    //                 "title": "Original Previous visa",
-    //                 "description": "Previous United States of America Visa (if any)."
-    //             },
-    //             {
-    //                 "title": "Appointment confirmation",
-    //                 "description": "Appointment booking confirmation. We will provide once we confirm your appointment."
-    //             },
-    //             {
-    //                 "title": "Business Letter",
-    //                 "description": "Scanned copy of the business letter from the host company in United States of America explaining the purpose of the trip, dates of travel and guaranteeing sufficient funds. The letter needs to be addressed to the Consulate of United States of America, dated no more than 1 month old."
-    //             },
-    //             {
-    //                 "title": "ACRO POLICE REPORT NOT MANDATORY FOR TRAVELLERS WITHOUT CRIMINAL RECORD",
-    //                 "description": "Applicants who have ever been arrested, cautioned or convicted or a previous offence, must declare this information in their visa application. This will require ‘administrative processing’ by the US Embassy, and will extend the consular processing time up to 60 days from the date of the visa interview. As timing is based on individual circumstances of each case, the US Embassy cannot guarantee visa issuance or visa processing times in advance of the interview. If you have a criminal conviction, we recommend that you apply well in advance of your intended travel date. A Police Certificate or Court records pertaining to the arrest or conviction must be taken to the appointment, this applies even if the sentence is considered spent."
-    //             },
-    //             {
-    //                 "title": "IF YOU HAVE A MEDICAL CONDITION THAT COULD HAVE A BEARING ON YOUR ELIGIBILITY FOR A VISA",
-    //                 "description": "Travelers to the United States who have been afflicted with a disease of public health significance, a mental disorder which is associated with a display of harmful behavior, or are a drug abuser or addict may be ineligible to receive a visa. If found ineligible, they will require a waiver of ineligibility in order to travel. At the time you apply for a nonimmigrant visa you are required to furnish from a doctor, specialist and/or other professional person familiar with your case a letter that addresses: diagnosis and relevant medical history of your condition; current state of health; the likelihood of a need for care or hospitalization during your stay in the United States; whether you are likely to remain in a stable condition during the trip and cope with a strange environment; and details of any history of harmful behavior you have shown towards yourself, others, or property."
-    //             },
-    //             {
-    //                 "title": "IF YOU HAVE OVERSTAYED IN, BEEN DENIED ENTRY TO OR DEPORTED FROM THE UNITED STATES",
-    //                 "description": "If you are applying for a nonimmigrant visa and have ever been denied entry into the United States by a US Customs and Border Protection (CBP) officer, you should bring a copy of the report of the incident, Form I-877 or I-867, to the visa interview. If you were not provided with these forms or no longer have them, you may apply with just the personal data form VCU1. If you have ever been deported or removed from the United States you may be prohibited from reapplying for a visa depending on the circumstances for up to ten years. If you wish to travel during the period of exclusion you will require a visa and waiver of ineligibility. You must also furnish documentation relating to your deportation or removal. If you have overstayed the period of time granted under the Visa Waiver Program (VWP) or violated a previous U.S. visa, you must apply for a visa and present full details of your overstay. In all such cases, you must complete and bring a personal data form VCU1."
-    //             }
-    //         ],
-    //         "Student Visa": [
-    //             {
-    //                 "title": "Original passport",
-    //                 "description": "The passport must be valid at least six months after the intended date of departure from the territory of the destination country and has at least two blank visa pages."
-    //             },
-    //             {
-    //                 "title": "US EMBASSY DELAYS",
-    //                 "description": "US embassies are experiencing a backlog for visa appointments, therefore processing time starts from the date of appointment."
-    //             },
-    //             {
-    //                 "title": "DS-160 Application form",
-    //                 "description": "DS-160 Application form will be prepared within 5 business hours or 3 business hours for corporate."
-    //             },
-    //             {
-    //                 "title": "Passport Digital Photograph",
-    //                 "description": "Passport Digital Photograph."
-    //             },
-    //             {
-    //                 "title": "Bank Statement",
-    //                 "description": "Copy of a recent bank statement showing proof of sufficient funds."
-    //             },
-    //             {
-    //                 "title": "Police certificate",
-    //                 "description": "Applicant must provide an ACRO police certificate (cannot be older than 1 month) and it must be attested from the FCO. If subject access has ‘No live trace’ or ‘Live trace’ then applicant will need to get it legalized by a solicitor and attested by the FCO."
-    //             },
-    //             {
-    //                 "title": "Original Previous visa",
-    //                 "description": "Previous United States of America Visa (if any)."
-    //             },
-    //             {
-    //                 "title": "Employment Letter",
-    //                 "description": "A formal letter from employer: For Staff Journalist: a letter from the employer giving name, position, purpose, and length of stay in the United States. For Freelance Journalist under contract: a signed letter from the organization detailing your name, job title, relationship to the company, purpose of travel, brief project description, proposed stay duration, and contract period. For Media Film Crew: a letter including name, position, title and description of the program being filmed, and period of time required in the United States. For Independent Production Company: similar details as above."
-    //             },
-    //             {
-    //                 "title": "Appointment confirmation",
-    //                 "description": "Appointment booking confirmation. We will provide once we confirm your appointment."
-    //             },
-    //             {
-    //                 "title": "Fingerprints",
-    //                 "description": "Applicants between 14 and 79 years of age must apply in person by appointment only. Appointment availability will be advised after receipt of your order or you can contact us in advance to inquire about the closest available date. Those with unreported criminal records incur longer waiting time for an appointment. Full availability calendar can be accessed only after the visa fee is paid."
-    //             },
-    //             {
-    //                 "title": "Previous Convictions",
-    //                 "description": "Applicants who have ever been arrested, cautioned or convicted of a previous offence must declare this information in their visa application. This will require ‘administrative processing’ by the US Embassy and can extend the consular processing time up to 60 days from the date of the visa interview. Timing varies based on individual circumstances. If you have a criminal conviction, apply well in advance of your intended travel date. A Police Certificate or Court records pertaining to the arrest or conviction must be taken to the appointment, even if the sentence is considered spent."
-    //             },
-    //             {
-    //                 "title": "IF YOU HAVE A MEDICAL CONDITION THAT COULD HAVE A BEARING ON YOUR ELIGIBILITY FOR A VISA",
-    //                 "description": "Travelers to the United States who have been afflicted with a disease of public health significance, a mental disorder associated with harmful behavior, or are drug abusers/addicts may be ineligible to receive a visa. If found ineligible, they will require a waiver of ineligibility to travel. At the time you apply for a nonimmigrant visa, you must furnish a letter from a doctor or specialist addressing: diagnosis and relevant medical history, current state of health, likelihood of needing care during stay, stability during the trip, ability to cope with a new environment, and any history of harmful behavior."
-    //             },
-    //             {
-    //                 "title": "IF YOU HAVE OVERSTAYED IN, BEEN DENIED ENTRY TO OR DEPORTED FROM THE UNITED STATES",
-    //                 "description": "If you are applying for a nonimmigrant visa and have ever been denied entry into the United States by a US Customs and Border Protection (CBP) officer, you should bring a copy of the report of the incident (Form I-877 or I-867) to the visa interview. If unavailable, you may apply with the personal data form VCU1. If you have ever been deported or removed, you may be prohibited from reapplying for up to ten years depending on the circumstances. To travel during the exclusion period, you will need a visa and waiver of ineligibility and must provide documentation relating to your deportation. Those who have overstayed a visa or violated visa terms must present full details of their overstay and complete a personal data form VCU1."
-    //             },
-    //             {
-    //                 "title": "Additional administrative processing",
-    //                 "description": "Processing time is 5-7 working days after your scheduled appointment. Some applications may be subject to additional administrative processing at the US Consulate. In such cases, the exact visa issuing time cannot be guaranteed."
-    //             }
-    //         ],
-    //         "Work Visa": [
-    //             {
-    //                 "title": "E-2 Treaty Investors",
-    //                 "description": "Passport must be valid for at least six months beyond your period of stay in the United States (unless exempt by country-specific agreements). If more than one person is included in your passport, each person who needs a visa must submit a separate application."
-    //             },
-    //             {
-    //                 "title": "Nonimmigrant Visa Application, Form DS-160 confirmation page",
-    //                 "description": "Confirmation page of the Nonimmigrant Visa Application (Form DS-160) is required for submission."
-    //             },
-    //             {
-    //                 "title": "Application fee payment receipt",
-    //                 "description": "Proof of application fee payment, if you are required to pay before your interview."
-    //             },
-    //             {
-    //                 "title": "Photo – 2 x 2 passport size",
-    //                 "description": "Provide one recent color photograph (2 x 2 inches) meeting U.S. visa photo requirements."
-    //             },
-    //             {
-    //                 "title": "Nonimmigrant Treaty Trader/Treaty Investor Application, Form DS-156E",
-    //                 "description": "This form is required for all E-1 treaty trader visa applicants and E-2 treaty investor visa applicants if you are an Executive, Manager, or Essential Employee."
-    //             }
-    //         ]
-    //     }
-    // },
+
     "passport": {
         "united-states": {
             "New Passport": [
@@ -581,10 +422,202 @@ export const FaqsDatas = {
                     "title": "Do I need a surrender certificate for OCI or Indian visa?",
                     "description": "Yes. A surrender certificate is mandatory for all OCI and Indian visa applications."
                 }
+            ],
+            "Adult Renewal": [
+                {
+                    "title": "Who is eligible for adult passport renewal?",
+                    "description": "Indian citizens whose passport has expired or is about to expire and was issued after the age of 18 may apply for adult renewal."
+                },
+                {
+                    "title": "What documents are required for adult renewal?",
+                    "description": "The existing passport, proof of address, and required application forms are typically required."
+                },
+                {
+                    "title": "Is police verification required?",
+                    "description": "Police verification may be required depending on the application category."
+                }
+            ]
+            ,
+            "Minor Renewal": [
+                {
+                    "title": "Who can apply for minor passport renewal?",
+                    "description": "Parents or legal guardians can apply for passport renewal for minors under the age of 18."
+                },
+                {
+                    "title": "What documents are required for minor renewal?",
+                    "description": "The child’s passport, birth certificate, parents’ passports, and consent documents are required."
+                },
+                {
+                    "title": "Is parental consent mandatory?",
+                    "description": "Yes, consent from both parents or legal guardians is generally required."
+                }
+            ]
+            ,
+            "Lost Passport 1": [
+                {
+                    "title": "What should I do if my Indian passport is lost?",
+                    "description": "The loss must be reported immediately and an application for reissue should be submitted."
+                },
+                {
+                    "title": "What documents are required for a lost passport?",
+                    "description": "FIR or police report, identity proof, and supporting documents are required."
+                },
+                {
+                    "title": "Is police verification mandatory?",
+                    "description": "Yes, police verification is mandatory in cases of lost passports."
+                }
+            ]
+            ,
+            "Tatkal Passport": [
+                {
+                    "title": "What is a Tatkal passport?",
+                    "description": "Tatkal passport service provides expedited passport issuance for urgent travel needs."
+                },
+                {
+                    "title": "Who is eligible for Tatkal service?",
+                    "description": "Applicants with urgent requirements and eligible documentation may apply under Tatkal."
+                },
+                {
+                    "title": "Is police verification required for Tatkal?",
+                    "description": "Police verification may be conducted after passport issuance under Tatkal scheme."
+                }
+            ]
+            ,
+            "miss-service-adult": [
+                {
+                    "title": "What is Miss Service (Adult)?",
+                    "description": "This service covers miscellaneous adult passport-related requests including POA and consular services."
+                },
+                {
+                    "title": "Who can apply for this service?",
+                    "description": "Adult passport holders requiring additional consular or documentation services may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Relevant passport and supporting documents are required based on the service requested."
+                }
+            ]
+            ,
+            "Surrender with Indian Passport": [
+                {
+                    "title": "What is surrender with Indian passport?",
+                    "description": "This service is used when an Indian passport is surrendered after acquiring foreign citizenship."
+                },
+                {
+                    "title": "Is the original Indian passport required?",
+                    "description": "Yes, the original Indian passport must be submitted for surrender."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Indian passport, foreign citizenship proof, and application forms are required."
+                }
+            ]
+            ,
+            "Surrender without Indian Passport": [
+                {
+                    "title": "What does surrender without Indian passport mean?",
+                    "description": "This applies when the original Indian passport is unavailable during surrender."
+                },
+                {
+                    "title": "What documents are required in this case?",
+                    "description": "Declaration of loss, citizenship proof, and supporting documents are required."
+                },
+                {
+                    "title": "Is a penalty applicable?",
+                    "description": "Penalty may apply depending on circumstances and duration."
+                }
+            ],
+            "Surrender Minor Passport": [
+                {
+                    "title": "When is a minor passport surrendered?",
+                    "description": "A minor passport is surrendered when a minor acquires foreign citizenship."
+                },
+                {
+                    "title": "Who can apply for surrender of a minor passport?",
+                    "description": "Parents or legal guardians can apply on behalf of the minor."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Minor’s passport, parents’ documents, and foreign citizenship proof are required."
+                }
+            ],
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa?",
+                    "description": "A Tourist E-Visa allows travelers to visit a country for tourism, sightseeing, leisure, or visiting friends and family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa?",
+                    "description": "Foreign nationals from eligible countries with a valid passport may apply for a Tourist E-Visa."
+                },
+                {
+                    "title": "What is the validity of a Tourist E-Visa?",
+                    "description": "Validity depends on the destination country and may include single or multiple entry options."
+                },
+                {
+                    "title": "Can a Tourist E-Visa be extended?",
+                    "description": "Most Tourist E-Visas are non-extendable, though rules vary by country."
+                }
+            ],
+            "Business E-Visa": [
+                {
+                    "title": "What is a Business E-Visa?",
+                    "description": "A Business E-Visa allows travelers to visit a country for business meetings, conferences, or professional activities."
+                },
+                {
+                    "title": "Who can apply for a Business E-Visa?",
+                    "description": "Business professionals and company representatives from eligible countries may apply."
+                },
+                {
+                    "title": "Does a Business E-Visa allow employment?",
+                    "description": "No, a Business E-Visa does not permit long-term employment in the destination country."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa?",
+                    "description": "A valid passport, business purpose details, and supporting documents are usually required."
+                }
+            ]
+            ,
+            "Medical E-Visa": [
+                {
+                    "title": "What is a Medical E-Visa?",
+                    "description": "A Medical E-Visa allows travelers to enter a country for medical treatment or healthcare services."
+                },
+                {
+                    "title": "Who is eligible for a Medical E-Visa?",
+                    "description": "Applicants seeking treatment at recognized medical institutions may apply."
+                },
+                {
+                    "title": "Can attendants accompany a Medical E-Visa holder?",
+                    "description": "Some countries allow medical attendants to apply under related visa categories."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa?",
+                    "description": "Medical appointment letters, treatment details, and identification documents are required."
+                }
+            ]
+            ,
+            "Crew E-Visa": [
+                {
+                    "title": "What is a Crew E-Visa?",
+                    "description": "A Crew E-Visa is issued to airline, ship, or transport crew members traveling for official duty purposes."
+                },
+                {
+                    "title": "Who can apply for a Crew E-Visa?",
+                    "description": "Pilots, cabin crew, ship crew, and transport staff with valid duty assignments may apply."
+                },
+                {
+                    "title": "What is the validity of a Crew E-Visa?",
+                    "description": "Validity depends on the duty schedule and the destination country’s policies."
+                },
+                {
+                    "title": "Is employment allowed under a Crew E-Visa?",
+                    "description": "Employment is restricted to official crew-related duties only."
+                }
             ]
         }
-
     },
+
     "E-Visa": {
         "united-states": {
             "Tourist E-Visa": [
@@ -698,50 +731,31 @@ export const FaqsDatas = {
                     },
                 ]
             ],
+
+        },
+        "india": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa?",
+                    "description": "A Tourist E-Visa allows travelers to visit a country for tourism, sightseeing, leisure, or visiting friends and family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa?",
+                    "description": "Foreign nationals from eligible countries with a valid passport may apply for a Tourist E-Visa."
+                },
+                {
+                    "title": "What is the validity of a Tourist E-Visa?",
+                    "description": "Validity depends on the destination country and may include single or multiple entry options."
+                },
+                {
+                    "title": "Can a Tourist E-Visa be extended?",
+                    "description": "Most Tourist E-Visas are non-extendable, though rules vary by country."
+                }
+            ]
+
         }
     },
-    // "documents": {
-    //     "india": {
-    //         "Documents & Attestation": [
-    //             {
-    //                 "title": "What are consular document services?",
-    //                 "description": "Consular document services include authentication, attestation, notarization, and apostille of official papers needed for use in India or abroad. These services make your U.S. documents legally recognized in India."
-    //             },
-    //             {
-    //                 "title": "What types of documents can be attested or legalized?",
-    //                 "description": "Common documents include: Personal documents (birth, marriage, and death certificates); Educational documents (degrees, diplomas, transcripts); Power of Attorney for property or legal use in India; Business documents (incorporation papers, agreements, invoices); and Affidavits or declarations."
-    //             },
-    //             {
-    //                 "title": "What is the difference between notarization, apostille, and attestation?",
-    //                 "description": "Notarization: Verification by a U.S. Notary Public confirming your identity and signature. Apostille: Authentication by the U.S. Secretary of State for international use under The Hague Convention. Attestation: Final legalization by the Indian Consulate confirming the document’s authenticity for use in India. Quartus Global Services can guide you through all three stages."
-    //             },
-    //             {
-    //                 "title": "When do I need an apostille or attestation?",
-    //                 "description": "You need it when submitting U.S. documents for legal, educational, business, or property purposes in India — such as university admissions, power of attorney, or inheritance matters."
-    //             },
-    //             {
-    //                 "title": "Do Indian authorities accept notarized U.S. documents without attestation?",
-    //                 "description": "No. Most Indian offices (universities, courts, land registrars, etc.) require attestation or apostille from both U.S. and Indian authorities for validity."
-    //             },
-    //             {
-    //                 "title": "What are the general steps to authenticate a document for India?",
-    //                 "description": "1. Notarize the document in the U.S. 2. Get it apostilled by the Secretary of State. 3. Submit it to the Indian Consulate for final attestation. 4. Receive the legalized document for use in India. Quartus Global Services assists in preparing, verifying, and couriering all necessary documents."
-    //             },
-    //             {
-    //                 "title": "Can photocopies be attested?",
-    //                 "description": "Only if the original document is verified by a notary and accompanied by a self-attested copy. Originals are often required for legal or educational purposes."
-    //             },
-    //             {
-    //                 "title": "What documents are required to submit an attestation request?",
-    //                 "description": "The following are required: original document and copy, valid passport and proof of U.S. address, completed consular attestation form, and for Power of Attorney — passport copy of the attorney (recipient) in India."
-    //             },
-    //             {
-    //                 "title": "How long does document attestation take?",
-    //                 "description": "Processing time varies depending on the consulate and document type but generally takes 2–3 weeks after submission."
-    //             }
-    //         ]
-    //     }
-    // },
+
     "Passport Services": {
         "united-states": {
             "Adult Renewal (DS-82)": [
@@ -968,6 +982,7 @@ export const FaqsDatas = {
             ]
         }
     },
+
     "visa": {
         "india": {
             "Tourist Visa": [
@@ -1123,10 +1138,2012 @@ export const FaqsDatas = {
                     "title": "Can I change jobs while holding an Employment Visa?",
                     "description": "No, Employment Visas are employer-specific. A new visa must be obtained if changing employers or job roles."
                 }
+            ],
+            "Adult Renewal": [
+                {
+                    "title": "Who is eligible for adult passport renewal?",
+                    "description": "Indian citizens whose passport has expired or is about to expire and was issued after the age of 18 may apply for adult renewal."
+                },
+                {
+                    "title": "What documents are required for adult renewal?",
+                    "description": "The existing passport, proof of address, and required application forms are typically required."
+                },
+                {
+                    "title": "Is police verification required?",
+                    "description": "Police verification may be required depending on the application category."
+                }
+            ]
+            ,
+            "Minor Renewal": [
+                {
+                    "title": "Who can apply for minor passport renewal?",
+                    "description": "Parents or legal guardians can apply for passport renewal for minors under the age of 18."
+                },
+                {
+                    "title": "What documents are required for minor renewal?",
+                    "description": "The child’s passport, birth certificate, parents’ passports, and consent documents are required."
+                },
+                {
+                    "title": "Is parental consent mandatory?",
+                    "description": "Yes, consent from both parents or legal guardians is generally required."
+                }
+            ]
+            ,
+            "Lost Passport": [
+                {
+                    "title": "What should I do if my Indian passport is lost?",
+                    "description": "The loss must be reported immediately and an application for reissue should be submitted."
+                },
+                {
+                    "title": "What documents are required for a lost passport?",
+                    "description": "FIR or police report, identity proof, and supporting documents are required."
+                },
+                {
+                    "title": "Is police verification mandatory?",
+                    "description": "Yes, police verification is mandatory in cases of lost passports."
+                }
+            ]
+            ,
+            "Tatkal Passport": [
+                {
+                    "title": "What is a Tatkal passport?",
+                    "description": "Tatkal passport service provides expedited passport issuance for urgent travel needs."
+                },
+                {
+                    "title": "Who is eligible for Tatkal service?",
+                    "description": "Applicants with urgent requirements and eligible documentation may apply under Tatkal."
+                },
+                {
+                    "title": "Is police verification required for Tatkal?",
+                    "description": "Police verification may be conducted after passport issuance under Tatkal scheme."
+                }
+            ]
+            ,
+            "miss-service-adult": [
+                {
+                    "title": "What is Miss Service (Adult)?",
+                    "description": "This service covers miscellaneous adult passport-related requests including POA and consular services."
+                },
+                {
+                    "title": "Who can apply for this service?",
+                    "description": "Adult passport holders requiring additional consular or documentation services may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Relevant passport and supporting documents are required based on the service requested."
+                }
+            ]
+            ,
+            "Surrender with Indian Passport": [
+                {
+                    "title": "What is surrender with Indian passport?",
+                    "description": "This service is used when an Indian passport is surrendered after acquiring foreign citizenship."
+                },
+                {
+                    "title": "Is the original Indian passport required?",
+                    "description": "Yes, the original Indian passport must be submitted for surrender."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Indian passport, foreign citizenship proof, and application forms are required."
+                }
+            ]
+            ,
+            "Surrender without Indian Passport": [
+                {
+                    "title": "What does surrender without Indian passport mean?",
+                    "description": "This applies when the original Indian passport is unavailable during surrender."
+                },
+                {
+                    "title": "What documents are required in this case?",
+                    "description": "Declaration of loss, citizenship proof, and supporting documents are required."
+                },
+                {
+                    "title": "Is a penalty applicable?",
+                    "description": "Penalty may apply depending on circumstances and duration."
+                }
+            ]
+            ,
+            "Surrender Minor Passport": [
+                {
+                    "title": "When is a minor passport surrendered?",
+                    "description": "A minor passport is surrendered when a minor acquires foreign citizenship."
+                },
+                {
+                    "title": "Who can apply for surrender of a minor passport?",
+                    "description": "Parents or legal guardians can apply on behalf of the minor."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Minor’s passport, parents’ documents, and foreign citizenship proof are required."
+                }
+            ]
+            ,
+            "Tourist E-Visa": [
+                {
+                    "title": "What is a Tourist E-Visa?",
+                    "description": "A Tourist E-Visa allows travelers to visit a country for tourism, sightseeing, leisure, or visiting friends and family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa?",
+                    "description": "Foreign nationals from eligible countries with a valid passport may apply for a Tourist E-Visa."
+                },
+                {
+                    "title": "What is the validity of a Tourist E-Visa?",
+                    "description": "Validity depends on the destination country and may include single or multiple entry options."
+                },
+                {
+                    "title": "Can a Tourist E-Visa be extended?",
+                    "description": "Most Tourist E-Visas are non-extendable, though rules vary by country."
+                }
+            ]
+            , "Business E-Visa": [
+                {
+                    "title": "What is a Business E-Visa?",
+                    "description": "A Business E-Visa allows travelers to visit a country for business meetings, conferences, or professional activities."
+                },
+                {
+                    "title": "Who can apply for a Business E-Visa?",
+                    "description": "Business professionals and company representatives from eligible countries may apply."
+                },
+                {
+                    "title": "Does a Business E-Visa allow employment?",
+                    "description": "No, a Business E-Visa does not permit long-term employment in the destination country."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa?",
+                    "description": "A valid passport, business purpose details, and supporting documents are usually required."
+                }
+            ], "Medical E-Visa": [
+                {
+                    "title": "What is a Medical E-Visa?",
+                    "description": "A Medical E-Visa allows travelers to enter a country for medical treatment or healthcare services."
+                },
+                {
+                    "title": "Who is eligible for a Medical E-Visa?",
+                    "description": "Applicants seeking treatment at recognized medical institutions may apply."
+                },
+                {
+                    "title": "Can attendants accompany a Medical E-Visa holder?",
+                    "description": "Some countries allow medical attendants to apply under related visa categories."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa?",
+                    "description": "Medical appointment letters, treatment details, and identification documents are required."
+                }
+            ]
+            , "Crew E-Visa": [
+                {
+                    "title": "What is a Crew E-Visa?",
+                    "description": "A Crew E-Visa is issued to airline, ship, or transport crew members traveling for official duty purposes."
+                },
+                {
+                    "title": "Who can apply for a Crew E-Visa?",
+                    "description": "Pilots, cabin crew, ship crew, and transport staff with valid duty assignments may apply."
+                },
+                {
+                    "title": "What is the validity of a Crew E-Visa?",
+                    "description": "Validity depends on the duty schedule and the destination country’s policies."
+                },
+                {
+                    "title": "Is employment allowed under a Crew E-Visa?",
+                    "description": "Employment is restricted to official crew-related duties only."
+                }
             ]
 
+            , "Lost Passport 1": [
+                {
+                    "title": "What should I do if my passport is lost?",
+                    "description": "You must report the lost passport immediately and apply for a replacement as soon as possible."
+                },
+                {
+                    "title": "What documents are required to replace a lost passport?",
+                    "description": "Applicants must submit proof of U.S. citizenship, identification documents, passport photos, and a loss report."
+                },
+                {
+                    "title": "Is an in-person application required for a lost passport?",
+                    "description": "Yes, applications for a lost passport generally require an in-person visit."
+                }
+            ],
+            "OCI Adult Application Checklist": [
+                {
+                    "title": "Who can apply for an OCI card as an adult?",
+                    "description": "Adult applicants of Indian origin or former Indian citizens who meet OCI eligibility criteria may apply."
+                },
+                {
+                    "title": "What documents are required for an OCI adult application?",
+                    "description": "Applicants must provide proof of Indian origin, passport, citizenship certificate, photographs, and supporting documents."
+                },
+                {
+                    "title": "Is personal appearance required?",
+                    "description": "Personal appearance may be required depending on the application stage or consulate guidelines."
+                }
+            ]
+            ,
+            "OCI Minor Application Checklist": [
+                {
+                    "title": "Who can apply for an OCI card for a minor?",
+                    "description": "Parents or legal guardians can apply for an OCI card on behalf of a minor child."
+                },
+                {
+                    "title": "What documents are required for a minor OCI application?",
+                    "description": "Birth certificate, parents’ passports, consent documents, and proof of Indian origin are required."
+                },
+                {
+                    "title": "Is parental consent mandatory?",
+                    "description": "Yes, consent from both parents or legal guardians is generally required."
+                }
+            ]
+            ,
+            "OCI Spouse (Foreign National)": [
+                {
+                    "title": "Who is eligible under the OCI spouse category?",
+                    "description": "Foreign nationals married to Indian citizens or OCI cardholders may be eligible under this category."
+                },
+                {
+                    "title": "What documents are required for OCI spouse application?",
+                    "description": "Marriage certificate, spouse’s passport or OCI card, and supporting relationship documents are required."
+                },
+                {
+                    "title": "Is there a minimum marriage duration requirement?",
+                    "description": "Yes, the marriage must meet the minimum duration requirement as per OCI guidelines."
+                }
+            ]
+            ,
+            "OCI Registration (In Lieu of PIO Card)": [
+                {
+                    "title": "What does OCI registration in lieu of PIO card mean?",
+                    "description": "This service converts a valid PIO card into an OCI card."
+                },
+                {
+                    "title": "Who can apply for this conversion?",
+                    "description": "Individuals holding a valid PIO card are eligible to apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "PIO card, passport, photographs, and supporting documents are required."
+                }
+            ]
+            ,
+            "oci-registration-lostdamaged-pio-card": [
+                {
+                    "title": "When is this OCI registration applicable?",
+                    "description": "This applies when a PIO card is lost or damaged and needs conversion to OCI."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Loss declaration or damaged PIO card, passport, and supporting documents are required."
+                },
+                {
+                    "title": "Is additional verification required?",
+                    "description": "Additional verification may be required depending on the case."
+                }
+            ]
+            ,
+
+            "oci-lostdamaged": [
+                {
+                    "title": "What should I do if my OCI card is lost or damaged?",
+                    "description": "You must apply for re-issuance of the OCI card as soon as possible."
+                },
+                {
+                    "title": "What documents are required for OCI re-issuance?",
+                    "description": "Loss report or damaged OCI card, passport, and supporting documents are required."
+                },
+                {
+                    "title": "Is personal appearance required?",
+                    "description": "Personal appearance may be required depending on the application process."
+                }
+            ]
+            ,
+            "OCI Surrender": [
+                {
+                    "title": "When is OCI surrender required?",
+                    "description": "OCI surrender is required when an individual renounces OCI status or becomes ineligible."
+                },
+                {
+                    "title": "What documents are required for OCI surrender?",
+                    "description": "OCI card, passport, and supporting declaration documents are required."
+                },
+                {
+                    "title": "Is surrender mandatory in all cases?",
+                    "description": "Surrender is mandatory as per applicable regulations when OCI status is no longer valid."
+                }
+            ]
+            ,
+            "PIO to OCI Checklist": [
+                {
+                    "title": "Who should convert from PIO to OCI?",
+                    "description": "All PIO cardholders are required to convert their PIO cards to OCI."
+                },
+                {
+                    "title": "What documents are required for PIO to OCI conversion?",
+                    "description": "PIO card, passport, photographs, and supporting documents are required."
+                },
+                {
+                    "title": "Is there a deadline for PIO to OCI conversion?",
+                    "description": "Deadlines are subject to government notifications and guidelines."
+                }
+            ]
+            ,
+            "surrender-with-indian-passport-1": [
+                {
+                    "title": "When is surrender of an Indian passport required?",
+                    "description": "Surrender of an Indian passport is required after acquiring foreign citizenship, as dual citizenship is not permitted."
+                },
+                {
+                    "title": "What documents are required for surrender with Indian passport?",
+                    "description": "The original Indian passport, foreign citizenship certificate, passport copy of the new nationality, and application form are required."
+                },
+                {
+                    "title": "Is a surrender certificate issued?",
+                    "description": "Yes, a surrender certificate is issued after successful submission and verification."
+                }
+            ]
+            ,
+            "surrender-without-indian-passport-1": [
+                {
+                    "title": "What does surrender without Indian passport mean?",
+                    "description": "This applies when the original Indian passport is lost, damaged, or unavailable at the time of surrender."
+                },
+                {
+                    "title": "What documents are required in this case?",
+                    "description": "A declaration of loss, foreign citizenship proof, passport copy, and supporting documents are required."
+                },
+                {
+                    "title": "Is a penalty applicable?",
+                    "description": "Penalties may apply depending on the circumstances and duration of passport retention."
+                }
+            ]
+            , "Surrender Minor Indian Passport": [
+                {
+                    "title": "When is a minor Indian passport surrendered?",
+                    "description": "A minor Indian passport must be surrendered when the minor acquires foreign citizenship."
+                },
+                {
+                    "title": "Who can apply for surrender of a minor passport?",
+                    "description": "Parents or legal guardians can apply on behalf of the minor."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Minor’s Indian passport, parents’ passports, foreign citizenship proof, and consent documents are required."
+                }
+            ],
+            "Power of Attorney or Affidavit Attestation": [
+                {
+                    "title": "What is Power of Attorney or Affidavit attestation?",
+                    "description": "This service authenticates a Power of Attorney or affidavit for legal and official use internationally."
+                },
+                {
+                    "title": "Who can apply for this service?",
+                    "description": "Individuals who need to authorize another person or submit sworn declarations may apply."
+                },
+                {
+                    "title": "Is personal appearance required?",
+                    "description": "In most cases, the applicant must appear in person for identity verification."
+                }
+            ]
+            , "Marriage Certificate Attestation": [
+                {
+                    "title": "What is marriage certificate attestation?",
+                    "description": "Marriage certificate attestation verifies the authenticity of a marriage certificate for use abroad."
+                },
+                {
+                    "title": "When is marriage certificate attestation required?",
+                    "description": "It is required for immigration, visa applications, or legal purposes in another country."
+                },
+                {
+                    "title": "What documents are needed?",
+                    "description": "Original marriage certificate, passport copies, and supporting documents are required."
+                }
+            ]
+            ,
+            "Birth Certificate Attestation": [
+                {
+                    "title": "What is birth certificate attestation?",
+                    "description": "Birth certificate attestation confirms the authenticity of a birth certificate for international use."
+                },
+                {
+                    "title": "Who can apply for birth certificate attestation?",
+                    "description": "Individuals requiring proof of birth for immigration, education, or legal purposes may apply."
+                },
+                {
+                    "title": "Is the original certificate required?",
+                    "description": "Yes, original certificates and supporting documents are generally required."
+                }
+            ]
+            ,
+            "Life Certificate (For Pension or Verification)": [
+                {
+                    "title": "What is a Life Certificate?",
+                    "description": "A Life Certificate confirms that a person is alive and is commonly required for pension or official verification."
+                },
+                {
+                    "title": "Who needs a Life Certificate?",
+                    "description": "Pensioners or individuals required to prove life status for official purposes may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Valid identification documents and passport are typically required."
+                }
+            ]
+            ,
+            "Registration of Birth": [
+                {
+                    "title": "What is birth registration?",
+                    "description": "Birth registration officially records the birth of a child with the relevant authorities."
+                },
+                {
+                    "title": "Who can apply for birth registration?",
+                    "description": "Parents or legal guardians of the child may apply for registration."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Hospital birth certificate and parents’ identification documents are required."
+                }
+            ]
+            ,
+            "Attestation of Will": [
+                {
+                    "title": "What is will attestation?",
+                    "description": "Will attestation verifies the authenticity of a will for legal and official purposes."
+                },
+                {
+                    "title": "Who can request will attestation?",
+                    "description": "Individuals who have executed a will and require official validation may apply."
+                },
+                {
+                    "title": "Is personal appearance required?",
+                    "description": "Yes, personal appearance is generally required for verification."
+                }
+            ]
+            ,
+            "NRI Certificate Issuance": [
+                {
+                    "title": "What is an NRI certificate?",
+                    "description": "An NRI certificate confirms a person’s non-resident Indian status for official and legal purposes."
+                },
+                {
+                    "title": "Who can apply for an NRI certificate?",
+                    "description": "Indian citizens residing abroad for employment, business, or long-term stay may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Passport, visa, residence proof, and supporting documents are required."
+                }
+            ]
+            ,
+            "Registration of Marriage (Solemnized in USA)": [
+                {
+                    "title": "What does this service cover?",
+                    "description": "This service registers a marriage solemnized in the USA with Indian authorities."
+                },
+                {
+                    "title": "Who can apply for this registration?",
+                    "description": "Indian nationals whose marriage was solemnized in the USA may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Marriage certificate, passports, visas, and supporting documents are required."
+                }
+            ]
+            , "Attestation of Documents / Statement of Need / Indian Driving License Authentication": [
+                {
+                    "title": "What services are included?",
+                    "description": "This includes document attestation, statement of need issuance, and Indian driving license authentication."
+                },
+                {
+                    "title": "Who can apply for these services?",
+                    "description": "Individuals requiring official verification of documents for foreign or domestic use may apply."
+                },
+                {
+                    "title": "Are original documents required?",
+                    "description": "Yes, original documents along with photocopies are usually required."
+                }
+            ]
+            ,
+            "Affidavit for Child Passport Issuance in India": [
+                {
+                    "title": "What is this affidavit used for?",
+                    "description": "It provides parental consent or declarations required for issuing a child’s passport in India."
+                },
+                {
+                    "title": "Who must submit this affidavit?",
+                    "description": "Parents or legal guardians applying for a child’s passport may be required to submit this affidavit."
+                },
+                {
+                    "title": "Does the affidavit need attestation?",
+                    "description": "Yes, attestation is required as per applicable guidelines."
+                }
+            ]
+            ,
+            "No Obligation to Return to India (NORI)": [
+                {
+                    "title": "What is a NORI certificate?",
+                    "description": "A NORI certificate confirms that an individual has no obligation to return to India."
+                },
+                {
+                    "title": "Who requires a NORI certificate?",
+                    "description": "Individuals seeking foreign employment, education, or permanent residency may require it."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Passport, visa, and supporting documents are generally required."
+                }
+            ]
+            ,
+            "Death Certificate Attestation / Carrying Mortal Remains": [
+                {
+                    "title": "What is death certificate attestation?",
+                    "description": "This service verifies a death certificate for legal use or for transporting mortal remains internationally."
+                },
+                {
+                    "title": "When is this service required?",
+                    "description": "It is required for legal procedures or carrying mortal remains across borders."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Death certificate, passport copies, and relevant supporting documents are required."
+                }
+            ]
+            , "Police Clearance Certificate (PCC) for Non-Indian Nationals": [
+                {
+                    "title": "What is a Police Clearance Certificate?",
+                    "description": "A PCC certifies that an individual has no criminal record in a specific jurisdiction."
+                },
+                {
+                    "title": "Who can apply for a PCC?",
+                    "description": "Non-Indian nationals requiring background verification for immigration or employment may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Passport, address proof, and supporting documents are required."
+                }
+            ]
+            ,
+            "Renewal of International Driving Permit": [
+                {
+                    "title": "What is International Driving Permit renewal?",
+                    "description": "This service renews an existing International Driving Permit for continued international driving."
+                },
+                {
+                    "title": "Who can apply for renewal?",
+                    "description": "Individuals with an expired or expiring International Driving Permit may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Valid driving license, passport, and supporting documents are required."
+                }
+            ]
+            ,
+            //@ts-ignore
+            "Renewal of International Driving Permit": [
+                {
+                    "title": "What is International Driving Permit renewal?",
+                    "description": "This service renews an existing International Driving Permit for continued international driving."
+                },
+                {
+                    "title": "Who can apply for renewal?",
+                    "description": "Individuals with an expired or expiring International Driving Permit may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Valid driving license, passport, and supporting documents are required."
+                }
+            ]
+            ,
+            "Power of Attorney Sub-Types": [
+                {
+                    "title": "What are Power of Attorney sub-types?",
+                    "description": "These include general, special, property-related, and financial Power of Attorney types."
+                },
+                {
+                    "title": "Why are different sub-types required?",
+                    "description": "Different legal and personal situations require specific Power of Attorney formats."
+                },
+                {
+                    "title": "Is attestation required for all sub-types?",
+                    "description": "Yes, attestation is required to validate the Power of Attorney for official use."
+                }
+            ]
+            ,
+            "General Power of Attorney": [
+                {
+                    "title": "What is a General Power of Attorney?",
+                    "description": "A General Power of Attorney authorizes a person to act on behalf of another in a broad range of legal and financial matters."
+                },
+                {
+                    "title": "Who can apply for a General Power of Attorney?",
+                    "description": "Any individual who wishes to delegate authority for managing personal, financial, or legal affairs may apply."
+                },
+                {
+                    "title": "Is attestation required for a General Power of Attorney?",
+                    "description": "Yes, attestation is generally required for the document to be legally valid for official use."
+                }
+            ]
+            ,
+            "Special Power of Attorney": [
+                {
+                    "title": "What is a Special Power of Attorney?",
+                    "description": "A Special Power of Attorney authorizes a person to act on behalf of another for a specific task or transaction."
+                },
+                {
+                    "title": "When is a Special Power of Attorney used?",
+                    "description": "It is commonly used for property transactions, court representation, or specific legal matters."
+                },
+                {
+                    "title": "Does a Special Power of Attorney require attestation?",
+                    "description": "Yes, attestation is required to validate the document for official and legal use."
+                }
+            ]
+            ,
+            "Affidavit of Support": [
+                {
+                    "title": "What is an Affidavit of Support?",
+                    "description": "An Affidavit of Support is a legal document in which an individual agrees to financially support another person."
+                },
+                {
+                    "title": "When is an Affidavit of Support required?",
+                    "description": "It is commonly required for immigration, visa applications, or sponsorship purposes."
+                },
+                {
+                    "title": "Who can provide an Affidavit of Support?",
+                    "description": "A sponsor who meets the required financial eligibility criteria may submit an Affidavit of Support."
+                }
+            ]
+            ,
+            "Joint Affidavit for OCI or Passport": [
+                {
+                    "title": "What is a Joint Affidavit?",
+                    "description": "A Joint Affidavit is a sworn statement jointly signed by two parties for OCI or passport-related applications."
+                },
+                {
+                    "title": "When is a Joint Affidavit required?",
+                    "description": "It is required in certain OCI or passport cases to confirm relationship details or declarations."
+                },
+                {
+                    "title": "Does the Joint Affidavit require attestation?",
+                    "description": "Yes, attestation is required for the affidavit to be officially accepted."
+                }
+            ]
+            ,
+            "Property Sale Deed Authorization": [
+                {
+                    "title": "What is Property Sale Deed Authorization?",
+                    "description": "This authorization allows a designated individual to execute property sale documents on behalf of the owner."
+                },
+                {
+                    "title": "Who needs Property Sale Deed Authorization?",
+                    "description": "Property owners who are unable to be physically present for the sale may require this authorization."
+                },
+                {
+                    "title": "Is attestation required for property sale authorization?",
+                    "description": "Yes, attestation is mandatory for legal validity."
+                }
+            ]
+            ,
+            "NOC or Consent Letter": [
+                {
+                    "title": "What is a NOC or Consent Letter?",
+                    "description": "A No Objection Certificate (NOC) or Consent Letter confirms that an individual has no objection to a specific action or request."
+                },
+                {
+                    "title": "When is a NOC or Consent Letter required?",
+                    "description": "It is commonly required for travel, education, legal procedures, or official approvals."
+                },
+                {
+                    "title": "Does a NOC or Consent Letter require attestation?",
+                    "description": "Attestation may be required depending on the authority or intended use."
+                }
+            ]
+            ,
+            //@ts-ignore
+
+            "NOC or Consent Letter": [
+                {
+                    "title": "What is a NOC or Consent Letter?",
+                    "description": "A No Objection Certificate (NOC) or Consent Letter confirms that an individual has no objection to a specific action or request."
+                },
+                {
+                    "title": "When is a NOC or Consent Letter required?",
+                    "description": "It is commonly required for travel, education, legal procedures, or official approvals."
+                },
+                {
+                    "title": "Does a NOC or Consent Letter require attestation?",
+                    "description": "Attestation may be required depending on the authority or intended use."
+                }
+            ],
+            "New PAN Card": [
+                {
+                    "title": "Who can apply for a new PAN card?",
+                    "description": "Indian citizens, NRIs, and foreign nationals who require a Permanent Account Number for financial or tax purposes may apply."
+                },
+                {
+                    "title": "What documents are required for a new PAN card?",
+                    "description": "Applicants must submit proof of identity, proof of address, and date of birth documents."
+                },
+                {
+                    "title": "How long does it take to receive a new PAN card?",
+                    "description": "Processing time varies, but PAN cards are generally issued within a few weeks after application."
+                }
+            ]
+            ,
+            "Correction / Update PAN": [
+                {
+                    "title": "When should PAN details be corrected or updated?",
+                    "description": "Corrections or updates are required when there are changes in name, date of birth, address, or other personal details."
+                },
+                {
+                    "title": "What documents are required for PAN correction or update?",
+                    "description": "Applicants must provide supporting documents for the changes requested along with the existing PAN details."
+                },
+                {
+                    "title": "Will a new PAN number be issued after correction?",
+                    "description": "No, the PAN number remains the same; only the details linked to it are updated."
+                }
+            ],
+
+            "Document Apostille": [
+                {
+                    "title": "What is a document apostille?",
+                    "description": "A document apostille certifies the authenticity of a document for use in countries that are members of the Hague Apostille Convention."
+                },
+                {
+                    "title": "Which documents can be apostilled?",
+                    "description": "Personal, educational, commercial, and legal documents are commonly eligible for apostille."
+                },
+                {
+                    "title": "Is embassy attestation required after apostille?",
+                    "description": "No, apostille replaces embassy attestation for Hague Convention countries."
+                }
+            ]
+            ,
+            "Embassy Attestation": [
+                {
+                    "title": "What is embassy attestation?",
+                    "description": "Embassy attestation verifies documents for use in countries that are not part of the Hague Apostille Convention."
+                },
+                {
+                    "title": "When is embassy attestation required?",
+                    "description": "It is required when documents must be legally recognized in non-apostille countries."
+                },
+                {
+                    "title": "What documents are required for embassy attestation?",
+                    "description": "Original documents, passport copies, and supporting paperwork are generally required."
+                }
+            ]
+            ,
+            "Power of Attorney Legalization": [
+                {
+                    "title": "What is Power of Attorney legalization?",
+                    "description": "Power of Attorney legalization authenticates a POA document for legal use in another country."
+                },
+                {
+                    "title": "When is POA legalization required?",
+                    "description": "It is commonly required for property transactions, court matters, or financial authority abroad."
+                },
+                {
+
+                    "title": "Is personal appearance required?",
+                    "description": "In most cases, the applicant must appear in person for verification."
+                }
+            ]
+            ,
+            "Educational Certificate Apostille": [
+                {
+                    "title": "What is an educational certificate apostille?",
+                    "description": "An educational certificate apostille certifies the authenticity of academic documents for use in countries under the Hague Apostille Convention."
+                },
+                {
+                    "title": "Which educational documents can be apostilled?",
+                    "description": "Degree certificates, diplomas, transcripts, and mark sheets are commonly eligible for apostille."
+                },
+                {
+                    "title": "When is educational apostille required?",
+                    "description": "It is required for higher education, employment, or professional licensing abroad."
+                }
+            ]
+            ,
+            "Commercial Invoice Attestation": [
+                {
+                    "title": "What is commercial invoice attestation?",
+                    "description": "Commercial invoice attestation verifies business invoices for international trade and customs clearance."
+                },
+                {
+                    "title": "When is commercial invoice attestation required?",
+                    "description": "It is required when exporting goods to countries that mandate document authentication."
+                },
+                {
+                    "title": "What documents are required for invoice attestation?",
+                    "description": "Commercial invoice, company registration documents, and supporting trade papers are typically required."
+                }
+            ],
+
+            "Birth or Marriage Certificate Apostille": [
+  {
+    "title": "What is birth or marriage certificate apostille?",
+    "description": "This apostille certifies the authenticity of birth or marriage certificates for use in countries that are members of the Hague Apostille Convention."
+  },
+  {
+    "title": "When is birth or marriage certificate apostille required?",
+    "description": "It is commonly required for immigration, family visas, residency, or legal matters abroad."
+  },
+  {
+    "title": "Are original certificates required?",
+    "description": "Yes, original certificates along with supporting documents are generally required."
+  }
+]
+,
+"Corporate Document Legalization": [
+  {
+    "title": "What is corporate document legalization?",
+    "description": "Corporate document legalization authenticates business documents for international commercial and legal use."
+  },
+  {
+    "title": "Which documents fall under corporate legalization?",
+    "description": "Documents may include certificates of incorporation, board resolutions, powers of attorney, and agreements."
+  },
+  {
+    "title": "When is corporate document legalization required?",
+    "description": "It is required when conducting business or opening entities in foreign countries."
+  }
+]
+,
+"Medical Document Attestation": [
+  {
+    "title": "What is medical document attestation?",
+    "description": "Medical document attestation verifies the authenticity of medical records for international use."
+  },
+  {
+    "title": "When is medical attestation required?",
+    "description": "It is commonly required for immigration, employment, insurance claims, or medical treatment abroad."
+  },
+  {
+    "title": "What medical documents can be attested?",
+    "description": "Medical reports, fitness certificates, vaccination records, and health certificates can be attested."
+  }
+]
+
+
+
+
+
+
+
+        },
+
+        "united-states": {
+            "B1/B2 Visitor Visa": [
+                {
+                    "title": "Who can apply for a B1/B2 Visitor Visa?",
+                    "description": "Individuals traveling to the United States for business meetings, conferences (B1), tourism, medical treatment, or visiting family (B2) can apply."
+                },
+                {
+                    "title": "What is the validity of a B1/B2 Visitor Visa?",
+                    "description": "B1/B2 visas are commonly issued for up to 10 years, with multiple entries, depending on applicant eligibility."
+                },
+                {
+                    "title": "Can I work in the US on a B1/B2 visa?",
+                    "description": "No, employment is not permitted on a B1/B2 Visitor Visa."
+                },
+                {
+                    "title": "What documents are required for a B1/B2 visa?",
+                    "description": "Required documents include a valid passport, DS-160 confirmation, visa fee receipt, appointment confirmation, and supporting financial and travel documents."
+                },
+                {
+                    "title": "How long does B1/B2 visa processing take?",
+                    "description": "Processing time depends on embassy appointment availability and individual case review."
+                }
+            ],
+
+            "F1 Student Visa": [
+                {
+                    "title": "Who is eligible for an F1 Student Visa?",
+                    "description": "Students accepted into a US government-approved educational institution are eligible to apply for an F1 visa."
+                },
+                {
+                    "title": "What is the validity of an F1 visa?",
+                    "description": "The F1 visa remains valid for the duration of the academic program along with any authorized practical training period."
+                },
+                {
+                    "title": "Can F1 students work in the US?",
+                    "description": "Yes, students can work part-time on campus and may qualify for CPT or OPT with authorization."
+                },
+                {
+                    "title": "What documents are required for an F1 visa?",
+                    "description": "Documents include a valid passport, Form I-20, SEVIS fee receipt, DS-160 confirmation, and proof of funds."
+                }
+            ],
+
+            "H1B Work Visa": [
+                {
+                    "title": "What is an H1B Work Visa?",
+                    "description": "The H1B visa allows US employers to hire foreign professionals in specialty occupations."
+                },
+                {
+                    "title": "What is the validity of an H1B visa?",
+                    "description": "H1B visas are typically issued for 3 years and can be extended up to 6 years."
+                },
+                {
+                    "title": "Is there a cap on H1B visas?",
+                    "description": "Yes, most H1B visas are subject to an annual lottery cap, except cap-exempt employers."
+                },
+                {
+                    "title": "Can family members accompany H1B holders?",
+                    "description": "Yes, dependents can apply for H4 visas."
+                }
+            ],
+
+            "J1 Exchange Visa": [
+                {
+                    "title": "Who can apply for a J1 Exchange Visa?",
+                    "description": "Participants in approved exchange programs such as interns, trainees, teachers, and researchers can apply."
+                },
+                {
+                    "title": "What is the duration of a J1 visa?",
+                    "description": "The duration depends on the exchange program and sponsor approval."
+                },
+                {
+                    "title": "Does the J1 visa have a home residency requirement?",
+                    "description": "Some J1 visa holders may be subject to a two-year home country residency requirement."
+                }
+            ],
+
+            "L1 Intra-Company Transfer": [
+                {
+                    "title": "What is an L1 visa?",
+                    "description": "The L1 visa allows multinational companies to transfer employees to a US office."
+                },
+                {
+                    "title": "Who qualifies for an L1 visa?",
+                    "description": "Employees who have worked with the company abroad for at least one year in a managerial, executive, or specialized knowledge role."
+                },
+                {
+                    "title": "What is the validity of an L1 visa?",
+                    "description": "L1A visas are valid up to 7 years, while L1B visas are valid up to 5 years."
+                }
+            ],
+
+            "O1 Extraordinary Ability": [
+                {
+                    "title": "What is an O1 visa?",
+                    "description": "The O1 visa is for individuals with extraordinary ability in sciences, arts, education, business, or athletics."
+                },
+                {
+                    "title": "What evidence is required for an O1 visa?",
+                    "description": "Applicants must provide proof of national or international recognition and extraordinary achievements."
+                },
+                {
+                    "title": "How long is the O1 visa valid?",
+                    "description": "The O1 visa is initially granted for up to 3 years and can be extended annually."
+                }
+            ],
+
+            "k1-fiancee-visa-1": [
+                {
+                    "title": "What is a K1 Fiancé(e) Visa?",
+                    "description": "The K1 Fiancé(e) Visa allows a foreign national to travel to the United States to marry their US citizen fiancé(e)."
+                },
+                {
+                    "title": "Who is eligible to apply for a K1 visa?",
+                    "description": "The applicant must be engaged to a US citizen, both must be legally free to marry, and they must have met in person within the last two years."
+                },
+                {
+                    "title": "How long is the K1 visa valid?",
+                    "description": "The K1 visa is valid for a single entry and the marriage must take place within 90 days of arrival in the US."
+                },
+                {
+                    "title": "Can a K1 visa holder work in the US?",
+                    "description": "K1 visa holders may apply for work authorization after entering the US."
+                },
+                {
+                    "title": "What happens after marriage on a K1 visa?",
+                    "description": "After marriage, the foreign spouse must apply for Adjustment of Status to become a lawful permanent resident."
+                }
+            ],
+
+            "TN/TD NAFTA Visa": [
+                {
+                    "title": "What is a TN visa?",
+                    "description": "The TN visa allows qualified Canadian and Mexican professionals to work in the United States under the USMCA (formerly NAFTA) agreement."
+                },
+                {
+                    "title": "Who is eligible for a TN visa?",
+                    "description": "Professionals in approved occupations such as engineers, accountants, scientists, and teachers may qualify for a TN visa."
+                },
+                {
+                    "title": "What is the validity of a TN visa?",
+                    "description": "TN visas are typically issued for up to 3 years and can be renewed indefinitely while maintaining non-immigrant intent."
+                },
+                {
+                    "title": "What is a TD visa?",
+                    "description": "The TD visa is for dependents (spouse and children under 21) of TN visa holders."
+                },
+                {
+                    "title": "Can TD visa holders work in the US?",
+                    "description": "No, TD visa holders are not permitted to work in the United States."
+                }
+            ],
+
+            "IR1/CR1 (Spouse Visa)": [
+                {
+                    "title": "What is the IR1/CR1 Spouse Visa?",
+                    "description": "The IR1 and CR1 visas allow the foreign spouse of a U.S. citizen to live permanently in the United States."
+                },
+                {
+                    "title": "What is the difference between IR1 and CR1 visas?",
+                    "description": "IR1 is issued when the marriage is more than two years old, while CR1 is issued for marriages under two years and grants conditional residency."
+                },
+                {
+                    "title": "Who is eligible to apply for an IR1 or CR1 visa?",
+                    "description": "Legally married spouses of U.S. citizens with a valid and genuine marriage relationship are eligible."
+                },
+                {
+                    "title": "Can IR1/CR1 visa holders work in the U.S.?",
+                    "description": "Yes, visa holders can work immediately upon arrival as they receive permanent resident status."
+                },
+                {
+                    "title": "How long does IR1/CR1 visa processing take?",
+                    "description": "Processing time varies but typically ranges from 10 to 14 months depending on the case and consulate."
+                }
+            ],
+
+            "EB1 Employment-Based Visa": [
+                {
+                    "title": "What is the EB1 visa?",
+                    "description": "The EB1 visa is for individuals with extraordinary ability, outstanding professors or researchers, and multinational executives or managers."
+                },
+                {
+                    "title": "Who qualifies for the EB1 visa?",
+                    "description": "Applicants must demonstrate extraordinary achievements or hold qualifying executive or research positions."
+                },
+                {
+                    "title": "Does the EB1 visa require labor certification?",
+                    "description": "No, the EB1 visa does not require labor certification."
+                },
+                {
+                    "title": "Is EB1 a green card category?",
+                    "description": "Yes, the EB1 visa leads directly to lawful permanent residency in the United States."
+                }
+            ]
+            ,
+
+            "EB2 Employment-Based Visa": [
+                {
+                    "title": "What is the EB2 visa?",
+                    "description": "The EB2 visa is for professionals with advanced degrees or individuals with exceptional ability."
+                },
+                {
+                    "title": "What are the eligibility requirements for EB2?",
+                    "description": "Applicants must hold an advanced degree or demonstrate exceptional ability in their field."
+                },
+                {
+                    "title": "Does EB2 require labor certification?",
+                    "description": "Yes, most EB2 cases require labor certification unless applying under National Interest Waiver."
+                },
+                {
+                    "title": "Is the EB2 visa a permanent residency visa?",
+                    "description": "Yes, successful EB2 applicants receive U.S. permanent resident status."
+                }
+            ]
+            ,
+
+            "eb3-skilledprofessional-visa": [
+                {
+                    "title": "What is the EB3 visa?",
+                    "description": "The EB3 visa is for skilled workers, professionals, and other workers with qualifying job offers in the United States."
+                },
+                {
+                    "title": "Who qualifies for an EB3 visa?",
+                    "description": "Applicants must have a valid job offer and meet the education or work experience requirements."
+                },
+                {
+                    "title": "Does EB3 require labor certification?",
+                    "description": "Yes, labor certification is mandatory for EB3 visa applicants."
+                },
+                {
+                    "title": "Is EB3 a green card category?",
+                    "description": "Yes, the EB3 visa grants lawful permanent residence in the United States."
+                }
+            ],
+
+            "DV Lottery Visa": [
+                {
+                    "title": "What is the DV Lottery Visa?",
+                    "description": "The Diversity Visa Lottery program provides a limited number of immigrant visas each year through a random selection process."
+                },
+                {
+                    "title": "Who is eligible for the DV Lottery?",
+                    "description": "Applicants must be from an eligible country and meet education or work experience requirements."
+                },
+                {
+                    "title": "Is the DV Lottery free to apply?",
+                    "description": "Yes, there is no government fee to enter the DV Lottery."
+                },
+                {
+                    "title": "Does the DV Lottery lead to a green card?",
+                    "description": "Yes, selected applicants can apply for U.S. permanent residency."
+                }
+            ],
+
+            "Family Sponsored Visa": [
+                {
+                    "title": "What is a Family Sponsored Visa?",
+                    "description": "Family Sponsored visas allow U.S. citizens and lawful permanent residents to sponsor eligible family members."
+                },
+                {
+                    "title": "Who can be sponsored under this visa category?",
+                    "description": "Eligible relatives include spouses, children, parents, and siblings depending on the sponsor’s status."
+                },
+                {
+                    "title": "Are Family Sponsored visas subject to quotas?",
+                    "description": "Yes, most family-sponsored categories have annual limits and waiting periods."
+                },
+                {
+                    "title": "Does this visa lead to permanent residency?",
+                    "description": "Yes, approved applicants receive lawful permanent resident status."
+                }
+            ],
+
+            "petitioner-us-citizen-documents": [
+                {
+                    "title": "What documents are required from the U.S. citizen petitioner?",
+                    "description": "The petitioner must provide proof of U.S. citizenship, such as a U.S. passport, birth certificate, or naturalization certificate."
+                },
+                {
+                    "title": "Is proof of relationship required?",
+                    "description": "Yes, documents such as a marriage certificate, birth certificate, or other legal records proving the family relationship are required."
+                },
+                {
+                    "title": "Are identification documents required?",
+                    "description": "A valid government-issued photo ID and copies of prior marriage termination documents, if applicable, must be provided."
+                },
+                {
+                    "title": "Does the petitioner need to sign any forms?",
+                    "description": "Yes, required immigration forms must be signed by the petitioner before submission."
+                }
+            ]
+            ,
+            "Beneficiary (Relative) Documents": [
+                {
+                    "title": "What documents are required from the beneficiary?",
+                    "description": "The beneficiary must provide a valid passport, birth certificate, and any name change or civil status documents."
+                },
+                {
+                    "title": "Are photographs required for the beneficiary?",
+                    "description": "Yes, recent passport-size photographs meeting U.S. visa specifications are required."
+                },
+                {
+                    "title": "Is police clearance required?",
+                    "description": "In most cases, a police clearance certificate from the beneficiary’s country of residence is required."
+                },
+                {
+                    "title": "Are medical documents required?",
+                    "description": "Yes, beneficiaries must undergo a medical examination by an authorized physician and submit the medical report."
+                }
+            ]
+            ,
+            "if-adjusting-status-in-the-us": [
+                {
+                    "title": "What does adjusting status in the U.S. mean?",
+                    "description": "Adjusting status allows eligible applicants already in the United States to apply for permanent residency without leaving the country."
+                },
+                {
+                    "title": "What documents are required for adjustment of status?",
+                    "description": "Required documents include Form I-485, proof of lawful entry, medical examination results, and identity documents."
+                },
+                {
+                    "title": "Can applicants work while adjusting status?",
+                    "description": "Applicants may apply for work authorization while their adjustment of status application is pending."
+                },
+                {
+                    "title": "Is an interview required for adjustment of status?",
+                    "description": "In most cases, USCIS requires an in-person interview as part of the adjustment process."
+                }
+            ]
+            ,
+            "Financial Evidence": [
+                {
+                    "title": "Why is financial evidence required?",
+                    "description": "Financial evidence is required to show that the applicant will not become a public charge in the United States."
+                },
+                {
+                    "title": "What documents can be used as financial evidence?",
+                    "description": "Documents may include tax returns, employment letters, pay stubs, and bank statements."
+                },
+                {
+                    "title": "What is an Affidavit of Support?",
+                    "description": "The Affidavit of Support is a legally binding document in which the sponsor agrees to financially support the immigrant."
+                },
+                {
+                    "title": "Who must submit the Affidavit of Support?",
+                    "description": "The U.S. citizen or permanent resident sponsor is required to submit the Affidavit of Support."
+                }
+            ]
+            ,
+            "If Applying from Abroad (Consular Processing)": [
+                {
+                    "title": "What is consular processing?",
+                    "description": "Consular processing is the procedure for obtaining an immigrant visa through a U.S. embassy or consulate outside the United States."
+                },
+                {
+                    "title": "What documents are required for consular processing?",
+                    "description": "Applicants must submit civil documents, passport, police certificates, medical examination results, and financial evidence."
+                },
+                {
+                    "title": "Is an interview required for consular processing?",
+                    "description": "Yes, applicants are required to attend an in-person interview at the U.S. embassy or consulate."
+                },
+                {
+                    "title": "How long does consular processing take?",
+                    "description": "Processing times vary depending on the visa category, country, and embassy workload."
+                }
+            ]
+            ,
+
+            "K3 Spouse Visa": [
+                {
+                    "title": "What is a K3 Spouse Visa?",
+                    "description": "The K3 visa allows the foreign spouse of a U.S. citizen to enter the United States while waiting for immigrant visa processing."
+                },
+                {
+                    "title": "Who is eligible for a K3 visa?",
+                    "description": "Legally married spouses of U.S. citizens with a pending immigrant petition may be eligible."
+                },
+                {
+                    "title": "Can K3 visa holders work in the U.S.?",
+                    "description": "Yes, K3 visa holders may apply for employment authorization."
+                },
+                {
+                    "title": "Does the K3 visa lead to permanent residency?",
+                    "description": "K3 visa holders may apply for adjustment of status to become lawful permanent residents."
+                }
+            ],
+
+            "s-visa-witnessesinformants": [
+                {
+                    "title": "What is an S Visa?",
+                    "description": "The S visa is for individuals who provide critical information to U.S. law enforcement regarding criminal or terrorist organizations."
+                },
+                {
+                    "title": "Who can qualify for an S visa?",
+                    "description": "Applicants must be willing to assist U.S. authorities and be sponsored by a law enforcement agency."
+                },
+                {
+                    "title": "Is employment allowed on an S visa?",
+                    "description": "Employment authorization may be granted under specific conditions approved by authorities."
+                },
+                {
+                    "title": "Does the S visa lead to permanent residency?",
+                    "description": "In certain cases, S visa holders may apply for adjustment of status after meeting eligibility requirements."
+                }
+            ],
+
+            "T Visa (Trafficking Victims)": [
+                {
+                    "title": "What is a T Visa?",
+                    "description": "The T visa is designed to protect victims of severe human trafficking who are present in the United States."
+                },
+                {
+                    "title": "Who is eligible for a T visa?",
+                    "description": "Victims of human trafficking who comply with reasonable requests for assistance in investigations may be eligible."
+                },
+                {
+                    "title": "Can T visa holders work in the U.S.?",
+                    "description": "Yes, T visa holders are eligible to apply for employment authorization."
+                },
+                {
+                    "title": "Does the T visa provide a path to permanent residency?",
+                    "description": "Eligible T visa holders may apply for lawful permanent residence after meeting required conditions."
+                }
+            ],
+
+            "U Visa (Crime Victims)": [
+                {
+                    "title": "What is a U Visa?",
+                    "description": "The U visa is for victims of certain crimes who have suffered mental or physical abuse and assist law enforcement."
+                },
+                {
+                    "title": "Who qualifies for a U visa?",
+                    "description": "Applicants must be victims of qualifying criminal activity and provide certification from a law enforcement agency."
+                },
+                {
+                    "title": "Can U visa holders work in the U.S.?",
+                    "description": "Yes, U visa holders are eligible for employment authorization."
+                },
+                {
+                    "title": "Does the U visa lead to a green card?",
+                    "description": "U visa holders may apply for permanent residency after maintaining U visa status for the required period."
+                }
+            ],
+
+            "New Passport": [
+                {
+                    "title": "Who can apply for a new U.S. passport?",
+                    "description": "First-time applicants, individuals whose previous passport was issued more than 15 years ago, or those who were under age 16 at issuance can apply for a new passport."
+                },
+                {
+                    "title": "What documents are required for a new passport?",
+                    "description": "Applicants must provide proof of U.S. citizenship, a valid photo ID, passport photographs, and a completed application form."
+                },
+                {
+                    "title": "Is an in-person appointment required?",
+                    "description": "Yes, most first-time applicants are required to apply in person at an authorized acceptance facility."
+                }
+            ],
+
+            "Renewal": [
+                {
+                    "title": "Who is eligible for passport renewal?",
+                    "description": "Adults whose previous passport was issued within the last 15 years and after age 16 may be eligible for renewal."
+                },
+                {
+                    "title": "Can I renew my passport by mail?",
+                    "description": "Eligible applicants may renew their passport by mail if all renewal requirements are met."
+                },
+                {
+                    "title": "What documents are required for renewal?",
+                    "description": "The expired passport, passport photos, completed renewal form, and applicable fees are required."
+                }
+            ],
+
+            "Lost Passport": [
+                {
+                    "title": "What should I do if my passport is lost?",
+                    "description": "You must report the lost passport immediately and apply for a replacement as soon as possible."
+                },
+                {
+                    "title": "What documents are required to replace a lost passport?",
+                    "description": "Applicants must submit proof of U.S. citizenship, identification documents, passport photos, and a loss report."
+                },
+                {
+                    "title": "Is an in-person application required for a lost passport?",
+                    "description": "Yes, applications for a lost passport generally require an in-person visit."
+                }
+            ]
+            ,
+
+            "Child Passport": [
+                {
+                    "title": "Who is eligible for a child passport?",
+                    "description": "Children under the age of 16 must apply for a child passport with parental consent."
+                },
+                {
+                    "title": "Do both parents need to be present?",
+                    "description": "Yes, both parents or legal guardians are generally required to appear in person or provide consent documentation."
+                },
+                {
+                    "title": "How long is a child passport valid?",
+                    "description": "Child passports are valid for 5 years."
+                }
+            ],
+
+            "Second Passport": [
+                {
+                    "title": "What is a second passport?",
+                    "description": "A second passport is an additional passport issued to travelers who have specific international travel needs."
+                },
+                {
+                    "title": "Who can apply for a second passport?",
+                    "description": "Frequent travelers, government employees, or individuals with visa conflicts may be eligible."
+                },
+                {
+                    "title": "How long is a second passport valid?",
+                    "description": "Second passports are typically issued with limited validity."
+                }
+            ],
+
+            "Name Change": [
+                {
+                    "title": "When can I change my name on a U.S. passport?",
+                    "description": "Name changes can be requested after marriage, divorce, or a legal name change."
+                },
+                {
+                    "title": "What documents are required for a name change?",
+                    "description": "Applicants must provide legal proof of name change, such as a marriage certificate or court order."
+                },
+                {
+                    "title": "Is a new passport issued after a name change?",
+                    "description": "Yes, a new passport reflecting the updated name will be issued."
+                }
+            ],
+
+            "Damaged Passport": [
+                {
+                    "title": "What is considered a damaged passport?",
+                    "description": "A damaged passport includes water damage, torn pages, missing pages, or significant wear."
+                },
+                {
+                    "title": "Can I travel with a damaged passport?",
+                    "description": "No, damaged passports are generally not accepted for travel."
+                },
+                {
+                    "title": "How do I replace a damaged passport?",
+                    "description": "You must apply for a replacement in person and submit the damaged passport along with required documents."
+                }
+            ],
+
+            "Stolen Passport": [
+                {
+                    "title": "What should I do if my passport is stolen?",
+                    "description": "You should report the theft immediately and apply for a replacement passport."
+                },
+                {
+                    "title": "Is a police report required for a stolen passport?",
+                    "description": "A police report may be requested and is recommended to support the replacement application."
+                },
+                {
+                    "title": "Can I apply for a stolen passport replacement urgently?",
+                    "description": "Yes, urgent processing options may be available depending on travel needs."
+                }
+            ],
+
+            "Second Valid Passport": [
+                {
+                    "title": "What is a second valid passport?",
+                    "description": "A second valid passport is issued to travelers who require two valid passports at the same time."
+                },
+                {
+                    "title": "Who qualifies for a second valid passport?",
+                    "description": "Individuals with frequent international travel or visa restrictions may qualify."
+                },
+                {
+                    "title": "Does a second valid passport replace the original?",
+                    "description": "No, both passports remain valid for their respective durations."
+                }
+            ],
+
+            "Emergency or Same-Day Passport": [
+                {
+                    "title": "What is an emergency passport?",
+                    "description": "An emergency passport is issued for urgent travel needs such as medical emergencies or family crises."
+                },
+                {
+                    "title": "How quickly can an emergency passport be issued?",
+                    "description": "In certain cases, same-day or next-day issuance may be available."
+                },
+                {
+                    "title": "What documents are required for emergency processing?",
+                    "description": "Proof of emergency travel, citizenship documents, and identification are required."
+                }
+            ],
+
+            "Expedited Passport Service": [
+                {
+                    "title": "What is expedited passport service?",
+                    "description": "Expedited service allows applicants to receive their passport faster than standard processing times."
+                },
+                {
+                    "title": "How long does expedited processing take?",
+                    "description": "Processing times vary but are significantly shorter than routine service."
+                },
+                {
+                    "title": "Is expedited service available for all passport types?",
+                    "description": "Most passport services are eligible for expedited processing."
+                }
+            ],
+
+            "Tourist E-Visa": [
+                {
+                    "title": "What is a Tourist E-Visa?",
+                    "description": "A Tourist E-Visa allows travelers to visit a country for tourism, sightseeing, leisure, or visiting friends and family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa?",
+                    "description": "Foreign nationals from eligible countries with valid passports can apply for a Tourist E-Visa."
+                },
+                {
+                    "title": "What is the validity of a Tourist E-Visa?",
+                    "description": "Validity varies by country and may range from short-term single entry to multiple-entry options."
+                },
+                {
+                    "title": "Can a Tourist E-Visa be extended?",
+                    "description": "Most Tourist E-Visas are non-extendable, though rules may vary by destination country."
+                }
+            ]
+            ,
+
+            "Business E-Visa": [
+                {
+                    "title": "What is a Business E-Visa?",
+                    "description": "A Business E-Visa allows travelers to visit a country for business meetings, conferences, trade activities, or professional engagements."
+                },
+                {
+                    "title": "Who can apply for a Business E-Visa?",
+                    "description": "Business professionals, entrepreneurs, and company representatives from eligible countries may apply."
+                },
+                {
+                    "title": "Does a Business E-Visa allow employment?",
+                    "description": "No, a Business E-Visa does not permit employment or long-term work in the destination country."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa?",
+                    "description": "Applicants typically need a valid passport, business invitation or purpose details, and supporting documents."
+                }
+            ]
+            ,
+
+            "Medical E-Visa": [
+                {
+                    "title": "What is a Medical E-Visa?",
+                    "description": "A Medical E-Visa allows travelers to enter a country for medical treatment or health-related procedures."
+                },
+                {
+                    "title": "Who is eligible for a Medical E-Visa?",
+                    "description": "Applicants seeking medical treatment at recognized healthcare facilities may apply for a Medical E-Visa."
+                },
+                {
+                    "title": "Can attendants travel with a Medical E-Visa holder?",
+                    "description": "Some countries allow medical attendants to apply separately under related visa categories."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa?",
+                    "description": "Medical appointment letters, treatment details, passport, and identification documents are usually required."
+                }
+            ]
+            ,
+            "Crew E-Visa": [
+                {
+                    "title": "What is a Crew E-Visa?",
+                    "description": "A Crew E-Visa is issued to crew members of airlines, ships, or other transport services entering a country for duty purposes."
+                },
+                {
+                    "title": "Who can apply for a Crew E-Visa?",
+                    "description": "Pilots, cabin crew, ship crew, and transport staff with official duty assignments may apply."
+                },
+                {
+                    "title": "What is the validity of a Crew E-Visa?",
+                    "description": "Validity depends on the duty schedule and policies of the destination country."
+                },
+                {
+                    "title": "Is employment allowed under a Crew E-Visa?",
+                    "description": "Employment is limited strictly to official crew-related duties."
+                }
+            ],
+
+            "Power of Attorney or Affidavit Attestation": [
+                {
+                    "title": "What is Power of Attorney or Affidavit attestation?",
+                    "description": "This service verifies and authenticates a Power of Attorney or affidavit for legal and official use."
+                },
+                {
+                    "title": "Who can apply for this attestation?",
+                    "description": "Individuals who need to authorize another person or submit sworn statements may apply."
+                },
+                {
+                    "title": "Is personal appearance required?",
+                    "description": "In most cases, the applicant must appear in person for identity verification."
+                }
+            ]
+
+            ,
+            "Marriage Certificate Attestation": [
+                {
+                    "title": "What is marriage certificate attestation?",
+                    "description": "Marriage certificate attestation verifies the authenticity of a marriage certificate for official use."
+                },
+                {
+                    "title": "When is marriage certificate attestation required?",
+                    "description": "It is required for visa applications, immigration, or legal purposes abroad."
+                },
+                {
+                    "title": "What documents are needed?",
+                    "description": "Original marriage certificate, passport copies, and supporting documents are required."
+                }
+            ],
+            "Birth Certificate Attestation": [
+                {
+                    "title": "What is birth certificate attestation?",
+                    "description": "Birth certificate attestation confirms the authenticity of a birth certificate for official purposes."
+                },
+                {
+                    "title": "Who can apply for birth certificate attestation?",
+                    "description": "Individuals requiring proof of birth for immigration, education, or legal matters may apply."
+                },
+                {
+                    "title": "Is the original certificate required?",
+                    "description": "Yes, the original birth certificate and supporting documents are generally required."
+                }
+            ]
+            ,
+            "Life Certificate (For Pension or Verification)": [
+                {
+                    "title": "What is a Life Certificate?",
+                    "description": "A Life Certificate confirms that a person is alive and is commonly required for pension or official verification."
+                },
+                {
+                    "title": "Who needs a Life Certificate?",
+                    "description": "Pensioners or individuals required to prove life status for official purposes may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Valid identification documents and passport are typically required."
+                }
+            ]
+            ,
+            "Registration of Birth": [
+                {
+                    "title": "What is birth registration?",
+                    "description": "Birth registration officially records the birth of a child with the relevant authorities."
+                },
+                {
+                    "title": "Who can apply for birth registration?",
+                    "description": "Parents or legal guardians of the child may apply for registration."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Hospital birth certificate and parents’ identification documents are required."
+                }
+            ]
+            ,
+            "Attestation of Will": [
+                {
+                    "title": "What is will attestation?",
+                    "description": "Will attestation verifies the authenticity of a will for legal and official purposes."
+                },
+                {
+                    "title": "Who can request will attestation?",
+                    "description": "Individuals who have executed a will and require official validation may apply."
+                },
+                {
+                    "title": "Is personal presence required?",
+                    "description": "Yes, personal appearance is generally required for verification."
+                }
+            ]
+            ,
+            "NRI Certificate Issuance": [
+                {
+                    "title": "What is an NRI certificate?",
+                    "description": "An NRI certificate confirms a person’s non-resident Indian status for official purposes."
+                },
+                {
+                    "title": "Who can apply for an NRI certificate?",
+                    "description": "Indian citizens residing abroad for employment, business, or long-term stay may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Passport, visa, residence proof, and supporting documents are required."
+                }
+            ]
+            ,
+            "Registration of Marriage (Solemnized in USA)": [
+                {
+                    "title": "What does this marriage registration cover?",
+                    "description": "This service registers a marriage solemnized in the USA with the appropriate Indian authorities."
+                },
+                {
+                    "title": "Who can apply for this registration?",
+                    "description": "Indian nationals whose marriage was solemnized in the USA may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Marriage certificate, passports, visas, and supporting documents are required."
+                }
+            ]
+            , "Attestation of Documents / Statement of Need / Indian Driving License Authentication": [
+                {
+                    "title": "What services are included under document attestation?",
+                    "description": "This includes attestation of documents, issuance of statement of need, and Indian driving license authentication."
+                },
+                {
+                    "title": "Who can apply for these services?",
+                    "description": "Individuals requiring official verification of documents for foreign or domestic use may apply."
+                },
+                {
+                    "title": "Are original documents required?",
+                    "description": "Yes, original documents along with photocopies are usually required."
+                }
+            ]
+            ,
+            "Affidavit for Child Passport Issuance in India": [
+                {
+                    "title": "What is this affidavit used for?",
+                    "description": "It provides parental consent or declarations required for issuing a child’s passport in India."
+                },
+                {
+                    "title": "Who must submit this affidavit?",
+                    "description": "Parents or legal guardians applying for a child’s passport may be required to submit this affidavit."
+                },
+                {
+                    "title": "Does the affidavit need attestation?",
+                    "description": "Yes, attestation is required as per applicable guidelines."
+                }
+            ]
+            ,
+            "No Obligation to Return to India (NORI)": [
+                {
+                    "title": "What is a NORI certificate?",
+                    "description": "A NORI certificate confirms that an individual has no obligation to return to India."
+                },
+                {
+                    "title": "Who requires a NORI certificate?",
+                    "description": "Individuals seeking foreign employment, education, or permanent residency may require it."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Passport, visa, and supporting documents are generally required."
+                }
+            ]
+            ,
+            "Death Certificate Attestation / Carrying Mortal Remains": [
+                {
+                    "title": "What is death certificate attestation?",
+                    "description": "This service verifies a death certificate for official and legal use."
+                },
+                {
+                    "title": "When is this service required?",
+                    "description": "It is required for legal procedures or carrying mortal remains across borders."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Death certificate, passport copies, and relevant supporting documents are required."
+                }
+            ]
+            ,
+            "Police Clearance Certificate (PCC) for Non-Indian Nationals": [
+                {
+                    "title": "What is a Police Clearance Certificate?",
+                    "description": "A PCC certifies that an individual has no criminal record in a specific jurisdiction."
+                },
+                {
+                    "title": "Who can apply for a PCC?",
+                    "description": "Non-Indian nationals requiring background verification for immigration or employment may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Passport, address proof, and supporting documents are required."
+                }
+            ]
+            ,
+            "Renewal of International Driving Permit": [
+                {
+                    "title": "What is an International Driving Permit renewal?",
+                    "description": "This service renews an existing International Driving Permit for continued international driving."
+                },
+                {
+                    "title": "Who can apply for renewal?",
+                    "description": "Individuals with an expired or expiring International Driving Permit may apply."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Valid driving license, passport, and supporting documents are required."
+                }
+            ]
+            ,
+            "Power of Attorney Sub-Types": [
+                {
+                    "title": "What are Power of Attorney sub-types?",
+                    "description": "These include general, special, property-related, and financial Power of Attorney types."
+                },
+                {
+                    "title": "Why are different sub-types required?",
+                    "description": "Different legal and personal situations require specific Power of Attorney formats."
+                },
+                {
+                    "title": "Is attestation required for all sub-types?",
+                    "description": "Yes, attestation is required to validate the Power of Attorney for official use."
+                }
+            ]
+            ,
+            "General Power of Attorney": [
+                {
+                    "title": "What is a General Power of Attorney?",
+                    "description": "A General Power of Attorney authorizes a person to act on behalf of another in a wide range of legal and financial matters."
+                },
+                {
+                    "title": "Who can apply for a General Power of Attorney?",
+                    "description": "Any individual who wishes to delegate authority for managing personal, financial, or legal matters may apply."
+                },
+                {
+                    "title": "Is attestation required for a General Power of Attorney?",
+                    "description": "Yes, attestation is generally required for the document to be legally valid for official use."
+                }
+            ]
+            ,
+            "Special Power of Attorney": [
+                {
+                    "title": "What is a Special Power of Attorney?",
+                    "description": "A Special Power of Attorney authorizes a person to act on behalf of another for a specific purpose or transaction."
+                },
+                {
+                    "title": "When is a Special Power of Attorney used?",
+                    "description": "It is commonly used for property transactions, court representation, or specific legal matters."
+                },
+                {
+                    "title": "Does a Special Power of Attorney require attestation?",
+                    "description": "Yes, attestation is required to validate the document for official and legal use."
+                }
+            ]
+            ,
+            "Affidavit of Support": [
+                {
+                    "title": "What is an Affidavit of Support?",
+                    "description": "An Affidavit of Support is a legal document in which an individual agrees to financially support another person."
+                },
+                {
+                    "title": "When is an Affidavit of Support required?",
+                    "description": "It is commonly required for immigration, visa applications, or sponsorship purposes."
+                },
+                {
+                    "title": "Who can provide an Affidavit of Support?",
+                    "description": "A sponsor who meets financial eligibility requirements may submit an Affidavit of Support."
+                }
+            ]
+            ,
+            "Joint Affidavit for OCI or Passport": [
+                {
+                    "title": "What is a Joint Affidavit?",
+                    "description": "A Joint Affidavit is a sworn statement jointly signed by two parties for OCI or passport-related purposes."
+                },
+                {
+                    "title": "When is a Joint Affidavit required?",
+                    "description": "It is required in certain OCI or passport cases to confirm relationship or declarations."
+                },
+                {
+                    "title": "Does the Joint Affidavit need attestation?",
+                    "description": "Yes, attestation is required for the affidavit to be officially accepted."
+                }
+            ]
+            ,
+            "Property Sale Deed Authorization": [
+                {
+                    "title": "What is Property Sale Deed Authorization?",
+                    "description": "This authorization allows a designated individual to execute property sale documents on behalf of the owner."
+                },
+                {
+                    "title": "Who needs Property Sale Deed Authorization?",
+                    "description": "Property owners who are unable to be physically present for the sale may require this authorization."
+                },
+                {
+                    "title": "Is attestation required for property sale authorization?",
+                    "description": "Yes, attestation is mandatory for legal validity of the authorization."
+                }
+            ]
+            ,
+            "NOC or Consent Letter": [
+                {
+                    "title": "What is a NOC or Consent Letter?",
+                    "description": "A No Objection Certificate (NOC) or Consent Letter states that an individual has no objection to a specific action or request."
+                },
+                {
+                    "title": "When is a NOC or Consent Letter required?",
+                    "description": "It is commonly required for travel, education, legal procedures, or official approvals."
+                },
+                {
+                    "title": "Does a NOC or Consent Letter require attestation?",
+                    "description": "Yes, attestation may be required depending on the authority or purpose."
+                }
+            ],
+
+            "Document Apostille": [
+                {
+                    "title": "What is a document apostille?",
+                    "description": "A document apostille certifies the authenticity of a document for use in countries that are members of the Hague Apostille Convention."
+                },
+                {
+                    "title": "Which documents can be apostilled?",
+                    "description": "Personal, educational, commercial, and legal documents may be eligible for apostille."
+                },
+                {
+                    "title": "Is embassy involvement required for apostille?",
+                    "description": "No, apostille replaces embassy legalization for Hague Convention countries."
+                }
+            ],
+
+            "Embassy Attestation": [
+                {
+                    "title": "What is embassy attestation?",
+                    "description": "Embassy attestation verifies documents for use in countries that are not part of the Hague Apostille Convention."
+                },
+                {
+                    "title": "When is embassy attestation required?",
+                    "description": "It is required when documents must be legally recognized in non-apostille countries."
+                },
+                {
+                    "title": "What documents are required?",
+                    "description": "Original documents along with passport copies and supporting paperwork are generally required."
+                }
+            ]
+            ,
+            "Power of Attorney Legalization": [
+                {
+                    "title": "What is Power of Attorney legalization?",
+                    "description": "Power of Attorney legalization validates a POA document for legal use in another country."
+                },
+                {
+                    "title": "When is POA legalization required?",
+                    "description": "It is commonly required for property transactions, court matters, or financial authority abroad."
+                },
+                {
+                    "title": "Is personal appearance required?",
+                    "description": "In most cases, the applicant must appear in person for verification."
+                }
+            ],
+            "Birth or Marriage Certificate Apostille": [
+                {
+                    "title": "What is birth or marriage certificate apostille?",
+                    "description": "This apostille certifies the authenticity of birth or marriage certificates for international use."
+                },
+                {
+                    "title": "When is this apostille required?",
+                    "description": "It is required for immigration, family visas, education, or legal matters abroad."
+                },
+                {
+                    "title": "Are original certificates required?",
+                    "description": "Yes, original certificates and supporting documents are generally required."
+                }
+            ],
+
+            "Corporate Document Legalization": [
+                {
+                    "title": "What are corporate documents?",
+                    "description": "Corporate documents include incorporation certificates, board resolutions, and business agreements."
+                },
+                {
+                    "title": "Why is corporate document legalization required?",
+                    "description": "Legalization ensures business documents are accepted for international commercial and legal purposes."
+                },
+                {
+                    "title": "Which authorities are involved?",
+                    "description": "Depending on the destination country, legalization may involve government and embassy authorities."
+                }
+            ]
+            ,
+            "Medical Document Attestation": [
+                {
+                    "title": "What is medical document attestation?",
+                    "description": "Medical document attestation verifies medical reports or certificates for international use."
+                },
+                {
+                    "title": "When is medical attestation required?",
+                    "description": "It is commonly required for immigration, employment, or treatment abroad."
+                },
+                {
+                    "title": "What documents are typically attested?",
+                    "description": "Medical reports, fitness certificates, and vaccination records may be attested."
+                }
+            ]
+            ,
+            "Educational Certificate Apostille": [
+                {
+                    "title": "What is educational certificate apostille?",
+                    "description": "Educational certificate apostille authenticates academic documents for use abroad."
+                },
+                {
+                    "title": "Which certificates can be apostilled?",
+                    "description": "Degree certificates, diplomas, transcripts, and mark sheets are eligible."
+                },
+                {
+                    "title": "Is apostille accepted internationally?",
+                    "description": "Yes, it is accepted in all Hague Apostille Convention member countries."
+                }
+            ]
+            ,
+            "Commercial Invoice Attestation": [
+                {
+                    "title": "What is commercial invoice attestation?",
+                    "description": "Commercial invoice attestation verifies trade documents for international business transactions."
+                },
+                {
+                    "title": "When is commercial invoice attestation required?",
+                    "description": "It is required for customs clearance, exports, and cross-border trade."
+                },
+                {
+                    "title": "Which documents are usually submitted?",
+                    "description": "Commercial invoices, packing lists, and related trade documents are typically required."
+                }
+            ]
+
+
+
+
+
+
+
+
+
         }
-    }
+    },
 
 
 }

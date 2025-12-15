@@ -26,7 +26,25 @@ const formatCountryName = (slug: string) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-const normalize = (str: string) => str.toLowerCase().replace(/[\s\/]+/g, "-");
+const normalize = (str: string) =>
+  str
+    .toLowerCase()
+    // remove brackets
+    .replace(/[()]/g, "")
+    // turn slashes into spaces so words don’t merge
+    .replace(/\//g, " ")
+    // split letter+number and number+letter (eb3 → eb 3, ir1cr1 → ir 1 cr 1)
+    .replace(/([a-z])(\d)/g, "$1 $2")
+    .replace(/(\d)([a-z])/g, "$1 $2")
+    // convert ANY non-alphanumeric sequence into single hyphen
+    .replace(/[^a-z0-9]+/g, "-")
+    // remove duplicate hyphens
+    .replace(/-+/g, "-")
+    // trim hyphens
+    .replace(/^-|-$/g, "");
+
+
+
 
 export default function FAQSection({ items = [] }: FAQSectionProps) {
   const searchParams = useSearchParams();
@@ -34,64 +52,46 @@ export default function FAQSection({ items = [] }: FAQSectionProps) {
   const categorySlug = searchParams.get("Slug") || "";
   const [filteredFaqs, setFilteredFaqs] = useState<FAQItem[]>(items);
 
-  useEffect(() => {
-    if (!toCountrySlug || !FaqsDatas) return;
+useEffect(() => {
+  if (!toCountrySlug) return;
 
-    // 1️⃣ Get service type from session (handle capitalization & hyphen)
-    const sessionType =
-      (typeof window !== "undefined"
-        ? sessionStorage.getItem("main_service_type")
-        : "E-Visa") || "E-Visa";
+  const mainType: keyof typeof FaqsDatas = "visa";
 
-    const normalizedType = Object.keys(FaqsDatas).find(
-      (key) => normalize(key) === normalize(sessionType)
-    );
+  const countryKey = Object.keys(FaqsDatas[mainType] || {}).find(
+    (key) => normalize(key) === normalize(toCountrySlug)
+  );
 
-    const mainType = (normalizedType || "E-Visa") as keyof typeof FaqsDatas;
+  if (!countryKey) {
+    setFilteredFaqs([]);
+    return;
+  }
 
-    // 2️⃣ Match country key directly (like 'united-states')
-    const countryKey = Object.keys(FaqsDatas[mainType] || {}).find(
-      (key) => normalize(key) === normalize(toCountrySlug)
-    );
+  const countryData =
+    FaqsDatas[mainType][
+      countryKey as keyof (typeof FaqsDatas)[typeof mainType]
+    ];
 
-    if (!countryKey) {
-      setFilteredFaqs(items);
-      return;
-    }
+  const categoryKey = categorySlug
+    ? Object.keys(countryData || {}).find(
+        (key) => normalize(key) === normalize(categorySlug)
+      )
+    : null;
 
-    const countryData =
-      FaqsDatas[mainType][
-        countryKey as keyof (typeof FaqsDatas)[typeof mainType]
-      ];
+  if (!categoryKey) {
+    setFilteredFaqs([]);
+    return;
+  }
 
-    // 3️⃣ Match category slug (like tourist-e-visa)
-    const categoryKey = categorySlug
-      ? Object.keys(countryData || {}).find(
-          (key) => normalize(key) === normalize(categorySlug)
-        )
-      : null;
+  const faqsData = (
+    countryData[categoryKey as keyof typeof countryData] as FAQItem[]
+  ).map((faq) => ({
+    title: faq.title,
+    description: faq.description ?? "",
+  }));
 
-    // 4️⃣ Get FAQ data (flatten nested arrays safely)
-    let faqsData: FAQItem[] = [];
+  setFilteredFaqs(faqsData);
+}, [toCountrySlug, categorySlug]);
 
-    if (countryData) {
-      faqsData = categoryKey
-        ? (
-            countryData[categoryKey as keyof typeof countryData] as
-              | FAQItem[]
-              | FAQItem[][]
-          ).flat(2)
-        : (Object.values(countryData).flat(2) as FAQItem[]);
-    }
-
-    // 5️⃣ Fix typo in key 'descriptio n' if any
-    faqsData = faqsData.map((faq) => ({
-      title: faq.title,
-      description: (faq.description || (faq as any)["descriptio n"]) ?? "",
-    }));
-
-    setFilteredFaqs(faqsData);
-  }, [toCountrySlug, categorySlug]);
 
   const countryName = toCountrySlug ? formatCountryName(toCountrySlug) : "";
 
