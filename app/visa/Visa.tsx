@@ -53,7 +53,6 @@ const Visa = () => {
         <TestimonialSlider />
       </div>
 
-      <FAQSection />
     </>
   );
 };

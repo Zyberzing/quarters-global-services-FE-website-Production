@@ -87,37 +87,49 @@ const Header = () => {
               .map((service: any) => (
                 <button
                   key={service._id}
-                  onClick={() => router.push(`/${service.slug}`)}
+                  onClick={() => {
+
+                    // ✅ local storage (persistent selections)
+                    localStorage.setItem("selectedService", service.slug); // visa / passport
+                    localStorage.setItem(
+                      "fromCountryId",
+                      "68e966dde7bd0d029655d358"
+                    );
+                    localStorage.setItem(
+                      "toCountryId",
+                      "68e966dde7bd0d029655d359"
+                    );
+                    sessionStorage.setItem("platformServiceStep", JSON.stringify({
+                      "citizenship": "india",
+                      "citizenship_code": "IN",
+                      "country": "united-states",
+                      "countryCode": "US"
+                    }))
+
+                    // ✅ redirect
+                    router.push(
+                      `/category?toCountrySlug=united-states&Slug=${service.slug}`
+                    );
+                  }}
                   className={`relative px-1 transition duration-300 ${currentPath === `/${service.slug}`
                       ? "text-[oklch(57.7%_0.245_27.325)] font-semibold after:scale-x-100"
                       : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
                     } after:content-[''] after:absolute after:left-0 after:-bottom-1 
-                 after:w-full after:h-[2px] after:bg-[oklch(57.7%_0.245_27.325)] 
-                 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300`}
+        after:w-full after:h-[2px] after:bg-[oklch(57.7%_0.245_27.325)] 
+        after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300`}
                 >
                   {service.name}
                 </button>
               ))}
 
-          {/* ⭐ NEW — Enrollment Form Link */}
-          {/* <button
-            onClick={() => router.push("/tax-filing")}
-            className={`relative px-1 transition duration-300 ${currentPath === "/tax-filing"
-                ? "text-[oklch(57.7%_0.245_27.325)] font-semibold after:scale-x-100"
-                : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
-              } after:content-[''] after:absolute after:left-0 after:-bottom-1 
-            after:w-full after:h-[2px] after:bg-[oklch(57.7%_0.245_27.325)]
-            after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300`}
-          >
-            Tax Filing
-          </button> */}
+
           {["about-us", "contact-us"].map((page) => (
             <button
               key={page}
               onClick={() => router.push(`/${page}`)}
               className={`relative px-1 transition duration-300 ${currentPath === `/${page}`
-                  ? "text-[oklch(57.7%_0.245_27.325)] font-semibold after:scale-x-100"
-                  : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
+                ? "text-[oklch(57.7%_0.245_27.325)] font-semibold after:scale-x-100"
+                : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
                 } after:content-[''] after:absolute after:left-0 after:-bottom-1 
               after:w-full after:h-[2px] after:bg-[oklch(57.7%_0.245_27.325)] 
               after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300`}
@@ -194,8 +206,8 @@ const Header = () => {
                     setMobileMenuOpen(false);
                   }}
                   className={`block w-full text-left py-2 text-sm ${currentPath === `/${service.slug}`
-                      ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
-                      : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
+                    ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
+                    : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
                     } transition`}
                 >
                   {service.name}
@@ -209,8 +221,8 @@ const Header = () => {
               setMobileMenuOpen(false);
             }}
             className={`block w-full text-left py-2 text-sm ${currentPath === "/quartus-enrollment"
-                ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
-                : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
+              ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
+              : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
               } transition`}
           >
             Quartus Enrollment

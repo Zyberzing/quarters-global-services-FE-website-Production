@@ -11,12 +11,8 @@ import StepFlow from "@/components/StepFlow";
 import WeatherStripAxiosDirect from "@/components/WeatherStrip";
 import { useGetPlatformServiceCategoryPackagesQuery } from "@/services/platformCategoryPackageApi";
 import { useSearchParams } from "next/navigation";
-import React from "react";
 import TestimonialSlider from "@/components/TestimonialSlider ";
 import { getVisaDetails } from "@/lib/getVisaDetails";
-
-
-
 
 
 const PlanSelection = () => {
@@ -28,15 +24,12 @@ const PlanSelection = () => {
     searchParams.get("Slug") ||
     "visa";
 
-  // ✅ Fetch data for cards
-  const { data, error, isLoading } = useGetPlatformServiceCategoryPackagesQuery({
+    const { data, error, isLoading } = useGetPlatformServiceCategoryPackagesQuery({
     platformServiceCategorySlug: subCategorySlug,
     toCountrySlug: toCountrySlug,
   });
 
   const packages = data?.data?.data || [];
-console.log(subCategorySlug,"subCategorySlug")
-  // ✅ Get banner details dynamically
   const bannerData = getVisaDetails(subCategorySlug, toCountrySlug);
 
   if (error) return <p>Something went wrong</p>;

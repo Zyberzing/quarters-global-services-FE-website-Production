@@ -1,6 +1,7 @@
 import { Banner_data } from "@/app/data/BannerData";
 
 export function getVisaDetails(visaSlug: string, fromCountrySlug: string) {
+  console.log(visaSlug,fromCountrySlug,"sadas")
   // Normalize visa and country slugs
   const normalizedVisaSlug = visaSlug.trim().toLowerCase();
   const normalizedCountrySlug = fromCountrySlug.trim().toLowerCase();
@@ -12,6 +13,7 @@ export function getVisaDetails(visaSlug: string, fromCountrySlug: string) {
     "usa": "usa",
     "india": "india",
     "in": "india",
+    "Passport": "Passport"
   };
 
   const mappedCountrySlug =

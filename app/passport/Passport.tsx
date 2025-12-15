@@ -42,7 +42,6 @@ const Passport = () => {
         <TestimonialSlider />
       </div>
 
-      <FAQSection />
 
     </>
   )

@@ -10,8 +10,8 @@ interface ServiceSectionProps {
   imageSrc: string;
   imagePosition: "left" | "right";
   slug?: string;
-  id?:string;
-  platformServiceId?:string
+  id?: string;
+  platformServiceId?: string
 }
 
 const ServiceSection: React.FC<ServiceSectionProps> = ({
@@ -66,7 +66,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
                   );
 
                   router.push(`/other-services/${slug}`);
-                }} className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
+                }} className="bg-red-600 cursor-pointer hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
                   {buttonText}
                 </button>
               )}
@@ -82,18 +82,18 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
               <p className="text-gray-600 mb-8 text-lg leading-relaxed">{description}</p>
               {buttonText && (
                 <button onClick={() => {
-    // 🧠 Save service identifiers to localStorage
-    localStorage.setItem(
-      "selectedService",
-      JSON.stringify({
-        _id: id,
-        platformServiceId:platformServiceId,
-        
-      })
-    );
+                  // 🧠 Save service identifiers to localStorage
+                  localStorage.setItem(
+                    "selectedService",
+                    JSON.stringify({
+                      _id: id,
+                      platformServiceId: platformServiceId,
 
-    router.push(`/other-services/${slug}`);
-  }} className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
+                    })
+                  );
+
+                  router.push(`/other-services/${slug}`);
+                }} className="bg-red-600 cursor-pointer hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
                   {buttonText}
                 </button>
               )}

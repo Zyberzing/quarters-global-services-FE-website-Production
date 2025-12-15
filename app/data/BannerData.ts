@@ -461,6 +461,14 @@ export const Banner_data = {
       }
     }
   },
+  "miss-service-adult": {
+    "india": {
+      "title": "Miscellaneous Consular Service (Adult)",
+      "description": "Avail miscellaneous adult consular services including statements, Power of Attorney-related matters, and other consulate-supported documentation.",
+      "image": "/images/india-misc-service-adult.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
   "tourist-e-visa": {
     "india": {
       "title": "Apply for an Indian Tourist E-Visa Quickly and Securely",
@@ -1735,15 +1743,96 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     }
   }
+  ,
 
+  "surrender-with-indian-passport": {
+    "india": {
+      "title": "Surrender of Indian Passport",
+      "description": "Surrender your Indian passport after acquiring foreign citizenship and obtain an official surrender certificate as per Indian government regulations.",
+      "image": "/images/india-surrender-with-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  }
+  ,
 
+  "surrender-without-indian-passport": {
+    "india": {
+      "title": "Surrender of Indian Passport Without Original Passport",
+      "description": "Apply for passport surrender even if the original Indian passport is lost or unavailable, with appropriate declarations and supporting documents.",
+      "image": "/images/india-surrender-without-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "surrender-minor-passport": {
+    "india": {
+      "title": "Surrender of Minor Indian Passport",
+      "description":
+        "Apply for surrender of an Indian passport issued to a minor after acquiring foreign citizenship or when the passport is no longer required, as per Government of India guidelines.",
+      "image": "/images/india-surrender-minor-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "general-power-of-attorney": {
+    "india": {
+      "title": "General Power of Attorney",
+      "description":
+        "Apply for a General Power of Attorney to authorize a trusted individual to manage legal, financial, and personal matters on your behalf for GLOBAL usage.",
+      "image": "/images/general-power-of-attorney.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "special-power-of-attorney": {
+    "india": {
+      "title": "Special Power of Attorney",
+      "description":
+        "Apply for a Special Power of Attorney for specific legal or financial purposes, valid for GLOBAL region as per applicable regulations.",
+      "image": "/images/special-power-of-attorney.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "affidavit-of-support": {
+    "india": {
+      "title": "Affidavit of Support",
+      "description":
+        "Apply for an Affidavit of Support to formally declare financial responsibility for an individual for immigration or legal purposes in the GLOBAL region.",
+      "image": "/images/affidavit-of-support.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "joint-affidavit-for-oci-or-passport": {
+    "india": {
+      "title": "Joint Affidavit for OCI or Passport",
+      "description":
+        "Apply for a Joint Affidavit required for OCI card or passport-related applications, valid for GLOBAL region processing.",
+      "image": "/images/joint-affidavit-oci-passport.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "property-sale-deed-authorization": {
+    "india": {
+      "title": "Property Sale Deed Authorization",
+      "description":
+        "Authorize a representative to execute property sale deed transactions on your behalf with a legally valid authorization for GLOBAL region use.",
+      "image": "/images/property-sale-deed-authorization.jpg",
+      "buttonText": "Apply Now"
+    }
+  },
 
+  "noc-or-consent-letter": {
+    "india": {
+      "title": "NOC or Consent Letter",
+      "description":
+        "Apply for a No Objection Certificate (NOC) or Consent Letter for legal, travel, or documentation purposes applicable to the GLOBAL region.",
+      "image": "/images/noc-consent-letter.jpg",
+      "buttonText": "Apply Now"
+    }
+  }
 
 
 };

@@ -103,7 +103,6 @@ const EVisa = () => {
         <TestimonialSlider />
       </div>
 
-      <FAQSection />
     </>
   );
 };
