@@ -36,7 +36,7 @@ const tabs: TabType[] = ["Services", "apostille", "e-visa"];
 const STORAGE_KEY = "platformServiceStep";
 
 const GoButton = ({ handleGo }: { handleGo: () => void }) => (
-  <div className="w-full md:w-auto mt-4 md:mt-0">
+  <div className="w-full md:w-auto mt-4 md:mt-6">
     <button
       onClick={handleGo}
       className="w-full md:w-auto bg-red-600 text-white font-semibold px-6 py-2 rounded-md shadow-md hover:bg-red-700 transition-colors"
@@ -240,6 +240,7 @@ function DropdownForm({ activeTab, setActiveTab }: DropdownFormProps) {
       {activeTab === "Services" && (
         <div className="p-6 rounded-md max-w-4xl mx-auto w-full flex flex-col md:flex-row md:items-start gap-4 justify-center">
           <DropdownWrapper
+            label="Citizenship"
             value={citizenship}
             setValue={setCitizenship}
             search={citizenshipSearch}
@@ -250,6 +251,7 @@ function DropdownForm({ activeTab, setActiveTab }: DropdownFormProps) {
             type="flag"
           />
           <DropdownWrapper
+           label="Traveling"
             value={country}
             setValue={setCountry}
             search={countrySearch}
@@ -265,7 +267,7 @@ function DropdownForm({ activeTab, setActiveTab }: DropdownFormProps) {
 
       {/* Apostille Form */}
       {activeTab === "apostille" && (
-        <div className="p-6 rounded-md max-w-4xl mx-auto w-full flex flex-col md:flex-row md:items-start gap-4 justify-center">
+        <div className="p-6 rounded-md max-w-4xl mx-auto w-full flex flex-col md:flex-row md:items-start gap-4 justify-center ">
           <Button
             link="/apostille-and-legalization"
             iconPosition="right"
@@ -304,6 +306,7 @@ function DropdownForm({ activeTab, setActiveTab }: DropdownFormProps) {
             errors={errors.citizenship}
             placeholder="Citizen of"
             type="flag"
+            label="Citizenship"
           />
           <DropdownWrapper
             value={country}
@@ -314,6 +317,7 @@ function DropdownForm({ activeTab, setActiveTab }: DropdownFormProps) {
             errors={errors.country}
             placeholder="Traveling to"
             type="flag"
+            label="Traveling"
           />
           <GoButton handleGo={handleGo} />
         </div>

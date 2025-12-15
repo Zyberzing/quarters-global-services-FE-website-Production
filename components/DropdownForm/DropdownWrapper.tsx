@@ -36,6 +36,7 @@ interface DropdownWrapperProps {
   errors?: string;
   placeholder: string;
   type?: string;
+  label?: string;
   
 }
 
@@ -48,11 +49,20 @@ const DropdownWrapper = ({
   errors,
   placeholder,
   type,
+  label
 }: DropdownWrapperProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="w-full md:w-1/3 flex flex-col">
+   <div className="w-full md:w-1/3 flex flex-col gap-1">
+
+      {/* ✅ LABEL */}
+      {label && (
+        <label className="text-sm font-medium text-white mb-1 text-left">
+          {label}
+        </label>
+      )}
+
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -74,12 +84,13 @@ const DropdownWrapper = ({
             <ChevronsUpDown className="opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[250px] p-0 ">
+
+        <PopoverContent className="w-[250px] p-0">
           <Command>
             <div className="sticky top-0 z-10 bg-black text-white">
               <CommandInput
                 placeholder={`Search ${placeholder}...`}
-                className="h-9 "
+                className="h-9"
                 value={search}
                 onValueChange={setSearch}
               />
@@ -88,21 +99,17 @@ const DropdownWrapper = ({
             <CommandList className="bg-black custom-scrollbar">
               <CommandEmpty>No options found.</CommandEmpty>
               <CommandGroup>
-                {filteredOptions.map((option: DropdownOption, index:number) => (
+                {filteredOptions.map((option, index) => (
                   <CommandItem
                     key={index}
                     value={option.name}
                     className="data-[selected=true]:bg-neutral-900"
                     onSelect={() => {
-                      if (typeof value === "string") {
-                        setValue(option);
-                      } else {
-                        setValue(option);
-                      }
+                      setValue(option);
                       setOpen(false);
                     }}
                   >
-                    <div className="flex items-center  text-white gap-2">
+                    <div className="flex items-center text-white gap-2">
                       {type === "flag" && (
                         <Flags
                           code={option.code}
@@ -130,7 +137,13 @@ const DropdownWrapper = ({
           </Command>
         </PopoverContent>
       </Popover>
-      {errors && <span className="text-red-500 mt-1 text-sm text-left">{errors}</span>}
+
+      {/* ✅ ERROR */}
+      {errors && (
+        <span className="text-red-500 mt-1 text-sm text-left">
+          {errors}
+        </span>
+      )}
     </div>
   );
 };
