@@ -1,12 +1,12 @@
 "use client";
 import BannerLayout from "@/components/Banner/BannerLayout";
- import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
+import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
 import DropdownForm from "@/components/DropdownForm/DropdownForm";
 import FAQSection from "@/components/FAQSection";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import TestimonialSlider from "@/components/TestimonialSlider ";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
- import Image from "next/image";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "nextjs-toploader/app";
 import React, { useState } from "react";
@@ -21,6 +21,58 @@ const destinations = [
   { name: "Turkey", slug: "turkey", image: "/5.jpg" },
   { name: "Vietnam", slug: "vietnam", image: "/6.jpg" },
 ];
+
+const eVisaCountries = [
+  "Australia",
+  "Azerbaijan",
+  "Bahrain",
+  "Benin",
+  "Brazil",
+  "Cambodia",
+  "Cote d'Ivoire",
+  "Egypt",
+  "Ethiopia",
+  "India",
+
+  "Iraq",
+  "Japan",
+  "Jordan",
+  "Kenya",
+  "Kuwait",
+  "Kyrgyzstan",
+  "Laos",
+  "Morocco",
+  "Mozambique",
+  "Myanmar",
+
+  "Namibia",
+  "New Zealand",
+  "Nigeria",
+  "Oman",
+  "Pakistan",
+  "Rwanda",
+  "Saudi Arabia",
+  "South Korea",
+  "Sri Lanka",
+  "Tajikistan",
+
+  "Tanzania",
+  "Thailand",
+  "Turkey",
+  "Uganda",
+  "United Arab Emirates",
+  "United Kingdom",
+  "Uzbekistan",
+  "Vietnam",
+  "Zambia",
+];
+
+
+const toSlug = (name: string) =>
+  name.toLowerCase().replace(/\s+/g, "-");
+
+
+
 const EVisa = () => {
   const searchParams = useSearchParams();
   const country = searchParams.get("toCountrySlug") || "united-states";
@@ -53,9 +105,7 @@ const EVisa = () => {
         </h1>
 
         {/* Dropdown Form */}
-        <div className="px-4 sm:px-6 md:px-8">
-          <DropdownForm setActiveTab={setActiveTab} activeTab={activeTab} />
-        </div>
+
       </BannerLayout>
 
       <section className="py-16 bg-white text-center">
@@ -88,6 +138,57 @@ const EVisa = () => {
           ))}
         </div>
       </section>
+
+
+      <section className="py-20 bg-gradient-to-b from-[#F8FAFC] to-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+
+          {/* Title */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B4A7B]">
+              e-Visa Supported Countries
+            </h2>
+            <p className="mt-3 text-gray-600 text-sm md:text-base">
+              Apply online for e-Visa services in the following countries
+            </p>
+          </div>
+
+          {/* Country List Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-4 gap-x-8">
+              {eVisaCountries.map((country) => (
+                <button
+                  key={country}
+                  onClick={() =>
+                    router.push(
+                      `/category?toCountrySlug=${toSlug(country)}&fromCountrySlug=india&Slug=e-visa`
+                    )
+                  }
+                  className="
+              group flex items-center justify-between
+              text-left font-medium text-[#0B4A7B]
+              hover:text-red-600 transition-all duration-300
+            "
+                >
+                  <span className="relative">
+                    {country}
+                    {/* underline animation */}
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300"></span>
+                  </span>
+
+                  {/* arrow */}
+                  <span className="ml-2 text-gray-400 group-hover:text-red-600 transform group-hover:translate-x-1 transition-all duration-300">
+                    →
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
 
       <WhyChoose />
 

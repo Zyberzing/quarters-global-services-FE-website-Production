@@ -41,6 +41,7 @@ const PlanCard = ({ plan }: { plan: VisaPlan; type: string }) => {
     searchParams.get("platformServiceCategorySlug") || "";
 
   const handleApplyNow = () => {
+
     dispatch(
       setPackage({
         id: activeId,
@@ -51,15 +52,18 @@ const PlanCard = ({ plan }: { plan: VisaPlan; type: string }) => {
         platformServiceCategoryId: plan.platformServiceCategoryId,
       })
     );
-    router.push(
-      `/additional-services?slug=${plan.slug}&toCountrySlug=${country}&platformServiceCategorySlug=${platformServiceCategorySlug}`
-    );
+
     savePlatformServiceStep({
-      platformServiceCategoryPackageId: String(plan._id),
+      platformServiceCategoryPackageId: activeId,
       price: Number(plan.price),
       currency: "USD",
       Price_name:plan.name
     });
+
+    router.push(
+      `/additional-services?slug=${plan.slug}&toCountrySlug=${country}&platformServiceCategorySlug=${platformServiceCategorySlug}`
+    );
+  
   };
 
   return (

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import axios from "axios";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const SupportForm = () => {
   const [form, setForm] = useState({
@@ -76,7 +78,7 @@ const SupportForm = () => {
       </div>
 
       {/* Email + Phone */}
-      <div className="grid grid-cols-2 space-x-2">
+      <div className="grid grid-cols-1 space-x-2">
         <div>
           <input
             type="email"
@@ -88,27 +90,21 @@ const SupportForm = () => {
           />
         </div>
 
-        <div className="flex gap-2">
-          <select
-            name="countryCode"
-            value={form.countryCode}
-            onChange={handleChange}
-            className="bg-[#F9F9F9] w-[90px] h-[64px] px-[16px] py-[17px] rounded-[7px]"
-          >
-            <option value="+1">+1</option>
-            <option value="+91">+91</option>
-            <option value="+49">+49</option>
-          </select>
-
-          <input
-            type="text"
-            name="phone"
+        <div className="w-full mt-4">
+          <PhoneInput
+            defaultCountry="IN"
+            international
+            countryCallingCodeEditable={false}
             placeholder="Phone Number"
             value={form.phone}
-            onChange={handleChange}
-            className="bg-[#F9F9F9] w-full flex-1 h-[64px] px-[24px] py-[17px] rounded-[7px] opacity-100"
+            onChange={(value) =>
+              setForm((prev) => ({ ...prev, phone: value || "" }))
+            }
+            className="bg-[#F9F9F9] h-[64px] px-[16px] rounded-[7px]"
+            inputClass="w-full bg-transparent outline-none"
           />
         </div>
+
       </div>
 
       {/* Dropdown - Support Type */}

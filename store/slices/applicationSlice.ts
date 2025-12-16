@@ -90,7 +90,7 @@ const applicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    startApplication(state, action: PayloadAction<{ type: string,platformServiceId:string }>) {
+    startApplication(state, action: PayloadAction<{ type: string, platformServiceId: string }>) {
       const id = uuid4();
       console.log(action.payload.type, "app")
       const newApp: Application = {
@@ -190,10 +190,43 @@ const applicationSlice = createSlice({
     resetApplications() {
       return { applications: [], activeId: null, draftApplications: [] };
     },
+
+    deleteApplication(state, action: PayloadAction<string>) {
+      const deleteId = action.payload;
+
+      // ❌ remove from draftApplications
+      state.draftApplications = state.draftApplications.filter(
+        (app) => app.id !== deleteId
+      );
+
+      // ❌ remove from saved applications
+      state.applications = state.applications.filter(
+        (app) => app.id !== deleteId
+      );
+
+      // 🔄 fix activeId
+      if (state.activeId === deleteId) {
+        state.activeId = state.draftApplications.length
+          ? state.draftApplications[0].id
+          : null;
+      }
+
+      // 💾 persist
+      saveState(state);
+
+      // ❌ clear status if it belonged to deleted app
+      const raw = localStorage.getItem(STATUS_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed?.activeId === deleteId) {
+          localStorage.removeItem(STATUS_KEY);
+        }
+      }
+    },
+
   },
 });
 
-export const { startApplication, setCategory, setPackage, addAddon, setFormData, resetApplications, saveApplication, clearStatus, setActiveApplication } =
-  applicationSlice.actions;
+export const { startApplication, setCategory, setPackage, addAddon, setFormData, resetApplications, saveApplication, clearStatus, setActiveApplication,deleteApplication } = applicationSlice.actions;
 
 export default applicationSlice.reducer;

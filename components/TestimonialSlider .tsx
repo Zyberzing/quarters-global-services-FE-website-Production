@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight, FaQuoteLeft } from "react-icons/fa";
@@ -39,6 +39,26 @@ const defaultTestimonials = [
     image: "/p4.jpg",
     text: "A seamless experience from start to finish. Clear communication and fast turnaround times.",
   },
+  {
+    name: "Devon Lane",
+    image: "/p1.jpg",
+    text: "Excellent service for OCI application. Their team is responsive, and the portal makes everything easy and secure.",
+  },
+  {
+    name: "Kathryn Murphy",
+    image: "/p2.jpg",
+    text: "The process was super smooth and fast. I applied for my US tourist visa, uploaded my documents, and tracked everything online. Highly recommend Quartus!",
+  },
+  {
+    name: "Annette Black",
+    image: "/p3.jpg",
+    text: "Needed my documents apostilled quickly—Quartus handled it end-to-end with real-time updates. Very reliable.",
+  },
+  {
+    name: "Guy Hawkins",
+    image: "/p4.jpg",
+    text: "A seamless experience from start to finish. Clear communication and fast turnaround times.",
+  },
 ];
 
 const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
@@ -49,9 +69,15 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
   return (
     <div className="relative max-w-8xl mx-auto p-12">
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
+        loop={true}                    // 🔁 infinite loop
+        autoplay={{
+          delay: 10000,                // ⏱️ 10 seconds
+          disableOnInteraction: false, // keep autoplay after click
+          pauseOnMouseEnter: true,     // pause on hover (UX 👍)
+        }}
         breakpoints={{
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
@@ -60,10 +86,12 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
           nextEl: ".swiper-button-next-custom",
           prevEl: ".swiper-button-prev-custom",
         }}
-        pagination={false}
-        onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex + 1)}
-        className="pb-12 h-[350px] "
+        onSlideChange={(swiper) =>
+          setCurrentSlide(swiper.realIndex + 1)
+        }
+        className="pb-12 h-[350px]"
       >
+
         {testimonials.map((item, index) => (
           <SwiperSlide key={index}>
             <motion.div
@@ -98,7 +126,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
 
       {/* --- Custom Navigation & Circular Indicator --- */}
       <div className="flex justify-center items-center gap-6 mt-4">
-        <button  title="ss" className="swiper-button-prev-custom bg-[#E7000B] text-white p-3 rounded-full hover:bg-red-500 shadow-md transition">
+        <button title="ss" className="swiper-button-prev-custom bg-[#E7000B] text-white p-3 rounded-full hover:bg-red-500 shadow-md transition">
           <FaArrowLeft className="w-5 h-5" />
         </button>
 

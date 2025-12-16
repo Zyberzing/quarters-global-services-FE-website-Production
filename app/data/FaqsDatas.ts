@@ -2119,7 +2119,7 @@ export const FaqsDatas = {
                 }
             ],
 
-            "k1-fiancee-visa-1": [
+            "k1-fiancee-visa": [
                 {
                     "title": "What is a K1 Fiancé(e) Visa?",
                     "description": "The K1 Fiancé(e) Visa allows a foreign national to travel to the United States to marry their US citizen fiancé(e)."
@@ -2142,7 +2142,7 @@ export const FaqsDatas = {
                 }
             ],
 
-            "TN/TD NAFTA Visa": [
+            "tntd-nafta-visa": [
                 {
                     "title": "What is a TN visa?",
                     "description": "The TN visa allows qualified Canadian and Mexican professionals to work in the United States under the USMCA (formerly NAFTA) agreement."

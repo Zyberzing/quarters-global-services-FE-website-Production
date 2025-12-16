@@ -13,19 +13,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { FileEdit } from "lucide-react";
 import { step1Schema, Step1Data } from "@/lib/validationSchemas";
 import { useCreateApplicationMutation } from "@/services/applicationApi";
-import { getPlatformServices, removeFromPlatformServices } from "@/lib/platformServiceStorage";
+import { getPlatformServices } from "@/lib/platformServiceStorage";
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveApplication, setFormData } from "@/store/slices/applicationSlice";
+import { deleteApplication, setActiveApplication, setFormData } from "@/store/slices/applicationSlice";
 import { useRouter } from "nextjs-toploader/app";
 import { toast } from "sonner";
 import EmailVerifyDialog from "./EmailVerifyDialog";
 import { useVerifyEmailMutation } from "@/services/verifyEmail";
 import { Trash } from "lucide-react";
-
 import { ApplicationPayload } from "@/services/applicationApi2";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 // --- Types for API ---
 interface Address {
@@ -61,8 +61,6 @@ const getAllStoredApplications = () => {
     }
 };
 
-
-// --- Map API response to form values ---
 const mapStoredAppToApi = (app: any) => {
     const form = app?.form?.applications?.[0] || {};
 
@@ -145,11 +143,8 @@ const mapDraftToForm = (form: any): Step1Data => ({
     },
 });
 
-
-
 export default function Step1() {
-    const [createApplication, { data, isLoading }] =
-        useCreateApplicationMutation();
+    const [createApplication, { data, isLoading }] = useCreateApplicationMutation();
     const dispatch = useDispatch();
     const router = useRouter()
     const [applications, setApplications] = useState<Application[]>([]);
@@ -244,9 +239,8 @@ export default function Step1() {
     };
 
     const handleDelete = (id: string) => {
-        removeFromPlatformServices(id);
-        window.location.reload()
-        localStorage.removeItem("platformServices");
+        dispatch(deleteApplication(id));
+        localStorage.removeItem("platformServices")
 
     };
 
@@ -347,13 +341,7 @@ export default function Step1() {
                                     </span>
                                 </h2>
                                 <div className="flex gap-2">
-                                    <Button
-                                        variant="outline"
-                                        size="sm"
-                                        className="flex items-center gap-1 sm:gap-2 text-black border-black hover:bg-white hover:text-[#00408D] transition"
-                                    >
-                                        <FileEdit className="w-4 h-4" />
-                                    </Button>
+
 
 
                                     <Button
@@ -424,10 +412,14 @@ export default function Step1() {
                             <FormItem className="w-full">
                                 <FormLabel>Phone Number</FormLabel>
                                 <FormControl>
-                                    <Input
-                                        placeholder="+91 9876543210"
+                                    <PhoneInput
                                         {...field}
-                                        className="w-full text-sm sm:text-base"
+                                        defaultCountry="IN"
+                                        international
+                                        countryCallingCodeEditable={false}
+                                        placeholder="Enter phone number"
+                                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                                        onChange={field.onChange}
                                     />
                                 </FormControl>
                                 <FormMessage />

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
@@ -34,20 +33,7 @@ const features = [
     image: '/services/visa.png',
     slug: 'data-security-you-can-trust',
   },
-  {
-    title: 'Seamless Access: 20+ Countries',
-    description:
-      'Apply for services across 20+ countries through one single portal, no matter where you are.',
-    image: '/services/apostille.png',
-    slug: 'seamless-access-20-countries',
-  },
-  {
-    title: 'One Portal. All Services.',
-    description:
-      'Apply, upload, track, and get support — all through one central dashboard.',
-    image: '/services/visa.png',
-    slug: 'one-portal-all-services',
-  },
+  
 ];
 
 const WhyChoose = () => {

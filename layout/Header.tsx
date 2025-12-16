@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { MdMenu, MdClose, MdShoppingCart } from "react-icons/md";
 import Skeleton from "react-loading-skeleton";
@@ -8,6 +8,15 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { usePathname, useRouter } from "next/navigation";
 import { useGetNavbarServicesQuery } from "@/services/platformNavbarApi";
 import { getSession } from "@/lib/session";
+
+const staticRoutes = [
+  "other-services",
+  "tax-filling",
+  "about-us",
+  "contact-us",
+  "e-visa"
+];
+
 
 const Header = () => {
   const { data, isError, isLoading } = useGetNavbarServicesQuery();
@@ -19,6 +28,23 @@ const Header = () => {
   const currentPath = usePathname();
   const services = data?.data?.data;
 
+  const readCartCount = () => {
+    const saved = localStorage.getItem("applications");
+    if (!saved) return 0;
+
+    try {
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed.applications)
+        ? parsed.applications.filter(
+          (app: any) =>
+            app?.platformServiceCategoryId?.trim()
+        ).length
+        : 0;
+    } catch {
+      return 0;
+    }
+  };
+
   // Check login session
   useEffect(() => {
     const fetchSession = async () => {
@@ -28,24 +54,20 @@ const Header = () => {
     fetchSession();
   }, []);
 
-  // Fetch cart count
   useEffect(() => {
-    const saved = window.localStorage.getItem("applications");
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed.applications)) {
-          const validApps = parsed.applications.filter(
-            (app: any) =>
-              typeof app?.platformServiceCategoryId === "string" &&
-              app.platformServiceCategoryId.trim() !== ""
-          );
-          setCartCount(validApps.length);
-        } else setCartCount(0);
-      } catch {
-        setCartCount(0);
-      }
-    }
+    const updateCount = () => {
+      setCartCount(readCartCount());
+    };
+
+    // initial
+    updateCount();
+
+    // 👂 custom event (same tab)
+    window.addEventListener("cart-updated", updateCount);
+
+    return () => {
+      window.removeEventListener("cart-updated", updateCount);
+    };
   }, []);
 
   return (
@@ -88,32 +110,35 @@ const Header = () => {
                 <button
                   key={service._id}
                   onClick={() => {
+                    // store common values (only if needed)
+                    localStorage.setItem("selectedService", service.slug);
+                    localStorage.setItem("fromCountryId", "68e966dde7bd0d029655d358");
+                    localStorage.setItem("toCountryId", "68e966dde7bd0d029655d359");
 
-                    // ✅ local storage (persistent selections)
-                    localStorage.setItem("selectedService", service.slug); // visa / passport
-                    localStorage.setItem(
-                      "fromCountryId",
-                      "68e966dde7bd0d029655d358"
+                    sessionStorage.setItem(
+                      "platformServiceStep",
+                      JSON.stringify({
+                        citizenship: "india",
+                        citizenship_code: "IN",
+                        country: "united-states",
+                        countryCode: "US",
+                      })
                     );
-                    localStorage.setItem(
-                      "toCountryId",
-                      "68e966dde7bd0d029655d359"
-                    );
-                    sessionStorage.setItem("platformServiceStep", JSON.stringify({
-                      "citizenship": "india",
-                      "citizenship_code": "IN",
-                      "country": "united-states",
-                      "countryCode": "US"
-                    }))
 
-                    // ✅ redirect
-                    router.push(
-                      `/category?toCountrySlug=united-states&Slug=${service.slug}`
-                    );
+                    // 🔀 REDIRECT FIX
+                    if (staticRoutes.includes(service.slug)) {
+                      router.push(`/${service.slug}`);
+                    } else {
+                      router.push(
+                        `/category?toCountrySlug=united-states&Slug=${service.slug}`
+                      );
+                    }
                   }}
+
+
                   className={`relative px-1 transition duration-300 ${currentPath === `/${service.slug}`
-                      ? "text-[oklch(57.7%_0.245_27.325)] font-semibold after:scale-x-100"
-                      : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
+                    ? "text-[oklch(57.7%_0.245_27.325)] font-semibold after:scale-x-100"
+                    : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
                     } after:content-[''] after:absolute after:left-0 after:-bottom-1 
         after:w-full after:h-[2px] after:bg-[oklch(57.7%_0.245_27.325)] 
         after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300`}
@@ -202,8 +227,29 @@ const Header = () => {
                 <button
                   key={service._id}
                   onClick={() => {
-                    router.push(`/${service.slug}`);
-                    setMobileMenuOpen(false);
+                    // store common values (only if needed)
+                    localStorage.setItem("selectedService", service.slug);
+                    localStorage.setItem("fromCountryId", "68e966dde7bd0d029655d358");
+                    localStorage.setItem("toCountryId", "68e966dde7bd0d029655d359");
+
+                    sessionStorage.setItem(
+                      "platformServiceStep",
+                      JSON.stringify({
+                        citizenship: "india",
+                        citizenship_code: "IN",
+                        country: "united-states",
+                        countryCode: "US",
+                      })
+                    );
+
+                    // 🔀 REDIRECT FIX
+                    if (staticRoutes.includes(service.slug)) {
+                      router.push(`/${service.slug}`);
+                    } else {
+                      router.push(
+                        `/category?toCountrySlug=united-states&Slug=${service.slug}`
+                      );
+                    }
                   }}
                   className={`block w-full text-left py-2 text-sm ${currentPath === `/${service.slug}`
                     ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
@@ -214,19 +260,25 @@ const Header = () => {
                 </button>
               ))}
 
-          {/* ⭐ NEW — Enrollment Link in Mobile Menu */}
-          <button
-            onClick={() => {
-              router.push("/quartus-enrollment");
-              setMobileMenuOpen(false);
-            }}
-            className={`block w-full text-left py-2 text-sm ${currentPath === "/quartus-enrollment"
-              ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
-              : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
-              } transition`}
-          >
-            Quartus Enrollment
-          </button>
+
+          {/* Static Pages */}
+          {["about-us", "contact-us"].map((page) => (
+            <button
+              key={page}
+              onClick={() => {
+                router.push(`/${page}`);
+                setMobileMenuOpen(false);
+              }}
+              className={`block w-full text-left py-2 text-sm ${currentPath === `/${page}`
+                  ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
+                  : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
+                } transition`}
+            >
+              {page === "about-us" ? "About" : "Contact"}
+            </button>
+          ))}
+
+
 
           {/* Cart */}
           <div

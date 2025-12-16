@@ -52,45 +52,45 @@ export default function FAQSection({ items = [] }: FAQSectionProps) {
   const categorySlug = searchParams.get("Slug") || "";
   const [filteredFaqs, setFilteredFaqs] = useState<FAQItem[]>(items);
 
-useEffect(() => {
-  if (!toCountrySlug) return;
+  useEffect(() => {
+    if (!toCountrySlug) return;
 
-  const mainType: keyof typeof FaqsDatas = "visa";
+    const mainType: keyof typeof FaqsDatas = "visa";
 
-  const countryKey = Object.keys(FaqsDatas[mainType] || {}).find(
-    (key) => normalize(key) === normalize(toCountrySlug)
-  );
+    const countryKey = Object.keys(FaqsDatas[mainType] || {}).find(
+      (key) => normalize(key) === normalize(toCountrySlug)
+    );
 
-  if (!countryKey) {
-    setFilteredFaqs([]);
-    return;
-  }
+    if (!countryKey) {
+      setFilteredFaqs([]);
+      return;
+    }
 
-  const countryData =
-    FaqsDatas[mainType][
+    const countryData =
+      FaqsDatas[mainType][
       countryKey as keyof (typeof FaqsDatas)[typeof mainType]
-    ];
+      ];
 
-  const categoryKey = categorySlug
-    ? Object.keys(countryData || {}).find(
+    const categoryKey = categorySlug
+      ? Object.keys(countryData || {}).find(
         (key) => normalize(key) === normalize(categorySlug)
       )
-    : null;
+      : null;
 
-  if (!categoryKey) {
-    setFilteredFaqs([]);
-    return;
-  }
+    if (!categoryKey) {
+      setFilteredFaqs([]);
+      return;
+    }
 
-  const faqsData = (
-    countryData[categoryKey as keyof typeof countryData] as FAQItem[]
-  ).map((faq) => ({
-    title: faq.title,
-    description: faq.description ?? "",
-  }));
+    const faqsData = (
+      countryData[categoryKey as keyof typeof countryData] as FAQItem[]
+    ).map((faq) => ({
+      title: faq.title,
+      description: faq.description ?? "",
+    }));
 
-  setFilteredFaqs(faqsData);
-}, [toCountrySlug, categorySlug]);
+    setFilteredFaqs(faqsData);
+  }, [toCountrySlug, categorySlug]);
 
 
   const countryName = toCountrySlug ? formatCountryName(toCountrySlug) : "";

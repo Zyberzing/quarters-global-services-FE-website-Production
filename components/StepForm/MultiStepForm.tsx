@@ -15,6 +15,8 @@ const steps = [
   { id: 4, label: "Thank You" },
 ];
 
+
+
 const MultiStepForm = () => {
   const [step] = useState(1);
 
@@ -26,6 +28,8 @@ const MultiStepForm = () => {
   const [, setNames] = useState<string[]>([]);
 
 
+
+  
 
   useEffect(() => {
     const stored = getPlatformServices();

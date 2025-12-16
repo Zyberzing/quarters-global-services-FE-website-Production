@@ -8,9 +8,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { savePlatformServiceStep } from "@/lib/platformServiceStorage";
 import { useGetPlatformServiceCategoryPackageAddonQuery } from "@/services/platformServiceAddonApi";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { clearStatus, saveApplication } from "@/store/slices/applicationSlice";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addAddon, clearStatus, saveApplication } from "@/store/slices/applicationSlice";
 
 const AdditionalServices = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -27,39 +27,55 @@ const AdditionalServices = () => {
   });
   const additional = data?.data?.data;
 
+  const { activeId } = useSelector((state: any) => state.application);
+
   const toggleSelection = (addon: any) => {
+    const addonId = String(addon._id);
+
     setSelected((prev) => {
-      const id = String(addon._id);
       let updated: string[];
 
-      if (prev.includes(id)) {
-        // 🗑️ Deselect → remove from localStorage
-        updated = prev.filter((item) => item !== id);
+      if (prev.includes(addonId)) {
+        // ❌ DESELECT ADDON
+        updated = prev.filter((item) => item !== addonId);
+
+        // 🔴 remove from localStorage
         savePlatformServiceStep(
           {
-            platformServiceCategoryPackageAddonsId: [addon._id],
-            additionService_name: addon.name,
+            platformServiceCategoryPackageAddonsId: [addonId],
           },
-          true // ✅ important — tells function to remove
         );
-      } else {
-        // 💾 Select → store with full info
-        updated = [...prev, id];
-        savePlatformServiceStep({
-          platformServiceCategoryPackageAddonsId: [addon._id],
-          additionService: true,
-          additionService_price: Number(addon.price),
-          additionService_name: addon.name,
-          currency: addon.currency || "USD",
-          platformServiceSubCategoryId:"",
 
+        // 🔴 remove from redux
+        dispatch({
+          type: "application/removeAddon",
+          payload: { id: activeId, addon: addonId },
         });
+      } else {
+        // ✅ SELECT ADDON
+        updated = [...prev, addonId];
+
+        // 🟢 save to localStorage
+        savePlatformServiceStep(
+          {
+            platformServiceCategoryPackageAddonsId: [addonId],
+            additionService: true,
+            additionService_price: Number(addon.price),
+            additionService_name: addon.name,
+            currency: addon.currency || "USD",
+          },
+          
+        );
+
+        // 🟢 save to redux
+        dispatch(addAddon({ id: activeId, addon: addonId }));
       }
 
       return updated;
     });
   };
-  
+
+
   const handleContinue = () => {
     dispatch(saveApplication());
     dispatch(clearStatus());
@@ -69,9 +85,9 @@ const AdditionalServices = () => {
     <>
       <BannerLayout bg="/e-visa.jpg">
         <h4 className="bg-black/40 py-3 pb-5 px-4 w-[50%] m-auto rounded-lg text-4xl font-bold mb-4 capitalize">
-        Additional Services
+          Additional Services
         </h4>
-    
+
       </BannerLayout>
 
       <div className="max-w-6xl mx-auto px-4 py-10">
@@ -90,11 +106,10 @@ const AdditionalServices = () => {
                 additional.map((service: any) => (
                   <div
                     key={service._id}
-                    className={`border p-5 rounded-lg shadow-sm transition-all duration-300 ${
-                      selected.includes(String(service._id))
+                    className={`border p-5 rounded-lg shadow-sm transition-all duration-300 ${selected.includes(String(service._id))
                         ? "border-blue-600 bg-blue-50"
                         : "border-gray-300 bg-white"
-                    }`}
+                      }`}
                   >
                     <label className="flex items-start gap-3 cursor-pointer">
                       <div>
@@ -109,9 +124,9 @@ const AdditionalServices = () => {
                         <p className="text-sm text-gray-700 mb-2">
                           {service.description}
                         </p>
-                        <p className="text-sm text-gray-500 mb-1">
+                        {/* <p className="text-sm text-gray-500 mb-1">
                           <strong>Timeline:</strong> {service.timeline}
-                        </p>
+                        </p> */}
                         <p className="text-sm font-semibold">
                           {service.price} {service.currency}
                         </p>

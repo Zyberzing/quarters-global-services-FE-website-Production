@@ -5,6 +5,7 @@
 import BannerLayout from "@/components/Banner/BannerLayout";
 import ServiceSection from "@/components/ServiceSection";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 
@@ -210,9 +211,12 @@ const OtherService = () => {
                         Contact us today to learn more about our services and how we can help you with your specific needs.
                     </p>
 
-                    <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-medium text-lg hover:bg-red-50 transition-colors duration-300">
+<Link href={"/contact-us"}>
+  <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-medium text-lg hover:bg-red-50 transition-colors duration-300">
                         Contact Us
                     </button>
+</Link>
+                  
                 </div>
             </div>
 

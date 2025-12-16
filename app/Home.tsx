@@ -15,14 +15,16 @@ import DropdownForm from "@/components/DropdownForm/DropdownForm";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import TrustedSection from "@/components/TrustedSection";
 import SupportForm from "@/components/SupportForm";
+import Link from "next/link";
 
-const blogPosts = [
+export const blogPosts = [
   {
     tag: "Visa",
-    title: "Top 5 Mistakes to Avoid When Applying for a Tourist Visa",
+    title: 'Real-Time Application Tracking',
+    slug: "real-time-application-tracking",
     description:
-      "Applying for a tourist visa can be a straightforward process—if done correctly. However, many applicants unknowingly make errors that lead to...",
-    image: "/blog-1.jpg",
+      'Stay informed at every stage. Get real-time updates as your application moves forward.',
+    image: "/1.jpg",
     author: "Eleanor Pena",
     date: "20 April 2024",
     authorImage: "https://randomuser.me/api/portraits/women/1.jpg",
@@ -30,24 +32,27 @@ const blogPosts = [
   {
     tag: "Apostille",
     title: "What is an Apostille and Why Do You Need It?",
+    slug: "expert-guidance-support",
     description:
-      "If you’ve ever needed to use an Indian document abroad for a job, education, or legal process—you’ve probably heard the term...",
-    image: "/blog-2.jpg",
+      "Access professional advisors for questions and clarifications — timely, informed, and efficient support.",
+    image: "/2.jpg",
     author: "Albert Flores",
     date: "20 April 2024",
     authorImage: "https://randomuser.me/api/portraits/men/2.jpg",
   },
   {
-    tag: "Visa",
-    title: "How to Track Your Visa Application in Real-Time with Quartus?",
+    tag: "Feature",
+    title: "Expert Guidance & Support",
+    slug: "end-to-end-digital-process",
     description:
-      "Worried about where your visa application stands? With Quartus Global Service, you no longer have to rely on emails or long...",
-    image: "/blog-3.jpg",
-    author: "Leslie Alexander",
+      "Skip paperwork by processing your documents in a hassle-free, secure, and intuitive environment.",
+    image: "/services/apostille.png",
+    author: "Quartus Team",
     date: "20 April 2024",
-    authorImage: "https://randomuser.me/api/portraits/women/3.jpg",
+    authorImage: "https://randomuser.me/api/portraits/men/2.jpg",
   },
 ];
+
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"Services" | "apostille" | "e-visa">("Services");
@@ -195,7 +200,7 @@ export default function Home() {
                 }
                 title="Apostille & Legalization"
                 description="Make your documents valid internationally."
-                link="/apostille"
+                link="/category?toCountrySlug=united-states&Slug=apostille-and-legalization"
               />
             </div>
 
@@ -296,44 +301,69 @@ export default function Home() {
       </div>
 
       <div className="bg-[linear-gradient(180deg,#DEEBFF_0%,#FFE3E3_100%)] py-12 px-4">
-        <div className="max-w-8xl mx-auto flex flex-wrap justify-center gap-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+
           {blogPosts.map((post, index) => (
-            <div
+            <Link
               key={index}
-              className="w-full sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[464px] h-auto bg-white rounded-[36px] p-4 flex flex-col gap-6 sm:gap-8 border border-[#F2F2F2] shadow-sm hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#E7000B] transition-all duration-300 ease-in-out cursor-pointer"
+              href={`/blogs/${post.slug}`}
+              className="block"
             >
-              <Image
-                width={150}
-                height={150}
-                src={"/img.jpg"}
-                alt={post.title}
-                className="w-full h-48 sm:h-40 md:h-44 lg:h-48 object-cover rounded-[20px]"
-              />
-              <div className="flex flex-col justify-between flex-grow">
-                <div>
-                  <p className="text-sm sm:text-xs md:text-sm text-blue-600 font-semibold mb-1">{post.tag}</p>
-                  <h3 className="font-bold text-lg sm:text-base md:text-lg lg:text-xl text-gray-900 mb-2">{post.title}</h3>
-                  <p className="text-sm sm:text-xs md:text-sm text-gray-600 mb-3">
-                    {post.description}{" "}
-                    <span className="text-red-600 font-semibold">Read More</span>
-                  </p>
-                </div>
-                <div className="flex items-center gap-2 mt-auto">
-                  <Image
-                    width={32}
-                    height={32}
-                    src={"/p4.jpg"}
-                    alt={post.author}
-                    className="w-8 h-8 rounded-full"
-                  />
-                  <div className="text-sm sm:text-xs text-gray-700">
-                    <p className="font-medium">{post.author}</p>
-                    <p className="text-gray-500 text-xs">{post.date}</p>
+              <div
+               className="
+  w-full max-w-[464px] min-h-[520px]
+  bg-white rounded-[36px] p-4
+  flex flex-col gap-6 sm:gap-8
+  border border-[#F2F2F2] shadow-sm
+  hover:shadow-xl hover:-translate-y-1 hover:scale-[1.01]
+  hover:border-[#E7000B]
+  transition-all duration-300 ease-in-out
+  cursor-pointer
+"
+>
+
+                <Image
+                  width={150}
+                  height={150}
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-48 sm:h-40 md:h-44 lg:h-48 object-cover rounded-[20px]"
+                />
+
+                <div className="flex flex-col justify-between flex-grow">
+                  <div>
+                    <p className="text-sm text-blue-600 font-semibold mb-1">
+                      {post.tag}
+                    </p>
+                    <h3 className="font-bold text-lg text-gray-900 mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      {post.description}
+                      <span className="text-red-600 font-semibold ml-1">
+                        Read More
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 mt-auto">
+                    <Image
+                      width={32}
+                      height={32}
+                      src={post.authorImage}
+                      alt={post.author}
+                      className="w-8 h-8 rounded-full"
+                    />
+                    <div className="text-sm text-gray-700">
+                      <p className="font-medium">{post.author}</p>
+                      <p className="text-gray-500 text-xs">{post.date}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
+
         </div>
 
         <div className="flex items-center justify-center my-10">

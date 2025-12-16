@@ -64,7 +64,7 @@ const BannerLayout: React.FC<BannerLayoutProps> = ({
   <section
       className="
         relative w-full 
-        h-[80vh]          /* ✅ Mobile: 80% of viewport height */
+        h-[100vh]          /* ✅ Mobile: 80% of viewport height */
         sm:h-[500px] 
         md:h-[600px]
         px-4 flex items-center justify-center text-white overflow-hidden
