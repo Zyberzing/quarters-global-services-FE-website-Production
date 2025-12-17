@@ -2141,6 +2141,28 @@ export const FaqsDatas = {
                     "description": "After marriage, the foreign spouse must apply for Adjustment of Status to become a lawful permanent resident."
                 }
             ],
+             "k1-fiancee-visa-1": [
+                {
+                    "title": "What is a K1 Fiancé(e) Visa?",
+                    "description": "The K1 Fiancé(e) Visa allows a foreign national to travel to the United States to marry their US citizen fiancé(e)."
+                },
+                {
+                    "title": "Who is eligible to apply for a K1 visa?",
+                    "description": "The applicant must be engaged to a US citizen, both must be legally free to marry, and they must have met in person within the last two years."
+                },
+                {
+                    "title": "How long is the K1 visa valid?",
+                    "description": "The K1 visa is valid for a single entry and the marriage must take place within 90 days of arrival in the US."
+                },
+                {
+                    "title": "Can a K1 visa holder work in the US?",
+                    "description": "K1 visa holders may apply for work authorization after entering the US."
+                },
+                {
+                    "title": "What happens after marriage on a K1 visa?",
+                    "description": "After marriage, the foreign spouse must apply for Adjustment of Status to become a lawful permanent resident."
+                }
+            ],
 
             "tntd-nafta-visa": [
                 {

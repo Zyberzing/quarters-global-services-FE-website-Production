@@ -1,38 +1,55 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import uuid4 from "uuid4";
 
+/* =======================
+   TYPES
+======================= */
+
+export interface AddonItem {
+  id: string;
+  name: string;
+  price: number;
+  currency: string;
+}
+
 export interface Application {
   id: string;
   type: string;
   name: string | null;
   price?: number | null;
   package: string | null;
+
+  // ✅ REQUIRED FOR ADDITIONAL SERVICES / CHECKOUT
+  toCountrySlug: string | null;
+
   platformServiceCategoryId: string | null;
   platformServiceCategoryPackageId: string | null;
   platformServiceId: string | null;
-  addons: string[];
+
+  addons: AddonItem[];
   form: Record<string, any>;
 }
 
 interface ApplicationState {
   applications: Application[];
   draftApplications: Application[];
-  activeId: string | null; // which one user is working on
+  activeId: string | null;
 }
 
+/* =======================
+   STORAGE HELPERS
+======================= */
+
 const STORAGE_KEY = "applications";
+const STATUS_KEY = "applicationStatus";
 
 const saveState = (state: ApplicationState) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch (e) {
-    console.error("Failed to save state", e);
-  }
+  } catch {}
 };
-const STATUS_KEY = "applicationStatus";
 
 export const saveSingleApplication = (app: Application) => {
-
   try {
     localStorage.setItem(
       STATUS_KEY,
@@ -41,192 +58,268 @@ export const saveSingleApplication = (app: Application) => {
         data: app,
       })
     );
-  } catch (err) {
-    console.error("Failed to save single application:", err);
-  }
+  } catch {}
 };
+
+/* =======================
+   LOAD STATE (SAFE)
+======================= */
 
 const loadState = (): ApplicationState => {
   try {
-    const currentStatusData = localStorage.getItem(STATUS_KEY);
-    const applicationsData = localStorage.getItem(STORAGE_KEY);
+    const statusRaw = localStorage.getItem(STATUS_KEY);
+    const appsRaw = localStorage.getItem(STORAGE_KEY);
 
-    const parsedApplications: ApplicationState = applicationsData
-      ? JSON.parse(applicationsData)
-      : { applications: [], activeId: null, draftApplications: [] };
+    let state: ApplicationState = {
+      applications: [],
+      draftApplications: [],
+      activeId: null,
+    };
 
-    // If a single application is saved, merge it into the existing array
-    if (currentStatusData) {
-      const parsedStatus = JSON.parse(currentStatusData);
+    if (appsRaw) {
+      state = JSON.parse(appsRaw);
+    }
 
-      if (parsedStatus?.data) {
-        const existingAppIndex = parsedApplications.draftApplications.findIndex(
-          (a) => a.id === parsedStatus.data.id
+    if (statusRaw) {
+      const parsed = JSON.parse(statusRaw);
+      if (parsed?.data) {
+        const idx = state.draftApplications.findIndex(
+          (a) => a.id === parsed.data.id
         );
 
-        if (existingAppIndex !== -1) {
-          // Update existing application (replace old version)
-          parsedApplications.draftApplications[existingAppIndex] = parsedStatus.data;
+        if (idx !== -1) {
+          state.draftApplications[idx] = parsed.data;
         } else {
-          // Append new application if not already present
-          parsedApplications.draftApplications.push(parsedStatus.data);
+          state.draftApplications.push(parsed.data);
         }
 
-        // Update active ID from the latest single app
-        parsedApplications.activeId = parsedStatus.activeId || parsedApplications.activeId;
+        state.activeId = parsed.activeId;
       }
     }
 
-    return parsedApplications;
-  } catch (e) {
-    console.error("Failed to load state", e);
-    return { applications: [], activeId: null, draftApplications: [] };
+    return state;
+  } catch {
+    return { applications: [], draftApplications: [], activeId: null };
   }
 };
 
 const initialState: ApplicationState = loadState();
 
+/* =======================
+   SLICE
+======================= */
+
 const applicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    startApplication(state, action: PayloadAction<{ type: string, platformServiceId: string }>) {
+    /* -------- START APPLICATION -------- */
+    startApplication(
+      state,
+      action: PayloadAction<{
+        type: string;
+        platformServiceId: string;
+        toCountrySlug: string;
+      }>
+    ) {
       const id = uuid4();
-      console.log(action.payload.type, "app")
-      const newApp: Application = {
+
+      const app: Application = {
         id,
         type: action.payload.type,
         name: null,
+        price: null,
         package: null,
+        toCountrySlug: action.payload.toCountrySlug, // ✅ FIXED
         addons: [],
         form: {},
         platformServiceCategoryId: null,
         platformServiceCategoryPackageId: null,
         platformServiceId: action.payload.platformServiceId,
       };
-      state.draftApplications.push(newApp);
+
+      state.draftApplications.push(app);
       state.activeId = id;
-      saveSingleApplication(newApp);
+      saveSingleApplication(app);
     },
+
+    /* -------- ACTIVE APPLICATION -------- */
     setActiveApplication(state, action: PayloadAction<string>) {
       state.activeId = action.payload;
     },
+
+    /* -------- CATEGORY -------- */
     setCategory(
       state,
-      action: PayloadAction<{ id: string; name: string; platformServiceCategoryId: string }>
+      action: PayloadAction<{
+        id: string;
+        name: string;
+        platformServiceCategoryId: string;
+      }>
     ) {
-      const app = state.draftApplications.find((a) => a.id === action.payload.id);
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
+
       if (app) {
         app.name = action.payload.name;
-        app.platformServiceCategoryId = action.payload.platformServiceCategoryId;
+        app.platformServiceCategoryId =
+          action.payload.platformServiceCategoryId;
         saveSingleApplication(app);
       }
     },
 
+    /* -------- PACKAGE -------- */
     setPackage(
       state,
       action: PayloadAction<{
         id: string;
-        platformServiceCategoryId: string;
         package: string;
+        price: string;
+        platformServiceCategoryId: string;
         platformServiceCategoryPackageId: string;
         platformServiceId: string;
-        price: string;
       }>
     ) {
-      const app = state.draftApplications.find((a) => a.id === action.payload.id);
-      console.log(app, "app")
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
+
       if (app) {
         app.package = action.payload.package;
-        app.platformServiceCategoryPackageId = action.payload.platformServiceCategoryPackageId;
+        app.price = Number(action.payload.price);
+        app.platformServiceCategoryId =
+          action.payload.platformServiceCategoryId;
+        app.platformServiceCategoryPackageId =
+          action.payload.platformServiceCategoryPackageId;
         app.platformServiceId = action.payload.platformServiceId;
-        app.platformServiceCategoryId = action.payload.platformServiceCategoryId;
+
         saveSingleApplication(app);
       }
     },
 
-    addAddon(state, action: PayloadAction<{ id: string; addon: string }>) {
-      const app = state.draftApplications.find((a) => a.id === action.payload.id);
-      if (app && !app.addons.includes(action.payload.addon)) {
+    /* -------- COUNTRY UPDATE -------- */
+    setCountry(
+      state,
+      action: PayloadAction<{ id: string; toCountrySlug: string }>
+    ) {
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
+
+      if (app) {
+        app.toCountrySlug = action.payload.toCountrySlug;
+        saveSingleApplication(app);
+      }
+    },
+
+    /* -------- ADDON MANAGEMENT -------- */
+    addAddon(
+      state,
+      action: PayloadAction<{ id: string; addon: AddonItem }>
+    ) {
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
+
+      if (app && !app.addons.some((a) => a.id === action.payload.addon.id)) {
         app.addons.push(action.payload.addon);
         saveSingleApplication(app);
       }
     },
 
-    setFormData(state, action: PayloadAction<{ id: string; form: Record<string, any> }>) {
-      const app = state.applications.find((a) => a.id === action.payload.id);
+    removeAddon(
+      state,
+      action: PayloadAction<{ id: string; addonId: string }>
+    ) {
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
 
       if (app) {
-        // ✅ Deep merge safety
-        app.form = {
-          ...app.form,
-          ...action.payload.form,
-          applications: action.payload.form.applications || app.form.applications,
-        };
-        saveState(state);
+        app.addons = app.addons.filter(
+          (a) => a.id !== action.payload.addonId
+        );
         saveSingleApplication(app);
       }
     },
 
+    /* -------- FORM DATA -------- */
+    setFormData(
+      state,
+      action: PayloadAction<{ id: string; form: Record<string, any> }>
+    ) {
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
+
+      if (app) {
+        app.form = { ...app.form, ...action.payload.form };
+        saveSingleApplication(app);
+        saveState(state);
+      }
+    },
+
+    /* -------- SAVE FINAL APPLICATION -------- */
     saveApplication(state) {
-      state.applications = state.applications.filter((a) => a.package);
-
-      const raw = localStorage.getItem(STATUS_KEY);
-      if (raw) {
-        state.applications.push(JSON.parse(raw).data);
-      }
+      state.applications = state.draftApplications.filter(
+        (a) => a.package
+      );
       saveState(state);
     },
 
+    /* -------- CLEAR TEMP STATUS -------- */
     clearStatus() {
-      try {
-        localStorage.removeItem(STATUS_KEY);
-      } catch (err) {
-        console.error("Failed to clear status:", err);
-      }
+      localStorage.removeItem(STATUS_KEY);
     },
 
-    // ✅ Optional: reset all (for debugging/testing)
+    /* -------- RESET (DEV / LOGOUT) -------- */
     resetApplications() {
-      return { applications: [], activeId: null, draftApplications: [] };
+      return { applications: [], draftApplications: [], activeId: null };
     },
 
+    /* -------- DELETE APPLICATION -------- */
     deleteApplication(state, action: PayloadAction<string>) {
-      const deleteId = action.payload;
+      const id = action.payload;
 
-      // ❌ remove from draftApplications
       state.draftApplications = state.draftApplications.filter(
-        (app) => app.id !== deleteId
+        (a) => a.id !== id
       );
-
-      // ❌ remove from saved applications
       state.applications = state.applications.filter(
-        (app) => app.id !== deleteId
+        (a) => a.id !== id
       );
 
-      // 🔄 fix activeId
-      if (state.activeId === deleteId) {
-        state.activeId = state.draftApplications.length
-          ? state.draftApplications[0].id
-          : null;
+      if (state.activeId === id) {
+        state.activeId = state.draftApplications[0]?.id || null;
       }
 
-      // 💾 persist
       saveState(state);
 
-      // ❌ clear status if it belonged to deleted app
       const raw = localStorage.getItem(STATUS_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (parsed?.activeId === deleteId) {
-          localStorage.removeItem(STATUS_KEY);
-        }
+      if (raw && JSON.parse(raw)?.activeId === id) {
+        localStorage.removeItem(STATUS_KEY);
       }
     },
-
   },
 });
 
-export const { startApplication, setCategory, setPackage, addAddon, setFormData, resetApplications, saveApplication, clearStatus, setActiveApplication,deleteApplication } = applicationSlice.actions;
+/* =======================
+   EXPORTS
+======================= */
+
+export const {
+  startApplication,
+  setCategory,
+  setPackage,
+  setCountry,
+  setFormData,
+  resetApplications,
+  saveApplication,
+  clearStatus,
+  setActiveApplication,
+  deleteApplication,
+  addAddon,
+  removeAddon,
+} = applicationSlice.actions;
 
 export default applicationSlice.reducer;

@@ -39,9 +39,7 @@ const PlanCard = ({ plan }: { plan: VisaPlan; type: string }) => {
   const country = searchParams.get("toCountrySlug") || "";
   const platformServiceCategorySlug =
     searchParams.get("platformServiceCategorySlug") || "";
-
   const handleApplyNow = () => {
-
     dispatch(
       setPackage({
         id: activeId,
@@ -54,16 +52,15 @@ const PlanCard = ({ plan }: { plan: VisaPlan; type: string }) => {
     );
 
     savePlatformServiceStep({
-      platformServiceCategoryPackageId: activeId,
+      platformServiceCategoryPackageId: plan._id,
       price: Number(plan.price),
       currency: "USD",
-      Price_name:plan.name
+      Price_name: plan.name,
     });
 
     router.push(
       `/additional-services?slug=${plan.slug}&toCountrySlug=${country}&platformServiceCategorySlug=${platformServiceCategorySlug}`
     );
-  
   };
 
   return (

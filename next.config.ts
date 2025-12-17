@@ -27,6 +27,13 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",            // allow all images from this path
       },
+       {
+        // ✅ ADD THIS FOR COUNTRY FLAGS
+        protocol: "https",
+        hostname: "flagcdn.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

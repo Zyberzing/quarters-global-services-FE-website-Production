@@ -8,9 +8,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { savePlatformServiceStep } from "@/lib/platformServiceStorage";
 import { useGetPlatformServiceCategoryPackageAddonQuery } from "@/services/platformServiceAddonApi";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addAddon, clearStatus, saveApplication } from "@/store/slices/applicationSlice";
+import { addAddon, clearStatus, removeAddon, saveApplication, setCountry } from "@/store/slices/applicationSlice";
 
 const AdditionalServices = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -28,7 +28,7 @@ const AdditionalServices = () => {
   const additional = data?.data?.data;
 
   const { activeId } = useSelector((state: any) => state.application);
-
+  
   const toggleSelection = (addon: any) => {
     const addonId = String(addon._id);
 
@@ -36,39 +36,42 @@ const AdditionalServices = () => {
       let updated: string[];
 
       if (prev.includes(addonId)) {
-        // ❌ DESELECT ADDON
-        updated = prev.filter((item) => item !== addonId);
+        updated = prev.filter((id) => id !== addonId);
 
-        // 🔴 remove from localStorage
-        savePlatformServiceStep(
-          {
-            platformServiceCategoryPackageAddonsId: [addonId],
-          },
+        savePlatformServiceStep({
+          platformServiceCategoryPackageAddonsId: [addonId],
+        });
+
+        dispatch(
+          removeAddon({
+            id: activeId,
+            addonId,
+          })
         );
 
-        // 🔴 remove from redux
-        dispatch({
-          type: "application/removeAddon",
-          payload: { id: activeId, addon: addonId },
-        });
+        
       } else {
-        // ✅ SELECT ADDON
         updated = [...prev, addonId];
 
-        // 🟢 save to localStorage
-        savePlatformServiceStep(
-          {
-            platformServiceCategoryPackageAddonsId: [addonId],
-            additionService: true,
-            additionService_price: Number(addon.price),
-            additionService_name: addon.name,
-            currency: addon.currency || "USD",
-          },
-          
-        );
+        savePlatformServiceStep({
+          platformServiceCategoryPackageAddonsId: [addonId],
+          additionService: true,
+          additionService_price: Number(addon.price),
+          additionService_name: addon.name,
+          currency: addon.currency || "USD",
+        });
 
-        // 🟢 save to redux
-        dispatch(addAddon({ id: activeId, addon: addonId }));
+        dispatch(
+          addAddon({
+            id: activeId,
+            addon: {
+              id: addonId,
+              name: addon.name,
+              price: Number(addon.price),
+              currency: addon.currency || "USD",
+            },
+          })
+        );
       }
 
       return updated;
@@ -76,11 +79,24 @@ const AdditionalServices = () => {
   };
 
 
+
   const handleContinue = () => {
     dispatch(saveApplication());
     dispatch(clearStatus());
     router.push(`/checkout`);
   };
+
+
+    useEffect(() => {
+    if (activeId && country) {
+      dispatch(
+        setCountry({
+          id: activeId,
+          toCountrySlug: country,
+        })
+      );
+    }
+  }, [activeId, country, dispatch]);
   return (
     <>
       <BannerLayout bg="/e-visa.jpg">
@@ -107,8 +123,8 @@ const AdditionalServices = () => {
                   <div
                     key={service._id}
                     className={`border p-5 rounded-lg shadow-sm transition-all duration-300 ${selected.includes(String(service._id))
-                        ? "border-blue-600 bg-blue-50"
-                        : "border-gray-300 bg-white"
+                      ? "border-blue-600 bg-blue-50"
+                      : "border-gray-300 bg-white"
                       }`}
                   >
                     <label className="flex items-start gap-3 cursor-pointer">
