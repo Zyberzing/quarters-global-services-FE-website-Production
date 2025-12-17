@@ -48,6 +48,8 @@ interface Application {
     currentLegalAddress?: Address;
     platformServices?: any[];
 }
+const transformPlatformServices = (services: any[] = []) =>
+  services.map(service => service.platformServiceId);
 
 const getAllStoredApplications = () => {
     const raw = localStorage.getItem("applications");
@@ -55,7 +57,9 @@ const getAllStoredApplications = () => {
 
     try {
         const parsed = JSON.parse(raw);
-        return parsed?.applications || [];
+        return parsed?.
+            draftApplications
+            || [];
     } catch {
         return [];
     }
@@ -190,42 +194,54 @@ export default function Step1() {
     // --- Prefill from localStorage ---
 
 
-    const onSubmit = async () => {
-        try {
-            const storedApps = getAllStoredApplications();
+  const onSubmit = async () => {
+  try {
+    const storedApps = getAllStoredApplications();
 
-            if (!storedApps.length) {
-                toast.error("No applications found");
-                return;
-            }
+    if (!storedApps.length) {
+      toast.error("No applications found");
+      return;
+    }
 
-            const payload: ApplicationPayload = {
-                applications: storedApps.map(mapStoredAppToApi),
-            };
+    const payload: ApplicationPayload = {
+      applications: storedApps.map(app => {
+        const mappedApp = mapStoredAppToApi(app);
 
-            setPayload(payload);
-
-            // verify email using first application
-            const email = storedApps[0]?.form?.applications?.[0]?.email;
-
-            const res = await verifyEmail({ email }).unwrap();
-
-            if (res.status) {
-                if (res.message === "Email is already verified.") {
-                    const response = await createApplication(payload).unwrap();
-
-                    if (response?.status && response.data?.redirectURL) {
-                        localStorage.removeItem("platformServices");
-                        window.location.href = response.data.redirectURL;
-                    }
-                } else {
-                    setEmailVerify(true);
-                }
-            }
-        } catch (err: any) {
-            toast.error(err?.message || "Submission failed");
-        }
+        return {
+          ...mappedApp,
+          platformServices: transformPlatformServices(
+            app?.platformServices
+          ),
+        };
+      }),
     };
+
+    setPayload(payload);
+    console.log("storedApps", storedApps);
+    console.log("API payload", payload);
+
+    // verify email using first application
+    const email = storedApps[0]?.form?.applications?.[0]?.email;
+
+    const res = await verifyEmail({ email }).unwrap();
+
+    if (res.status) {
+      if (res.message === "Email is already verified.") {
+        const response = await createApplication(payload).unwrap();
+
+        if (response?.status && response.data?.redirectURL) {
+          localStorage.removeItem("platformServices");
+          window.location.href = response.data.redirectURL;
+        }
+      } else {
+        setEmailVerify(true);
+      }
+    }
+  } catch (err: any) {
+    toast.error(err?.message || "Submission failed");
+  }
+};
+
 
 
     const handleVerify = async () => {
