@@ -75,7 +75,8 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
             console.log(shouldStartApplication, "shouldStartApplication");
             if (shouldStartApplication) {
               console.log(title, "title");
-              dispatch(startApplication());
+              //@ts-ignore
+              dispatch(startApplication({ type: title ?? "", platformServiceId: id ?? "" }));
               if (link) {
                 router.push(link);
               }

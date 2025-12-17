@@ -48,8 +48,6 @@ interface Application {
     currentLegalAddress?: Address;
     platformServices?: any[];
 }
-const transformPlatformServices = (services: any[] = []) =>
-  services.map(service => service.platformServiceId);
 
 const getAllStoredApplications = () => {
     const raw = localStorage.getItem("applications");
@@ -65,7 +63,7 @@ const getAllStoredApplications = () => {
     }
 };
 
-const mapStoredAppToApi = (app: any) => {
+export const mapStoredAppToApi = (app: any) => {
     const form = app?.form?.applications?.[0] || {};
 
     const fullAddress = {
@@ -104,7 +102,13 @@ const mapStoredAppToApi = (app: any) => {
                 platformServiceCategoryId: app.platformServiceCategoryId,
                 platformServiceCategoryPackageId:
                     app.platformServiceCategoryPackageId,
-                platformServiceCategoryPackageAddonsId: app.addons || [],
+
+                // ✅ FIX HERE: only ID array
+                platformServiceCategoryPackageAddonsId:
+                    Array.isArray(app.addons)
+                        ? app.addons.map((addon: any) => addon.id)
+                        : [],
+
                 price: app.price || 0,
                 currency: "USD",
                 Price_name: app.package,
@@ -119,6 +123,7 @@ const mapStoredAppToApi = (app: any) => {
         },
     };
 };
+
 
 const mapDraftToForm = (form: any): Step1Data => ({
     firstName: form.firstName || "",
@@ -194,7 +199,7 @@ export default function Step1() {
     // --- Prefill from localStorage ---
 
 
-  const onSubmit = async () => {
+const onSubmit = async () => {
   try {
     const storedApps = getAllStoredApplications();
 
@@ -204,25 +209,13 @@ export default function Step1() {
     }
 
     const payload: ApplicationPayload = {
-      applications: storedApps.map(app => {
-        const mappedApp = mapStoredAppToApi(app);
-
-        return {
-          ...mappedApp,
-          platformServices: transformPlatformServices(
-            app?.platformServices
-          ),
-        };
-      }),
+      applications: storedApps.map(mapStoredAppToApi),
     };
 
     setPayload(payload);
-    console.log("storedApps", storedApps);
-    console.log("API payload", payload);
+    console.log("FINAL PAYLOAD", payload);
 
-    // verify email using first application
     const email = storedApps[0]?.form?.applications?.[0]?.email;
-
     const res = await verifyEmail({ email }).unwrap();
 
     if (res.status) {
@@ -241,6 +234,7 @@ export default function Step1() {
     toast.error(err?.message || "Submission failed");
   }
 };
+
 
 
 
