@@ -15,7 +15,7 @@ import { vehicleList } from "@/lib/vehicleList";
 export default function CreateApplication() {
   const params = useSearchParams();
   const type = params.get("type") as keyof typeof serviceForms | null;
-
+console.log(type,"type")
   const [createApplication, { isLoading, isError, isSuccess, error }] =
     useCreateApplication2Mutation();
   const [verifyEmail] = useVerifyEmailMutation();
@@ -88,6 +88,9 @@ export default function CreateApplication() {
           },
           isSubmittedFromApplication: false,
           isSubmittedFromService: true,
+
+
+          isOtherServiceWithShipping: type==="courier-and-document-delivery"?true:false
         },
       ],
     };
