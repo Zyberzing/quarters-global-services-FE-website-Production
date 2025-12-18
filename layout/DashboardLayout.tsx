@@ -1,7 +1,15 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
-import { Menu, FileText, X, LogOut, Users, Briefcase, MessageCircle, Ticket, Headphones } from "lucide-react";
+import {
+  Menu,
+  LogOut,
+  Users,
+  Briefcase,
+  MessageCircle,
+  Ticket,
+  Headphones,
+} from "lucide-react";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -15,29 +23,39 @@ import {
 import { Button } from "@/components/ui/button";
 import { logoutAction } from "@/lib/logout";
 
+/* ================= TYPES ================= */
 
 type DashboardLayoutProps = {
   children: ReactNode;
 };
 
+type User = {
+  firstName: string;
+  lastName: string;
+  profilePicture?: string;
+};
+
+/* ================= COMPONENT ================= */
+
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
   const pathname = usePathname();
-  
   const router = useRouter();
-    const [users, setUsers] = useState([]);
-console.log(users,"users")
 
   const topNavItems = [
     { name: "Applications", icon: Users, path: "/dashboard/applications" },
     { name: "Services", icon: Briefcase, path: "/dashboard/services" },
     { name: "Chat", icon: MessageCircle, path: "/dashboard/chat" },
-    { name: "Tickets", icon: Ticket, path: "/dashboard/tickets" },   // 🎟️ added Tickets
-    { name: "Support", icon: Headphones, path: "/dashboard/supports" } // 🎧 added Support
+    { name: "Tickets", icon: Ticket, path: "/dashboard/tickets" },
+    { name: "Support", icon: Headphones, path: "/dashboard/supports" },
   ];
 
-  
+  /* ================= LOGOUT ================= */
+
   const handleLogoutConfirm = async () => {
     try {
       await logoutAction();
@@ -48,40 +66,45 @@ console.log(users,"users")
       console.error("Logout failed:", error);
     } finally {
       setLogoutDialogOpen(false);
+      setProfileMenuOpen(false);
       setSidebarOpen(false);
     }
   };
 
-   useEffect(() => {
-  const fetchUsers = async () => {
-    try {
-      const token = localStorage.getItem("QUATRUS_ADMIN_PANEL_SESSION");
+  /* ================= FETCH USER ================= */
 
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_QUARTUS_API_URL}/user/get-all-user?page=1&search=&roles=user`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token ? `Bearer ${token}` : "",
-          },
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch("/api/me");
+
+        if (!res.ok) {
+          router.push("/login");
+          return;
         }
-      );
 
-      const data = await res.json();
-      setUsers(data?.data ?? []); 
-    } catch (error) {
-      console.error("User API error:", error);
-    }
-  };
+        const data = await res.json();
+        setUser(data.user);
+      } catch (err) {
+        console.error("User fetch failed", err);
+        router.push("/login");
+      }
+    };
 
-  fetchUsers();
-}, []);
+    fetchUser();
+  }, [router]);
 
+  /* ================= CLOSE PROFILE MENU ON OUTSIDE CLICK ================= */
+
+  useEffect(() => {
+    const close = () => setProfileMenuOpen(false);
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
+  }, []);
 
   return (
     <>
-      {/* Logout Dialog */}
+      {/* ================= LOGOUT CONFIRM DIALOG ================= */}
       <Dialog open={logoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
         <DialogContent className="sm:max-w-md z-[9999]">
           <DialogHeader>
@@ -101,19 +124,15 @@ console.log(users,"users")
         </DialogContent>
       </Dialog>
 
-      {/* Layout */}
+      {/* ================= LAYOUT ================= */}
       <div className="flex h-screen w-full overflow-hidden bg-gray-100">
-        {/* Sidebar */}
+        {/* ================= SIDEBAR ================= */}
         <aside
           className={clsx(
-            "flex flex-col bg-white border-r shadow-md transition-all duration-300 ease-in-out w-64",
+            "flex flex-col bg-white border-r shadow-md transition-all duration-300 w-64",
             !sidebarOpen && "hidden lg:flex"
           )}
         >
-          {/* Logo */}
-
-
-          {/* Nav */}
           <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
             {topNavItems.map((item) => {
               const isActive = pathname === item.path;
@@ -122,7 +141,7 @@ console.log(users,"users")
                   key={item.name}
                   onClick={() => router.push(item.path)}
                   className={clsx(
-                    "flex items-center w-full px-4 py-2 text-left rounded-md transition-colors",
+                    "flex items-center w-full px-4 py-2 rounded-md transition-colors",
                     isActive
                       ? "bg-red-100 text-red-600 font-medium"
                       : "text-gray-600 hover:bg-red-50 hover:text-red-600"
@@ -134,23 +153,12 @@ console.log(users,"users")
               );
             })}
           </nav>
-
-          {/* Logout */}
-          <div className="p-4 border-t">
-            <Button
-              className="w-full flex items-center justify-center bg-red-600 hover:bg-red-700 text-white"
-              onClick={() => setLogoutDialogOpen(true)}
-            >
-              <LogOut className="h-5 w-5 mr-2" />
-              Logout
-            </Button>
-          </div>
         </aside>
 
-        {/* Main Content */}
+        {/* ================= MAIN ================= */}
         <div className="flex-1 flex flex-col overflow-hidden">
-          {/* Header */}
-          <header className="flex items-center justify-between px-6 h-16 bg-white border-b shadow-sm flex-shrink-0">
+          {/* ================= HEADER ================= */}
+          <header className="flex items-center justify-between px-6 h-16 bg-white border-b shadow-sm">
             <button
               className="lg:hidden p-2 text-gray-600"
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -158,20 +166,66 @@ console.log(users,"users")
               <Menu className="h-6 w-6" />
             </button>
 
-            <h2 className="text-lg font-semibold text-gray-800">Welcome Back 👋</h2>
+            <h2 className="text-lg font-semibold text-gray-800">
+              Welcome Back 👋
+            </h2>
 
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-700 font-medium">John Doe</span>
-              <img
-                src="https://i.pravatar.cc/40"
-                alt="user avatar"
-                className="w-9 h-9 rounded-full border"
-              />
+            {/* ===== PROFILE MENU ===== */}
+            <div className="relative">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setProfileMenuOpen((p) => !p);
+                }}
+                className="flex items-center space-x-2"
+              >
+                <img
+                  src={user?.profilePicture ?? "https://i.pravatar.cc/40"}
+                  alt="user avatar"
+                  className="w-9 h-9 rounded-full border"
+                />
+              </button>
+
+              {profileMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50">
+                  <div className="px-4 py-3 border-b">
+                    <p className="text-sm font-medium text-gray-800">
+                      {user
+                        ? `${user.firstName} ${user.lastName}`
+                        : "Loading..."}
+                    </p>
+                    <p className="text-xs text-gray-500">Account</p>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setProfileMenuOpen(false);
+                      router.push("/dashboard/profile");
+                    }}
+                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                  >
+                    ⚙️ Settings
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setProfileMenuOpen(false);
+                      setLogoutDialogOpen(true);
+                    }}
+                    className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
           </header>
 
-          {/* Main */}
-          <main className="flex-1 overflow-auto bg-white p-6">{children}</main>
+          {/* ================= CONTENT ================= */}
+          <main className="flex-1 overflow-auto bg-white p-6">
+            {children}
+          </main>
         </div>
       </div>
     </>
