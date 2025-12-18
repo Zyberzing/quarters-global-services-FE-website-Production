@@ -22,6 +22,7 @@ export default function CreateApplication() {
   const [emailOtpVerify, setEmailVerify] = useState(false)
   const [payload, setPayload] = useState<any>()
   const [selectedVehicle, setSelectedVehicle] = useState<string | null>(null);
+  const id = params.get("id"); // ✅ query id
 
 
 
@@ -58,6 +59,8 @@ export default function CreateApplication() {
           company: values.company || "",
           status: "Submitted",
           applicationSource: "Website",
+          fromCountryId: values.fromCountryId || "68d839b82ea0a4e770b07daf",
+          toCountryId: values.toCountryId || "68d839b82ea0a4e770b07daf",
           address: {
             addressLine1: values.senderAddress || "",
             addressLine2: "",
@@ -66,7 +69,6 @@ export default function CreateApplication() {
             zipCode: values.zipCodeSender || "",
             country: values.countrySender || "",
           },
-
           currentLegalAddress: {
             addressLine1: values.recipientAddress || "",
             addressLine2: "",
@@ -75,17 +77,12 @@ export default function CreateApplication() {
             zipCode: values.zipCodeRecipient || "",
             country: values.countryRecipient || "",
           },
-
-          fromCountryId: values.fromCountryId || "68d839b82ea0a4e770b07daf",
-          toCountryId: values.toCountryId || "68d839b82ea0a4e770b07daf",
-
           platformServices: [{
-            platformServiceId: "68e968e1e7bd0d029655fa49",
-            platformServiceCategoryId: "68e968e2e7bd0d029655fa4c",
+            platformServiceId: "68e96935e7bd0d02965600d4",
+            platformServiceCategoryId:id?? "68e968e2e7bd0d029655fa4c",
             platformServiceCategoryPackageAddonsId: [],
             platformServiceCategoryPackageId: "68e968e2e7bd0d029655fa4f"
           }],
-
           serviceFields: {
             serviceType: values.serviceType || type,
           },
@@ -150,7 +147,7 @@ export default function CreateApplication() {
       )}
 
 
- {type === "vehicle-booking" && (
+      {type === "vehicle-booking" && (
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-800 mb-2">
             Select Vehicle

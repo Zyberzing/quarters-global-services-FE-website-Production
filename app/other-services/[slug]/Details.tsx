@@ -5,7 +5,7 @@ import Button from "@/components/Buttons/Button";
 import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import TestimonialSlider from "@/components/TestimonialSlider ";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { serviceFaqs } from "@/app/data/serviceFaqs";
@@ -20,18 +20,18 @@ const faqKeyMap: Record<string, string> = {
   "driver": "driver",
   "immigration-service": "immigration-service",
   "surrender-passport": "surrender-passport",
-  "flight-charter":"flight-charter",
-  "concert-wedding-private-tour-corporate-ground-transport":"concert-wedding-private-tour-corporate-ground-transport",
-  "consultancy_service":"consultancy_service",
-  "idp-international-driving-license)":"idp-international-driving-license",
-  "indian-pan-card":"indian-pan-card",
-  "fast-track-immigration-fti-ttp":"fast-track-immigration-fti-ttp",
-  "consular-services":"consular-services",
-  "tour-packages":"tour-packages",
-  "step-enrollment-assistance":"step-enrollment-assistance",
-  "global-entry-tsa-pre-check":"global-entry-tsa-pre-check",
-  "fbi-fingerprinting-background-checks":"fbi-fingerprinting-background-checks",
-  "concert-program-tickets":"concert-program-tickets",  
+  "flight-charter": "flight-charter",
+  "concert-wedding-private-tour-corporate-ground-transport": "concert-wedding-private-tour-corporate-ground-transport",
+  "consultancy_service": "consultancy_service",
+  "idp-international-driving-license)": "idp-international-driving-license",
+  "indian-pan-card": "indian-pan-card",
+  "fast-track-immigration-fti-ttp": "fast-track-immigration-fti-ttp",
+  "consular-services": "consular-services",
+  "tour-packages": "tour-packages",
+  "step-enrollment-assistance": "step-enrollment-assistance",
+  "global-entry-tsa-pre-check": "global-entry-tsa-pre-check",
+  "fbi-fingerprinting-background-checks": "fbi-fingerprinting-background-checks",
+  "concert-program-tickets": "concert-program-tickets",
 };
 
 const Details = () => {
@@ -40,11 +40,12 @@ const Details = () => {
     ? decodeURIComponent(params.slug.join("/"))
     : decodeURIComponent(params.slug ?? "");
 
-    console.log(slug,"slug")
+
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id"); // ✅ query id
+
 
   const [vehicles, setVehicles] = useState<any[]>([]);
-
-  // 🚗 Fetch vehicles only for vehicle booking
   useEffect(() => {
     if (slug !== "vehicle-booking") return;
 
@@ -65,9 +66,7 @@ const Details = () => {
   }, [slug]);
 
   const faqKey = faqKeyMap[slug];
-  console.log
   const faqData = faqKey ? serviceFaqs[faqKey] : [];
-  console.log(faqData,"faqData")
 
   // 🚗 VEHICLE BOOKING PAGE
   if (slug === "vehicle-booking") {
@@ -129,7 +128,7 @@ const Details = () => {
 
         <Button
           iconPosition="right"
-          link={`/other-services/checkout?type=${slug}`}
+          link={`/other-services/checkout?type=${slug}&id=${id}`}
           name="Book Now"
         />
       </BannerLayout>

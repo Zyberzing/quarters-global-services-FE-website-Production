@@ -23,19 +23,17 @@ type Service = {
 };
 
 const OtherService = () => {
-    const { data, isLoading } = useGetPlatformServiceSubCategoriesQuery(
-        {
+   
+    const { data, isLoading } = useGetPlatformServiceSubCategoriesQuery({
             platformServiceSlug: "other-services",
             toCountrySlug: "india",
         }
     );
 
-
-
     const apiServices: any[] = data?.data?.data || [];
 
-    const services = [   // 🔥 first item
-        ...apiServices,  // 🔥 rest items
+    const services = [ 
+        ...apiServices, 
     ];
 
     const [isVisible, setIsVisible] = useState(false);
@@ -173,8 +171,7 @@ const OtherService = () => {
                             services.map((service: Service, index: number) => (
                                 <div
                                     key={index}
-                                    className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"
-                                        }`}
+                                    className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
                                     <ServiceSection
@@ -186,7 +183,6 @@ const OtherService = () => {
                                         slug={service.slug}
                                         id={service._id}
                                         platformServiceId={service.platformServiceId}
-
                                     />
                                 </div>
                             ))

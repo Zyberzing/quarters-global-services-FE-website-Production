@@ -34,7 +34,6 @@ const LoginForm = () => {
 
   const onSubmit = handleAsync(async (values: z.infer<typeof formSchema>) => {
     try {
-      // 🔑 Call your backend login route
       const res = await fetch(process.env.NEXT_PUBLIC_QUARTUS_API_URL + '/auth/sign-in', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -52,12 +51,21 @@ const LoginForm = () => {
       if (!userDataToken || !userDataId) {
         throw new Error('User data not found');
       }
+
+      if (data?.data?.role === 'admin') {
+        toast.error('Admin login is not allowed');
+        return;
+      }
+
       // Save user token
       await saveSession(
         { id: userDataId, token: userDataToken },
         UserTypeENUM.ADMIN // or .USER or whatever role applies
-      ); toast.success('Login successfully');
-      window.location.href='/dashboard/applications'
+      ); 
+
+    
+      toast.success('Login successfully');
+      // window.location.href='/dashboard/applications'
     } finally {
       console.log('done');
     }

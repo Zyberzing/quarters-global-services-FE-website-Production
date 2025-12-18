@@ -65,7 +65,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
                     })
                   );
 
-                  router.push(`/other-services/${slug}`);
+                  router.push(`/other-services/${slug}?id=${id}`);
                 }} className="bg-red-600 cursor-pointer hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
                   {buttonText}
                 </button>
