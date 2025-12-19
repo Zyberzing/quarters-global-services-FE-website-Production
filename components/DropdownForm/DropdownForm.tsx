@@ -128,6 +128,7 @@ function DropdownForm({ activeTab, setActiveTab }: DropdownFormProps) {
     localStorage.setItem("fromCountryId", citizenship?.id ?? "");
     localStorage.setItem("toCountryId", country?.id ?? "");
     localStorage.setItem("county", country?.code ?? "");
+    sessionStorage.setItem("main_service_type",country?.slug)
 
     const step: PlatformServiceStep = {
       citizenship: citizenship?.slug,

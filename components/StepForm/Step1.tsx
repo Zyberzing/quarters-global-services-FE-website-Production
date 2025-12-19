@@ -56,7 +56,7 @@ const getAllStoredApplications = () => {
     try {
         const parsed = JSON.parse(raw);
         return parsed?.
-            draftApplications
+            applications
             || [];
     } catch {
         return [];
@@ -167,7 +167,7 @@ export default function Step1() {
     const activeFormIdRef = useRef<string | null>(null);
 
 
-    const { draftApplications, activeId } = useSelector(
+    const { draftApplications, activeId,a} = useSelector(
         (state: any) => state.application
     );
 
@@ -199,41 +199,41 @@ export default function Step1() {
     // --- Prefill from localStorage ---
 
 
-const onSubmit = async () => {
-  try {
-    const storedApps = getAllStoredApplications();
+    const onSubmit = async () => {
+        try {
+            const storedApps = getAllStoredApplications();
 
-    if (!storedApps.length) {
-      toast.error("No applications found");
-      return;
-    }
+            if (!storedApps.length) {
+                toast.error("No applications found");
+                return;
+            }
 
-    const payload: ApplicationPayload = {
-      applications: storedApps.map(mapStoredAppToApi),
-    };
+            const payload: ApplicationPayload = {
+                applications: storedApps.map(mapStoredAppToApi),
+            };
 
-    setPayload(payload);
-    console.log("FINAL PAYLOAD", payload);
+            setPayload(payload);
+            console.log("FINAL PAYLOAD", payload);
 
-    const email = storedApps[0]?.form?.applications?.[0]?.email;
-    const res = await verifyEmail({ email }).unwrap();
+            const email = storedApps[0]?.form?.applications?.[0]?.email;
+            const res = await verifyEmail({ email }).unwrap();
 
-    if (res.status) {
-      if (res.message === "Email is already verified.") {
-        const response = await createApplication(payload).unwrap();
+            if (res.status) {
+                if (res.message === "Email is already verified.") {
+                    const response = await createApplication(payload).unwrap();
 
-        if (response?.status && response.data?.redirectURL) {
-          localStorage.removeItem("platformServices");
-          window.location.href = response.data.redirectURL;
+                    if (response?.status && response.data?.redirectURL) {
+                        localStorage.removeItem("platformServices");
+                        window.location.href = response.data.redirectURL;
+                    }
+                } else {
+                    setEmailVerify(true);
+                }
+            }
+        } catch (err: any) {
+            toast.error(err?.message || "Submission failed");
         }
-      } else {
-        setEmailVerify(true);
-      }
-    }
-  } catch (err: any) {
-    toast.error(err?.message || "Submission failed");
-  }
-};
+    };
 
 
 
@@ -307,7 +307,7 @@ const onSubmit = async () => {
             {/* Header */}
             <div className="w-full overflow-x-auto scrollbar-hide">
                 <div className="flex gap-4 px-2 sm:px-4 md:px-2">
-                    {draftApplications.map((app: any, index: number) => (
+                    {getAllStoredApplications().map((app: any, index: number) => (
                         <div
                             key={index}
                             onClick={() => {

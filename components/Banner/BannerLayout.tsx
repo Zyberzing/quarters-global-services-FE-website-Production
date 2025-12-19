@@ -14,6 +14,8 @@ const bannerImages: Record<string, string> = {
   passport: "/services/passport.png",
   apostille: "/services/apostille.png",
   default: "/services/default-banner.jpg",
+  "india":"/services/india.jpg",
+  "united-states":"/services/united-states.jpg"
 };
 
 const BannerLayout: React.FC<BannerLayoutProps> = ({
