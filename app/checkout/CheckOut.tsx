@@ -5,14 +5,30 @@ import MultiStepForm from "@/components/StepForm/MultiStepForm";
 import Link from "next/link";
 // import MultiStepForm2 from "@/components/StepForm2/MultiStepForm2";
 
+const getAllStoredApplications = () => {
+  const raw = localStorage.getItem("applications");
+  if (!raw) return [];
+
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed?.
+      applications
+      || [];
+  } catch {
+    return [];
+  }
+};
+
 export default function CheckoutPage() {
   const [_, setType] = useState<string | null>(null);
   const [hasApplication, setHasApplication] = useState<boolean | null>(null);
+  
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const formType = sessionStorage.getItem("formType");
-      const application = window.localStorage.getItem("applications");
+      const application = getAllStoredApplications().length === 0 ? false : true;
+      setHasApplication(!application);
       setType(formType);
       setHasApplication(!!application);
     }

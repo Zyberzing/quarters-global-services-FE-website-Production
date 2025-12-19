@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MdMenu, MdClose, MdShoppingCart } from "react-icons/md";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useGetNavbarServicesQuery } from "@/services/platformNavbarApi";
 import { getSession } from "@/lib/session";
 
@@ -23,7 +23,8 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const searchParams = useSearchParams();
+  const country = searchParams.get("toCountrySlug") || "";
   const router = useRouter();
   const currentPath = usePathname();
   const services = data?.data?.data;
@@ -114,6 +115,8 @@ const Header = () => {
                     localStorage.setItem("selectedService", service.slug);
                     localStorage.setItem("fromCountryId", "68e966dde7bd0d029655d358");
                     localStorage.setItem("toCountryId", "68e966dde7bd0d029655d359");
+                                        
+  sessionStorage.setItem("main_service_type", country)
 
                     sessionStorage.setItem(
                       "platformServiceStep",
@@ -128,6 +131,8 @@ const Header = () => {
                     // 🔀 REDIRECT FIX
                     if (staticRoutes.includes(service.slug)) {
                       router.push(`/${service.slug}`);
+                      console.log(service, "service")
+
                     } else {
                       router.push(
                         `/category?toCountrySlug=united-states&Slug=${service.slug}`
@@ -231,7 +236,7 @@ const Header = () => {
                     localStorage.setItem("selectedService", service.slug);
                     localStorage.setItem("fromCountryId", "68e966dde7bd0d029655d358");
                     localStorage.setItem("toCountryId", "68e966dde7bd0d029655d359");
-
+  sessionStorage.setItem("main_service_type", country)
                     sessionStorage.setItem(
                       "platformServiceStep",
                       JSON.stringify({
@@ -270,8 +275,8 @@ const Header = () => {
                 setMobileMenuOpen(false);
               }}
               className={`block w-full text-left py-2 text-sm ${currentPath === `/${page}`
-                  ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
-                  : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
+                ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"
+                : "text-gray-700 hover:text-[oklch(57.7%_0.245_27.325)]"
                 } transition`}
             >
               {page === "about-us" ? "About" : "Contact"}

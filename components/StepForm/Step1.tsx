@@ -63,6 +63,20 @@ const getAllStoredApplications = () => {
     }
 };
 
+const getAllStoredApplicationsDraf = () => {
+    const raw = localStorage.getItem("applications");
+    if (!raw) return [];
+
+    try {
+        const parsed = JSON.parse(raw);
+        return parsed?.
+            draftApplications
+            || [];
+    } catch {
+        return [];
+    }
+};
+
 export const mapStoredAppToApi = (app: any) => {
     const form = app?.form?.applications?.[0] || {};
 
@@ -167,7 +181,7 @@ export default function Step1() {
     const activeFormIdRef = useRef<string | null>(null);
 
 
-    const { draftApplications, activeId,a} = useSelector(
+    const { draftApplications, activeId, a } = useSelector(
         (state: any) => state.application
     );
 
@@ -201,7 +215,7 @@ export default function Step1() {
 
     const onSubmit = async () => {
         try {
-            const storedApps = getAllStoredApplications();
+            const storedApps = getAllStoredApplicationsDraf();
 
             if (!storedApps.length) {
                 toast.error("No applications found");
@@ -213,12 +227,9 @@ export default function Step1() {
             };
 
             setPayload(payload);
-            console.log("FINAL PAYLOAD", payload);
-
-            const email = storedApps[0]?.form?.applications?.[0]?.email;
+            const email = watchedValues?.email;
             const res = await verifyEmail({ email }).unwrap();
-
-            if (res.status) {
+                        if (res.status) {
                 if (res.message === "Email is already verified.") {
                     const response = await createApplication(payload).unwrap();
 
@@ -235,14 +246,12 @@ export default function Step1() {
         }
     };
 
-
-
-
     const handleVerify = async () => {
         const response = await createApplication(payload as ApplicationPayload).unwrap();
         if (response?.status && response.data?.redirectURL) {
             localStorage.removeItem("platformServices");
             window.location.href = response.data.redirectURL;
+
         } else {
             toast.error("Application created but no redirect URL returned");
         }
@@ -251,7 +260,6 @@ export default function Step1() {
     const handleDelete = (id: string) => {
         dispatch(deleteApplication(id));
         localStorage.removeItem("platformServices")
-
     };
 
     useEffect(() => {
@@ -684,10 +692,10 @@ export default function Step1() {
 
             {emailOtpVerify && (
                 <EmailVerifyDialog
-                    email={payload?.applications[0]?.email ?? ""}
+                    email={watchedValues?.email}
                     handleSubmite={handleVerify}
-                    onClose={() => setEmailVerify(false)} // ✅ correct prop name
-                    emailOtpVerify={emailOtpVerify}       // ✅ now valid
+                    onClose={() => setEmailVerify(false)} 
+                    emailOtpVerify={emailOtpVerify}  
                 />
             )}        </div>
     );

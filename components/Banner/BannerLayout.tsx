@@ -33,7 +33,7 @@ const BannerLayout: React.FC<BannerLayoutProps> = ({
     } else {
       setStoredService(null);
     }
-  }, []);
+  }, [sessionStorage]);
 
   const effectiveService = (storedService || "").toLowerCase();
 
