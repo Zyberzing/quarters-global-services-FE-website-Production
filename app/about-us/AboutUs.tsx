@@ -219,73 +219,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="bg-white py-16 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto text-center">
-          {/* Section Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <span className="text-blue-600 font-semibold uppercase text-sm tracking-wide">
-              Meet our Team
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">
-              We <span className="text-blue-600">Are Family</span>
-            </h2>
-          </motion.div>
-
-          {/* Team Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={400}
-                  height={400}
-                  className="w-full h-[280px] object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-200 text-sm">{member.role}</p>
-                  <div className="flex gap-3 mt-2">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-white/20 rounded-full hover:bg-white/40 transition"
-                    >
-                      <Linkedin className="w-4 h-4 text-white" />
-                    </a>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="p-2 bg-white/20 rounded-full hover:bg-white/40 transition"
-                    >
-                      <Mail className="w-4 h-4 text-white" />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
+    
       <WhyChoose />
 
       <TestimonialSlider />

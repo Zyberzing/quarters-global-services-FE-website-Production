@@ -197,25 +197,7 @@ const OtherService = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="bg-red-600 py-16 px-4 lg:px-8">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-white mb-6">
-                        Ready to Get Started?
-                    </h2>
-
-                    <p className="text-red-100 text-lg mb-8 max-w-3xl mx-auto">
-                        Contact us today to learn more about our services and how we can help you with your specific needs.
-                    </p>
-
-<Link href={"/contact-us"}>
-  <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-medium text-lg hover:bg-red-50 transition-colors duration-300">
-                        Contact Us
-                    </button>
-</Link>
-                  
-                </div>
-            </div>
-
+           
         </div>
     );
 };
