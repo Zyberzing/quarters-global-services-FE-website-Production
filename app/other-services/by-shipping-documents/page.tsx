@@ -332,38 +332,41 @@ export default function OrderSummaryPage() {
                 </div>
 
                 {/* RIGHT SIDE SUMMARY */}
-                <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 h-fit shadow-sm">
-                    <h3 className="text-lg font-semibold text-blue-900 mb-4">
-                        Order Summary
-                    </h3>
+                <div className="sticky top-21 h-fit">
+                    <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 h-fit shadow-sm">
+                        <h3 className="text-lg font-semibold text-blue-900 mb-4">
+                            Order Summary
+                        </h3>
 
-                    <ul className="text-sm text-gray-700 space-y-2">
+                        <ul className="text-sm text-gray-700 space-y-2">
 
 
-                        {quote && (
-                            <>
-                                <li className="flex justify-between text-blue-800">
-                                    <span>Base Shipping Cost</span>
-                                    <span>${Number(quote?.baseShippingCost || 0).toFixed(2)}</span>
-                                </li>
-                                <li className="flex justify-between text-blue-800">
-                                    <span>Application Charge</span>
-                                    <span>${Number(quote?.applicationCharge || 0).toFixed(2)}</span>
-                                </li>
-                            </>
-                        )}
-                    </ul>
+                            {quote && (
+                                <>
+                                    <li className="flex justify-between text-blue-800">
+                                        <span>Base Shipping Cost</span>
+                                        <span>${Number(quote?.baseShippingCost || 0).toFixed(2)}</span>
+                                    </li>
+                                    <li className="flex justify-between text-blue-800">
+                                        <span>Application Charge</span>
+                                        <span>${Number(quote?.applicationCharge || 0).toFixed(2)}</span>
+                                    </li>
+                                </>
+                            )}
+                        </ul>
 
-                    <hr className="my-4 border-gray-300" />
+                        <hr className="my-4 border-gray-300" />
 
-                    <div className="flex justify-between font-semibold text-gray-900">
-                        <span>Total</span>
-                        <span>
-                            $
-                            {quote?.totalAmount}
-                        </span>
+                        <div className="flex justify-between font-semibold text-gray-900">
+                            <span>Total</span>
+                            <span>
+                                $
+                                {quote?.totalAmount}
+                            </span>
+                        </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

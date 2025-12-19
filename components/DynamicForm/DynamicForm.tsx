@@ -24,9 +24,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "../ui/checkbox";
-
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 // ---------- TYPES ----------
-export type FieldType = "text" | "number" | "select" | "email" | "textarea" | "checkbox" | "date";
+export type FieldType = "text" | "number" | "select" | "email" | "textarea" | "checkbox" | "date" | "phone";;
 
 export interface FieldConfig {
   name: string;
@@ -106,25 +107,33 @@ export function DynamicForm<TSchema extends ZodObject<any>>({
                           ))}
                         </SelectContent>
                       </Select>
-                    ) : field.type === "textarea" ? (
-                      <Textarea
-                        placeholder={field.placeholder}
-                        {...f}
-                        value={f.value as unknown as string}
-                        className="border rounded-lg p-2 w-full min-h-[80px] text-sm sm:text-base"
-                      />
-                    ) : field.type === "checkbox" ? (
-                      <div className="flex items-center gap-2">
-                        <Checkbox
-                          checked={!!f.value}
-                          onCheckedChange={(checked) => f.onChange(checked)}
-                          onBlur={f.onBlur}
-                          name={f.name}
-                          ref={f.ref}
+                    ) : field.type === "phone" ? (
+                      <PhoneInput
+                        international
+                        defaultCountry="US"
+                        value={f.value as string}
+                        onChange={f.onChange}
+                        onBlur={f.onBlur}
+                        className="border rounded-lg px-3 py-2 w-full text-sm"
+                      />) : field.type === "textarea" ? (
+                        <Textarea
+                          placeholder={field.placeholder}
+                          {...f}
+                          value={f.value as unknown as string}
+                          className="border rounded-lg p-2 w-full min-h-[80px] text-sm sm:text-base"
                         />
-                        <span className="text-sm sm:text-base text-gray-700">{field.label}</span>
-                      </div>
-                    ) : (
+                      ) : field.type === "checkbox" ? (
+                        <div className="flex items-center gap-2">
+                          <Checkbox
+                            checked={!!f.value}
+                            onCheckedChange={(checked) => f.onChange(checked)}
+                            onBlur={f.onBlur}
+                            name={f.name}
+                            ref={f.ref}
+                          />
+                          <span className="text-sm sm:text-base text-gray-700">{field.label}</span>
+                        </div>
+                      ) : (
                       <Input
                         type={field.type}
                         placeholder={field.placeholder}

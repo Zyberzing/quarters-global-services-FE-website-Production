@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { DynamicForm } from "@/components/DynamicForm/DynamicForm";
 import { serviceForms } from "@/lib/serviceForms";
@@ -15,7 +15,6 @@ import { vehicleList } from "@/lib/vehicleList";
 export default function CreateApplication() {
   const params = useSearchParams();
   const type = params.get("type") as keyof typeof serviceForms | null;
-console.log(type,"type")
   const [createApplication, { isLoading, isError, isSuccess, error }] =
     useCreateApplication2Mutation();
   const [verifyEmail] = useVerifyEmailMutation();
@@ -79,7 +78,7 @@ console.log(type,"type")
           },
           platformServices: [{
             platformServiceId: "68e96935e7bd0d02965600d4",
-            platformServiceCategoryId:id?? "68e968e2e7bd0d029655fa4c",
+            platformServiceCategoryId: id ?? "68e968e2e7bd0d029655fa4c",
             platformServiceCategoryPackageAddonsId: [],
             platformServiceCategoryPackageId: "68e968e2e7bd0d029655fa4f"
           }],
@@ -90,7 +89,7 @@ console.log(type,"type")
           isSubmittedFromService: true,
 
 
-          isOtherServiceWithShipping: type==="courier-and-document-delivery"?true:false
+          isOtherServiceWithShipping: type === "courier-and-document-delivery" ? true : false
         },
       ],
     };
@@ -99,8 +98,6 @@ console.log(type,"type")
       const res = await verifyEmail({
         email: values.email
       }).unwrap();
-
-      console.log(res, "ressss")
 
       if (res.status) {
         if (res?.message === "Email is already verified.") {
@@ -149,26 +146,59 @@ console.log(type,"type")
         </div>
       )}
 
-
       {type === "vehicle-booking" && (
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-800 mb-2">
+        <div className="mb-8">
+          <label className="block text-sm font-medium text-gray-800 mb-3">
             Select Vehicle
           </label>
-          <select
-            value={selectedVehicle ?? ""}
-            onChange={(e) => setSelectedVehicle(e.target.value)}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="">-- Choose Vehicle --</option>
-            {vehicleList.map((v) => (
-              <option key={v.id} value={v.id}>
-                {v.name}
-              </option>
-            ))}
-          </select>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {vehicleList.map((vehicle) => {
+              const isSelected = selectedVehicle === vehicle.id;
+
+              return (
+                <button
+                  key={vehicle.id}
+                  type="button"
+                  onClick={() => setSelectedVehicle(vehicle.id)}
+                  className={`relative overflow-hidden rounded-xl border transition-all
+              ${isSelected
+                      ? "border-blue-600 ring-2 ring-blue-400"
+                      : "border-gray-200 hover:border-blue-400 hover:shadow-md"
+                    }
+            `}
+                >
+                  {/* IMAGE CONTAINER */}
+                  <div className="h-36 w-full bg-white flex items-center justify-center">
+                    <img
+                      src={vehicle.image}
+                      alt={vehicle.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  {/* FOOTER */}
+                  <div
+                    className={`py-2 text-center font-semibold
+                ${isSelected ? "bg-blue-50 text-blue-700" : "bg-gray-50 text-gray-800"}
+              `}
+                  >
+                    {vehicle.name}
+                  </div>
+
+                  {/* SELECTED BADGE */}
+                  {isSelected && (
+                    <span className="absolute top-2 right-2 text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">
+                      Selected
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
+
 
 
 

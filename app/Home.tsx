@@ -110,6 +110,8 @@ export default function Home() {
           <DropdownForm setActiveTab={setActiveTab} activeTab={activeTab} />
         </div>
       </BannerLayout>
+
+
       <section className="py-12 px-4 lg:px-28  ">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           {/* Left: Text and Image */}
@@ -246,7 +248,6 @@ export default function Home() {
         </div>
       </div>
 
-
       <WhyChoose />
 
       <section className="py-12 px-4 lg:px-28 bg-gray-50">
@@ -311,7 +312,7 @@ export default function Home() {
             >
               <div
                className="
-  w-full max-w-[464px] min-h-[520px]
+  w-full max-w-[464px] min-h-[460px]
   bg-white rounded-[36px] p-4
   flex flex-col gap-6 sm:gap-8
   border border-[#F2F2F2] shadow-sm

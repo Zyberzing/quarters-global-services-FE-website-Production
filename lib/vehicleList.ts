@@ -1,40 +1,37 @@
 export const vehicleList = [
   {
-    id: "v1",
+    id: "sedan",
     name: "Sedan",
     image: "/1.jpeg",
   },
   {
-    id: "v2",
-    name: "Mid size SUV",
+    id: "mid-suv",
+    name: "Mid Size SUV",
     image: "/2.jpeg",
   },
   {
-    id: "v3",
+    id: "large-suv",
     name: "Large SUV",
     image: "/3.jpeg",
   },
   {
-    id: "v4",
+    id: "mini-van",
     name: "Mini Van",
     image: "/4.jpeg",
   },
-
-   {
-    id: "v4",
-    name: "15 seater",
+  {
+    id: "15-seater",
+    name: "15 Seater",
     image: "/5.jpeg",
   },
-
-   {
-    id: "v4",
-    name: "Shuttle bus",
+  {
+    id: "shuttle-bus",
+    name: "Shuttle Bus",
     image: "/6.jpeg",
   },
-
-   {
-    id: "v4",
-    name: "Charters bus",
+  {
+    id: "charter-bus",
+    name: "Charter Bus",
     image: "/7.jpeg",
   },
 ] as const;

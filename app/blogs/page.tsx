@@ -33,19 +33,19 @@ const features = [
     image: '/services/visa.png',
     slug: 'data-security-you-can-trust',
   },
-  
+
 ];
 
-const WhyChoose = () => {
+const Page = () => {
   const router = useRouter();
 
   return (
     <section className="bg-[linear-gradient(180deg,_#DEEBFF_0%,_#FFE3E3_100%)] md:p-20 p-4 flex flex-col items-center justify-center">
       {/* Section Title */}
       <SectionTitle
-        subtitle="Our services"
-        title="Why Choose Quartus Global Service"
-        highlight="Quartus"
+        subtitle="Our Blog"
+        title="Insights, Updates & Helpful Guides"
+        highlight="Insights"
         align="center"
       />
 
@@ -75,9 +75,9 @@ const WhyChoose = () => {
       </div>
 
       {/* Explore All Blogs Button */}
-       
+
     </section>
   );
 };
 
-export default WhyChoose;
+export default Page;

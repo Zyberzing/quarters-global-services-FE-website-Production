@@ -848,10 +848,22 @@ export const Banner_data = {
       "description": "Easily obtain your Life Certificate for pension, financial verification, or official requirements through certified attestation support.",
       "image": "/images/india-life-certificate.jpg",
       "buttonText": "Apply Now"
+    },
+    "usa": {
+      "title": "Get Your Life Certificate Issued Hassle-Free for Pension or NRI Verification",
+      "description": "Easily obtain your Life Certificate for pension, financial verification, or official requirements through certified attestation support.",
+      "image": "/images/india-life-certificate.jpg",
+      "buttonText": "Apply Now"
     }
   },
   "registration-of-birth": {
     "india": {
+      "title": "Register Overseas Births with the Indian Consulate",
+      "description": "We help parents of Indian origin register their child’s birth abroad and obtain official recognition with the Consulate of India.",
+      "image": "/images/india-register-birth.jpg",
+      "buttonText": "Apply Now"
+    },
+    "usa": {
       "title": "Register Overseas Births with the Indian Consulate",
       "description": "We help parents of Indian origin register their child’s birth abroad and obtain official recognition with the Consulate of India.",
       "image": "/images/india-register-birth.jpg",
@@ -864,10 +876,22 @@ export const Banner_data = {
       "description": "Ensure your Will is properly attested and validated for Indian legal authorities with our document authentication service.",
       "image": "/images/india-will-attestation.jpg",
       "buttonText": "Apply Now"
+    },
+     "usa": {
+      "title": "Legalize and Authenticate Your Will for Recognition in India",
+      "description": "Ensure your Will is properly attested and validated for Indian legal authorities with our document authentication service.",
+      "image": "/images/india-will-attestation.jpg",
+      "buttonText": "Apply Now"
     }
   },
   "nri-certificate-issuance": {
     "india": {
+      "title": "Obtain Your NRI Certificate Easily for Official Indian Purposes",
+      "description": "We help Indian nationals living abroad secure their NRI certificate for banking, real estate, and government documentation needs.",
+      "image": "/images/india-nri-certificate.jpg",
+      "buttonText": "Apply Now"
+    },
+    "usa": {
       "title": "Obtain Your NRI Certificate Easily for Official Indian Purposes",
       "description": "We help Indian nationals living abroad secure their NRI certificate for banking, real estate, and government documentation needs.",
       "image": "/images/india-nri-certificate.jpg",
@@ -896,6 +920,12 @@ export const Banner_data = {
       "description": "We assist parents in drafting and notarizing affidavits required for child passport issuance in India.",
       "image": "/images/india-child-passport-affidavit.jpg",
       "buttonText": "Apply Now"
+    },
+     "usa": {
+      "title": "Prepare Parental Affidavit for Child’s Passport in India",
+      "description": "We assist parents in drafting and notarizing affidavits required for child passport issuance in India.",
+      "image": "/images/india-child-passport-affidavit.jpg",
+      "buttonText": "Apply Now"
     }
   },
   "no-obligation-to-return-to-india-nori": {
@@ -912,6 +942,12 @@ export const Banner_data = {
       "description": "We offer compassionate support for attesting death certificates and arranging the transport of mortal remains or ashes to India.",
       "image": "/images/india-death-attestation.jpg",
       "buttonText": "Apply Now"
+    },
+     "usa": {
+      "title": "Assistance for Death Certificate Attestation & Repatriation",
+      "description": "We offer compassionate support for attesting death certificates and arranging the transport of mortal remains or ashes to India.",
+      "image": "/images/india-death-attestation.jpg",
+      "buttonText": "Apply Now"
     }
   },
   "police-clearance-certificate-pcc-for-non-indian-nationals": {
@@ -924,6 +960,12 @@ export const Banner_data = {
   },
   "renewal-of-international-driving-permit": {
     "india": {
+      "title": "Renew Your International Driving Permit (IDP) with Ease",
+      "description": "Simplify your IDP renewal process with complete assistance in documentation, attestation, and submission.",
+      "image": "/images/india-idp-renewal.jpg",
+      "buttonText": "Apply Now"
+    },
+    "usa": {
       "title": "Renew Your International Driving Permit (IDP) with Ease",
       "description": "Simplify your IDP renewal process with complete assistance in documentation, attestation, and submission.",
       "image": "/images/india-idp-renewal.jpg",
@@ -1603,6 +1645,13 @@ export const Banner_data = {
       "description": "Get your Power of Attorney or affidavit legally attested for property, financial, legal, or personal matters to ensure international acceptance.",
       "image": "/images/global-power-of-attorney-attestation.jpg",
       "buttonText": "Apply Now"
+    },
+
+    "usa": {
+      "title": "Power of Attorney or Affidavit Attestation",
+      "description": "Get your Power of Attorney or affidavit legally attested for property, financial, legal, or personal matters to ensure international acceptance.",
+      "image": "/images/global-power-of-attorney-attestation.jpg",
+      "buttonText": "Apply Now"
     }
   }
   ,
@@ -1614,12 +1663,26 @@ export const Banner_data = {
       "description": "Authenticate your marriage certificate for visa applications, immigration, residency, and legal recognition abroad.",
       "image": "/images/global-marriage-certificate-attestation.jpg",
       "buttonText": "Apply Now"
-    }
+    },
+
+      "usa": {
+      "title": "Marriage Certificate Attestation for International Use",
+      "description": "Authenticate your marriage certificate for visa applications, immigration, residency, and legal recognition abroad.",
+      "image": "/images/global-marriage-certificate-attestation.jpg",
+      "buttonText": "Apply Now"
+    },
+    
   },
   // @ts-expect-error
 
   "birth-certificate-attestation": {
     "india": {
+      "title": "Birth Certificate Attestation for Global Use",
+      "description": "Ensure your birth certificate is officially attested for education, immigration, employment, and legal purposes worldwide.",
+      "image": "/images/global-birth-certificate-attestation.jpg",
+      "buttonText": "Apply Now"
+    },
+     "usa": {
       "title": "Birth Certificate Attestation for Global Use",
       "description": "Ensure your birth certificate is officially attested for education, immigration, employment, and legal purposes worldwide.",
       "image": "/images/global-birth-certificate-attestation.jpg",
@@ -1646,6 +1709,12 @@ export const Banner_data = {
       "description": "Register your marriage solemnized in the United States for official recognition, including documentation and verification for global legal use.",
       "image": "/images/global-registration-of-marriage-usa.jpg",
       "buttonText": "Apply Now"
+    },
+     "usa": {
+      "title": "Registration of Marriage Solemnized in the USA",
+      "description": "Register your marriage solemnized in the United States for official recognition, including documentation and verification for global legal use.",
+      "image": "/images/global-registration-of-marriage-usa.jpg",
+      "buttonText": "Apply Now"
     }
   }
   ,
@@ -1657,12 +1726,18 @@ export const Banner_data = {
       "description": "Get your personal, legal, and professional documents attested, obtain Statements of Need, and authenticate Indian driving licenses for official and international use.",
       "image": "/images/global-document-attestation.jpg",
       "buttonText": "Apply Now"
+    },
+     "usa": {
+      "title": "Attestation of Documents, Statement of Need & Driving License Authentication",
+      "description": "Get your personal, legal, and professional documents attested, obtain Statements of Need, and authenticate Indian driving licenses for official and international use.",
+      "image": "/images/global-document-attestation.jpg",
+      "buttonText": "Apply Now"
     }
   },
   // @ts-expect-error
 
   "life-certificate-for-pension-or-verification": {
-    "global": {
+    "usa": {
       "title": "Life Certificate for Pension or Official Verification",
       "description": "Obtain a legally certified Life Certificate required for pension continuation, bank verification, or official government purposes worldwide.",
       "image": "/images/global-life-certificate.jpg",
@@ -1673,6 +1748,12 @@ export const Banner_data = {
 
   "life-certificate-for-pension-or-verification": {
     "india": {
+      "title": "Life Certificate for Pension or Official Verification",
+      "description": "Obtain a legally certified Life Certificate required for pension continuation, bank verification, or official government purposes worldwide.",
+      "image": "/images/global-life-certificate.jpg",
+      "buttonText": "Apply Now"
+    },
+    "usa": {
       "title": "Life Certificate for Pension or Official Verification",
       "description": "Obtain a legally certified Life Certificate required for pension continuation, bank verification, or official government purposes worldwide.",
       "image": "/images/global-life-certificate.jpg",
@@ -1687,12 +1768,24 @@ export const Banner_data = {
       "description": "Get a legally attested affidavit required for issuing a child’s Indian passport, including parental consent and supporting declarations.",
       "image": "/images/global-child-passport-affidavit.jpg",
       "buttonText": "Apply Now"
+    },
+    "usa": {
+      "title": "Affidavit for Child Passport Issuance in India",
+      "description": "Get a legally attested affidavit required for issuing a child’s Indian passport, including parental consent and supporting declarations.",
+      "image": "/images/global-child-passport-affidavit.jpg",
+      "buttonText": "Apply Now"
     }
   },
   // @ts-expect-error
 
   "no-obligation-to-return-to-india-nori": {
     "india": {
+      "title": "No Obligation to Return to India (NORI) Certificate",
+      "description": "Obtain a NORI certificate confirming that you have no obligation to return to India, commonly required for foreign employment, education, or residency.",
+      "image": "/images/global-nori-certificate.jpg",
+      "buttonText": "Apply Now"
+    },
+    "usa": {
       "title": "No Obligation to Return to India (NORI) Certificate",
       "description": "Obtain a NORI certificate confirming that you have no obligation to return to India, commonly required for foreign employment, education, or residency.",
       "image": "/images/global-nori-certificate.jpg",
@@ -1709,12 +1802,24 @@ export const Banner_data = {
       "description": "We assist with death certificate attestation and documentation required for transporting mortal remains internationally with dignity and compliance.",
       "image": "/images/global-death-certificate-attestation.jpg",
       "buttonText": "Apply Now"
+    },
+    "usa": {
+      "title": "Death Certificate Attestation & Carrying Mortal Remains",
+      "description": "We assist with death certificate attestation and documentation required for transporting mortal remains internationally with dignity and compliance.",
+      "image": "/images/global-death-certificate-attestation.jpg",
+      "buttonText": "Apply Now"
     }
   },
   // @ts-expect-error
 
   "police-clearance-certificate-pcc-for-non-indian-nationals": {
     "india": {
+      "title": "Police Clearance Certificate (PCC) for Non-Indian Nationals",
+      "description": "Obtain a Police Clearance Certificate to verify your criminal record status for immigration, employment, residency, or visa purposes worldwide.",
+      "image": "/images/global-pcc-non-indian.jpg",
+      "buttonText": "Apply Now"
+    },
+     "usa": {
       "title": "Police Clearance Certificate (PCC) for Non-Indian Nationals",
       "description": "Obtain a Police Clearance Certificate to verify your criminal record status for immigration, employment, residency, or visa purposes worldwide.",
       "image": "/images/global-pcc-non-indian.jpg",
@@ -1730,6 +1835,12 @@ export const Banner_data = {
       "description": "Renew your International Driving Permit to continue driving legally abroad with valid authorization and compliance.",
       "image": "/images/global-idp-renewal.jpg",
       "buttonText": "Apply Now"
+    },
+    "usa": {
+      "title": "Renewal of International Driving Permit",
+      "description": "Renew your International Driving Permit to continue driving legally abroad with valid authorization and compliance.",
+      "image": "/images/global-idp-renewal.jpg",
+      "buttonText": "Apply Now"
     }
   }
   ,
@@ -1737,6 +1848,12 @@ export const Banner_data = {
 
   "power-of-attorney-sub-types": {
     "india": {
+      "title": "Power of Attorney Sub-Types & Legal Authorization",
+      "description": "Choose from General, Special, Property, or Financial Power of Attorney options and get them legally prepared and attested for global use.",
+      "image": "/images/global-power-of-attorney.jpg",
+      "buttonText": "Apply Now"
+    },
+    "usa": {
       "title": "Power of Attorney Sub-Types & Legal Authorization",
       "description": "Choose from General, Special, Property, or Financial Power of Attorney options and get them legally prepared and attested for global use.",
       "image": "/images/global-power-of-attorney.jpg",

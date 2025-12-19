@@ -66,8 +66,55 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
                   );
 
                   router.push(`/other-services/${slug}?id=${id}`);
-                }} className="bg-red-600 cursor-pointer hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
+                }}
+                  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-3
+    bg-red-600
+    hover:bg-red-700
+    text-white
+    px-8
+    py-3
+    rounded-full
+    font-semibold
+    text-lg
+    shadow-md
+    hover:shadow-xl
+    transition-all
+    duration-300
+    cursor-pointer
+  "                >
                   {buttonText}
+
+                  <span
+                    className="
+      inline-flex
+      items-center
+      justify-center
+      w-6
+      h-6
+      rounded-full
+      bg-white/20
+      transform
+      transition-all
+      duration-300
+      group-hover:translate-x-2
+      group-hover:bg-white
+    "
+                  >
+                    <svg
+                      className="w-4 h-4 text-white group-hover:text-red-600"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </button>
               )}
             </div>
@@ -92,9 +139,56 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
                     })
                   );
 
-                  router.push(`/other-services/${slug}`);
-                }} className="bg-red-600 cursor-pointer hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
+                  router.push(`/other-services/${slug}?id=${id}`);
+                }}
+                  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-3
+    bg-red-600
+    hover:bg-red-700
+    text-white
+    px-8
+    py-3
+    rounded-full
+    font-semibold
+    text-lg
+    shadow-md
+    hover:shadow-xl
+    transition-all
+    duration-300
+    cursor-pointer
+  "                 >
                   {buttonText}
+
+                  <span
+                    className="
+      inline-flex
+      items-center
+      justify-center
+      w-6
+      h-6
+      rounded-full
+      bg-white/20
+      transform
+      transition-all
+      duration-300
+      group-hover:translate-x-2
+      group-hover:bg-white
+    "
+                  >
+                    <svg
+                      className="w-4 h-4 text-white group-hover:text-red-600"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </button>
               )}
             </div>

@@ -6,10 +6,10 @@ import CommitmentSection from "@/components/CommitmentSection/CommitmentSection"
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import TestimonialSlider from "@/components/TestimonialSlider ";
 import { useParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { serviceFaqs } from "@/app/data/serviceFaqs";
 import FAQSections from "@/components/FAQSections";
+import { vehicleList } from "@/lib/vehicleList";
 
 const faqKeyMap: Record<string, string> = {
   "vehicle-booking": "vehicle-booking",
@@ -34,6 +34,35 @@ const faqKeyMap: Record<string, string> = {
   "concert-program-tickets": "concert-program-tickets",
 };
 
+ const ArrowRightIcon = () => (
+  <span
+    className="
+      flex
+      items-center
+      justify-center
+      w-6
+      h-6
+      rounded-full
+      bg-red-600
+      text-white
+      transition-all
+      duration-300
+      group-hover:bg-black
+    "
+  >
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </span>
+);
+
+
 const Details = () => {
   const params = useParams();
   const slug = Array.isArray(params.slug)
@@ -43,34 +72,13 @@ const Details = () => {
 
   const searchParams = useSearchParams();
   const id = searchParams.get("id"); // ✅ query id
-
-
-  const [vehicles, setVehicles] = useState<any[]>([]);
-  useEffect(() => {
-    if (slug !== "vehicle-booking") return;
-
-    const fetchVehicles = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_QUARTUS_API_URL}/vehicle/list`,
-          { cache: "no-store" }
-        );
-        const data = await res.json();
-        setVehicles(data?.data || []);
-      } catch (error) {
-        console.error("Vehicle API Error:", error);
-      }
-    };
-
-    fetchVehicles();
-  }, [slug]);
-
   const faqKey = faqKeyMap[slug];
   const faqData = faqKey ? serviceFaqs[faqKey] : [];
 
   // 🚗 VEHICLE BOOKING PAGE
   if (slug === "vehicle-booking") {
     return (
+  
       <div>
         <BannerLayout bg="/service.jpg">
           <h4 className="bg-black/40 py-3 px-4 w-[50%] m-auto rounded-lg 
@@ -79,15 +87,17 @@ const Details = () => {
           </h4>
 
           <Button
+            name="Book Now"
+            icon={<ArrowRightIcon />}
             iconPosition="right"
             link={`/other-services/checkout?type=${slug}`}
-            name="Book Now"
           />
         </BannerLayout>
 
-        {/* VEHICLE LIST */}
+        {/* VEHICLE L
+        IST */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-12 px-4">
-          {vehicles.map((v) => (
+          {vehicleList.map((v) => (
             <div
               key={v.id}
               className="border rounded-xl shadow hover:shadow-lg transition overflow-hidden"
@@ -105,6 +115,7 @@ const Details = () => {
             </div>
           ))}
         </div>
+      <WhyChoose />
 
         <CommitmentSection />
 
@@ -114,6 +125,7 @@ const Details = () => {
 
         <TestimonialSlider />
       </div>
+
     );
   }
 
@@ -127,9 +139,11 @@ const Details = () => {
         </h4>
 
         <Button
+        
           iconPosition="right"
           link={`/other-services/checkout?type=${slug}&id=${id}`}
           name="Book Now"
+          icon={<ArrowRightIcon/>}
         />
       </BannerLayout>
 

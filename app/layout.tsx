@@ -7,6 +7,7 @@ import NextTopLoader from "nextjs-toploader";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { Toaster } from "@/components/ui/sonner";
 import BasicLayout from "@/layout/BasicLaypout";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <BasicLayout>{children}</BasicLayout>
           <Toaster />
         </ReduxProvider>
+        <ScrollToTop />
 
         <NextTopLoader />
 
