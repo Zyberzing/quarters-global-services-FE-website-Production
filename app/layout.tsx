@@ -3,11 +3,11 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+import { Suspense } from "react"; // ✅ ADD
 import NextTopLoader from "nextjs-toploader";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { Toaster } from "@/components/ui/sonner";
 import BasicLayout from "@/layout/BasicLaypout";
-import ScrollToTop from "@/components/ScrollToTop";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -35,11 +35,16 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} antialiased overflow-x-hidden`}>
         <ReduxProvider>
-          <BasicLayout>{children}</BasicLayout>
+          {/* ✅ GLOBAL FIX */}
+          <Suspense fallback={null}>
+            <BasicLayout>{children}</BasicLayout>
+          </Suspense>
+
           <Toaster />
         </ReduxProvider>
-        <ScrollToTop />
+
         <NextTopLoader />
+
         <Script
           id="tawk-script"
           strategy="afterInteractive"
@@ -58,6 +63,19 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CSN62FWQ2D"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CSN62FWQ2D');
+    `}
+        </Script>
       </body>
     </html>
   );
