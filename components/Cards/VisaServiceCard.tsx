@@ -70,11 +70,8 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
             </svg>
           }
           onClick={() => {
-            // Save the step in localStorage first
-
-            console.log(shouldStartApplication, "shouldStartApplication");
+            
             if (shouldStartApplication) {
-              console.log(title, "title");
               //@ts-ignore
               dispatch(startApplication({ type: title ?? "", platformServiceId: id ?? "" }));
               if (link) {

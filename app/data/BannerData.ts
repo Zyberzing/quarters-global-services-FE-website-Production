@@ -173,18 +173,202 @@ export const Banner_data = {
 
   // --- E-Visa ---
   "e-visa": {
+    australia: {
+      title: "E-Visa — Australia",
+      description: "Apply online for an Australian e-Visa with a simple and fast digital process.",
+      image: "/images/australia-evisa.jpg",
+    },
+    azerbaijan: {
+      title: "E-Visa — Azerbaijan",
+      description: "Get your Azerbaijan e-Visa online without visiting an embassy.",
+      image: "/images/azerbaijan-evisa.jpg",
+    },
+    bahrain: {
+      title: "E-Visa — Bahrain",
+      description: "Apply for a Bahrain e-Visa online for tourism or business travel.",
+      image: "/images/bahrain-evisa.jpg",
+    },
+    benin: {
+      title: "E-Visa — Benin",
+      description: "Benin e-Visa application made easy with an online submission process.",
+      image: "/images/benin-evisa.jpg",
+    },
+    brazil: {
+      title: "E-Visa — Brazil",
+      description: "Apply online for a Brazil e-Visa with quick processing support.",
+      image: "/images/brazil-evisa.jpg",
+    },
+    cambodia: {
+      title: "E-Visa — Cambodia",
+      description: "Travel to Cambodia with a convenient online e-Visa application.",
+      image: "/images/cambodia-evisa.jpg",
+    },
+    cote_divoire: {
+      title: "E-Visa — Côte d’Ivoire",
+      description: "Apply for a Côte d’Ivoire e-Visa through a fully online process.",
+      image: "/images/cote-divoire-evisa.jpg",
+    },
+    egypt: {
+      title: "E-Visa — Egypt",
+      description: "Get your Egypt e-Visa online for tourism or business travel.",
+      image: "/images/egypt-evisa.jpg",
+    },
+    ethiopia: {
+      title: "E-Visa — Ethiopia",
+      description: "Apply for an Ethiopia e-Visa online with fast approval assistance.",
+      image: "/images/ethiopia-evisa.jpg",
+    },
     india: {
       title: "E-Visa — India",
-      description:
-        "The Indian e-Visa allows travelers to apply online without visiting an embassy.",
+      description: "The Indian e-Visa allows travelers to apply online without visiting an embassy.",
       image: "/images/india-evisa.jpg",
     },
-    usa: {
-      title: "E-Visa — USA",
-      description:
-        "Simplify your U.S. e-Visa application process with our quick and reliable assistance.",
-      image: "/images/usa-evisa.jpg",
+    iraq: {
+      title: "E-Visa — Iraq",
+      description: "Apply online for an Iraq e-Visa with guided documentation support.",
+      image: "/images/iraq-evisa.jpg",
     },
+    japan: {
+      title: "E-Visa — Japan",
+      description: "Apply for a Japan e-Visa online with a secure digital process.",
+      image: "/images/japan-evisa.jpg",
+    },
+    jordan: {
+      title: "E-Visa — Jordan",
+      description: "Jordan e-Visa applications made simple and fully online.",
+      image: "/images/jordan-evisa.jpg",
+    },
+    kenya: {
+      title: "E-Visa — Kenya",
+      description: "Apply for a Kenya e-Visa online for tourism or business travel.",
+      image: "/images/kenya-evisa.jpg",
+    },
+    kuwait: {
+      title: "E-Visa — Kuwait",
+      description: "Submit your Kuwait e-Visa application online with ease.",
+      image: "/images/kuwait-evisa.jpg",
+    },
+    kyrgyzstan: {
+      title: "E-Visa — Kyrgyzstan",
+      description: "Apply online for a Kyrgyzstan e-Visa with minimal paperwork.",
+      image: "/images/kyrgyzstan-evisa.jpg",
+    },
+    laos: {
+      title: "E-Visa — Laos",
+      description: "Laos e-Visa application available through a simple online process.",
+      image: "/images/laos-evisa.jpg",
+    },
+    morocco: {
+      title: "E-Visa — Morocco",
+      description: "Apply for a Morocco e-Visa online with guided assistance.",
+      image: "/images/morocco-evisa.jpg",
+    },
+    mozambique: {
+      title: "E-Visa — Mozambique",
+      description: "Get your Mozambique e-Visa online quickly and securely.",
+      image: "/images/mozambique-evisa.jpg",
+    },
+    myanmar: {
+      title: "E-Visa — Myanmar",
+      description: "Apply online for a Myanmar e-Visa for short-term travel.",
+      image: "/images/myanmar-evisa.jpg",
+    },
+    namibia: {
+      title: "E-Visa — Namibia",
+      description: "Namibia e-Visa application made easy with online submission.",
+      image: "/images/namibia-evisa.jpg",
+    },
+    new_zealand: {
+      title: "E-Visa — New Zealand",
+      description: "Apply online for a New Zealand e-Visa or travel authorization.",
+      image: "/images/new-zealand-evisa.jpg",
+    },
+    nigeria: {
+      title: "E-Visa — Nigeria",
+      description: "Apply for a Nigeria e-Visa online with fast processing support.",
+      image: "/images/nigeria-evisa.jpg",
+    },
+    oman: {
+      title: "E-Visa — Oman",
+      description: "Oman e-Visa applications available fully online.",
+      image: "/images/oman-evisa.jpg",
+    },
+    pakistan: {
+      title: "E-Visa — Pakistan",
+      description: "Apply online for a Pakistan e-Visa for tourism or business.",
+      image: "/images/pakistan-evisa.jpg",
+    },
+    rwanda: {
+      title: "E-Visa — Rwanda",
+      description: "Rwanda e-Visa application through a secure online platform.",
+      image: "/images/rwanda-evisa.jpg",
+    },
+    saudi_arabia: {
+      title: "E-Visa — Saudi Arabia",
+      description: "Apply for a Saudi Arabia e-Visa online for tourism or Umrah.",
+      image: "/images/saudi-arabia-evisa.jpg",
+    },
+    south_korea: {
+      title: "E-Visa — South Korea",
+      description: "Apply online for a South Korea e-Visa with step-by-step guidance.",
+      image: "/images/south-korea-evisa.jpg",
+    },
+    sri_lanka: {
+      title: "E-Visa — Sri Lanka",
+      description: "Sri Lanka e-Visa (ETA) available via an easy online application.",
+      image: "/images/sri-lanka-evisa.jpg",
+    },
+    tajikistan: {
+      title: "E-Visa — Tajikistan",
+      description: "Apply for a Tajikistan e-Visa online with minimal documentation.",
+      image: "/images/tajikistan-evisa.jpg",
+    },
+    tanzania: {
+      title: "E-Visa — Tanzania",
+      description: "Tanzania e-Visa application available fully online.",
+      image: "/images/tanzania-evisa.jpg",
+    },
+    thailand: {
+      title: "E-Visa — Thailand",
+      description: "Apply online for a Thailand e-Visa for smooth travel planning.",
+      image: "/images/thailand-evisa.jpg",
+    },
+    turkey: {
+      title: "E-Visa — Turkey",
+      description: "Turkey e-Visa application made fast and simple online.",
+      image: "/images/turkey-evisa.jpg",
+    },
+    uganda: {
+      title: "E-Visa — Uganda",
+      description: "Apply for a Uganda e-Visa online with secure processing.",
+      image: "/images/uganda-evisa.jpg",
+    },
+    united_arab_emirates: {
+      title: "E-Visa — United Arab Emirates",
+      description: "UAE e-Visa application available online for tourists and visitors.",
+      image: "/images/uae-evisa.jpg",
+    },
+    united_kingdom: {
+      title: "E-Visa — United Kingdom",
+      description: "Apply online for a UK e-Visa or travel authorization.",
+      image: "/images/uk-evisa.jpg",
+    },
+    uzbekistan: {
+      title: "E-Visa — Uzbekistan",
+      description: "Uzbekistan e-Visa application through a fast online system.",
+      image: "/images/uzbekistan-evisa.jpg",
+    },
+    vietnam: {
+      title: "E-Visa — Vietnam",
+      description: "Vietnam e-Visa application available online for easy travel.",
+      image: "/images/vietnam-evisa.jpg",
+    },
+    zambia: {
+      title: "E-Visa — Zambia",
+      description: "Apply online for a Zambia e-Visa with quick processing.",
+      image: "/images/zambia-evisa.jpg",
+    },
+
   },
 
   // --- OCI Card ---
@@ -877,7 +1061,7 @@ export const Banner_data = {
       "image": "/images/india-will-attestation.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Legalize and Authenticate Your Will for Recognition in India",
       "description": "Ensure your Will is properly attested and validated for Indian legal authorities with our document authentication service.",
       "image": "/images/india-will-attestation.jpg",
@@ -921,7 +1105,7 @@ export const Banner_data = {
       "image": "/images/india-child-passport-affidavit.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Prepare Parental Affidavit for Child’s Passport in India",
       "description": "We assist parents in drafting and notarizing affidavits required for child passport issuance in India.",
       "image": "/images/india-child-passport-affidavit.jpg",
@@ -943,7 +1127,7 @@ export const Banner_data = {
       "image": "/images/india-death-attestation.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Assistance for Death Certificate Attestation & Repatriation",
       "description": "We offer compassionate support for attesting death certificates and arranging the transport of mortal remains or ashes to India.",
       "image": "/images/india-death-attestation.jpg",
@@ -1665,13 +1849,13 @@ export const Banner_data = {
       "buttonText": "Apply Now"
     },
 
-      "usa": {
+    "usa": {
       "title": "Marriage Certificate Attestation for International Use",
       "description": "Authenticate your marriage certificate for visa applications, immigration, residency, and legal recognition abroad.",
       "image": "/images/global-marriage-certificate-attestation.jpg",
       "buttonText": "Apply Now"
     },
-    
+
   },
   // @ts-expect-error
 
@@ -1682,7 +1866,7 @@ export const Banner_data = {
       "image": "/images/global-birth-certificate-attestation.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Birth Certificate Attestation for Global Use",
       "description": "Ensure your birth certificate is officially attested for education, immigration, employment, and legal purposes worldwide.",
       "image": "/images/global-birth-certificate-attestation.jpg",
@@ -1710,7 +1894,7 @@ export const Banner_data = {
       "image": "/images/global-registration-of-marriage-usa.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Registration of Marriage Solemnized in the USA",
       "description": "Register your marriage solemnized in the United States for official recognition, including documentation and verification for global legal use.",
       "image": "/images/global-registration-of-marriage-usa.jpg",
@@ -1727,7 +1911,7 @@ export const Banner_data = {
       "image": "/images/global-document-attestation.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Attestation of Documents, Statement of Need & Driving License Authentication",
       "description": "Get your personal, legal, and professional documents attested, obtain Statements of Need, and authenticate Indian driving licenses for official and international use.",
       "image": "/images/global-document-attestation.jpg",
@@ -1819,7 +2003,7 @@ export const Banner_data = {
       "image": "/images/global-pcc-non-indian.jpg",
       "buttonText": "Apply Now"
     },
-     "usa": {
+    "usa": {
       "title": "Police Clearance Certificate (PCC) for Non-Indian Nationals",
       "description": "Obtain a Police Clearance Certificate to verify your criminal record status for immigration, employment, residency, or visa purposes worldwide.",
       "image": "/images/global-pcc-non-indian.jpg",
@@ -1949,7 +2133,1227 @@ export const Banner_data = {
       "image": "/images/noc-consent-letter.jpg",
       "buttonText": "Apply Now"
     }
-  }
+  },
+  // @ts-expect-error
+  "tourist-e-visa": {
+    australia: {
+      title: "Tourist E-Visa for Australia",
+      subtitle: "Tourist E-Visa for Australia",
+      description:
+        "Apply online for an Australia Tourist E-Visa to enjoy leisure travel, sightseeing, and visiting friends or family with a simple digital process.",
+      buttonText: "Apply Now",
+    },
+
+    azerbaijan: {
+      title: "Tourist E-Visa for Azerbaijan",
+      subtitle: "Tourist E-Visa for Azerbaijan",
+      description:
+        "Get your Azerbaijan Tourist E-Visa online for tourism, cultural exploration, and short-term leisure travel.",
+      buttonText: "Apply Now",
+    },
+
+    bahrain: {
+      title: "Tourist E-Visa for Bahrain",
+      subtitle: "Tourist E-Visa for Bahrain",
+      description:
+        "Apply for a Bahrain Tourist E-Visa online to explore attractions and enjoy a short leisure stay.",
+      buttonText: "Apply Now",
+    },
+
+    benin: {
+      title: "Tourist E-Visa for Benin",
+      subtitle: "Tourist E-Visa for Benin",
+      description:
+        "Benin Tourist E-Visa allows travelers to apply online for tourism and cultural visits.",
+      buttonText: "Apply Now",
+    },
+
+    brazil: {
+      title: "Tourist E-Visa for Brazil",
+      subtitle: "Tourist E-Visa for Brazil",
+      description:
+        "Apply online for a Brazil Tourist E-Visa to enjoy sightseeing, beaches, and cultural experiences.",
+      buttonText: "Apply Now",
+    },
+
+    cambodia: {
+      title: "Tourist E-Visa for Cambodia",
+      subtitle: "Tourist E-Visa for Cambodia",
+      description:
+        "Travel to Cambodia with a Tourist E-Visa and explore historic temples and cultural landmarks.",
+      buttonText: "Apply Now",
+    },
+
+    cote_divoire: {
+      title: "Tourist E-Visa for Côte d’Ivoire",
+      subtitle: "Tourist E-Visa for Côte d’Ivoire",
+      description:
+        "Apply online for a Côte d’Ivoire Tourist E-Visa for leisure travel and cultural exploration.",
+      buttonText: "Apply Now",
+    },
+
+    egypt: {
+      title: "Tourist E-Visa for Egypt",
+      subtitle: "Tourist E-Visa for Egypt",
+      description:
+        "Get an Egypt Tourist E-Visa online to explore pyramids, historical sites, and cultural attractions.",
+      buttonText: "Apply Now",
+    },
+
+    ethiopia: {
+      title: "Tourist E-Visa for Ethiopia",
+      subtitle: "Tourist E-Visa for Ethiopia",
+      description:
+        "Apply online for an Ethiopia Tourist E-Visa to experience rich history and natural beauty.",
+      buttonText: "Apply Now",
+    },
+
+    india: {
+      title: "Tourist E-Visa for India",
+      subtitle: "Tourist E-Visa for India",
+      description:
+        "India Tourist E-Visa enables travelers to apply online for tourism, sightseeing, and visiting relatives.",
+      buttonText: "Apply Now",
+    },
+
+    iraq: {
+      title: "Tourist E-Visa for Iraq",
+      subtitle: "Tourist E-Visa for Iraq",
+      description:
+        "Apply online for an Iraq Tourist E-Visa for short-term leisure and cultural visits.",
+      buttonText: "Apply Now",
+    },
+
+    japan: {
+      title: "Tourist E-Visa for Japan",
+      subtitle: "Tourist E-Visa for Japan",
+      description:
+        "Japan Tourist E-Visa allows travelers to explore cities, culture, and scenic destinations.",
+      buttonText: "Apply Now",
+    },
+
+    jordan: {
+      title: "Tourist E-Visa for Jordan",
+      subtitle: "Tourist E-Visa for Jordan",
+      description:
+        "Apply for a Jordan Tourist E-Visa online to visit Petra, the Dead Sea, and historic sites.",
+      buttonText: "Apply Now",
+    },
+
+    kenya: {
+      title: "Tourist E-Visa for Kenya",
+      subtitle: "Tourist E-Visa for Kenya",
+      description:
+        "Kenya Tourist E-Visa lets travelers enjoy safaris, wildlife, and scenic landscapes.",
+      buttonText: "Apply Now",
+    },
+
+    kuwait: {
+      title: "Tourist E-Visa for Kuwait",
+      subtitle: "Tourist E-Visa for Kuwait",
+      description:
+        "Apply online for a Kuwait Tourist E-Visa for leisure and short-term travel.",
+      buttonText: "Apply Now",
+    },
+
+    kyrgyzstan: {
+      title: "Tourist E-Visa for Kyrgyzstan",
+      subtitle: "Tourist E-Visa for Kyrgyzstan",
+      description:
+        "Kyrgyzstan Tourist E-Visa allows visitors to explore mountains and natural beauty.",
+      buttonText: "Apply Now",
+    },
+
+    laos: {
+      title: "Tourist E-Visa for Laos",
+      subtitle: "Tourist E-Visa for Laos",
+      description:
+        "Apply online for a Laos Tourist E-Visa for peaceful travel and cultural discovery.",
+      buttonText: "Apply Now",
+    },
+
+    morocco: {
+      title: "Tourist E-Visa for Morocco",
+      subtitle: "Tourist E-Visa for Morocco",
+      description:
+        "Morocco Tourist E-Visa allows travelers to explore markets, cities, and historic landmarks.",
+      buttonText: "Apply Now",
+    },
+
+    mozambique: {
+      title: "Tourist E-Visa for Mozambique",
+      subtitle: "Tourist E-Visa for Mozambique",
+      description:
+        "Apply online for a Mozambique Tourist E-Visa for beach holidays and leisure travel.",
+      buttonText: "Apply Now",
+    },
+
+    myanmar: {
+      title: "Tourist E-Visa for Myanmar",
+      subtitle: "Tourist E-Visa for Myanmar",
+      description:
+        "Myanmar Tourist E-Visa lets travelers explore ancient temples and cultural heritage.",
+      buttonText: "Apply Now",
+    },
+
+    namibia: {
+      title: "Tourist E-Visa for Namibia",
+      subtitle: "Tourist E-Visa for Namibia",
+      description:
+        "Apply for a Namibia Tourist E-Visa to experience deserts, wildlife, and scenic landscapes.",
+      buttonText: "Apply Now",
+    },
+
+    new_zealand: {
+      title: "Tourist E-Visa for New Zealand",
+      subtitle: "Tourist E-Visa for New Zealand",
+      description:
+        "New Zealand Tourist E-Visa allows travelers to explore nature, cities, and adventure spots.",
+      buttonText: "Apply Now",
+    },
+
+    nigeria: {
+      title: "Tourist E-Visa for Nigeria",
+      subtitle: "Tourist E-Visa for Nigeria",
+      description:
+        "Apply online for a Nigeria Tourist E-Visa for leisure and cultural visits.",
+      buttonText: "Apply Now",
+    },
+
+    oman: {
+      title: "Tourist E-Visa for Oman",
+      subtitle: "Tourist E-Visa for Oman",
+      description:
+        "Oman Tourist E-Visa lets travelers explore deserts, mountains, and cultural attractions.",
+      buttonText: "Apply Now",
+    },
+
+    pakistan: {
+      title: "Tourist E-Visa for Pakistan",
+      subtitle: "Tourist E-Visa for Pakistan",
+      description:
+        "Apply online for a Pakistan Tourist E-Visa for scenic, cultural, and leisure travel.",
+      buttonText: "Apply Now",
+    },
+
+    rwanda: {
+      title: "Tourist E-Visa for Rwanda",
+      subtitle: "Tourist E-Visa for Rwanda",
+      description:
+        "Rwanda Tourist E-Visa allows travelers to enjoy nature, wildlife, and cultural tourism.",
+      buttonText: "Apply Now",
+    },
+
+    saudi_arabia: {
+      title: "Tourist E-Visa for Saudi Arabia",
+      subtitle: "Tourist E-Visa for Saudi Arabia",
+      description:
+        "Apply online for a Saudi Arabia Tourist E-Visa to explore heritage and cultural sites.",
+      buttonText: "Apply Now",
+    },
+
+    south_korea: {
+      title: "Tourist E-Visa for South Korea",
+      subtitle: "Tourist E-Visa for South Korea",
+      description:
+        "South Korea Tourist E-Visa allows visitors to explore modern cities and traditions.",
+      buttonText: "Apply Now",
+    },
+
+    sri_lanka: {
+      title: "Tourist E-Visa for Sri Lanka",
+      subtitle: "Tourist E-Visa for Sri Lanka",
+      description:
+        "Sri Lanka Tourist E-Visa enables travelers to enjoy beaches, culture, and scenic beauty.",
+      buttonText: "Apply Now",
+    },
+
+    tajikistan: {
+      title: "Tourist E-Visa for Tajikistan",
+      subtitle: "Tourist E-Visa for Tajikistan",
+      description:
+        "Apply online for a Tajikistan Tourist E-Visa for nature and cultural exploration.",
+      buttonText: "Apply Now",
+    },
+
+    tanzania: {
+      title: "Tourist E-Visa for Tanzania",
+      subtitle: "Tourist E-Visa for Tanzania",
+      description:
+        "Tanzania Tourist E-Visa allows travelers to explore safaris and natural attractions.",
+      buttonText: "Apply Now",
+    },
+
+    thailand: {
+      title: "Tourist E-Visa for Thailand",
+      subtitle: "Tourist E-Visa for Thailand",
+      description:
+        "Apply for a Thailand Tourist E-Visa to enjoy beaches, cities, and cultural sites.",
+      buttonText: "Apply Now",
+    },
+
+    turkey: {
+      title: "Tourist E-Visa for Turkey",
+      subtitle: "Tourist E-Visa for Turkey",
+      description:
+        "Turkey Tourist E-Visa allows travelers to explore historical landmarks and vibrant cities.",
+      buttonText: "Apply Now",
+    },
+
+    uganda: {
+      title: "Tourist E-Visa for Uganda",
+      subtitle: "Tourist E-Visa for Uganda",
+      description:
+        "Apply online for a Uganda Tourist E-Visa for wildlife and leisure travel.",
+      buttonText: "Apply Now",
+    },
+
+    united_arab_emirates: {
+      title: "Tourist E-Visa for United Arab Emirates",
+      subtitle: "Tourist E-Visa for United Arab Emirates",
+      description:
+        "UAE Tourist E-Visa allows travelers to explore cities, shopping, and cultural attractions.",
+      buttonText: "Apply Now",
+    },
+
+    united_kingdom: {
+      title: "Tourist E-Visa for United Kingdom",
+      subtitle: "Tourist E-Visa for United Kingdom",
+      description:
+        "Apply online for a UK Tourist E-Visa to explore historic cities and landmarks.",
+      buttonText: "Apply Now",
+    },
+
+    uzbekistan: {
+      title: "Tourist E-Visa for Uzbekistan",
+      subtitle: "Tourist E-Visa for Uzbekistan",
+      description:
+        "Uzbekistan Tourist E-Visa allows travelers to explore Silk Road heritage sites.",
+      buttonText: "Apply Now",
+    },
+
+    vietnam: {
+      title: "Tourist E-Visa for Vietnam",
+      subtitle: "Tourist E-Visa for Vietnam",
+      description:
+        "Vietnam Tourist E-Visa lets travelers explore culture, cuisine, and scenic landscapes.",
+      buttonText: "Apply Now",
+    },
+
+    zambia: {
+      title: "Tourist E-Visa for Zambia",
+      subtitle: "Tourist E-Visa for Zambia",
+      description:
+        "Apply online for a Zambia Tourist E-Visa to enjoy nature and adventure travel.",
+      buttonText: "Apply Now",
+    },
+  },
+  // @ts-expect-error
+  "business-e-visa": {
+    australia: {
+      title: "Business E-Visa for Australia",
+      subtitle: "Business E-Visa for Australia",
+      description:
+        "Apply online for an Australia Business E-Visa to attend meetings, conferences, and professional engagements.",
+      buttonText: "Apply Now",
+    },
+    azerbaijan: {
+      title: "Business E-Visa for Azerbaijan",
+      subtitle: "Business E-Visa for Azerbaijan",
+      description:
+        "Get an Azerbaijan Business E-Visa online for commercial visits, meetings, and trade activities.",
+      buttonText: "Apply Now",
+    },
+    bahrain: {
+      title: "Business E-Visa for Bahrain",
+      subtitle: "Business E-Visa for Bahrain",
+      description:
+        "Apply for a Bahrain Business E-Visa to participate in business meetings and professional events.",
+      buttonText: "Apply Now",
+    },
+    benin: {
+      title: "Business E-Visa for Benin",
+      subtitle: "Business E-Visa for Benin",
+      description:
+        "Benin Business E-Visa allows travelers to visit for commercial and professional purposes.",
+      buttonText: "Apply Now",
+    },
+    brazil: {
+      title: "Business E-Visa for Brazil",
+      subtitle: "Business E-Visa for Brazil",
+      description:
+        "Apply online for a Brazil Business E-Visa to attend trade meetings and business activities.",
+      buttonText: "Apply Now",
+    },
+    cambodia: {
+      title: "Business E-Visa for Cambodia",
+      subtitle: "Business E-Visa for Cambodia",
+      description:
+        "Cambodia Business E-Visa allows visitors to engage in business meetings and trade events.",
+      buttonText: "Apply Now",
+    },
+    cote_divoire: {
+      title: "Business E-Visa for Côte d’Ivoire",
+      subtitle: "Business E-Visa for Côte d’Ivoire",
+      description:
+        "Apply online for a Côte d’Ivoire Business E-Visa for commercial travel.",
+      buttonText: "Apply Now",
+    },
+    egypt: {
+      title: "Business E-Visa for Egypt",
+      subtitle: "Business E-Visa for Egypt",
+      description:
+        "Get an Egypt Business E-Visa online for conferences and professional visits.",
+      buttonText: "Apply Now",
+    },
+    ethiopia: {
+      title: "Business E-Visa for Ethiopia",
+      subtitle: "Business E-Visa for Ethiopia",
+      description:
+        "Apply for an Ethiopia Business E-Visa to attend meetings and trade discussions.",
+      buttonText: "Apply Now",
+    },
+    india: {
+      title: "Business E-Visa for India",
+      subtitle: "Business E-Visa for India",
+      description:
+        "India Business E-Visa enables travelers to apply online for meetings and commercial activities.",
+      buttonText: "Apply Now",
+    },
+    iraq: {
+      title: "Business E-Visa for Iraq",
+      subtitle: "Business E-Visa for Iraq",
+      description:
+        "Apply online for an Iraq Business E-Visa for official and commercial travel.",
+      buttonText: "Apply Now",
+    },
+    japan: {
+      title: "Business E-Visa for Japan",
+      subtitle: "Business E-Visa for Japan",
+      description:
+        "Japan Business E-Visa allows travelers to attend meetings and professional engagements.",
+      buttonText: "Apply Now",
+    },
+    jordan: {
+      title: "Business E-Visa for Jordan",
+      subtitle: "Business E-Visa for Jordan",
+      description:
+        "Apply for a Jordan Business E-Visa to participate in conferences and meetings.",
+      buttonText: "Apply Now",
+    },
+    kenya: {
+      title: "Business E-Visa for Kenya",
+      subtitle: "Business E-Visa for Kenya",
+      description:
+        "Kenya Business E-Visa supports travel for business meetings and trade purposes.",
+      buttonText: "Apply Now",
+    },
+    kuwait: {
+      title: "Business E-Visa for Kuwait",
+      subtitle: "Business E-Visa for Kuwait",
+      description:
+        "Apply online for a Kuwait Business E-Visa for professional travel.",
+      buttonText: "Apply Now",
+    },
+    kyrgyzstan: {
+      title: "Business E-Visa for Kyrgyzstan",
+      subtitle: "Business E-Visa for Kyrgyzstan",
+      description:
+        "Kyrgyzstan Business E-Visa allows commercial and professional visits.",
+      buttonText: "Apply Now",
+    },
+    laos: {
+      title: "Business E-Visa for Laos",
+      subtitle: "Business E-Visa for Laos",
+      description:
+        "Apply online for a Laos Business E-Visa for meetings and trade visits.",
+      buttonText: "Apply Now",
+    },
+    morocco: {
+      title: "Business E-Visa for Morocco",
+      subtitle: "Business E-Visa for Morocco",
+      description:
+        "Morocco Business E-Visa allows travel for business and professional purposes.",
+      buttonText: "Apply Now",
+    },
+    mozambique: {
+      title: "Business E-Visa for Mozambique",
+      subtitle: "Business E-Visa for Mozambique",
+      description:
+        "Apply for a Mozambique Business E-Visa to attend meetings and trade events.",
+      buttonText: "Apply Now",
+    },
+    myanmar: {
+      title: "Business E-Visa for Myanmar",
+      subtitle: "Business E-Visa for Myanmar",
+      description:
+        "Myanmar Business E-Visa supports travel for commercial and professional activities.",
+      buttonText: "Apply Now",
+    },
+    namibia: {
+      title: "Business E-Visa for Namibia",
+      subtitle: "Business E-Visa for Namibia",
+      description:
+        "Apply online for a Namibia Business E-Visa for business engagements.",
+      buttonText: "Apply Now",
+    },
+    new_zealand: {
+      title: "Business E-Visa for New Zealand",
+      subtitle: "Business E-Visa for New Zealand",
+      description:
+        "New Zealand Business E-Visa allows travel for meetings and corporate activities.",
+      buttonText: "Apply Now",
+    },
+    nigeria: {
+      title: "Business E-Visa for Nigeria",
+      subtitle: "Business E-Visa for Nigeria",
+      description:
+        "Nigeria Business E-Visa supports travel for professional and trade visits.",
+      buttonText: "Apply Now",
+    },
+    oman: {
+      title: "Business E-Visa for Oman",
+      subtitle: "Business E-Visa for Oman",
+      description:
+        "Apply for an Oman Business E-Visa to attend professional meetings.",
+      buttonText: "Apply Now",
+    },
+    pakistan: {
+      title: "Business E-Visa for Pakistan",
+      subtitle: "Business E-Visa for Pakistan",
+      description:
+        "Pakistan Business E-Visa allows travel for meetings and commercial purposes.",
+      buttonText: "Apply Now",
+    },
+    rwanda: {
+      title: "Business E-Visa for Rwanda",
+      subtitle: "Business E-Visa for Rwanda",
+      description:
+        "Apply online for a Rwanda Business E-Visa for trade and professional visits.",
+      buttonText: "Apply Now",
+    },
+    saudi_arabia: {
+      title: "Business E-Visa for Saudi Arabia",
+      subtitle: "Business E-Visa for Saudi Arabia",
+      description:
+        "Saudi Arabia Business E-Visa allows travel for meetings and corporate activities.",
+      buttonText: "Apply Now",
+    },
+    south_korea: {
+      title: "Business E-Visa for South Korea",
+      subtitle: "Business E-Visa for South Korea",
+      description:
+        "South Korea Business E-Visa supports business meetings and professional travel.",
+      buttonText: "Apply Now",
+    },
+    sri_lanka: {
+      title: "Business E-Visa for Sri Lanka",
+      subtitle: "Business E-Visa for Sri Lanka",
+      description:
+        "Apply online for a Sri Lanka Business E-Visa for commercial visits.",
+      buttonText: "Apply Now",
+    },
+    tajikistan: {
+      title: "Business E-Visa for Tajikistan",
+      subtitle: "Business E-Visa for Tajikistan",
+      description:
+        "Tajikistan Business E-Visa allows travel for meetings and trade discussions.",
+      buttonText: "Apply Now",
+    },
+    tanzania: {
+      title: "Business E-Visa for Tanzania",
+      subtitle: "Business E-Visa for Tanzania",
+      description:
+        "Tanzania Business E-Visa supports professional and commercial travel.",
+      buttonText: "Apply Now",
+    },
+    thailand: {
+      title: "Business E-Visa for Thailand",
+      subtitle: "Business E-Visa for Thailand",
+      description:
+        "Apply online for a Thailand Business E-Visa for corporate travel.",
+      buttonText: "Apply Now",
+    },
+    turkey: {
+      title: "Business E-Visa for Turkey",
+      subtitle: "Business E-Visa for Turkey",
+      description:
+        "Turkey Business E-Visa allows travel for meetings and business engagements.",
+      buttonText: "Apply Now",
+    },
+    uganda: {
+      title: "Business E-Visa for Uganda",
+      subtitle: "Business E-Visa for Uganda",
+      description:
+        "Apply for a Uganda Business E-Visa for commercial and professional travel.",
+      buttonText: "Apply Now",
+    },
+    united_arab_emirates: {
+      title: "Business E-Visa for United Arab Emirates",
+      subtitle: "Business E-Visa for United Arab Emirates",
+      description:
+        "UAE Business E-Visa allows travel for meetings and professional activities.",
+      buttonText: "Apply Now",
+    },
+    united_kingdom: {
+      title: "Business E-Visa for United Kingdom",
+      subtitle: "Business E-Visa for United Kingdom",
+      description:
+        "Apply online for a UK Business E-Visa for corporate and professional visits.",
+      buttonText: "Apply Now",
+    },
+    uzbekistan: {
+      title: "Business E-Visa for Uzbekistan",
+      subtitle: "Business E-Visa for Uzbekistan",
+      description:
+        "Uzbekistan Business E-Visa allows travel for trade and meetings.",
+      buttonText: "Apply Now",
+    },
+    vietnam: {
+      title: "Business E-Visa for Vietnam",
+      subtitle: "Business E-Visa for Vietnam",
+      description:
+        "Vietnam Business E-Visa supports commercial and professional travel.",
+      buttonText: "Apply Now",
+    },
+    zambia: {
+      title: "Business E-Visa for Zambia",
+      subtitle: "Business E-Visa for Zambia",
+      description:
+        "Apply online for a Zambia Business E-Visa for meetings and trade activities.",
+      buttonText: "Apply Now",
+    },
+  },
+  // @ts-expect-error
+  "medical-e-visa": {
+    australia: {
+      title: "Medical E-Visa for Australia",
+      subtitle: "Medical E-Visa for Australia",
+      description:
+        "Apply online for an Australia Medical E-Visa to receive medical treatment, consultations, or specialized healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    azerbaijan: {
+      title: "Medical E-Visa for Azerbaijan",
+      subtitle: "Medical E-Visa for Azerbaijan",
+      description:
+        "Azerbaijan Medical E-Visa allows travelers to visit for medical treatment and healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    bahrain: {
+      title: "Medical E-Visa for Bahrain",
+      subtitle: "Medical E-Visa for Bahrain",
+      description:
+        "Apply online for a Bahrain Medical E-Visa to access medical care and hospital services.",
+      buttonText: "Apply Now",
+    },
+
+    benin: {
+      title: "Medical E-Visa for Benin",
+      subtitle: "Medical E-Visa for Benin",
+      description:
+        "Benin Medical E-Visa allows patients to travel for medical consultations and treatment.",
+      buttonText: "Apply Now",
+    },
+
+    brazil: {
+      title: "Medical E-Visa for Brazil",
+      subtitle: "Medical E-Visa for Brazil",
+      description:
+        "Apply online for a Brazil Medical E-Visa to receive specialized medical treatment.",
+      buttonText: "Apply Now",
+    },
+
+    cambodia: {
+      title: "Medical E-Visa for Cambodia",
+      subtitle: "Medical E-Visa for Cambodia",
+      description:
+        "Cambodia Medical E-Visa supports travel for healthcare, treatment, and medical consultations.",
+      buttonText: "Apply Now",
+    },
+
+    cote_divoire: {
+      title: "Medical E-Visa for Côte d’Ivoire",
+      subtitle: "Medical E-Visa for Côte d’Ivoire",
+      description:
+        "Apply online for a Côte d’Ivoire Medical E-Visa for medical treatment and care.",
+      buttonText: "Apply Now",
+    },
+
+    egypt: {
+      title: "Medical E-Visa for Egypt",
+      subtitle: "Medical E-Visa for Egypt",
+      description:
+        "Egypt Medical E-Visa allows travelers to seek treatment at hospitals and clinics.",
+      buttonText: "Apply Now",
+    },
+
+    ethiopia: {
+      title: "Medical E-Visa for Ethiopia",
+      subtitle: "Medical E-Visa for Ethiopia",
+      description:
+        "Apply online for an Ethiopia Medical E-Visa to access healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    india: {
+      title: "Medical E-Visa for India",
+      subtitle: "Medical E-Visa for India",
+      description:
+        "India Medical E-Visa enables patients to travel for advanced medical treatment and procedures.",
+      buttonText: "Apply Now",
+    },
+
+    iraq: {
+      title: "Medical E-Visa for Iraq",
+      subtitle: "Medical E-Visa for Iraq",
+      description:
+        "Apply online for an Iraq Medical E-Visa for treatment and medical consultations.",
+      buttonText: "Apply Now",
+    },
+
+    japan: {
+      title: "Medical E-Visa for Japan",
+      subtitle: "Medical E-Visa for Japan",
+      description:
+        "Japan Medical E-Visa allows patients to visit for specialized medical care.",
+      buttonText: "Apply Now",
+    },
+
+    jordan: {
+      title: "Medical E-Visa for Jordan",
+      subtitle: "Medical E-Visa for Jordan",
+      description:
+        "Apply for a Jordan Medical E-Visa to access healthcare and medical services.",
+      buttonText: "Apply Now",
+    },
+
+    kenya: {
+      title: "Medical E-Visa for Kenya",
+      subtitle: "Medical E-Visa for Kenya",
+      description:
+        "Kenya Medical E-Visa supports travel for medical treatment and health consultations.",
+      buttonText: "Apply Now",
+    },
+
+    kuwait: {
+      title: "Medical E-Visa for Kuwait",
+      subtitle: "Medical E-Visa for Kuwait",
+      description:
+        "Apply online for a Kuwait Medical E-Visa for healthcare and treatment purposes.",
+      buttonText: "Apply Now",
+    },
+
+    kyrgyzstan: {
+      title: "Medical E-Visa for Kyrgyzstan",
+      subtitle: "Medical E-Visa for Kyrgyzstan",
+      description:
+        "Kyrgyzstan Medical E-Visa allows travel for healthcare and medical consultations.",
+      buttonText: "Apply Now",
+    },
+
+    laos: {
+      title: "Medical E-Visa for Laos",
+      subtitle: "Medical E-Visa for Laos",
+      description:
+        "Apply for a Laos Medical E-Visa to receive medical treatment and care.",
+      buttonText: "Apply Now",
+    },
+
+    morocco: {
+      title: "Medical E-Visa for Morocco",
+      subtitle: "Medical E-Visa for Morocco",
+      description:
+        "Morocco Medical E-Visa allows patients to travel for medical services.",
+      buttonText: "Apply Now",
+    },
+
+    mozambique: {
+      title: "Medical E-Visa for Mozambique",
+      subtitle: "Medical E-Visa for Mozambique",
+      description:
+        "Apply online for a Mozambique Medical E-Visa for healthcare treatment.",
+      buttonText: "Apply Now",
+    },
+
+    myanmar: {
+      title: "Medical E-Visa for Myanmar",
+      subtitle: "Medical E-Visa for Myanmar",
+      description:
+        "Myanmar Medical E-Visa supports travel for treatment and healthcare needs.",
+      buttonText: "Apply Now",
+    },
+
+    namibia: {
+      title: "Medical E-Visa for Namibia",
+      subtitle: "Medical E-Visa for Namibia",
+      description:
+        "Apply for a Namibia Medical E-Visa to receive medical treatment.",
+      buttonText: "Apply Now",
+    },
+
+    new_zealand: {
+      title: "Medical E-Visa for New Zealand",
+      subtitle: "Medical E-Visa for New Zealand",
+      description:
+        "New Zealand Medical E-Visa allows patients to access healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    nigeria: {
+      title: "Medical E-Visa for Nigeria",
+      subtitle: "Medical E-Visa for Nigeria",
+      description:
+        "Nigeria Medical E-Visa supports travel for medical consultations and treatment.",
+      buttonText: "Apply Now",
+    },
+
+    oman: {
+      title: "Medical E-Visa for Oman",
+      subtitle: "Medical E-Visa for Oman",
+      description:
+        "Apply online for an Oman Medical E-Visa to receive healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    pakistan: {
+      title: "Medical E-Visa for Pakistan",
+      subtitle: "Medical E-Visa for Pakistan",
+      description:
+        "Pakistan Medical E-Visa allows travel for treatment and medical care.",
+      buttonText: "Apply Now",
+    },
+
+    rwanda: {
+      title: "Medical E-Visa for Rwanda",
+      subtitle: "Medical E-Visa for Rwanda",
+      description:
+        "Apply online for a Rwanda Medical E-Visa for healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    saudi_arabia: {
+      title: "Medical E-Visa for Saudi Arabia",
+      subtitle: "Medical E-Visa for Saudi Arabia",
+      description:
+        "Saudi Arabia Medical E-Visa supports travel for medical treatment.",
+      buttonText: "Apply Now",
+    },
+
+    south_korea: {
+      title: "Medical E-Visa for South Korea",
+      subtitle: "Medical E-Visa for South Korea",
+      description:
+        "South Korea Medical E-Visa allows patients to access advanced healthcare.",
+      buttonText: "Apply Now",
+    },
+
+    sri_lanka: {
+      title: "Medical E-Visa for Sri Lanka",
+      subtitle: "Medical E-Visa for Sri Lanka",
+      description:
+        "Sri Lanka Medical E-Visa enables travel for healthcare and treatment.",
+      buttonText: "Apply Now",
+    },
+
+    tajikistan: {
+      title: "Medical E-Visa for Tajikistan",
+      subtitle: "Medical E-Visa for Tajikistan",
+      description:
+        "Apply for a Tajikistan Medical E-Visa for medical services.",
+      buttonText: "Apply Now",
+    },
+
+    tanzania: {
+      title: "Medical E-Visa for Tanzania",
+      subtitle: "Medical E-Visa for Tanzania",
+      description:
+        "Tanzania Medical E-Visa allows travel for healthcare and treatment.",
+      buttonText: "Apply Now",
+    },
+
+    thailand: {
+      title: "Medical E-Visa for Thailand",
+      subtitle: "Medical E-Visa for Thailand",
+      description:
+        "Apply online for a Thailand Medical E-Visa for medical care and wellness treatment.",
+      buttonText: "Apply Now",
+    },
+
+    turkey: {
+      title: "Medical E-Visa for Turkey",
+      subtitle: "Medical E-Visa for Turkey",
+      description:
+        "Turkey Medical E-Visa supports travel for healthcare and medical procedures.",
+      buttonText: "Apply Now",
+    },
+
+    uganda: {
+      title: "Medical E-Visa for Uganda",
+      subtitle: "Medical E-Visa for Uganda",
+      description:
+        "Apply for a Uganda Medical E-Visa for healthcare and treatment needs.",
+      buttonText: "Apply Now",
+    },
+
+    united_arab_emirates: {
+      title: "Medical E-Visa for United Arab Emirates",
+      subtitle: "Medical E-Visa for United Arab Emirates",
+      description:
+        "UAE Medical E-Visa allows travel for medical consultations and healthcare services.",
+      buttonText: "Apply Now",
+    },
+
+    united_kingdom: {
+      title: "Medical E-Visa for United Kingdom",
+      subtitle: "Medical E-Visa for United Kingdom",
+      description:
+        "Apply online for a UK Medical E-Visa for healthcare and treatment purposes.",
+      buttonText: "Apply Now",
+    },
+
+    uzbekistan: {
+      title: "Medical E-Visa for Uzbekistan",
+      subtitle: "Medical E-Visa for Uzbekistan",
+      description:
+        "Uzbekistan Medical E-Visa supports travel for medical services.",
+      buttonText: "Apply Now",
+    },
+
+    vietnam: {
+      title: "Medical E-Visa for Vietnam",
+      subtitle: "Medical E-Visa for Vietnam",
+      description:
+        "Vietnam Medical E-Visa allows patients to travel for healthcare and treatment.",
+      buttonText: "Apply Now",
+    },
+
+    zambia: {
+      title: "Medical E-Visa for Zambia",
+      subtitle: "Medical E-Visa for Zambia",
+      description:
+        "Apply online for a Zambia Medical E-Visa to receive healthcare services.",
+      buttonText: "Apply Now",
+    },
+  },
+  // @ts-expect-error
+  "crew-e-visa": {
+    australia: {
+      title: "Crew E-Visa for Australia",
+      subtitle: "Crew E-Visa for Australia",
+      description:
+        "Apply online for an Australia Crew E-Visa for airline, ship, or transport crew members traveling for duty purposes.",
+      buttonText: "Apply Now",
+    },
+
+    azerbaijan: {
+      title: "Crew E-Visa for Azerbaijan",
+      subtitle: "Crew E-Visa for Azerbaijan",
+      description:
+        "Azerbaijan Crew E-Visa allows airline and transport crew members to travel for official duty.",
+      buttonText: "Apply Now",
+    },
+
+    bahrain: {
+      title: "Crew E-Visa for Bahrain",
+      subtitle: "Crew E-Visa for Bahrain",
+      description:
+        "Apply online for a Bahrain Crew E-Visa for aviation and maritime crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    benin: {
+      title: "Crew E-Visa for Benin",
+      subtitle: "Crew E-Visa for Benin",
+      description:
+        "Benin Crew E-Visa supports travel for airline and transport crew members.",
+      buttonText: "Apply Now",
+    },
+
+    brazil: {
+      title: "Crew E-Visa for Brazil",
+      subtitle: "Crew E-Visa for Brazil",
+      description:
+        "Apply online for a Brazil Crew E-Visa for flight and maritime crew assignments.",
+      buttonText: "Apply Now",
+    },
+
+    cambodia: {
+      title: "Crew E-Visa for Cambodia",
+      subtitle: "Crew E-Visa for Cambodia",
+      description:
+        "Cambodia Crew E-Visa allows airline and ship crew members to travel for duty purposes.",
+      buttonText: "Apply Now",
+    },
+
+    cote_divoire: {
+      title: "Crew E-Visa for Côte d’Ivoire",
+      subtitle: "Crew E-Visa for Côte d’Ivoire",
+      description:
+        "Apply for a Côte d’Ivoire Crew E-Visa for transport and aviation crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    egypt: {
+      title: "Crew E-Visa for Egypt",
+      subtitle: "Crew E-Visa for Egypt",
+      description:
+        "Egypt Crew E-Visa supports travel for airline and maritime crew members.",
+      buttonText: "Apply Now",
+    },
+
+    ethiopia: {
+      title: "Crew E-Visa for Ethiopia",
+      subtitle: "Crew E-Visa for Ethiopia",
+      description:
+        "Apply online for an Ethiopia Crew E-Visa for transport and aviation crew duties.",
+      buttonText: "Apply Now",
+    },
+
+    india: {
+      title: "Crew E-Visa for India",
+      subtitle: "Crew E-Visa for India",
+      description:
+        "India Crew E-Visa enables airline, ship, and transport crew members to travel for official duties.",
+      buttonText: "Apply Now",
+    },
+
+    iraq: {
+      title: "Crew E-Visa for Iraq",
+      subtitle: "Crew E-Visa for Iraq",
+      description:
+        "Apply online for an Iraq Crew E-Visa for aviation and transport crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    japan: {
+      title: "Crew E-Visa for Japan",
+      subtitle: "Crew E-Visa for Japan",
+      description:
+        "Japan Crew E-Visa allows airline and maritime crew members to enter for duty purposes.",
+      buttonText: "Apply Now",
+    },
+
+    jordan: {
+      title: "Crew E-Visa for Jordan",
+      subtitle: "Crew E-Visa for Jordan",
+      description:
+        "Apply for a Jordan Crew E-Visa for airline and transport crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    kenya: {
+      title: "Crew E-Visa for Kenya",
+      subtitle: "Crew E-Visa for Kenya",
+      description:
+        "Kenya Crew E-Visa supports airline and transport crew members traveling for duty.",
+      buttonText: "Apply Now",
+    },
+
+    kuwait: {
+      title: "Crew E-Visa for Kuwait",
+      subtitle: "Crew E-Visa for Kuwait",
+      description:
+        "Apply online for a Kuwait Crew E-Visa for aviation and ship crew members.",
+      buttonText: "Apply Now",
+    },
+
+    kyrgyzstan: {
+      title: "Crew E-Visa for Kyrgyzstan",
+      subtitle: "Crew E-Visa for Kyrgyzstan",
+      description:
+        "Kyrgyzstan Crew E-Visa allows transport and airline crew members to travel for work.",
+      buttonText: "Apply Now",
+    },
+
+    laos: {
+      title: "Crew E-Visa for Laos",
+      subtitle: "Crew E-Visa for Laos",
+      description:
+        "Apply online for a Laos Crew E-Visa for transport and aviation crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    morocco: {
+      title: "Crew E-Visa for Morocco",
+      subtitle: "Crew E-Visa for Morocco",
+      description:
+        "Morocco Crew E-Visa supports airline and maritime crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    mozambique: {
+      title: "Crew E-Visa for Mozambique",
+      subtitle: "Crew E-Visa for Mozambique",
+      description:
+        "Apply online for a Mozambique Crew E-Visa for transport crew members.",
+      buttonText: "Apply Now",
+    },
+
+    myanmar: {
+      title: "Crew E-Visa for Myanmar",
+      subtitle: "Crew E-Visa for Myanmar",
+      description:
+        "Myanmar Crew E-Visa allows airline and ship crew members to travel for duty.",
+      buttonText: "Apply Now",
+    },
+
+    namibia: {
+      title: "Crew E-Visa for Namibia",
+      subtitle: "Crew E-Visa for Namibia",
+      description:
+        "Apply for a Namibia Crew E-Visa for transport and aviation crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    new_zealand: {
+      title: "Crew E-Visa for New Zealand",
+      subtitle: "Crew E-Visa for New Zealand",
+      description:
+        "New Zealand Crew E-Visa supports airline and transport crew duties.",
+      buttonText: "Apply Now",
+    },
+
+    nigeria: {
+      title: "Crew E-Visa for Nigeria",
+      subtitle: "Crew E-Visa for Nigeria",
+      description:
+        "Apply online for a Nigeria Crew E-Visa for aviation and transport crew.",
+      buttonText: "Apply Now",
+    },
+
+    oman: {
+      title: "Crew E-Visa for Oman",
+      subtitle: "Crew E-Visa for Oman",
+      description:
+        "Oman Crew E-Visa allows airline and ship crew members to travel for work.",
+      buttonText: "Apply Now",
+    },
+
+    pakistan: {
+      title: "Crew E-Visa for Pakistan",
+      subtitle: "Crew E-Visa for Pakistan",
+      description:
+        "Apply online for a Pakistan Crew E-Visa for transport and aviation crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    rwanda: {
+      title: "Crew E-Visa for Rwanda",
+      subtitle: "Crew E-Visa for Rwanda",
+      description:
+        "Rwanda Crew E-Visa supports airline and transport crew members on duty.",
+      buttonText: "Apply Now",
+    },
+
+    saudi_arabia: {
+      title: "Crew E-Visa for Saudi Arabia",
+      subtitle: "Crew E-Visa for Saudi Arabia",
+      description:
+        "Apply online for a Saudi Arabia Crew E-Visa for airline and maritime crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    south_korea: {
+      title: "Crew E-Visa for South Korea",
+      subtitle: "Crew E-Visa for South Korea",
+      description:
+        "South Korea Crew E-Visa allows airline and ship crew members to travel for official duty.",
+      buttonText: "Apply Now",
+    },
+
+    sri_lanka: {
+      title: "Crew E-Visa for Sri Lanka",
+      subtitle: "Crew E-Visa for Sri Lanka",
+      description:
+        "Apply online for a Sri Lanka Crew E-Visa for transport and aviation crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    tajikistan: {
+      title: "Crew E-Visa for Tajikistan",
+      subtitle: "Crew E-Visa for Tajikistan",
+      description:
+        "Tajikistan Crew E-Visa supports airline and transport crew duties.",
+      buttonText: "Apply Now",
+    },
+
+    tanzania: {
+      title: "Crew E-Visa for Tanzania",
+      subtitle: "Crew E-Visa for Tanzania",
+      description:
+        "Apply for a Tanzania Crew E-Visa for aviation and transport crew members.",
+      buttonText: "Apply Now",
+    },
+
+    thailand: {
+      title: "Crew E-Visa for Thailand",
+      subtitle: "Crew E-Visa for Thailand",
+      description:
+        "Thailand Crew E-Visa allows airline and maritime crew travel for duty purposes.",
+      buttonText: "Apply Now",
+    },
+
+    turkey: {
+      title: "Crew E-Visa for Turkey",
+      subtitle: "Crew E-Visa for Turkey",
+      description:
+        "Apply online for a Turkey Crew E-Visa for aviation and transport crew duties.",
+      buttonText: "Apply Now",
+    },
+
+    uganda: {
+      title: "Crew E-Visa for Uganda",
+      subtitle: "Crew E-Visa for Uganda",
+      description:
+        "Uganda Crew E-Visa supports airline and transport crew members traveling for work.",
+      buttonText: "Apply Now",
+    },
+
+    united_arab_emirates: {
+      title: "Crew E-Visa for United Arab Emirates",
+      subtitle: "Crew E-Visa for United Arab Emirates",
+      description:
+        "UAE Crew E-Visa allows airline and ship crew members to travel for official duties.",
+      buttonText: "Apply Now",
+    },
+
+    united_kingdom: {
+      title: "Crew E-Visa for United Kingdom",
+      subtitle: "Crew E-Visa for United Kingdom",
+      description:
+        "Apply online for a UK Crew E-Visa for aviation and transport crew travel.",
+      buttonText: "Apply Now",
+    },
+
+    uzbekistan: {
+      title: "Crew E-Visa for Uzbekistan",
+      subtitle: "Crew E-Visa for Uzbekistan",
+      description:
+        "Uzbekistan Crew E-Visa supports airline and transport crew duties.",
+      buttonText: "Apply Now",
+    },
+
+    vietnam: {
+      title: "Crew E-Visa for Vietnam",
+      subtitle: "Crew E-Visa for Vietnam",
+      description:
+        "Apply online for a Vietnam Crew E-Visa for airline and transport crew members.",
+      buttonText: "Apply Now",
+    },
+
+    zambia: {
+      title: "Crew E-Visa for Zambia",
+      subtitle: "Crew E-Visa for Zambia",
+      description:
+        "Zambia Crew E-Visa allows transport and aviation crew members to travel for duty.",
+      buttonText: "Apply Now",
+    },
+  },
+
+
 
 
 };

@@ -55,7 +55,10 @@ const Category = () => {
                 </h1>
 
                 <div className="px-4 sm:px-6 md:px-8">
-                    <DropdownForm setActiveTab={setActiveTab} activeTab={activeTab} />
+                    {
+                        visaSlug==="e-visa"?"":<DropdownForm setActiveTab={setActiveTab} activeTab={activeTab} />
+                    }
+                    
                 </div>
             </BannerLayout>
 

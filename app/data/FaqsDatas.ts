@@ -1960,49 +1960,49 @@ export const FaqsDatas = {
             ],
 
             "Birth or Marriage Certificate Apostille": [
-  {
-    "title": "What is birth or marriage certificate apostille?",
-    "description": "This apostille certifies the authenticity of birth or marriage certificates for use in countries that are members of the Hague Apostille Convention."
-  },
-  {
-    "title": "When is birth or marriage certificate apostille required?",
-    "description": "It is commonly required for immigration, family visas, residency, or legal matters abroad."
-  },
-  {
-    "title": "Are original certificates required?",
-    "description": "Yes, original certificates along with supporting documents are generally required."
-  }
-]
-,
-"Corporate Document Legalization": [
-  {
-    "title": "What is corporate document legalization?",
-    "description": "Corporate document legalization authenticates business documents for international commercial and legal use."
-  },
-  {
-    "title": "Which documents fall under corporate legalization?",
-    "description": "Documents may include certificates of incorporation, board resolutions, powers of attorney, and agreements."
-  },
-  {
-    "title": "When is corporate document legalization required?",
-    "description": "It is required when conducting business or opening entities in foreign countries."
-  }
-]
-,
-"Medical Document Attestation": [
-  {
-    "title": "What is medical document attestation?",
-    "description": "Medical document attestation verifies the authenticity of medical records for international use."
-  },
-  {
-    "title": "When is medical attestation required?",
-    "description": "It is commonly required for immigration, employment, insurance claims, or medical treatment abroad."
-  },
-  {
-    "title": "What medical documents can be attested?",
-    "description": "Medical reports, fitness certificates, vaccination records, and health certificates can be attested."
-  }
-]
+                {
+                    "title": "What is birth or marriage certificate apostille?",
+                    "description": "This apostille certifies the authenticity of birth or marriage certificates for use in countries that are members of the Hague Apostille Convention."
+                },
+                {
+                    "title": "When is birth or marriage certificate apostille required?",
+                    "description": "It is commonly required for immigration, family visas, residency, or legal matters abroad."
+                },
+                {
+                    "title": "Are original certificates required?",
+                    "description": "Yes, original certificates along with supporting documents are generally required."
+                }
+            ]
+            ,
+            "Corporate Document Legalization": [
+                {
+                    "title": "What is corporate document legalization?",
+                    "description": "Corporate document legalization authenticates business documents for international commercial and legal use."
+                },
+                {
+                    "title": "Which documents fall under corporate legalization?",
+                    "description": "Documents may include certificates of incorporation, board resolutions, powers of attorney, and agreements."
+                },
+                {
+                    "title": "When is corporate document legalization required?",
+                    "description": "It is required when conducting business or opening entities in foreign countries."
+                }
+            ]
+            ,
+            "Medical Document Attestation": [
+                {
+                    "title": "What is medical document attestation?",
+                    "description": "Medical document attestation verifies the authenticity of medical records for international use."
+                },
+                {
+                    "title": "When is medical attestation required?",
+                    "description": "It is commonly required for immigration, employment, insurance claims, or medical treatment abroad."
+                },
+                {
+                    "title": "What medical documents can be attested?",
+                    "description": "Medical reports, fitness certificates, vaccination records, and health certificates can be attested."
+                }
+            ]
 
 
 
@@ -2141,7 +2141,7 @@ export const FaqsDatas = {
                     "description": "After marriage, the foreign spouse must apply for Adjustment of Status to become a lawful permanent resident."
                 }
             ],
-             "k1-fiancee-visa-1": [
+            "k1-fiancee-visa-1": [
                 {
                     "title": "What is a K1 Fiancé(e) Visa?",
                     "description": "The K1 Fiancé(e) Visa allows a foreign national to travel to the United States to marry their US citizen fiancé(e)."
@@ -3154,18 +3154,2989 @@ export const FaqsDatas = {
                     "title": "Which documents are usually submitted?",
                     "description": "Commercial invoices, packing lists, and related trade documents are typically required."
                 }
+            ],
+        },
+
+
+        "australia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Australia?",
+                    "description": "A Tourist E-Visa for Australia allows travelers to visit Australia for leisure, sightseeing, holidays, or visiting friends and family through an online application process."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Australia?",
+                    "description": "Tourist E-Visas for Australia are available to eligible foreign nationals who meet passport validity and travel requirements."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Australia?",
+                    "description": "Commonly required documents include a valid passport, recent photograph, travel details, and accommodation information for Australia."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Australia?",
+                    "description": "Most Tourist E-Visas for Australia are processed within a few working days, depending on application verification."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Australia?",
+                    "description": "A Business E-Visa for Australia allows travelers to visit Australia for business meetings, conferences, trade activities, or professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Australia?",
+                    "description": "You should apply for an Australia Business E-Visa before traveling if your visit involves commercial or professional activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Australia?",
+                    "description": "Documents include a valid passport, business invitation letter, company details, and travel information for Australia."
+                },
+                {
+                    "title": "Is a Business E-Visa for Australia valid for employment?",
+                    "description": "No, an Australia Business E-Visa does not permit employment or long-term work."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Australia?",
+                    "description": "A Medical E-Visa for Australia allows patients to travel to Australia for medical treatment, consultations, or specialized healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Australia?",
+                    "description": "Patients seeking medical treatment in Australia and their attendants may apply, subject to regulations."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Australia?",
+                    "description": "Documents include a passport, medical letter from an Australian hospital, and treatment details."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Australia?",
+                    "description": "Medical E-Visa validity for Australia depends on treatment duration and immigration rules."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Australia?",
+                    "description": "A Crew E-Visa for Australia is issued to airline, ship, or transport crew members traveling to Australia for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Australia?",
+                    "description": "Crew members employed by airlines or transport companies operating in Australia are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Australia?",
+                    "description": "Documents include passport, crew ID, employer letter, and duty-related travel details for Australia."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Australia valid for tourism?",
+                    "description": "No, a Crew E-Visa for Australia is strictly issued for duty-related travel only."
+                }
+            ]
+        },
+
+        "united_kingdom": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for the United Kingdom?",
+                    "description": "A Tourist E-Visa for the United Kingdom allows travelers to visit the UK for tourism, sightseeing, or visiting relatives."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for the United Kingdom?",
+                    "description": "Eligible foreign nationals can apply for a UK Tourist E-Visa subject to immigration rules."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for the United Kingdom?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details for the UK are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for the United Kingdom?",
+                    "description": "Processing time varies but usually takes a few working days."
+                }
+            ]
+        },
+
+        "zambia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Zambia?",
+                    "description": "A Tourist E-Visa for Zambia allows travelers to visit Zambia for tourism, wildlife exploration, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Zambia?",
+                    "description": "Foreign nationals from eligible countries can apply for a Zambia Tourist E-Visa."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Zambia?",
+                    "description": "Passport, recent photograph, travel details, and accommodation information for Zambia are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Zambia?",
+                    "description": "Zambia Tourist E-Visas are generally processed within a few business days."
+                }
+            ]
+        },
+
+        "azerbaijan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Azerbaijan?",
+                    "description": "A Tourist E-Visa for Azerbaijan allows travelers to visit Azerbaijan for sightseeing, leisure travel, and visiting friends or family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Azerbaijan?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Azerbaijan."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Azerbaijan?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for Azerbaijan."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Azerbaijan?",
+                    "description": "Tourist E-Visas for Azerbaijan are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Azerbaijan?",
+                    "description": "A Business E-Visa for Azerbaijan allows travelers to attend meetings, conferences, and trade activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Azerbaijan?",
+                    "description": "Apply before travel if your visit to Azerbaijan involves business or professional work."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Azerbaijan?",
+                    "description": "Required documents include a passport, business invitation letter, and company details."
+                },
+                {
+                    "title": "Is a Business E-Visa for Azerbaijan valid for employment?",
+                    "description": "No, Azerbaijan Business E-Visa does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Azerbaijan?",
+                    "description": "A Medical E-Visa for Azerbaijan allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Azerbaijan?",
+                    "description": "Patients seeking treatment in Azerbaijan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Azerbaijan?",
+                    "description": "Passport, hospital letter from Azerbaijan, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Azerbaijan?",
+                    "description": "Validity depends on treatment duration and approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Azerbaijan?",
+                    "description": "A Crew E-Visa for Azerbaijan is issued to airline and transport crew members on official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Azerbaijan?",
+                    "description": "Crew members working with airlines or transport companies serving Azerbaijan are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Azerbaijan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Azerbaijan valid for tourism?",
+                    "description": "No, Crew E-Visa for Azerbaijan is only for duty travel."
+                }
+            ]
+        },
+
+        "bahrain": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Bahrain?",
+                    "description": "A Tourist E-Visa for Bahrain allows visitors to travel for tourism, leisure, and family visits."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Bahrain?",
+                    "description": "Eligible foreign nationals can apply for a Bahrain Tourist E-Visa."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Bahrain?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Bahrain are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Bahrain?",
+                    "description": "Bahrain Tourist E-Visas are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Bahrain?",
+                    "description": "A Business E-Visa for Bahrain allows travel for meetings, trade, and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Bahrain?",
+                    "description": "Apply before traveling if your visit involves business or commercial activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Bahrain?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Bahrain valid for employment?",
+                    "description": "No, Bahrain Business E-Visa does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Bahrain?",
+                    "description": "A Medical E-Visa for Bahrain allows patients to travel for medical consultations and treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Bahrain?",
+                    "description": "Patients seeking medical care in Bahrain and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Bahrain?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Bahrain?",
+                    "description": "Validity depends on treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Bahrain?",
+                    "description": "A Crew E-Visa for Bahrain is issued to airline and transport crew members on duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Bahrain?",
+                    "description": "Crew members working with airlines or shipping companies serving Bahrain are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Bahrain?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Bahrain valid for tourism?",
+                    "description": "No, Crew E-Visa for Bahrain is not valid for tourism."
+                }
+            ]
+        },
+
+        "benin": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Benin?",
+                    "description": "A Tourist E-Visa for Benin allows travelers to visit Benin for leisure travel, sightseeing, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Benin?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Benin."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Benin?",
+                    "description": "Applicants must provide a valid passport, recent photograph, travel details, and accommodation information for Benin."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Benin?",
+                    "description": "Tourist E-Visas for Benin are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Benin?",
+                    "description": "A Business E-Visa for Benin allows travelers to visit Benin for meetings, trade activities, and professional purposes."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Benin?",
+                    "description": "Apply before traveling if your visit to Benin involves business or commercial activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Benin?",
+                    "description": "Documents include a passport, business invitation letter, and company details."
+                },
+                {
+                    "title": "Is a Business E-Visa for Benin valid for employment?",
+                    "description": "No, a Business E-Visa for Benin does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Benin?",
+                    "description": "A Medical E-Visa for Benin allows patients to travel to Benin for medical treatment or consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Benin?",
+                    "description": "Patients seeking medical care in Benin and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Benin?",
+                    "description": "Passport, hospital letter from Benin, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Benin?",
+                    "description": "Validity depends on treatment duration and approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Benin?",
+                    "description": "A Crew E-Visa for Benin is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Benin?",
+                    "description": "Crew members working with airlines or transport companies serving Benin are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Benin?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Benin valid for tourism?",
+                    "description": "No, a Crew E-Visa for Benin is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "brazil": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Brazil?",
+                    "description": "A Tourist E-Visa for Brazil allows travelers to visit Brazil for tourism, sightseeing, and leisure activities."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Brazil?",
+                    "description": "Eligible foreign nationals can apply for a Brazil Tourist E-Visa."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Brazil?",
+                    "description": "Applicants must provide a valid passport, recent photograph, travel itinerary, and accommodation details for Brazil."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Brazil?",
+                    "description": "Brazil Tourist E-Visas are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Brazil?",
+                    "description": "A Business E-Visa for Brazil allows travel for meetings, conferences, and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Brazil?",
+                    "description": "Apply before traveling if your visit involves business or trade activities in Brazil."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Brazil?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Brazil valid for employment?",
+                    "description": "No, a Brazil Business E-Visa does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Brazil?",
+                    "description": "A Medical E-Visa for Brazil allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Brazil?",
+                    "description": "Patients seeking treatment in Brazil and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Brazil?",
+                    "description": "Passport, hospital letter from Brazil, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Brazil?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Brazil?",
+                    "description": "A Crew E-Visa for Brazil is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Brazil?",
+                    "description": "Crew members working with airlines or shipping companies operating in Brazil are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Brazil?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Brazil valid for tourism?",
+                    "description": "No, a Crew E-Visa for Brazil is not valid for tourism."
+                }
             ]
 
+        },
+
+        "cambodia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Cambodia?",
+                    "description": "A Tourist E-Visa for Cambodia allows travelers to visit Cambodia for sightseeing, leisure travel, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Cambodia?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Cambodia."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Cambodia?",
+                    "description": "Applicants must provide a valid passport, recent photograph, travel details, and accommodation information for Cambodia."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Cambodia?",
+                    "description": "Tourist E-Visas for Cambodia are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Cambodia?",
+                    "description": "A Business E-Visa for Cambodia allows travelers to attend meetings, conferences, and trade activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Cambodia?",
+                    "description": "Apply before traveling if your visit to Cambodia involves business or professional activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Cambodia?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Cambodia valid for employment?",
+                    "description": "No, a Business E-Visa for Cambodia does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Cambodia?",
+                    "description": "A Medical E-Visa for Cambodia allows patients to travel for medical consultations and treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Cambodia?",
+                    "description": "Patients seeking medical care in Cambodia and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Cambodia?",
+                    "description": "Passport, hospital letter from Cambodia, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Cambodia?",
+                    "description": "Validity depends on treatment duration and approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Cambodia?",
+                    "description": "A Crew E-Visa for Cambodia is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Cambodia?",
+                    "description": "Crew members working with airlines or transport companies serving Cambodia are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Cambodia?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Cambodia valid for tourism?",
+                    "description": "No, a Crew E-Visa for Cambodia is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "cote_divoire": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Côte d’Ivoire?",
+                    "description": "A Tourist E-Visa for Côte d’Ivoire allows travelers to visit the country for leisure, sightseeing, and cultural travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Côte d’Ivoire?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Côte d’Ivoire."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Côte d’Ivoire?",
+                    "description": "Applicants need a passport, photograph, travel details, and accommodation information."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Côte d’Ivoire?",
+                    "description": "Tourist E-Visas are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Côte d’Ivoire?",
+                    "description": "A Business E-Visa for Côte d’Ivoire allows travel for meetings, conferences, and trade activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Côte d’Ivoire?",
+                    "description": "Apply before travel if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Côte d’Ivoire?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Côte d’Ivoire valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Côte d’Ivoire?",
+                    "description": "A Medical E-Visa for Côte d’Ivoire allows patients to travel for medical treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Côte d’Ivoire?",
+                    "description": "Patients and their attendants may apply subject to regulations."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Côte d’Ivoire?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Côte d’Ivoire?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Côte d’Ivoire?",
+                    "description": "A Crew E-Visa for Côte d’Ivoire is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Côte d’Ivoire?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Côte d’Ivoire?",
+                    "description": "Passport, crew ID, and employer letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Côte d’Ivoire valid for tourism?",
+                    "description": "No, it is only for duty travel."
+                }
+            ]
+        },
+
+        "egypt": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Egypt?",
+                    "description": "A Tourist E-Visa for Egypt allows travelers to visit Egypt for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Egypt?",
+                    "description": "Foreign nationals from eligible countries can apply for an Egypt Tourist E-Visa."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Egypt?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Egypt?",
+                    "description": "Egypt Tourist E-Visas are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Egypt?",
+                    "description": "A Business E-Visa for Egypt allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Egypt?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Egypt?",
+                    "description": "Passport, invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Egypt valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Egypt?",
+                    "description": "A Medical E-Visa for Egypt allows patients to travel for healthcare and treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Egypt?",
+                    "description": "Patients seeking treatment in Egypt and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Egypt?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Egypt?",
+                    "description": "Validity depends on approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Egypt?",
+                    "description": "A Crew E-Visa for Egypt is issued to airline and maritime crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Egypt?",
+                    "description": "Crew members employed by airlines or shipping companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Egypt?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Egypt valid for tourism?",
+                    "description": "No, it is strictly for duty travel."
+                }
+            ]
+        },
+
+        "ethiopia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Ethiopia?",
+                    "description": "A Tourist E-Visa for Ethiopia allows travelers to visit Ethiopia for sightseeing, culture, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Ethiopia?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Ethiopia."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Ethiopia?",
+                    "description": "Passport, photograph, travel details, and accommodation information are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Ethiopia?",
+                    "description": "Tourist E-Visas for Ethiopia are usually processed within a few business days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Ethiopia?",
+                    "description": "A Business E-Visa for Ethiopia allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Ethiopia?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Ethiopia?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Ethiopia valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Ethiopia?",
+                    "description": "A Medical E-Visa for Ethiopia allows patients to travel for medical treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Ethiopia?",
+                    "description": "Patients seeking medical care in Ethiopia and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Ethiopia?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Ethiopia?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Ethiopia?",
+                    "description": "A Crew E-Visa for Ethiopia is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Ethiopia?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Ethiopia?",
+                    "description": "Passport, crew ID, and employer letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Ethiopia valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        //@ts-ignore
+        "india": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for India?",
+                    "description": "A Tourist E-Visa for India allows travelers to visit India for sightseeing, holidays, cultural exploration, yoga retreats, and visiting friends or family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for India?",
+                    "description": "Foreign nationals from eligible countries can apply for an India Tourist E-Visa if they meet passport validity requirements."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for India?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for India."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for India?",
+                    "description": "India Tourist E-Visas are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for India?",
+                    "description": "A Business E-Visa for India allows travelers to attend meetings, trade fairs, and professional engagements in India."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for India?",
+                    "description": "Apply before travel if your visit to India involves business or commercial activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for India?",
+                    "description": "Passport, business invitation letter from India, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for India valid for employment?",
+                    "description": "No, a Business E-Visa for India does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for India?",
+                    "description": "A Medical E-Visa for India allows patients to travel to India for advanced medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for India?",
+                    "description": "Patients seeking treatment in Indian hospitals and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for India?",
+                    "description": "Passport, hospital letter from India, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for India?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for India?",
+                    "description": "A Crew E-Visa for India is issued to airline, ship, and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for India?",
+                    "description": "Crew members employed by airlines or shipping companies operating in India are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for India?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for India valid for tourism?",
+                    "description": "No, a Crew E-Visa for India is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "iraq": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Iraq?",
+                    "description": "A Tourist E-Visa for Iraq allows travelers to visit Iraq for tourism, cultural visits, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Iraq?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Iraq."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Iraq?",
+                    "description": "Passport, recent photograph, travel details, and accommodation information are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Iraq?",
+                    "description": "Tourist E-Visas for Iraq are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Iraq?",
+                    "description": "A Business E-Visa for Iraq allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Iraq?",
+                    "description": "Apply before traveling if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Iraq?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Iraq valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Iraq?",
+                    "description": "A Medical E-Visa for Iraq allows patients to travel for medical treatment and consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Iraq?",
+                    "description": "Patients seeking medical care in Iraq and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Iraq?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Iraq?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Iraq?",
+                    "description": "A Crew E-Visa for Iraq is issued to airline and transport crew members on official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Iraq?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Iraq?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Iraq valid for tourism?",
+                    "description": "No, it is strictly for duty travel."
+                }
+            ]
+        },
+
+        "japan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Japan?",
+                    "description": "A Tourist E-Visa for Japan allows travelers to visit Japan for tourism, sightseeing, and cultural experiences."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Japan?",
+                    "description": "Eligible foreign nationals can apply for a Japan Tourist E-Visa."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Japan?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details for Japan are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Japan?",
+                    "description": "Japan Tourist E-Visas are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Japan?",
+                    "description": "A Business E-Visa for Japan allows travel for meetings, conferences, and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Japan?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Japan?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Japan valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Japan?",
+                    "description": "A Medical E-Visa for Japan allows patients to travel for specialized medical treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Japan?",
+                    "description": "Patients seeking treatment in Japan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Japan?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Japan?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Japan?",
+                    "description": "A Crew E-Visa for Japan is issued to airline and maritime crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Japan?",
+                    "description": "Crew members employed by airlines or shipping companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Japan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Japan valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "jordan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Jordan?",
+                    "description": "A Tourist E-Visa for Jordan allows travelers to visit Jordan for tourism, sightseeing, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Jordan?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Jordan."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Jordan?",
+                    "description": "Passport, photograph, travel details, and accommodation information are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Jordan?",
+                    "description": "Tourist E-Visas for Jordan are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Jordan?",
+                    "description": "A Business E-Visa for Jordan allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Jordan?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Jordan?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Jordan valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Jordan?",
+                    "description": "A Medical E-Visa for Jordan allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Jordan?",
+                    "description": "Patients seeking treatment in Jordan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Jordan?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Jordan?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Jordan?",
+                    "description": "A Crew E-Visa for Jordan is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Jordan?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Jordan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Jordan valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
 
 
+        "kenya": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Kenya?",
+                    "description": "A Tourist E-Visa for Kenya allows travelers to visit Kenya for tourism, wildlife safaris, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Kenya?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Kenya."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Kenya?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for Kenya."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Kenya?",
+                    "description": "Tourist E-Visas for Kenya are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Kenya?",
+                    "description": "A Business E-Visa for Kenya allows travelers to attend meetings, conferences, and trade activities in Kenya."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Kenya?",
+                    "description": "Apply before traveling if your visit to Kenya involves business or professional activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Kenya?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Kenya valid for employment?",
+                    "description": "No, a Business E-Visa for Kenya does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Kenya?",
+                    "description": "A Medical E-Visa for Kenya allows patients to travel to Kenya for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Kenya?",
+                    "description": "Patients seeking medical care in Kenya and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Kenya?",
+                    "description": "Passport, hospital letter from Kenya, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Kenya?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Kenya?",
+                    "description": "A Crew E-Visa for Kenya is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Kenya?",
+                    "description": "Crew members employed by airlines or transport companies operating in Kenya are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Kenya?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Kenya valid for tourism?",
+                    "description": "No, a Crew E-Visa for Kenya is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "kuwait": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Kuwait?",
+                    "description": "A Tourist E-Visa for Kuwait allows travelers to visit Kuwait for leisure, sightseeing, and family visits."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Kuwait?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Kuwait."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Kuwait?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Kuwait are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Kuwait?",
+                    "description": "Kuwait Tourist E-Visas are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Kuwait?",
+                    "description": "A Business E-Visa for Kuwait allows travel for meetings and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Kuwait?",
+                    "description": "Apply before traveling if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Kuwait?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Kuwait valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Kuwait?",
+                    "description": "A Medical E-Visa for Kuwait allows patients to travel for medical consultations and treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Kuwait?",
+                    "description": "Patients seeking treatment in Kuwait and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Kuwait?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Kuwait?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Kuwait?",
+                    "description": "A Crew E-Visa for Kuwait is issued to airline and transport crew members on official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Kuwait?",
+                    "description": "Crew members working with airlines or transport companies serving Kuwait are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Kuwait?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Kuwait valid for tourism?",
+                    "description": "No, it is strictly for duty travel."
+                }
+            ]
+        },
+
+        "kyrgyzstan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Kyrgyzstan?",
+                    "description": "A Tourist E-Visa for Kyrgyzstan allows travelers to visit Kyrgyzstan for tourism, nature exploration, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Kyrgyzstan?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Kyrgyzstan."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Kyrgyzstan?",
+                    "description": "Passport, photograph, travel details, and accommodation information are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Kyrgyzstan?",
+                    "description": "Tourist E-Visas for Kyrgyzstan are usually processed within a few business days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Kyrgyzstan?",
+                    "description": "A Business E-Visa for Kyrgyzstan allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Kyrgyzstan?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Kyrgyzstan?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Kyrgyzstan valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Kyrgyzstan?",
+                    "description": "A Medical E-Visa for Kyrgyzstan allows patients to travel for medical treatment and consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Kyrgyzstan?",
+                    "description": "Patients seeking treatment in Kyrgyzstan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Kyrgyzstan?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Kyrgyzstan?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Kyrgyzstan?",
+                    "description": "A Crew E-Visa for Kyrgyzstan is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Kyrgyzstan?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Kyrgyzstan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Kyrgyzstan valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "laos": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Laos?",
+                    "description": "A Tourist E-Visa for Laos allows travelers to visit Laos for tourism, sightseeing, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Laos?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Laos."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Laos?",
+                    "description": "Passport, photograph, travel details, and accommodation information are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Laos?",
+                    "description": "Tourist E-Visas for Laos are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Laos?",
+                    "description": "A Business E-Visa for Laos allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Laos?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Laos?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Laos valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Laos?",
+                    "description": "A Medical E-Visa for Laos allows patients to travel for medical consultations and treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Laos?",
+                    "description": "Patients seeking treatment in Laos and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Laos?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Laos?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Laos?",
+                    "description": "A Crew E-Visa for Laos is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Laos?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Laos?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Laos valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "morocco": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Morocco?",
+                    "description": "A Tourist E-Visa for Morocco allows travelers to visit Morocco for sightseeing, leisure travel, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Morocco?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Morocco."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Morocco?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for Morocco."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Morocco?",
+                    "description": "Tourist E-Visas for Morocco are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Morocco?",
+                    "description": "A Business E-Visa for Morocco allows travelers to attend meetings, conferences, and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Morocco?",
+                    "description": "Apply before travel if your visit to Morocco involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Morocco?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Morocco valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Morocco?",
+                    "description": "A Medical E-Visa for Morocco allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Morocco?",
+                    "description": "Patients seeking medical care in Morocco and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Morocco?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Morocco?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Morocco?",
+                    "description": "A Crew E-Visa for Morocco is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Morocco?",
+                    "description": "Crew members working with airlines or transport companies serving Morocco are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Morocco?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Morocco valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "mozambique": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Mozambique?",
+                    "description": "A Tourist E-Visa for Mozambique allows travelers to visit Mozambique for tourism, leisure travel, and sightseeing."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Mozambique?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Mozambique."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Mozambique?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Mozambique are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Mozambique?",
+                    "description": "Tourist E-Visas for Mozambique are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Mozambique?",
+                    "description": "A Business E-Visa for Mozambique allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Mozambique?",
+                    "description": "Apply before traveling if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Mozambique?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Mozambique valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Mozambique?",
+                    "description": "A Medical E-Visa for Mozambique allows patients to travel for medical treatment and consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Mozambique?",
+                    "description": "Patients seeking medical care in Mozambique and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Mozambique?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Mozambique?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Mozambique?",
+                    "description": "A Crew E-Visa for Mozambique is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Mozambique?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Mozambique?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Mozambique valid for tourism?",
+                    "description": "No, it is strictly for duty travel."
+                }
+            ]
+        },
+
+        "myanmar": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Myanmar?",
+                    "description": "A Tourist E-Visa for Myanmar allows travelers to visit Myanmar for tourism, sightseeing, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Myanmar?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Myanmar."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Myanmar?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Myanmar are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Myanmar?",
+                    "description": "Tourist E-Visas for Myanmar are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Myanmar?",
+                    "description": "A Business E-Visa for Myanmar allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Myanmar?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Myanmar?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Myanmar valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Myanmar?",
+                    "description": "A Medical E-Visa for Myanmar allows patients to travel for medical treatment and consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Myanmar?",
+                    "description": "Patients seeking treatment in Myanmar and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Myanmar?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Myanmar?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Myanmar?",
+                    "description": "A Crew E-Visa for Myanmar is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Myanmar?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Myanmar?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Myanmar valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "namibia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Namibia?",
+                    "description": "A Tourist E-Visa for Namibia allows travelers to visit Namibia for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Namibia?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Namibia."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Namibia?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Namibia are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Namibia?",
+                    "description": "Tourist E-Visas for Namibia are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Namibia?",
+                    "description": "A Business E-Visa for Namibia allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Namibia?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Namibia?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Namibia valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Namibia?",
+                    "description": "A Medical E-Visa for Namibia allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Namibia?",
+                    "description": "Patients seeking medical care in Namibia and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Namibia?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Namibia?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Namibia?",
+                    "description": "A Crew E-Visa for Namibia is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Namibia?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Namibia?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Namibia valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "new_zealand": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for New Zealand?",
+                    "description": "A Tourist E-Visa for New Zealand allows travelers to visit New Zealand for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for New Zealand?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for New Zealand if they meet entry requirements."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for New Zealand?",
+                    "description": "Applicants need a valid passport, recent photograph, travel itinerary, and accommodation details for New Zealand."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for New Zealand?",
+                    "description": "Tourist E-Visa processing time for New Zealand varies but is usually completed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for New Zealand?",
+                    "description": "A Business E-Visa for New Zealand allows travel for meetings, conferences, and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for New Zealand?",
+                    "description": "Apply before travel if your visit to New Zealand involves business or commercial engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for New Zealand?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for New Zealand valid for employment?",
+                    "description": "No, a Business E-Visa for New Zealand does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for New Zealand?",
+                    "description": "A Medical E-Visa for New Zealand allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for New Zealand?",
+                    "description": "Patients seeking medical care in New Zealand and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for New Zealand?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for New Zealand?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for New Zealand?",
+                    "description": "A Crew E-Visa for New Zealand is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for New Zealand?",
+                    "description": "Crew members employed by airlines or transport companies operating in New Zealand are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for New Zealand?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for New Zealand valid for tourism?",
+                    "description": "No, a Crew E-Visa for New Zealand is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "nigeria": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Nigeria?",
+                    "description": "A Tourist E-Visa for Nigeria allows travelers to visit Nigeria for tourism, leisure, and family visits."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Nigeria?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Nigeria."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Nigeria?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Nigeria are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Nigeria?",
+                    "description": "Nigeria Tourist E-Visas are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Nigeria?",
+                    "description": "A Business E-Visa for Nigeria allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Nigeria?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Nigeria?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Nigeria valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Nigeria?",
+                    "description": "A Medical E-Visa for Nigeria allows patients to travel for medical treatment and consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Nigeria?",
+                    "description": "Patients seeking medical care in Nigeria and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Nigeria?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Nigeria?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Nigeria?",
+                    "description": "A Crew E-Visa for Nigeria is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Nigeria?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Nigeria?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Nigeria valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "oman": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Oman?",
+                    "description": "A Tourist E-Visa for Oman allows travelers to visit Oman for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Oman?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Oman."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Oman?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Oman are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Oman?",
+                    "description": "Tourist E-Visas for Oman are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Oman?",
+                    "description": "A Business E-Visa for Oman allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Oman?",
+                    "description": "Apply before traveling if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Oman?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Oman valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Oman?",
+                    "description": "A Medical E-Visa for Oman allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Oman?",
+                    "description": "Patients seeking medical care in Oman and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Oman?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Oman?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Oman?",
+                    "description": "A Crew E-Visa for Oman is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Oman?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Oman?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Oman valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "pakistan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Pakistan?",
+                    "description": "A Tourist E-Visa for Pakistan allows travelers to visit Pakistan for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Pakistan?",
+                    "description": "Foreign nationals from eligible countries can apply for a Tourist E-Visa for Pakistan."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Pakistan?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Pakistan are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Pakistan?",
+                    "description": "Tourist E-Visas for Pakistan are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Pakistan?",
+                    "description": "A Business E-Visa for Pakistan allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Pakistan?",
+                    "description": "Apply before traveling if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Pakistan?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Pakistan valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Pakistan?",
+                    "description": "A Medical E-Visa for Pakistan allows patients to travel for medical treatment and consultations."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Pakistan?",
+                    "description": "Patients seeking medical care in Pakistan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Pakistan?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Pakistan?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Pakistan?",
+                    "description": "A Crew E-Visa for Pakistan is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Pakistan?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Pakistan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Pakistan valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "rwanda": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Rwanda?",
+                    "description": "A Tourist E-Visa for Rwanda allows travelers to visit Rwanda for tourism, sightseeing, wildlife experiences, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Rwanda?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Rwanda if they meet entry requirements."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Rwanda?",
+                    "description": "Applicants must provide a valid passport, recent photograph, travel details, and accommodation information for Rwanda."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Rwanda?",
+                    "description": "Tourist E-Visas for Rwanda are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Rwanda?",
+                    "description": "A Business E-Visa for Rwanda allows travelers to attend meetings, conferences, and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Rwanda?",
+                    "description": "Apply before traveling if your visit to Rwanda involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Rwanda?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Rwanda valid for employment?",
+                    "description": "No, a Business E-Visa for Rwanda does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Rwanda?",
+                    "description": "A Medical E-Visa for Rwanda allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Rwanda?",
+                    "description": "Patients seeking medical care in Rwanda and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Rwanda?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Rwanda?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Rwanda?",
+                    "description": "A Crew E-Visa for Rwanda is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Rwanda?",
+                    "description": "Crew members employed by airlines or transport companies operating in Rwanda are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Rwanda?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Rwanda valid for tourism?",
+                    "description": "No, a Crew E-Visa for Rwanda is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "saudi_arabia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Saudi Arabia?",
+                    "description": "A Tourist E-Visa for Saudi Arabia allows travelers to visit Saudi Arabia for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Saudi Arabia?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Saudi Arabia."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Saudi Arabia?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Saudi Arabia are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Saudi Arabia?",
+                    "description": "Tourist E-Visas for Saudi Arabia are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Saudi Arabia?",
+                    "description": "A Business E-Visa for Saudi Arabia allows travel for meetings, conferences, and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Saudi Arabia?",
+                    "description": "Apply before travel if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Saudi Arabia?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Saudi Arabia valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Saudi Arabia?",
+                    "description": "A Medical E-Visa for Saudi Arabia allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Saudi Arabia?",
+                    "description": "Patients seeking medical care in Saudi Arabia and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Saudi Arabia?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Saudi Arabia?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Saudi Arabia?",
+                    "description": "A Crew E-Visa for Saudi Arabia is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Saudi Arabia?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Saudi Arabia?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Saudi Arabia valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "south_korea": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for South Korea?",
+                    "description": "A Tourist E-Visa for South Korea allows travelers to visit South Korea for tourism, sightseeing, and cultural experiences."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for South Korea?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for South Korea."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for South Korea?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details for South Korea are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for South Korea?",
+                    "description": "Tourist E-Visas for South Korea are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for South Korea?",
+                    "description": "A Business E-Visa for South Korea allows travel for meetings, conferences, and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for South Korea?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for South Korea?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for South Korea valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for South Korea?",
+                    "description": "A Medical E-Visa for South Korea allows patients to travel for specialized medical treatment."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for South Korea?",
+                    "description": "Patients seeking medical care in South Korea and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for South Korea?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for South Korea?",
+                    "description": "Validity depends on treatment approval."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for South Korea?",
+                    "description": "A Crew E-Visa for South Korea is issued to airline and maritime crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for South Korea?",
+                    "description": "Crew members working with airlines or shipping companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for South Korea?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for South Korea valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "sri_lanka": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Sri Lanka?",
+                    "description": "A Tourist E-Visa for Sri Lanka allows travelers to visit Sri Lanka for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Sri Lanka?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Sri Lanka."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Sri Lanka?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Sri Lanka are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Sri Lanka?",
+                    "description": "Tourist E-Visas for Sri Lanka are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Sri Lanka?",
+                    "description": "A Business E-Visa for Sri Lanka allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Sri Lanka?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Sri Lanka?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Sri Lanka valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Sri Lanka?",
+                    "description": "A Medical E-Visa for Sri Lanka allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Sri Lanka?",
+                    "description": "Patients seeking medical care in Sri Lanka and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Sri Lanka?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Sri Lanka?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Sri Lanka?",
+                    "description": "A Crew E-Visa for Sri Lanka is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Sri Lanka?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Sri Lanka?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Sri Lanka valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
 
 
+        "tajikistan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Tajikistan?",
+                    "description": "A Tourist E-Visa for Tajikistan allows travelers to visit Tajikistan for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Tajikistan?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Tajikistan."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Tajikistan?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for Tajikistan."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Tajikistan?",
+                    "description": "Tourist E-Visas for Tajikistan are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Tajikistan?",
+                    "description": "A Business E-Visa for Tajikistan allows travel for meetings, conferences, and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Tajikistan?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Tajikistan?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Tajikistan valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Tajikistan?",
+                    "description": "A Medical E-Visa for Tajikistan allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Tajikistan?",
+                    "description": "Patients seeking medical care in Tajikistan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Tajikistan?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Tajikistan?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Tajikistan?",
+                    "description": "A Crew E-Visa for Tajikistan is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Tajikistan?",
+                    "description": "Crew members employed by airlines or transport companies operating in Tajikistan are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Tajikistan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Tajikistan valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "tanzania": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Tanzania?",
+                    "description": "A Tourist E-Visa for Tanzania allows travelers to visit Tanzania for tourism, wildlife safaris, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Tanzania?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Tanzania."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Tanzania?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Tanzania are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Tanzania?",
+                    "description": "Tourist E-Visas for Tanzania are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Tanzania?",
+                    "description": "A Business E-Visa for Tanzania allows travel for meetings and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Tanzania?",
+                    "description": "Apply before traveling if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Tanzania?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Tanzania valid for employment?",
+                    "description": "No, it does not allow employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Tanzania?",
+                    "description": "A Medical E-Visa for Tanzania allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Tanzania?",
+                    "description": "Patients seeking medical care in Tanzania and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Tanzania?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Tanzania?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Tanzania?",
+                    "description": "A Crew E-Visa for Tanzania is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Tanzania?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Tanzania?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Tanzania valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "thailand": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Thailand?",
+                    "description": "A Tourist E-Visa for Thailand allows travelers to visit Thailand for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Thailand?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Thailand."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Thailand?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details for Thailand are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Thailand?",
+                    "description": "Tourist E-Visas for Thailand are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Thailand?",
+                    "description": "A Business E-Visa for Thailand allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Thailand?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Thailand?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Thailand valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Thailand?",
+                    "description": "A Medical E-Visa for Thailand allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Thailand?",
+                    "description": "Patients seeking medical care in Thailand and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Thailand?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Thailand?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Thailand?",
+                    "description": "A Crew E-Visa for Thailand is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Thailand?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Thailand?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Thailand valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "turkey": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Turkey?",
+                    "description": "A Tourist E-Visa for Turkey allows travelers to visit Turkey for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Turkey?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Turkey."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Turkey?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details for Turkey are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Turkey?",
+                    "description": "Tourist E-Visas for Turkey are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Turkey?",
+                    "description": "A Business E-Visa for Turkey allows travel for meetings, conferences, and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Turkey?",
+                    "description": "Apply before travel if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Turkey?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Turkey valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Turkey?",
+                    "description": "A Medical E-Visa for Turkey allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Turkey?",
+                    "description": "Patients seeking medical care in Turkey and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Turkey?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Turkey?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Turkey?",
+                    "description": "A Crew E-Visa for Turkey is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Turkey?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Turkey?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Turkey valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
 
 
+        "uganda": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Uganda?",
+                    "description": "A Tourist E-Visa for Uganda allows travelers to visit Uganda for tourism, wildlife safaris, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Uganda?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Uganda."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Uganda?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for Uganda."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Uganda?",
+                    "description": "Tourist E-Visas for Uganda are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Uganda?",
+                    "description": "A Business E-Visa for Uganda allows travelers to attend meetings, conferences, and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Uganda?",
+                    "description": "Apply before travel if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Uganda?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Uganda valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Uganda?",
+                    "description": "A Medical E-Visa for Uganda allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Uganda?",
+                    "description": "Patients seeking medical care in Uganda and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Uganda?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Uganda?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Uganda?",
+                    "description": "A Crew E-Visa for Uganda is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Uganda?",
+                    "description": "Crew members employed by airlines or transport companies operating in Uganda are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Uganda?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Uganda valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
 
+        "united_arab_emirates": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for the United Arab Emirates?",
+                    "description": "A Tourist E-Visa for the United Arab Emirates allows travelers to visit the UAE for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for the United Arab Emirates?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for the United Arab Emirates."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for the United Arab Emirates?",
+                    "description": "Passport, photograph, travel details, and accommodation information for the UAE are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for the United Arab Emirates?",
+                    "description": "Tourist E-Visas for the UAE are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for the United Arab Emirates?",
+                    "description": "A Business E-Visa for the United Arab Emirates allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for the United Arab Emirates?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for the United Arab Emirates?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for the United Arab Emirates valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for the United Arab Emirates?",
+                    "description": "A Medical E-Visa for the United Arab Emirates allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for the United Arab Emirates?",
+                    "description": "Patients seeking medical care in the UAE and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for the United Arab Emirates?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for the United Arab Emirates?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for the United Arab Emirates?",
+                    "description": "A Crew E-Visa for the United Arab Emirates is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for the United Arab Emirates?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for the United Arab Emirates?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for the United Arab Emirates valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+        //@ts-ignore
+        "united_kingdom": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for the United Kingdom?",
+                    "description": "A Tourist E-Visa for the United Kingdom allows travelers to visit the UK for tourism, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for the United Kingdom?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for the United Kingdom."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for the United Kingdom?",
+                    "description": "Passport, photograph, travel itinerary, and accommodation details for the UK are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for the United Kingdom?",
+                    "description": "Tourist E-Visa processing time for the United Kingdom varies by application."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for the United Kingdom?",
+                    "description": "A Business E-Visa for the United Kingdom allows travel for meetings and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for the United Kingdom?",
+                    "description": "Apply before travel if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for the United Kingdom?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for the United Kingdom valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for the United Kingdom?",
+                    "description": "A Medical E-Visa for the United Kingdom allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for the United Kingdom?",
+                    "description": "Patients seeking medical care in the UK and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for the United Kingdom?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for the United Kingdom?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for the United Kingdom?",
+                    "description": "A Crew E-Visa for the United Kingdom is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for the United Kingdom?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for the United Kingdom?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for the United Kingdom valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
 
+        "uzbekistan": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Uzbekistan?",
+                    "description": "A Tourist E-Visa for Uzbekistan allows travelers to visit Uzbekistan for tourism, sightseeing, and cultural exploration."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Uzbekistan?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Uzbekistan."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Uzbekistan?",
+                    "description": "Passport, photograph, travel details, and accommodation information for Uzbekistan are required."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Uzbekistan?",
+                    "description": "Tourist E-Visas for Uzbekistan are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Uzbekistan?",
+                    "description": "A Business E-Visa for Uzbekistan allows travel for meetings and professional activities."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Uzbekistan?",
+                    "description": "Apply before travel if your visit involves business engagements."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Uzbekistan?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Uzbekistan valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Uzbekistan?",
+                    "description": "A Medical E-Visa for Uzbekistan allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Uzbekistan?",
+                    "description": "Patients seeking medical care in Uzbekistan and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Uzbekistan?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Uzbekistan?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Uzbekistan?",
+                    "description": "A Crew E-Visa for Uzbekistan is issued to airline and transport crew members."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Uzbekistan?",
+                    "description": "Crew members working with airlines or transport companies are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Uzbekistan?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Uzbekistan valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+
+        "vietnam": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Vietnam?",
+                    "description": "A Tourist E-Visa for Vietnam allows travelers to visit Vietnam for tourism, sightseeing, cultural exploration, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Vietnam?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Vietnam if they meet entry requirements."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Vietnam?",
+                    "description": "Applicants need a valid passport, recent photograph, travel itinerary, and accommodation details for Vietnam."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Vietnam?",
+                    "description": "Tourist E-Visas for Vietnam are usually processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Vietnam?",
+                    "description": "A Business E-Visa for Vietnam allows travelers to attend meetings, conferences, and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Vietnam?",
+                    "description": "Apply before travel if your visit to Vietnam involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Vietnam?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Vietnam valid for employment?",
+                    "description": "No, a Business E-Visa for Vietnam does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Vietnam?",
+                    "description": "A Medical E-Visa for Vietnam allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Vietnam?",
+                    "description": "Patients seeking medical care in Vietnam and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Vietnam?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Vietnam?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Vietnam?",
+                    "description": "A Crew E-Visa for Vietnam is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Vietnam?",
+                    "description": "Crew members employed by airlines or transport companies operating in Vietnam are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Vietnam?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Vietnam valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
+        },
+        //@ts-ignore
+        "zambia": {
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for Zambia?",
+                    "description": "A Tourist E-Visa for Zambia allows travelers to visit Zambia for tourism, wildlife safaris, sightseeing, and leisure travel."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for Zambia?",
+                    "description": "Eligible foreign nationals can apply for a Tourist E-Visa for Zambia."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for Zambia?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for Zambia."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for Zambia?",
+                    "description": "Tourist E-Visas for Zambia are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for Zambia?",
+                    "description": "A Business E-Visa for Zambia allows travelers to attend meetings and professional engagements."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for Zambia?",
+                    "description": "Apply before travel if your visit involves business activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for Zambia?",
+                    "description": "Passport, business invitation letter, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for Zambia valid for employment?",
+                    "description": "No, it does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for Zambia?",
+                    "description": "A Medical E-Visa for Zambia allows patients to travel for medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for Zambia?",
+                    "description": "Patients seeking medical care in Zambia and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for Zambia?",
+                    "description": "Passport, hospital letter, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for Zambia?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for Zambia?",
+                    "description": "A Crew E-Visa for Zambia is issued to airline and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for Zambia?",
+                    "description": "Crew members employed by airlines or transport companies operating in Zambia are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for Zambia?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for Zambia valid for tourism?",
+                    "description": "No, it is strictly for duty-related travel."
+                }
+            ]
         }
+
+
+
+
+
     },
+
+
 
 
 }

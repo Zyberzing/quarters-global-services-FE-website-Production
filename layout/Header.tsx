@@ -8,6 +8,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useGetNavbarServicesQuery } from "@/services/platformNavbarApi";
 import { getSession } from "@/lib/session";
+import { useDispatch } from "react-redux";
+import { startApplication } from "@/store/slices/applicationSlice";
 
 const staticRoutes = [
   "other-services",
@@ -28,6 +30,8 @@ const Header = () => {
   const router = useRouter();
   const currentPath = usePathname();
   const services = data?.data?.data;
+  const dispatch = useDispatch();
+
 
   const readCartCount = () => {
     const saved = localStorage.getItem("applications");
@@ -111,13 +115,10 @@ const Header = () => {
                 <button
                   key={service._id}
                   onClick={() => {
-                    // store common values (only if needed)
                     localStorage.setItem("selectedService", service.slug);
                     localStorage.setItem("fromCountryId", "68e966dde7bd0d029655d358");
                     localStorage.setItem("toCountryId", "68e966dde7bd0d029655d359");
-                                        
-  sessionStorage.setItem("main_service_type", country)
-
+                    sessionStorage.setItem("main_service_type", country)
                     sessionStorage.setItem(
                       "platformServiceStep",
                       JSON.stringify({
@@ -131,11 +132,24 @@ const Header = () => {
                     // 🔀 REDIRECT FIX
                     if (staticRoutes.includes(service.slug)) {
                       router.push(`/${service.slug}`);
-                      console.log(service, "service")
+                       dispatch(
+                        startApplication({
+                          type: service.slug ?? "",
+                          platformServiceId: service._id ?? "",
+                          toCountrySlug: service.slug ?? "", // 👈 ADD THIS
+                        })
+                      );
 
                     } else {
                       router.push(
                         `/category?toCountrySlug=united-states&Slug=${service.slug}`
+                      );
+                      dispatch(
+                        startApplication({
+                          type: service.slug ?? "",
+                          platformServiceId: service._id ?? "",
+                          toCountrySlug: service.slug ?? "", // 👈 ADD THIS
+                        })
                       );
                     }
                   }}
@@ -236,7 +250,7 @@ const Header = () => {
                     localStorage.setItem("selectedService", service.slug);
                     localStorage.setItem("fromCountryId", "68e966dde7bd0d029655d358");
                     localStorage.setItem("toCountryId", "68e966dde7bd0d029655d359");
-  sessionStorage.setItem("main_service_type", country)
+                    sessionStorage.setItem("main_service_type", country)
                     sessionStorage.setItem(
                       "platformServiceStep",
                       JSON.stringify({

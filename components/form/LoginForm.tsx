@@ -65,7 +65,7 @@ const LoginForm = () => {
 
     
       toast.success('Login successfully');
-      // window.location.href='/dashboard/applications'
+      window.location.href='/dashboard/applications'
     } finally {
       console.log('done');
     }

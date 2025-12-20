@@ -117,7 +117,9 @@ const EVisa = () => {
           {destinations.map((dest) => (
             <div
               key={dest.name}
-              onClick={() => handleRedirect(dest.slug)}
+              onClick={() =>
+                router.push(`/category?toCountrySlug=${toSlug(dest.slug)}&fromCountrySlug=india&Slug=e-visa`)
+              }
 
               className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 group cursor-pointer"
             >
@@ -160,9 +162,7 @@ const EVisa = () => {
                 <button
                   key={country}
                   onClick={() =>
-                    router.push(
-                      `/category?toCountrySlug=${toSlug(country)}&fromCountrySlug=india&Slug=e-visa`
-                    )
+                    router.push(`/category?toCountrySlug=${toSlug(country)}&fromCountrySlug=india&Slug=e-visa`)
                   }
                   className="
               group flex items-center justify-between

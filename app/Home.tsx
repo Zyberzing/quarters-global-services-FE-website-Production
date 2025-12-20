@@ -16,6 +16,7 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import TrustedSection from "@/components/TrustedSection";
 import SupportForm from "@/components/SupportForm";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const blogPosts = [
   {
@@ -56,6 +57,7 @@ export const blogPosts = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"Services" | "apostille" | "e-visa">("Services");
+  const router = useRouter()
   return (
     <>
       <BannerLayout
@@ -147,7 +149,21 @@ export default function Home() {
               }
               title="Visa Services"
               description="Travel, study, work, or reunite with family abroad."
-              link="/visa"
+          
+               save={() => {
+                  sessionStorage.setItem(
+                    "platformServiceStep",
+                    JSON.stringify({
+                      citizenship: "india",
+                      citizenship_code: "IN",
+                      country: "united-states",
+                      countryCode: "US",
+                    })
+                  );
+                    sessionStorage.setItem("main_service_type", "united-states")
+
+                  router.push("/category?toCountrySlug=united-states&Slug=visa")
+                }}
             />
             <div className="mt-14">
               <VisaServiceCard
@@ -164,7 +180,22 @@ export default function Home() {
                 }
                 title="Passport Services"
                 description="Quick support for new or renewed passports."
-                link="/passport"
+               
+                save={() => {
+                  sessionStorage.setItem(
+                    "platformServiceStep",
+                    JSON.stringify({
+                      citizenship: "india",
+                      citizenship_code: "IN",
+                      country: "united-states",
+                      countryCode: "US",
+                    })
+                  );
+                                      sessionStorage.setItem("main_service_type", "united-states")
+
+                  router.push("/category?toCountrySlug=united-states&Slug=passport")
+                }}
+
               />
             </div>
 
@@ -202,7 +233,19 @@ export default function Home() {
                 }
                 title="Apostille & Legalization"
                 description="Make your documents valid internationally."
-                link="/category?toCountrySlug=united-states&Slug=apostille-and-legalization"
+                save={() => {
+                  sessionStorage.setItem(
+                    "platformServiceStep",
+                    JSON.stringify({
+                      citizenship: "india",
+                      citizenship_code: "IN",
+                      country: "united-states",
+                      countryCode: "US",
+                    })
+                  );
+                  router.push("/category?toCountrySlug=united-states&Slug=apostille-and-legalization")
+                }}
+
               />
             </div>
 
@@ -311,7 +354,7 @@ export default function Home() {
               className="block"
             >
               <div
-               className="
+                className="
   w-full max-w-[464px] min-h-[460px]
   bg-white rounded-[36px] p-4
   flex flex-col gap-6 sm:gap-8
@@ -321,7 +364,7 @@ export default function Home() {
   transition-all duration-300 ease-in-out
   cursor-pointer
 "
->
+              >
 
                 <Image
                   width={150}
