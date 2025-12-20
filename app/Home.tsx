@@ -28,7 +28,7 @@ export const blogPosts = [
     image: "/1.jpg",
     author: "Eleanor Pena",
     date: "20 April 2024",
-    authorImage: "https://randomuser.me/api/portraits/women/1.jpg",
+    authorImage: "/p1.jpeg",
   },
   {
     tag: "Apostille",
@@ -39,7 +39,7 @@ export const blogPosts = [
     image: "/2.jpg",
     author: "Albert Flores",
     date: "20 April 2024",
-    authorImage: "https://randomuser.me/api/portraits/men/2.jpg",
+    authorImage: "/p2.jpeg",
   },
   {
     tag: "Feature",
@@ -50,7 +50,7 @@ export const blogPosts = [
     image: "/services/apostille.png",
     author: "Quartus Team",
     date: "20 April 2024",
-    authorImage: "https://randomuser.me/api/portraits/men/2.jpg",
+    authorImage: "/p3.jpeg",
   },
 ];
 
@@ -103,8 +103,6 @@ export default function Home() {
               </svg>
             }
           />
-
-
         </div>
 
         {/* Dropdown Form */}
@@ -149,21 +147,21 @@ export default function Home() {
               }
               title="Visa Services"
               description="Travel, study, work, or reunite with family abroad."
-          
-               save={() => {
-                  sessionStorage.setItem(
-                    "platformServiceStep",
-                    JSON.stringify({
-                      citizenship: "india",
-                      citizenship_code: "IN",
-                      country: "united-states",
-                      countryCode: "US",
-                    })
-                  );
-                    sessionStorage.setItem("main_service_type", "united-states")
 
-                  router.push("/category?toCountrySlug=united-states&Slug=visa")
-                }}
+              save={() => {
+                sessionStorage.setItem(
+                  "platformServiceStep",
+                  JSON.stringify({
+                    citizenship: "india",
+                    citizenship_code: "IN",
+                    country: "united-states",
+                    countryCode: "US",
+                  })
+                );
+                sessionStorage.setItem("main_service_type", "united-states")
+
+                router.push("/category?toCountrySlug=united-states&Slug=visa")
+              }}
             />
             <div className="mt-14">
               <VisaServiceCard
@@ -180,7 +178,7 @@ export default function Home() {
                 }
                 title="Passport Services"
                 description="Quick support for new or renewed passports."
-               
+
                 save={() => {
                   sessionStorage.setItem(
                     "platformServiceStep",
@@ -191,7 +189,7 @@ export default function Home() {
                       countryCode: "US",
                     })
                   );
-                                      sessionStorage.setItem("main_service_type", "united-states")
+                  sessionStorage.setItem("main_service_type", "united-states")
 
                   router.push("/category?toCountrySlug=united-states&Slug=passport")
                 }}

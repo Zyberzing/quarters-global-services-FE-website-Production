@@ -26,6 +26,10 @@ import { Trash } from "lucide-react";
 import { ApplicationPayload } from "@/services/applicationApi2";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { LoadScript } from "@react-google-maps/api";
+import GoogleAddressInput from "../GoogleAddressInput";
+
+const libraries: ("places")[] = ["places"];
 
 // --- Types for API ---
 interface Address {
@@ -180,7 +184,6 @@ export default function Step1() {
 
     const activeFormIdRef = useRef<string | null>(null);
 
-
     const { draftApplications, activeId, a } = useSelector(
         (state: any) => state.application
     );
@@ -189,6 +192,7 @@ export default function Step1() {
     const form = useForm<Step1Data>({
         resolver: zodResolver(step1Schema),
     });
+    const { isDirty } = form.formState;
 
     const watchedValues = useWatch({
         control: form.control,
@@ -229,7 +233,7 @@ export default function Step1() {
             setPayload(payload);
             const email = watchedValues?.email;
             const res = await verifyEmail({ email }).unwrap();
-                        if (res.status) {
+            if (res.status) {
                 if (res.message === "Email is already verified.") {
                     const response = await createApplication(payload).unwrap();
 
@@ -293,7 +297,7 @@ export default function Step1() {
     useEffect(() => {
         if (!activeId) return;
         if (isSwitchingCard) return;
-        if (!hasUserTyped) return;
+        if (!isDirty) return; // 🔥 MAIN FIX
 
         const timeout = setTimeout(() => {
             dispatch(
@@ -304,10 +308,11 @@ export default function Step1() {
                     },
                 })
             );
-        }, 400);
+        }, 500);
 
         return () => clearTimeout(timeout);
-    }, [watchedValues, activeId]);
+    }, [watchedValues, activeId, isDirty]);
+
 
 
     return (
@@ -380,22 +385,83 @@ export default function Step1() {
             </div>
 
             <h3 className="text-xl font-semibold mb-4 mt-4">Your Information</h3>
+            <LoadScript
+                googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+                libraries={libraries}
+            >
+                <Form {...form}>
+                    <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="grid gap-6 w-full max-w-full"
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <FormField
+                                control={form.control}
+                                name="firstName"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>First Name</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="John"
+                                                {...field}
+                                                className="w-full text-sm sm:text-base"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="lastName"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Last Name</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="Doe"
+                                                {...field}
+                                                className="w-full text-sm sm:text-base"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
 
-            <Form {...form}>
-                <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="grid gap-6 w-full max-w-full"
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField
                             control={form.control}
-                            name="firstName"
+                            name="phone"
                             render={({ field }) => (
                                 <FormItem className="w-full">
-                                    <FormLabel>First Name</FormLabel>
+                                    <FormLabel>Phone Number</FormLabel>
+                                    <FormControl>
+                                        <PhoneInput
+                                            {...field}
+                                            defaultCountry="IN"
+                                            international
+                                            countryCallingCodeEditable={false}
+                                            placeholder="Enter phone number"
+                                            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                                            onChange={field.onChange}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem className="w-full">
+                                    <FormLabel>Email Address</FormLabel>
                                     <FormControl>
                                         <Input
-                                            placeholder="John"
+                                            placeholder="you@example.com"
                                             {...field}
                                             className="w-full text-sm sm:text-base"
                                         />
@@ -404,15 +470,16 @@ export default function Step1() {
                                 </FormItem>
                             )}
                         />
+
                         <FormField
                             control={form.control}
-                            name="lastName"
+                            name="company"
                             render={({ field }) => (
                                 <FormItem className="w-full">
-                                    <FormLabel>Last Name</FormLabel>
+                                    <FormLabel>Company</FormLabel>
                                     <FormControl>
                                         <Input
-                                            placeholder="Doe"
+                                            placeholder="ABC Corp."
                                             {...field}
                                             className="w-full text-sm sm:text-base"
                                         />
@@ -421,281 +488,271 @@ export default function Step1() {
                                 </FormItem>
                             )}
                         />
-                    </div>
 
-                    <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                            <FormItem className="w-full">
-                                <FormLabel>Phone Number</FormLabel>
-                                <FormControl>
-                                    <PhoneInput
-                                        {...field}
-                                        defaultCountry="IN"
-                                        international
-                                        countryCallingCodeEditable={false}
-                                        placeholder="Enter phone number"
-                                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                                        onChange={field.onChange}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                        <FormField
+                            control={form.control}
+                            name="departureDate"
+                            render={({ field }) => (
+                                <FormItem className="w-full">
+                                    <FormLabel>Departure Date</FormLabel>
+                                    <FormControl>
+                                        <Input type="date" {...field} className="w-full text-sm sm:text-base" />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem className="w-full">
-                                <FormLabel>Email Address</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder="you@example.com"
-                                        {...field}
-                                        className="w-full text-sm sm:text-base"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                        {/* --- Physical Address --- */}
+                        <h4 className="font-semibold mt-4 text-base sm:text-lg border-b pb-2">
+                            Physical Address
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Address Fields */}
+                            <FormField
+                                control={form.control}
+                                name="physicalAddress.addressLine1"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Address Line 1</FormLabel>
+                                        <FormControl>
+                                            <GoogleAddressInput
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                                onSelect={(place) => {
+                                                    const parts = place.address_components || [];
+                                                    const get = (t: string) =>
+                                                        parts.find((p) => p.types.includes(t))?.long_name || "";
 
-                    <FormField
-                        control={form.control}
-                        name="company"
-                        render={({ field }) => (
-                            <FormItem className="w-full">
-                                <FormLabel>Company</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder="ABC Corp."
-                                        {...field}
-                                        className="w-full text-sm sm:text-base"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                                                    form.setValue("physicalAddress.city", get("locality"));
+                                                    form.setValue("physicalAddress.state", get("administrative_area_level_1"));
+                                                    form.setValue("physicalAddress.country", get("country"));
+                                                    form.setValue("physicalAddress.zipCode", get("postal_code"));
+                                                }}
+                                                placeholder="Enter address"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
-                    <FormField
-                        control={form.control}
-                        name="departureDate"
-                        render={({ field }) => (
-                            <FormItem className="w-full">
-                                <FormLabel>Departure Date</FormLabel>
-                                <FormControl>
-                                    <Input type="date" {...field} className="w-full text-sm sm:text-base" />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                            <FormField
+                                control={form.control}
+                                name="physicalAddress.addressLine2"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Address Line 2</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="Apt 4B" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="physicalAddress.city"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>City</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="New York" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="physicalAddress.state"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>State</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="NY" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="physicalAddress.zipCode"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Zip Code</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="10001" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="physicalAddress.country"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Country</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="USA" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
 
-                    {/* --- Physical Address --- */}
-                    <h4 className="font-semibold mt-4 text-base sm:text-lg border-b pb-2">
-                        Physical Address
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Address Fields */}
-                        <FormField
-                            control={form.control}
-                            name="physicalAddress.addressLine1"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Address Line 1</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="123 Main St" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="physicalAddress.addressLine2"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Address Line 2</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="Apt 4B" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="physicalAddress.city"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>City</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="New York" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="physicalAddress.state"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>State</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="NY" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="physicalAddress.zipCode"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Zip Code</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="10001" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="physicalAddress.country"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Country</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="USA" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
+                        {/* --- Legal Address --- */}
+                        <h4 className="font-semibold mt-4 text-base sm:text-lg border-b pb-2">
+                            Current Legal Address
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Legal Address Fields */}
+                            <FormField
+                                control={form.control}
+                                name="currentLegalAddress.addressLine1"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Address Line 1</FormLabel>
+                                        <FormControl>
+                                            <GoogleAddressInput
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                                onSelect={(place) => {
+                                                    const parts = place.address_components || [];
 
-                    {/* --- Legal Address --- */}
-                    <h4 className="font-semibold mt-4 text-base sm:text-lg border-b pb-2">
-                        Current Legal Address
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Legal Address Fields */}
-                        <FormField
-                            control={form.control}
-                            name="currentLegalAddress.addressLine1"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Address Line 1</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="456 Elm St" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="currentLegalAddress.addressLine2"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Address Line 2</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="currentLegalAddress.city"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>City</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="Brooklyn" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="currentLegalAddress.state"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>State</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="NY" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="currentLegalAddress.zipCode"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Zip Code</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="11201" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="currentLegalAddress.country"
-                            render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormLabel>Country</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} placeholder="USA" className="w-full" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
+                                                    const get = (type: string) =>
+                                                        parts.find((p) => p.types.includes(type))?.long_name || "";
 
-                    {/* --- Buttons --- */}
-                    <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6">
-                        <Button
-                            type="submit"
-                            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
-                            disabled={isLoading}
-                        >
-                            {isLoading ? "Saving..." : "Place Order"}
-                        </Button>
+                                                    form.setValue(
+                                                        "currentLegalAddress.city",
+                                                        get("locality"),
+                                                        { shouldDirty: true }
+                                                    );
+                                                    form.setValue(
+                                                        "currentLegalAddress.state",
+                                                        get("administrative_area_level_1"),
+                                                        { shouldDirty: true }
+                                                    );
+                                                    form.setValue(
+                                                        "currentLegalAddress.country",
+                                                        get("country"),
+                                                        { shouldDirty: true }
+                                                    );
+                                                    form.setValue(
+                                                        "currentLegalAddress.zipCode",
+                                                        get("postal_code"),
+                                                        { shouldDirty: true }
+                                                    );
+                                                }}
+                                                placeholder="Enter legal address"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
-                        <Button
-                            type="button"
-                            variant="outline"
-                            onClick={() => router.push("/")}
-                            className="w-full sm:w-auto"
-                        >
-                            Add Another Traveller
-                        </Button>
-                    </div>
-                </form>
-            </Form>
+                            <FormField
+                                control={form.control}
+                                name="currentLegalAddress.addressLine2"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Address Line 2</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="currentLegalAddress.city"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>City</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="Brooklyn" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="currentLegalAddress.state"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>State</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="NY" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="currentLegalAddress.zipCode"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Zip Code</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="11201" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="currentLegalAddress.country"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Country</FormLabel>
+                                        <FormControl>
+                                            <Input {...field} placeholder="USA" className="w-full" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+
+                        {/* --- Buttons --- */}
+                        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6">
+                            <Button
+                                type="submit"
+                                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
+                                disabled={isLoading}
+                            >
+                                {isLoading ? "Saving..." : "Place Order"}
+                            </Button>
+
+                            <Button
+                                type="button"
+                                variant="outline"
+                                onClick={() => router.push("/")}
+                                className="w-full sm:w-auto"
+                            >
+                                Add Another Traveller
+                            </Button>
+                        </div>
+                    </form>
+                </Form>
+            </LoadScript>
+
 
 
             {emailOtpVerify && (
                 <EmailVerifyDialog
                     email={watchedValues?.email}
                     handleSubmite={handleVerify}
-                    onClose={() => setEmailVerify(false)} 
-                    emailOtpVerify={emailOtpVerify}  
+                    onClose={() => setEmailVerify(false)}
+                    emailOtpVerify={emailOtpVerify}
                 />
             )}        </div>
     );

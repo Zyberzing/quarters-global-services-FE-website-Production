@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
-import { Suspense } from "react"; // ✅ ADD
+import { Suspense } from "react";
 import NextTopLoader from "nextjs-toploader";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { Toaster } from "@/components/ui/sonner";
@@ -24,9 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
+export default function RootLayout({ children }: {
   children: React.ReactNode;
 }) {
   return (
@@ -36,16 +33,13 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} antialiased overflow-x-hidden`}>
         <ReduxProvider>
-          {/* ✅ GLOBAL FIX */}
           <Suspense fallback={null}>
             <BasicLayout>{children}</BasicLayout>
           </Suspense>
           <ScrollToTop />
           <Toaster />
         </ReduxProvider>
-
         <NextTopLoader />
-
         <Script
           id="tawk-script"
           strategy="afterInteractive"
