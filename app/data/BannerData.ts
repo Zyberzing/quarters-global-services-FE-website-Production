@@ -1376,9 +1376,10 @@ export const Banner_data = {
 
   "if-applying-from-abroad-consular-processing": {
     "usa": {
-      "title": "Financial Evidence",
-      "description": "Required financial documents including Affidavit of Support, income proof, tax returns, and assets to meet U.S. immigration requirements.",
-      "image": "/images/usa-financial-evidence.jpg",
+      "title": "Consular Processing Application",
+"description": "Individuals applying from outside the United States are required to complete consular processing, including document verification, case review, and a visa interview at the designated U.S. consulate or embassy."
+
+,      "image": "/images/usa-financial-evidence.jpg",
       "buttonText": "Apply Now"
     }
   },

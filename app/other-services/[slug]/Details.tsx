@@ -34,7 +34,7 @@ const faqKeyMap: Record<string, string> = {
   "concert-program-tickets": "concert-program-tickets",
 };
 
- const ArrowRightIcon = () => (
+const ArrowRightIcon = () => (
   <span
     className="
       flex
@@ -78,7 +78,7 @@ const Details = () => {
   // 🚗 VEHICLE BOOKING PAGE
   if (slug === "vehicle-booking") {
     return (
-  
+
       <div>
         <BannerLayout bg="/service.jpg">
           <h4 className="bg-black/40 py-3 px-4 w-[50%] m-auto rounded-lg 
@@ -115,7 +115,7 @@ const Details = () => {
             </div>
           ))}
         </div>
-      <WhyChoose />
+        <WhyChoose />
 
         <CommitmentSection />
 
@@ -133,17 +133,20 @@ const Details = () => {
   return (
     <div>
       <BannerLayout bg="/service.jpg">
-        <h4 className="bg-black/40 py-3 px-4 w-[50%] m-auto rounded-lg 
-          text-white text-4xl font-bold mb-4 capitalize text-center">
-          {slug.replaceAll("-", " ")}
+        <h4
+          className="bg-black/40 py-3 px-4 w-[50%] m-auto rounded-lg
+  text-white text-4xl font-bold mb-4 capitalize text-center"
+        >
+          {slug.includes("driver") ? "Driver Registration" : slug.replaceAll("-", " ")}
         </h4>
 
+
         <Button
-        
+
           iconPosition="right"
           link={`/other-services/checkout?type=${slug}&id=${id}`}
           name="Book Now"
-          icon={<ArrowRightIcon/>}
+          icon={<ArrowRightIcon />}
         />
       </BannerLayout>
 

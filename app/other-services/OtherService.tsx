@@ -174,16 +174,21 @@ const OtherService = () => {
                                     className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
-                                    <ServiceSection
-                                        title={service.name}
-                                        description={service.description}
-                                        buttonText="Learn More"
-                                        imageSrc={service?.imageUrl}
-                                        imagePosition={index % 2 === 0 ? "left" : "right"}
-                                        slug={service.slug}
-                                        id={service._id}
-                                        platformServiceId={service.platformServiceId}
-                                    />
+                                   <ServiceSection
+  title={
+    service.slug?.includes("driver")
+      ? "Driver Registration"
+      : service.name
+  }
+  description={service.description}
+  buttonText="Learn More"
+  imageSrc={service?.imageUrl}
+  imagePosition={index % 2 === 0 ? "left" : "right"}
+  slug={service.slug}
+  id={service._id}
+  platformServiceId={service.platformServiceId}
+/>
+
                                 </div>
                             ))
                         ) : (
