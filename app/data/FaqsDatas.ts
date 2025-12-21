@@ -985,6 +985,79 @@ export const FaqsDatas = {
 
     "visa": {
         "india": {
+
+            "tourist-e-visa": [
+                {
+                    "title": "What is a Tourist E-Visa for India?",
+                    "description": "A Tourist E-Visa for India allows travelers to visit India for sightseeing, holidays, cultural exploration, yoga retreats, and visiting friends or family."
+                },
+                {
+                    "title": "Who is eligible for a Tourist E-Visa for India?",
+                    "description": "Foreign nationals from eligible countries can apply for an India Tourist E-Visa if they meet passport validity requirements."
+                },
+                {
+                    "title": "What documents are required for a Tourist E-Visa for India?",
+                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for India."
+                },
+                {
+                    "title": "How long does Tourist E-Visa processing take for India?",
+                    "description": "India Tourist E-Visas are generally processed within a few working days."
+                }
+            ],
+            "business-e-visa": [
+                {
+                    "title": "What is a Business E-Visa for India?",
+                    "description": "A Business E-Visa for India allows travelers to attend meetings, trade fairs, and professional engagements in India."
+                },
+                {
+                    "title": "When should I apply for a Business E-Visa for India?",
+                    "description": "Apply before travel if your visit to India involves business or commercial activities."
+                },
+                {
+                    "title": "What documents are required for a Business E-Visa for India?",
+                    "description": "Passport, business invitation letter from India, and company details are required."
+                },
+                {
+                    "title": "Is a Business E-Visa for India valid for employment?",
+                    "description": "No, a Business E-Visa for India does not permit employment."
+                }
+            ],
+            "medical-e-visa": [
+                {
+                    "title": "What is a Medical E-Visa for India?",
+                    "description": "A Medical E-Visa for India allows patients to travel to India for advanced medical treatment and healthcare services."
+                },
+                {
+                    "title": "Who can apply for a Medical E-Visa for India?",
+                    "description": "Patients seeking treatment in Indian hospitals and their attendants may apply."
+                },
+                {
+                    "title": "What documents are required for a Medical E-Visa for India?",
+                    "description": "Passport, hospital letter from India, and treatment details are required."
+                },
+                {
+                    "title": "How long is a Medical E-Visa valid for India?",
+                    "description": "Validity depends on the approved treatment duration."
+                }
+            ],
+            "crew-e-visa": [
+                {
+                    "title": "What is a Crew E-Visa for India?",
+                    "description": "A Crew E-Visa for India is issued to airline, ship, and transport crew members traveling for official duty."
+                },
+                {
+                    "title": "Who is eligible for a Crew E-Visa for India?",
+                    "description": "Crew members employed by airlines or shipping companies operating in India are eligible."
+                },
+                {
+                    "title": "What documents are required for a Crew E-Visa for India?",
+                    "description": "Passport, crew ID, and employer authorization letter are required."
+                },
+                {
+                    "title": "Is a Crew E-Visa for India valid for tourism?",
+                    "description": "No, a Crew E-Visa for India is strictly for duty-related travel."
+                }
+            ],
             "Tourist Visa": [
                 {
                     "title": "Who can apply for an Indian Tourist Visa?",
@@ -2003,11 +2076,6 @@ export const FaqsDatas = {
                     "description": "Medical reports, fitness certificates, vaccination records, and health certificates can be attested."
                 }
             ]
-
-
-
-
-
 
 
         },
@@ -3872,82 +3940,6 @@ export const FaqsDatas = {
                 {
                     "title": "Is a Crew E-Visa for Ethiopia valid for tourism?",
                     "description": "No, it is strictly for duty-related travel."
-                }
-            ]
-        },
-
-        //@ts-ignore
-        "india": {
-            "tourist-e-visa": [
-                {
-                    "title": "What is a Tourist E-Visa for India?",
-                    "description": "A Tourist E-Visa for India allows travelers to visit India for sightseeing, holidays, cultural exploration, yoga retreats, and visiting friends or family."
-                },
-                {
-                    "title": "Who is eligible for a Tourist E-Visa for India?",
-                    "description": "Foreign nationals from eligible countries can apply for an India Tourist E-Visa if they meet passport validity requirements."
-                },
-                {
-                    "title": "What documents are required for a Tourist E-Visa for India?",
-                    "description": "Applicants need a valid passport, recent photograph, travel details, and accommodation information for India."
-                },
-                {
-                    "title": "How long does Tourist E-Visa processing take for India?",
-                    "description": "India Tourist E-Visas are generally processed within a few working days."
-                }
-            ],
-            "business-e-visa": [
-                {
-                    "title": "What is a Business E-Visa for India?",
-                    "description": "A Business E-Visa for India allows travelers to attend meetings, trade fairs, and professional engagements in India."
-                },
-                {
-                    "title": "When should I apply for a Business E-Visa for India?",
-                    "description": "Apply before travel if your visit to India involves business or commercial activities."
-                },
-                {
-                    "title": "What documents are required for a Business E-Visa for India?",
-                    "description": "Passport, business invitation letter from India, and company details are required."
-                },
-                {
-                    "title": "Is a Business E-Visa for India valid for employment?",
-                    "description": "No, a Business E-Visa for India does not permit employment."
-                }
-            ],
-            "medical-e-visa": [
-                {
-                    "title": "What is a Medical E-Visa for India?",
-                    "description": "A Medical E-Visa for India allows patients to travel to India for advanced medical treatment and healthcare services."
-                },
-                {
-                    "title": "Who can apply for a Medical E-Visa for India?",
-                    "description": "Patients seeking treatment in Indian hospitals and their attendants may apply."
-                },
-                {
-                    "title": "What documents are required for a Medical E-Visa for India?",
-                    "description": "Passport, hospital letter from India, and treatment details are required."
-                },
-                {
-                    "title": "How long is a Medical E-Visa valid for India?",
-                    "description": "Validity depends on the approved treatment duration."
-                }
-            ],
-            "crew-e-visa": [
-                {
-                    "title": "What is a Crew E-Visa for India?",
-                    "description": "A Crew E-Visa for India is issued to airline, ship, and transport crew members traveling for official duty."
-                },
-                {
-                    "title": "Who is eligible for a Crew E-Visa for India?",
-                    "description": "Crew members employed by airlines or shipping companies operating in India are eligible."
-                },
-                {
-                    "title": "What documents are required for a Crew E-Visa for India?",
-                    "description": "Passport, crew ID, and employer authorization letter are required."
-                },
-                {
-                    "title": "Is a Crew E-Visa for India valid for tourism?",
-                    "description": "No, a Crew E-Visa for India is strictly for duty-related travel."
                 }
             ]
         },
