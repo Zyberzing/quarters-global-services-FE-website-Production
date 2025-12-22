@@ -82,7 +82,7 @@ const Details = () => {
 
       <div>
         <BannerLayout bg="/service.jpg">
-          <div className="bg-black/40 backdrop-blur-sm px-5 py-4 max-w-xl mx-auto rounded-xl text-center text-white space-y-3">
+          <div className="bg-black/40 backdrop-blur-sm px-5 py-4 max-w-xl mx-auto rounded-xl text-center text-white space-y-3 flex flex-col gap-4">
 
             {/* Title */}
             <h4 className="text-2xl sm:text-3xl font-semibold capitalize">
@@ -94,35 +94,35 @@ const Details = () => {
 
             {/* Driver / Vehicle Tabs (only for driver) */}
             {/* @ts-ignore */}
-            { (slug === "driver" || slug === "vehicle-booking") && <div className="flex justify-center gap-4 mt-4">
+            {(slug === "driver" || slug === "vehicle-booking") && <div className="flex justify-center gap-4 ">
 
 
-                <button
-                  onClick={() =>
-                    router.push("/other-services/vehicle-booking?id=68e96938e7bd0d0296560113")
-                  }
-                  className={`px-6 py-2 rounded-full font-semibold transition
+              <button
+                onClick={() =>
+                  router.push("/other-services/vehicle-booking?id=68e96938e7bd0d0296560113")
+                }
+                className={`px-6 py-2 rounded-full font-semibold transition
       ${slug === "vehicle-booking"
-                      ? "bg-white text-black"
-                      : "bg-white/20 text-white hover:bg-white/30"
-                    }`}
-                >
-                  Vehicle
-                </button>
-
-                <button
-                  onClick={() =>
-                    router.push("/other-services/driver?id=692c9e0469b78087c79f7f4a")
-                  }
-                  //@ts-ignore
-                  className={`px-6 py-2 rounded-full font-semibold transition ${slug === "driver"
                     ? "bg-white text-black"
                     : "bg-white/20 text-white hover:bg-white/30"
-                    }`}
-                >
-                  Driver
-                </button>
-              </div>
+                  }`}
+              >
+                Vehicle
+              </button>
+
+              <button
+                onClick={() =>
+                  router.push("/other-services/driver?id=692c9e0469b78087c79f7f4a")
+                }
+                //@ts-ignore
+                className={`px-6 py-2 rounded-full font-semibold transition ${slug === "driver"
+                  ? "bg-white text-black"
+                  : "bg-white/20 text-white hover:bg-white/30"
+                  }`}
+              >
+                Driver
+              </button>
+            </div>
             }
 
 
@@ -178,7 +178,7 @@ const Details = () => {
   return (
     <div>
       <BannerLayout bg="/service.jpg">
-        <div className="bg-black/40 backdrop-blur-sm px-5 py-4 max-w-xl mx-auto rounded-xl text-center text-white space-y-3">
+        <div className="bg-black/40 backdrop-blur-sm px-5 py-4 max-w-xl mx-auto rounded-xl text-center text-white space-y-3 flex flex-col ">
 
           {/* Title */}
           <h4 className="text-2xl sm:text-3xl font-semibold capitalize">
@@ -191,7 +191,7 @@ const Details = () => {
           {/* Driver / Vehicle Tabs (only for driver) */}
 
           {
-           (slug === "driver" || slug === "vehicle-booking")&& <div className="flex justify-center gap-4 mt-4">
+            (slug === "driver" || slug === "vehicle-booking") && <div className="flex justify-center gap-10 mt-4">
 
 
               <button
@@ -223,7 +223,7 @@ const Details = () => {
           }
 
           {/* CTA */}
-          <div className="flex justify-center pt-1">
+          <div className="flex justify-center pt-1 mt-3">
             <Button
               name="Book Now"
               icon={<ArrowRightIcon />}
