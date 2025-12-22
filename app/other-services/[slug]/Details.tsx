@@ -5,11 +5,12 @@ import Button from "@/components/Buttons/Button";
 import CommitmentSection from "@/components/CommitmentSection/CommitmentSection";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import TestimonialSlider from "@/components/TestimonialSlider ";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { serviceFaqs } from "@/app/data/serviceFaqs";
 import FAQSections from "@/components/FAQSections";
 import { vehicleList } from "@/lib/vehicleList";
+import { useState } from "react";
 
 const faqKeyMap: Record<string, string> = {
   "vehicle-booking": "vehicle-booking",
@@ -69,7 +70,7 @@ const Details = () => {
     ? decodeURIComponent(params.slug.join("/"))
     : decodeURIComponent(params.slug ?? "");
 
-
+  const router = useRouter();
   const searchParams = useSearchParams();
   const id = searchParams.get("id"); // ✅ query id
   const faqKey = faqKeyMap[slug];
@@ -81,18 +82,63 @@ const Details = () => {
 
       <div>
         <BannerLayout bg="/service.jpg">
-          <h4 className="bg-black/40 py-3 px-4 w-[50%] m-auto rounded-lg 
-            text-white text-4xl font-bold mb-4 capitalize text-center">
-            Vehicle Booking
-          </h4>
+          <div className="bg-black/40 backdrop-blur-sm px-5 py-4 max-w-xl mx-auto rounded-xl text-center text-white space-y-3">
 
-          <Button
-            name="Book Now"
-            icon={<ArrowRightIcon />}
-            iconPosition="right"
-            link={`/other-services/checkout?type=${slug}`}
-          />
+            {/* Title */}
+            <h4 className="text-2xl sm:text-3xl font-semibold capitalize">
+              {slug.includes("driver")
+                ? "Driver Registration"
+                : slug.replaceAll("-", " ")}
+
+            </h4>
+
+            {/* Driver / Vehicle Tabs (only for driver) */}
+            {/* @ts-ignore */}
+            { (slug === "driver" || slug === "vehicle-booking") && <div className="flex justify-center gap-4 mt-4">
+
+
+                <button
+                  onClick={() =>
+                    router.push("/other-services/vehicle-booking?id=68e96938e7bd0d0296560113")
+                  }
+                  className={`px-6 py-2 rounded-full font-semibold transition
+      ${slug === "vehicle-booking"
+                      ? "bg-white text-black"
+                      : "bg-white/20 text-white hover:bg-white/30"
+                    }`}
+                >
+                  Vehicle
+                </button>
+
+                <button
+                  onClick={() =>
+                    router.push("/other-services/driver?id=692c9e0469b78087c79f7f4a")
+                  }
+                  //@ts-ignore
+                  className={`px-6 py-2 rounded-full font-semibold transition ${slug === "driver"
+                    ? "bg-white text-black"
+                    : "bg-white/20 text-white hover:bg-white/30"
+                    }`}
+                >
+                  Driver
+                </button>
+              </div>
+            }
+
+
+
+            {/* CTA */}
+            <div className="flex justify-center pt-1">
+              <Button
+                name="Book Now"
+                icon={<ArrowRightIcon />}
+                iconPosition="right"
+                link={`/other-services/checkout?type=${slug}&id=${id}`}
+              />
+            </div>
+          </div>
         </BannerLayout>
+
 
         {/* VEHICLE L
         IST */}
@@ -132,22 +178,62 @@ const Details = () => {
   return (
     <div>
       <BannerLayout bg="/service.jpg">
-        <h4
-          className="bg-black/40 py-3 px-4 w-[50%] m-auto rounded-lg
-  text-white text-4xl font-bold mb-4 capitalize text-center"
-        >
-          {slug.includes("driver") ? "Driver Registration" : slug.replaceAll("-", " ")}
-        </h4>
+        <div className="bg-black/40 backdrop-blur-sm px-5 py-4 max-w-xl mx-auto rounded-xl text-center text-white space-y-3">
+
+          {/* Title */}
+          <h4 className="text-2xl sm:text-3xl font-semibold capitalize">
+            {slug.includes("driver")
+              ? "Driver Registration"
+              : slug.replaceAll("-", " ")}
+
+          </h4>
+
+          {/* Driver / Vehicle Tabs (only for driver) */}
+
+          {
+           (slug === "driver" || slug === "vehicle-booking")&& <div className="flex justify-center gap-4 mt-4">
 
 
-        <Button
+              <button
+                onClick={() =>
+                  router.push("/other-services/vehicle-booking?id=68e96938e7bd0d0296560113")
+                }
+                className={`px-6 py-2 rounded-full font-semibold transition
+      ${slug === "vehicle-booking"
+                    ? "bg-white text-black"
+                    : "bg-white/20 text-white hover:bg-white/30"
+                  }`}
+              >
+                Vehicle
+              </button>
 
-          iconPosition="right"
-          link={`/other-services/checkout?type=${slug}&id=${id}`}
-          name="Book Now"
-          icon={<ArrowRightIcon />}
-        />
+              <button
+                onClick={() =>
+                  router.push("/other-services/driver?id=692c9e0469b78087c79f7f4a")
+                }
+                //@ts-ignore
+                className={`px-6 py-2 rounded-full font-semibold transition ${slug === "driver"
+                  ? "bg-white text-black"
+                  : "bg-white/20 text-white hover:bg-white/30"
+                  }`}
+              >
+                Driver
+              </button>
+            </div>
+          }
+
+          {/* CTA */}
+          <div className="flex justify-center pt-1">
+            <Button
+              name="Book Now"
+              icon={<ArrowRightIcon />}
+              iconPosition="right"
+              link={`/other-services/checkout?type=${slug}&id=${id}`}
+            />
+          </div>
+        </div>
       </BannerLayout>
+
 
       <WhyChoose />
       <CommitmentSection />

@@ -3,6 +3,7 @@
 import BannerLayout from "@/components/Banner/BannerLayout";
 import ServiceSection from "@/components/ServiceSection";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 
@@ -26,6 +27,9 @@ const OtherService = () => {
         toCountrySlug: "india",
     }
     );
+    const router = useRouter();
+    const [activeTab, setActiveTab] = useState<"driver" | "vehicle">("driver");
+
 
     const apiServices: any[] = data?.data?.data || [];
 
@@ -46,10 +50,17 @@ const OtherService = () => {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Banner */}
             <BannerLayout bg="/service.jpg">
-                <h4 className="bg-black/40 py-2 px-3 sm:py-3 sm:px-4 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] m-auto rounded-lg text-white font-bold mb-4 text-center text-[clamp(1.5rem,2.5vw,2.75rem)] leading-snug">
-                    Other Services
-                </h4>
+                <div className="bg-black/40 p-4 rounded-xl max-w-3xl mx-auto text-center text-white space-y-4">
+                    <h4 className="font-bold text-[clamp(1.5rem,2.5vw,2.75rem)]">
+                        Other Services
+                    </h4>
+
+                    {/* Tabs */}
+                  
+
+                </div>
             </BannerLayout>
+
 
 
             <div className="bg-gradient-to-b from-[#DEEBFF] to-[#FFE3E3] py-10 w-full">
