@@ -18,6 +18,7 @@ export const commonApplicantFields: FieldConfig[] = [
   { name: "countryCode", label: "Country Code", type: "text" },
   { name: "phone", label: "Phone", type: "phone" },
   { name: "status", label: "Status", type: "text" },
+
 ];
 
 // ---------- OCI ----------
@@ -65,14 +66,14 @@ export const ociFields: FieldConfig[] = [
   { name: "placeOfIssue", label: "Place of Issue", type: "text" },
   { name: "issueDate", label: "Issue Date", type: "date" },
   { name: "expiryDate", label: "Expiry Date", type: "date" },
-  { name: "currentResidentialAddress", label: "Current Residential Address", type: "text" },
+  { name: "currentResidentialAddress", label: "Current Residential Address", type: "address" },
   { name: "relativeName", label: "Relative Name", type: "text" },
   { name: "relativeDob", label: "Relative Date of Birth", type: "date" },
   { name: "relativeGender", label: "Relative Gender", type: "text" },
   { name: "relationship", label: "Relationship", type: "text" },
-  { name: "referenceAddress.address", label: "Reference Address", type: "text" },
-  { name: "referenceAddress.city", label: "Reference City", type: "text" },
-  { name: "referenceAddress.state", label: "Reference State", type: "text" },
+  { name: "referenceAddress.address", label: "Reference Address", type: "address" },
+  { name: "referenceAddress.city", label: "Reference City", type: "address" },
+  { name: "referenceAddress.state", label: "Reference State", type: "address" },
   { name: "referenceAddress.contactNumber", label: "Reference Contact Number", type: "text" },
   { name: "appliedEarlier", label: "Applied Earlier", type: "checkbox" },
   { name: "surrenderedEarlier", label: "Surrendered Earlier", type: "checkbox" },
@@ -151,7 +152,7 @@ export const courierFields = [
   // Sender Details
   { name: "senderName", label: "Sender Name", type: "text" },
   { name: "senderPhone", label: "Sender Phone", type: "text" },
-  { name: "senderAddress", label: "Sender Address", type: "text" },
+  { name: "senderAddress", label: "Sender Address", type: "address" },
   { name: "senderCity", label: "Sender City", type: "text" },
   { name: "senderState", label: "Sender State", type: "text" },
   { name: "senderCountry", label: "Sender Country", type: "text" },
@@ -159,7 +160,7 @@ export const courierFields = [
   // Recipient Details
   { name: "recipientName", label: "Recipient Name", type: "text" },
   { name: "recipientPhone", label: "Recipient Phone", type: "phone" },
-  { name: "recipientAddress", label: "Recipient Address", type: "text" },
+  { name: "recipientAddress", label: "Recipient Address", type: "address" },
   { name: "recipientCity", label: "Recipient City", type: "text" },
   { name: "recipientState", label: "Recipient State", type: "text" },
   { name: "recipientCountry", label: "Recipient Country", type: "text" },
@@ -341,7 +342,7 @@ export const driverFields: FieldConfig[] = [
   { name: "email", label: "Email", type: "email" },
   { name: "countryCode", label: "Country Code", type: "text" },
   { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "address", label: "Address", type: "text" },
+  { name: "address", label: "Address", type: "address" },
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "pinCode", label: "Pin Code", type: "text" },
@@ -360,8 +361,8 @@ export const driverFields: FieldConfig[] = [
       { label: "Available", value: "Available" },
       { label: "Not Available", value: "Not Available" },
     ]
-  },
-  { name: "photo", label: "Photo", type: "file" },
+  }, //@ts-ignore
+  { name: "photo", label: "Photo", type: "file" }, //@ts-ignore
   { name: "licence", label: "Licence File", type: "file" },
 ];
 
@@ -565,7 +566,7 @@ export const indianPanFields = [
   // PAN-Specific Fields
   { name: "applicantType", label: "Applicant Type (NRI/OCI/Foreign Citizen)", type: "text" },
   { name: "citizenship", label: "Citizenship", type: "text" },
-  { name: "hasIndianAddress", label: "Has Indian Address?", type: "text" },
+  { name: "hasIndianAddress", label: "Has Indian Address?", type: "address" },
   { name: "aadhaarNumber", label: "Aadhaar Number", type: "text" },
   { name: "passportNumber", label: "Passport Number", type: "text" },
   { name: "dateOfBirth", label: "Date of Birth", type: "date" },

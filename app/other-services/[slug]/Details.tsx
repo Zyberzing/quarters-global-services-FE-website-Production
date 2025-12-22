@@ -129,7 +129,6 @@ const Details = () => {
     );
   }
 
-  // ⭐ DEFAULT SERVICE PAGE (driver, courier, insurance, etc.)
   return (
     <div>
       <BannerLayout bg="/service.jpg">
@@ -155,7 +154,7 @@ const Details = () => {
 
       {faqData?.length > 0 && (
         <FAQSections
-          title={`${slug.replaceAll("-", " ")} FAQs`}
+          title={`FAQs`}
           data={faqData}
         />
       )}

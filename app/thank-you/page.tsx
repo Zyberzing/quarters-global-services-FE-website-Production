@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FiHome, FiCheckCircle } from "react-icons/fi";
+import { FiCheckCircle, FiLogIn } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 export default function ThankYouCard() {
@@ -12,42 +12,51 @@ export default function ThankYouCard() {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
         className="max-w-xl w-full bg-white shadow-2xl rounded-2xl p-10 md:p-14 border border-black/5 text-center"
-        style={{ ['--accent' as any]: 'oklch(57.7% 0.245 27.325)' }}
+        style={{ ["--accent" as any]: "oklch(57.7% 0.245 27.325)" }}
       >
+        {/* Icon */}
         <div className="flex flex-col items-center justify-center gap-4">
           <div
             className="rounded-full p-4 shadow-md"
-            style={{ background: 'var(--accent)' }}
+            style={{ background: "var(--accent)" }}
             aria-hidden
           >
             <FiCheckCircle className="w-8 h-8 text-black" />
           </div>
+
+          {/* Title */}
           <h1 className="text-3xl md:text-4xl font-semibold text-black">
             Thank You!
           </h1>
+
+          {/* ✅ Updated Message */}
           <p className="mt-3 text-black/80 text-lg leading-relaxed max-w-md">
-            Your form has been successfully submitted! 🎉<br />
-            We appreciate your time and effort.
+            Your request has been successfully submitted! 🎉
+            <br />
+            We have sent your login credentials to your registered email address.
+            <br />
+            Please check your inbox and click the button below to log in.
           </p>
         </div>
 
+        {/* Login Button */}
         <div className="mt-10 flex items-center justify-center">
-          <Link href="/" className="group">
+          <Link href="/login" className="group">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium shadow-md border border-black/5 focus:outline-none focus:ring-4"
-              style={{ background: 'var(--accent)', color: 'white' }}
-              aria-label="Go to home"
+              style={{ background: "var(--accent)", color: "white" }}
+              aria-label="Login"
             >
-              <FiHome className="w-5 h-5 text-white" />
-              <span>Go to Home</span>
+              <FiLogIn className="w-5 h-5 text-white" />
+              <span>Login</span>
             </motion.button>
           </Link>
         </div>
 
         <footer className="mt-8 text-sm text-black/60">
-          We’ll review your submission and contact you soon.
+          If you don’t see the email, please check your spam or junk folder.
         </footer>
       </motion.article>
 
@@ -63,7 +72,7 @@ export default function ThankYouCard() {
         }
 
         @supports not (color: oklch(50% 0.2 30)) {
-          :root { --accent: #e9c46a; }
+          :root { --accent: #e63946; }
         }
       `}</style>
     </div>

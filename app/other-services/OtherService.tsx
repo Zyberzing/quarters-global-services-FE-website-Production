@@ -1,11 +1,8 @@
 
 "use client";
-
-
 import BannerLayout from "@/components/Banner/BannerLayout";
 import ServiceSection from "@/components/ServiceSection";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 
@@ -16,24 +13,24 @@ type Service = {
     displayName: string;
     iconUrl: string;
     slug: string;
-    buttonText?: string; // optional
+    buttonText?: string;
     platformServiceId: string;
     description: string;
     imageUrl: string;
 };
 
 const OtherService = () => {
-   
+
     const { data, isLoading } = useGetPlatformServiceSubCategoriesQuery({
-            platformServiceSlug: "other-services",
-            toCountrySlug: "india",
-        }
+        platformServiceSlug: "other-services",
+        toCountrySlug: "india",
+    }
     );
 
     const apiServices: any[] = data?.data?.data || [];
 
-    const services = [ 
-        ...apiServices, 
+    const services = [
+        ...apiServices,
     ];
 
     const [isVisible, setIsVisible] = useState(false);
@@ -141,68 +138,86 @@ const OtherService = () => {
             </div>
 
             {/* Services List */}
-            <div className="py-12 px-4 lg:px-8">
+            <div className="py-16 px-4 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="space-y-4">
+                    <div className="space-y-10">
+
+                        {/* LOADING STATE */}
                         {isLoading ? (
                             skeletons.map((_, index) => (
                                 <div
                                     key={index}
-                                    className="flex flex-col lg:flex-row items-center gap-12 p-4 border rounded-lg"
+                                    className="flex flex-col lg:flex-row items-center gap-12 p-6 
+                       bg-white border border-gray-200 rounded-2xl 
+                       shadow-sm animate-pulse"
                                 >
                                     {/* Skeleton image */}
                                     <Skeleton
-                                        circle={false}
-                                        height={400}
-                                        width={400}
-                                        className="lg:w-1/2 w-full rounded-xl"
+                                        height={360}
+                                        width={360}
+                                        className="w-full lg:w-1/2 rounded-2xl"
                                     />
 
                                     {/* Skeleton text */}
                                     <div className="lg:w-1/2 w-full space-y-4">
-                                        <Skeleton height={40} width={`60%`} />
-                                        <Skeleton height={20} width={`80%`} />
-                                        <Skeleton height={20} width={`70%`} />
-                                        <Skeleton height={40} width={150} />
+                                        <Skeleton height={36} width="65%" />
+                                        <Skeleton height={18} width="85%" />
+                                        <Skeleton height={18} width="75%" />
+                                        <Skeleton height={44} width={160} className="rounded-full" />
                                     </div>
                                 </div>
                             ))
                         ) : services && services.length > 0 ? (
+
+                            /* SERVICE LIST */
                             services.map((service: Service, index: number) => (
                                 <div
                                     key={index}
-                                    className={`transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
-                                    style={{ transitionDelay: `${index * 100}ms` }}
+                                    className={`transform transition-all duration-700 ease-out
+              ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+            `}
+                                    style={{ transitionDelay: `${index * 120}ms` }}
                                 >
-                                   <ServiceSection
-  title={
-    service.slug?.includes("driver")
-      ? "Driver Registration"
-      : service.name
-  }
-  description={service.description}
-  buttonText="Learn More"
-  imageSrc={service?.imageUrl}
-  imagePosition={index % 2 === 0 ? "left" : "right"}
-  slug={service.slug}
-  id={service._id}
-  platformServiceId={service.platformServiceId}
-/>
-
+                                    <div className="rounded-3xl overflow-hidden 
+                            hover:shadow-xl hover:-translate-y-1 
+                            transition-all duration-300 bg-white">
+                                        <ServiceSection
+                                            title={
+                                                service.slug?.includes("driver")
+                                                    ? "Driver Registration"
+                                                    : service.name
+                                            }
+                                            description={service.description}
+                                            buttonText="Learn More"
+                                            imageSrc={service?.imageUrl}
+                                            imagePosition={index % 2 === 0 ? "left" : "right"}
+                                            slug={service.slug}
+                                            id={service._id}
+                                            platformServiceId={service.platformServiceId}
+                                        />
+                                    </div>
                                 </div>
                             ))
                         ) : (
-                            <div className="text-center py-12 text-gray-500 text-xl font-medium">
-                                ❌ No Service Available
+
+                            /* EMPTY STATE */
+                            <div className="flex flex-col items-center justify-center py-20 text-center">
+                                <div className="text-5xl mb-4">🚫</div>
+                                <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+                                    No Services Available
+                                </h3>
+                                <p className="text-gray-500 max-w-md">
+                                    We couldn’t find any services at the moment. Please check back later
+                                    or explore other sections.
+                                </p>
                             </div>
                         )}
                     </div>
-
                 </div>
             </div>
 
             {/* Call to Action */}
-           
+
         </div>
     );
 };

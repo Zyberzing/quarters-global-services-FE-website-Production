@@ -25,9 +25,9 @@ const Services = () => {
     const activeId = useSelector((state: any) => state.application.activeId);
 
     const save = (id: string) => {
-       
-              
-           
+
+
+
         savePlatformServiceStep({ platformServiceId: String(id) });
     }
 
@@ -64,22 +64,29 @@ const Services = () => {
                         </>
                     ) : packages && packages.length > 0 ? (
                         <>
-                            {packages.map((service: any, index: number) => (
-                                <div
-                                    key={index}
-                                    className={`transform transition-transform duration-500 ${index % 2 === 0 ? "translate-y-0" : "translate-y-6 sm:translate-y-8"
-                                        }`}
-                                >
-                                    <VisaServiceCard
-                                        id={service._id}
-                                        save={save}
-                                        link={
-                                            service.name?.toLowerCase() === "other services"
-                                                ? "/other-services"
-                                                : `/category?toCountrySlug=${country}&Slug=${service.slug}`
-                                        }
-                                        icon={
-                                            <svg
+                           
+                            {packages
+                                .filter(
+                                    (service: any) =>
+                                        service.name?.toLowerCase() !== "tax filling"
+                                )
+                                .map((service: any, index: number) => (
+                                    <div
+                                        key={service._id ?? index}
+                                        className={`transform transition-transform duration-500 ${index % 2 === 0
+                                            ? "translate-y-0"
+                                            : "translate-y-6 sm:translate-y-8"
+                                            }`}
+                                    >
+                                        <VisaServiceCard
+                                            id={service._id}
+                                            save={save}
+                                            link={
+                                                service.name?.toLowerCase() === "other services"
+                                                    ? "/other-services"
+                                                    : `/category?toCountrySlug=${country}&Slug=${service.slug}`
+                                            }
+                                            icon={<svg
                                                 width="74"
                                                 height="74"
                                                 viewBox="0 0 74 74"
@@ -104,15 +111,15 @@ const Services = () => {
                                                     d="M51.208 49V25C51.2061 23.4889 50.6049 22.0402 49.5364 20.9716C48.4679 19.9031 47.0191 19.302 45.508 19.3H28.492C26.9808 19.302 25.5321 19.9031 24.4636 20.9716C23.395 22.0402 22.7939 23.4889 22.792 25V49C22.7939 50.5112 23.395 51.9599 24.4636 53.0285C25.5321 54.097 26.9808 54.6981 28.492 54.7001H45.508C47.0191 54.6981 48.4679 54.097 49.5364 53.0285C50.6049 51.9599 51.2061 50.5112 51.208 49ZM49.408 49C49.4067 50.034 48.9954 51.0252 48.2643 51.7564C47.5332 52.4875 46.5419 52.8988 45.508 52.9001H28.492C27.458 52.8988 26.4668 52.4875 25.7357 51.7564C25.0046 51.0252 24.5933 50.034 24.592 49V25C24.5933 23.9661 25.0046 22.9749 25.7357 22.2437C26.4668 21.5126 27.458 21.1013 28.492 21.1H45.508C46.5419 21.1013 47.5332 21.5126 48.2643 22.2437C48.9954 22.9749 49.4067 23.9661 49.408 25V49Z"
                                                     fill="#022146"
                                                 />
-                                            </svg>
-                                        }
-                                        title={service.name}
-                                        description={service.name}
-                                        shouldStartApplication={true}
-                                        mainType={true}
-                                    />
-                                </div>
-                            ))}
+                                            </svg>}
+                                            title={service.name}
+                                            description={service.name}
+                                            shouldStartApplication={true}
+                                            mainType={true}
+                                        />
+                                    </div>
+                                ))}
+
                         </>
                     ) : (
                         <div className="text-center py-10 text-gray-500 text-base sm:text-lg">

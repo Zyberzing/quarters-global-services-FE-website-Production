@@ -26,22 +26,34 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "../ui/checkbox";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+
+import GoogleAddressInput from "../GoogleAddressInput";
+
 // ---------- TYPES ----------
-export type FieldType = "text" | "number" | "select" | "email" | "textarea" | "checkbox" | "date" | "phone";;
+export type FieldType =
+  | "text"
+  | "number"
+  | "select"
+  | "email"
+  | "textarea"
+  | "checkbox"
+  | "date"
+  | "phone"
+  | "address"; // ✅ NEW
 
 export interface FieldConfig {
   name: string;
   label: string;
-  type: any; // <— STRICT type, not string
+  type: FieldType;
   placeholder?: string;
-  options?: { label: string; value: string }[]; // only for select
+  options?: { label: string; value: string }[];
 }
 
 export interface DynamicFormProps<TSchema extends ZodObject<any>> {
   schema: TSchema;
   fields: FieldConfig[];
   onSubmit: (values: z.infer<TSchema>) => void;
-  serviceType: string
+  serviceType: string;
 }
 
 // ---------- COMPONENT ----------
@@ -52,20 +64,18 @@ export function DynamicForm<TSchema extends ZodObject<any>>({
   serviceType,
 }: DynamicFormProps<TSchema>) {
   type FormValues = z.input<TSchema>;
-  type InputValues = z.input<TSchema>;   // raw form values
-  type OutputValues = z.output<TSchema>; // parsed values
+  type InputValues = z.input<TSchema>;
+  type OutputValues = z.output<TSchema>;
 
   const form = useForm<InputValues>({
-    resolver: zodResolver(schema) as any, // cast to avoid TS mismatch
+    resolver: zodResolver(schema) as any,
     defaultValues: {
-      ...Object.fromEntries(fields.map(f => [f.name, ""])),
-      serviceType: serviceType
+      ...Object.fromEntries(fields.map((f) => [f.name, ""])),
+      serviceType,
     } as unknown as DefaultValues<InputValues>,
   });
 
-
   const handleSubmit = (values: InputValues) => {
-    // zodResolver guarantees values are already parsed to OutputValues
     onSubmit(values as unknown as OutputValues);
   };
 
@@ -74,34 +84,58 @@ export function DynamicForm<TSchema extends ZodObject<any>>({
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleSubmit)}
-          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 w-full px-4 sm:px-6 md:px-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
         >
           {fields.map((field) => (
             <FormField<FormValues>
               key={field.name}
               control={form.control}
-              name={field.name as unknown as Path<FormValues>}
+              name={field.name as Path<FormValues>}
               render={({ field: f }) => (
-                <FormItem className="flex flex-col w-full">
-                  <FormLabel className="font-semibold text-gray-700 mb-1 text-sm sm:text-base">
-                    {field.label}
-                  </FormLabel>
+                <FormItem>
+                  <FormLabel>{field.label}</FormLabel>
                   <FormControl>
-                    {field.type === "select" ? (
-                      <Select
-                        onValueChange={f.onChange}
+                    {field.type === "address" ? (
+                      <GoogleAddressInput
                         value={f.value as string}
-                      >
-                        <SelectTrigger className="border rounded-lg p-2 w-full text-sm sm:text-base">
+                        onChange={f.onChange}
+                        onSelect={(place) => {
+                          const parts = place.address_components || [];
+
+                          const get = (type: string) =>
+                            parts.find((p) => p.types.includes(type))?.long_name || "";
+
+                          fields.forEach((fld) => {
+                            if (fld.name.includes("city")) {
+                              //@ts-ignore
+                              form.setValue(fld.name as any, get("locality"));
+                            }
+                            if (fld.name.includes("state")) {
+                              form.setValue(
+                                fld.name as any,
+                                 //@ts-ignore
+                                get("administrative_area_level_1")
+                              );
+                            }
+                            if (fld.name.includes("country")) {
+                               //@ts-ignore
+                              form.setValue(fld.name as any, get("country"));
+                            }
+                            if (fld.name.includes("zip")) {
+                               //@ts-ignore
+                              form.setValue(fld.name as any, get("postal_code"));
+                            }
+                          });
+                        }}
+                      />
+                    ) : field.type === "select" ? (
+                      <Select onValueChange={f.onChange} value={f.value as string}>
+                        <SelectTrigger>
                           <SelectValue placeholder={field.placeholder} />
                         </SelectTrigger>
-                        <SelectContent className="max-h-60 overflow-y-auto">
+                        <SelectContent>
                           {field.options?.map((opt) => (
-                            <SelectItem
-                              key={opt.value}
-                              value={opt.value}
-                              className="text-sm sm:text-base"
-                            >
+                            <SelectItem key={opt.value} value={opt.value}>
                               {opt.label}
                             </SelectItem>
                           ))}
@@ -113,53 +147,39 @@ export function DynamicForm<TSchema extends ZodObject<any>>({
                         defaultCountry="US"
                         value={f.value as string}
                         onChange={f.onChange}
-                        onBlur={f.onBlur}
-                        className="border rounded-lg px-3 py-2 w-full text-sm"
-                      />) : field.type === "textarea" ? (
-                        <Textarea
-                          placeholder={field.placeholder}
-                          {...f}
-                          value={f.value as unknown as string}
-                          className="border rounded-lg p-2 w-full min-h-[80px] text-sm sm:text-base"
+                        className="border rounded-lg px-3 py-2 w-full"
+                      />
+                    ) : field.type === "textarea" ? (
+                       //@ts-ignore
+                      <Textarea {...f} placeholder={field.placeholder} />
+                    ) : field.type === "checkbox" ? (
+                      <div className="flex items-center gap-2">
+                        <Checkbox
+                          checked={!!f.value}
+                          onCheckedChange={(v) => f.onChange(v)}
                         />
-                      ) : field.type === "checkbox" ? (
-                        <div className="flex items-center gap-2">
-                          <Checkbox
-                            checked={!!f.value}
-                            onCheckedChange={(checked) => f.onChange(checked)}
-                            onBlur={f.onBlur}
-                            name={f.name}
-                            ref={f.ref}
-                          />
-                          <span className="text-sm sm:text-base text-gray-700">{field.label}</span>
-                        </div>
-                      ) : (
+                        <span>{field.label}</span>
+                      </div>
+                    ) : (
+                       //@ts-ignore
                       <Input
+                        {...f}
                         type={field.type}
                         placeholder={field.placeholder}
-                        {...f}
-                        value={f.value as unknown as string}
-                        className="border rounded-lg p-2 w-full text-sm sm:text-base"
                       />
                     )}
                   </FormControl>
-                  <FormMessage className="text-red-500 mt-1 text-xs sm:text-sm" />
+                  <FormMessage />
                 </FormItem>
               )}
             />
           ))}
 
-          <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row justify-end items-center mt-6 gap-3 sm:gap-4">
-            <Button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-6 py-2 rounded-lg text-sm sm:text-base transition"
-            >
-              Submit
-            </Button>
+          <div className="col-span-full flex justify-end">
+            <Button type="submit">Submit</Button>
           </div>
         </form>
       </Form>
-
     </div>
   );
 }

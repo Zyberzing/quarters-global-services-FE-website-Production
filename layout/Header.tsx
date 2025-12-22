@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { MdMenu, MdClose, MdShoppingCart } from "react-icons/md";
 import Skeleton from "react-loading-skeleton";
@@ -31,6 +31,8 @@ const Header = () => {
   const currentPath = usePathname();
   const services = data?.data?.data;
   const dispatch = useDispatch();
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+
 
 
   const readCartCount = () => {
@@ -74,6 +76,23 @@ const Header = () => {
       window.removeEventListener("cart-updated", updateCount);
     };
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [mobileMenuOpen]);
+
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.06)] border-b border-gray-100 transition-all">
@@ -132,7 +151,7 @@ const Header = () => {
                     // 🔀 REDIRECT FIX
                     if (staticRoutes.includes(service.slug)) {
                       router.push(`/${service.slug}`);
-                       dispatch(
+                      dispatch(
                         startApplication({
                           type: service.slug ?? "",
                           platformServiceId: service._id ?? "",
@@ -232,7 +251,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg px-6 py-6 animate-slideDown">
+        <div   ref={mobileMenuRef} className="md:hidden bg-white border-t border-gray-100 shadow-lg px-6 py-6 animate-slideDown">
 
           {/* Services */}
           {!isLoading &&
@@ -269,6 +288,7 @@ const Header = () => {
                         `/category?toCountrySlug=united-states&Slug=${service.slug}`
                       );
                     }
+                     setMobileMenuOpen(false);
                   }}
                   className={`block w-full text-left py-2 text-sm ${currentPath === `/${service.slug}`
                     ? "text-[oklch(57.7%_0.245_27.325)] font-semibold"

@@ -11,6 +11,8 @@ import { ApplicationPayload } from "@/lib/Types";
 import { useVerifyEmailMutation } from "@/services/verifyEmail";
 import EmailVerifyDialog from "@/components/StepForm/EmailVerifyDialog";
 import { vehicleList } from "@/lib/vehicleList";
+import { LoadScript } from "@react-google-maps/api";
+const libraries: ("places")[] = ["places"];
 
 export default function CreateApplication() {
   const params = useSearchParams();
@@ -201,8 +203,14 @@ export default function CreateApplication() {
 
 
 
+ <LoadScript
+      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+      libraries={libraries}
+       //@ts-ignore
+    >      <DynamicForm schema={schema} fields={fields} onSubmit={handleSubmit} serviceType={type} />
 
-      <DynamicForm schema={schema} fields={fields} onSubmit={handleSubmit} serviceType={type} />
+
+    </LoadScript>
 
       {isLoading && <p className="text-blue-600 mt-2">Submitting...</p>}
       {isError && (() => {
