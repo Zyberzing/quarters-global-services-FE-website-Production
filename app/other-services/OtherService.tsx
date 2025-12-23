@@ -27,9 +27,6 @@ const OtherService = () => {
         toCountrySlug: "india",
     }
     );
-    const router = useRouter();
-    const [activeTab, setActiveTab] = useState<"driver" | "vehicle">("driver");
-
 
     const apiServices: any[] = data?.data?.data || [];
 
@@ -54,14 +51,8 @@ const OtherService = () => {
                     <h4 className="font-bold text-[clamp(1.5rem,2.5vw,2.75rem)]">
                         Other Services
                     </h4>
-
-                    {/* Tabs */}
-                  
-
                 </div>
             </BannerLayout>
-
-
 
             <div className="bg-gradient-to-b from-[#DEEBFF] to-[#FFE3E3] py-10 w-full">
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:flex lg:justify-center lg:gap-24 w-full gap-8 text-center">
@@ -178,7 +169,7 @@ const OtherService = () => {
                                     </div>
                                 </div>
                             ))
-                        ) : services && services.length > 0 ? (
+                        ) : services && services?.length > 0 ? (
 
                             /* SERVICE LIST */
                             services.map((service: Service, index: number) => (
@@ -194,17 +185,17 @@ const OtherService = () => {
                             transition-all duration-300 bg-white">
                                         <ServiceSection
                                             title={
-                                                service.slug?.includes("driver")
+                                                service?.slug?.includes("driver")
                                                     ? "Driver Registration"
-                                                    : service.name
+                                                    : service?.name
                                             }
-                                            description={service.description}
+                                            description={service?.description}
                                             buttonText="Learn More"
-                                            imageSrc={service?.imageUrl}
+                                            imageSrc={service?.imageUrl || "/placeholder-service.jpg"}
                                             imagePosition={index % 2 === 0 ? "left" : "right"}
-                                            slug={service.slug}
-                                            id={service._id}
-                                            platformServiceId={service.platformServiceId}
+                                            slug={service?.slug}
+                                            id={service?._id}
+                                            platformServiceId={service?.platformServiceId}
                                         />
                                     </div>
                                 </div>
