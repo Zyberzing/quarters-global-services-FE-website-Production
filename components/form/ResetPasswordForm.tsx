@@ -7,11 +7,6 @@ import { Eye, EyeOff } from "lucide-react";
 import { saveSession } from "@/lib/session";
 import { UserTypeENUM } from "@/lib/Types";
 
-/* ======================
-   ONE-LINE PASSWORD RULE
-   Min 8 chars, upper, lower,
-   number & special char
-====================== */
 const isStrongPassword = (password: string) =>
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/.test(password);
 
@@ -20,7 +15,6 @@ const ResetPasswordForm = () => {
   const router = useRouter();
 
   const userIdFromURL = params.get("userId") || "";
-  const codeFromURL = params.get("code") || "";
   const token = params.get("token") || "";
 
   const [newPassword, setNewPassword] = useState("");
@@ -56,7 +50,6 @@ const ResetPasswordForm = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             userId: userIdFromURL,
-            code: codeFromURL,
             newPassword,
           }),
         }

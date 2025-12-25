@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { Form } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';

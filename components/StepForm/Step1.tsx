@@ -73,13 +73,14 @@ const getAllStoredApplicationsDraf = () => {
 
     try {
         const parsed = JSON.parse(raw);
-        return parsed?.
-            applications
-            || [];
+        return parsed?.draftApplications || [];
     } catch {
         return [];
     }
 };
+const hasValidForm = (form: Record<string, any>) =>
+  form && Object.keys(form).length > 0;
+
 
 export const mapStoredAppToApi = (app: any) => {
     const form = app?.form?.applications?.[0] || {};
@@ -116,10 +117,10 @@ export const mapStoredAppToApi = (app: any) => {
 
         platformServices: [
             {
-                platformServiceId: app.platformServiceId,
-                platformServiceCategoryId: app.platformServiceCategoryId,
+                platformServiceId: app.platformServiceId||"68e966dde7bd0d029655d367",
+                platformServiceCategoryId: app.platformServiceCategoryId||"68e966dde7bd0d029655d36d",
                 platformServiceCategoryPackageId:
-                    app.platformServiceCategoryPackageId,
+                    app.platformServiceCategoryPackageId||"68e966dde7bd0d029655d370",
 
                 // ✅ FIX HERE: only ID array
                 platformServiceCategoryPackageAddonsId:
@@ -197,12 +198,7 @@ export default function Step1() {
     const watchedValues = useWatch({
         control: form.control,
     });
-
-    const hasUserTyped =
-        watchedValues?.firstName ||
-        watchedValues?.lastName ||
-        watchedValues?.email ||
-        watchedValues?.phone;
+       
 
     useEffect(() => {
         if (data?.applications?.length) {
@@ -219,18 +215,30 @@ export default function Step1() {
             saveApplication()
             const storedApps = getAllStoredApplicationsDraf();
 
-            if (!storedApps.length) {
+            if (!storedApps?.length) {
                 toast.error("No applications found");
                 return;
             }
 
+            // ✅ keep only apps with form data
+            const validApps = storedApps.filter(
+                (app) => hasValidForm(app.form)
+            );
+
+            if (!validApps.length) {
+                toast.error("No completed applications found");
+                return;
+            }
+
             const payload: ApplicationPayload = {
-                applications: storedApps.map(mapStoredAppToApi),
+                applications: validApps.map(mapStoredAppToApi),
             };
+
+
 
             setPayload(payload);
             const email = watchedValues?.email;
-            const res = await verifyEmail({ email }).unwrap();
+            const res = await verifyEmail({ email:payload.applications[0].email }).unwrap();
 
             if (res.status) {
                 if (res.message === "Email is already verified.") {
@@ -259,7 +267,6 @@ export default function Step1() {
 
         const response = await createApplication(payload as ApplicationPayload).unwrap();
         if (response?.status && response.data?.redirectURL) {
-            localStorage.removeItem("platformServices");
             window.location.href = response.data.redirectURL;
             setLoading(false)
 
@@ -307,7 +314,6 @@ export default function Step1() {
         if (!activeId) return;
         if (isSwitchingCard) return;
         if (!isDirty) return; // 🔥 MAIN FIX
-
 
         const timeout = setTimeout(() => {
             dispatch(

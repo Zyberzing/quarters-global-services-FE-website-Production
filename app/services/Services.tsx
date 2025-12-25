@@ -64,18 +64,26 @@ const Services = () => {
                         </>
                     ) : packages && packages.length > 0 ? (
                         <>
-                           
+
+
+
                             {packages
-                                .filter(
-                                    (service: any) =>
-                                        service.name?.toLowerCase() !== "tax filling"
-                                )
+                                .filter((service: any) => {
+                                    const name = service.name?.toLowerCase();
+
+                                    return (
+                                        name !== "tax filling" &&
+                                        name !== "e-visa" &&
+                                        name !== "e visa" &&
+                                        !name?.includes("e-visa")
+                                    );
+                                })
                                 .map((service: any, index: number) => (
                                     <div
                                         key={service._id ?? index}
                                         className={`transform transition-transform duration-500 ${index % 2 === 0
-                                            ? "translate-y-0"
-                                            : "translate-y-6 sm:translate-y-8"
+                                                ? "translate-y-0"
+                                                : "translate-y-6 sm:translate-y-8 mb-4"
                                             }`}
                                     >
                                         <VisaServiceCard
@@ -119,6 +127,7 @@ const Services = () => {
                                         />
                                     </div>
                                 ))}
+
 
                         </>
                     ) : (

@@ -114,18 +114,16 @@ export const Footer = () => {
                   </span>
                 </p>
 
-                <p className="flex items-center gap-2">
-                  <Mail size={16} className="text-gray-400" />
-                  <a
-                    href="mailto:info@quartusglobalservices.com"
-                    className="hover:text-white hover:underline"
-                  >
-                    <span>
-                    info@quartusglobalservices.com
+              <p className="flex items-start gap-2">
+  <Mail size={16} className="mt-1 text-gray-400 shrink-0" />
+  <a
+    href="mailto:info@quartusglobalservices.com"
+    className="hover:text-white hover:underline break-all"
+  >
+    info@quartusglobalservices.com
+  </a>
+</p>
 
-                    </span>
-                  </a>
-                </p>
 
                 <p className="flex items-center gap-2">
                   <Phone size={16} className="text-gray-400" />

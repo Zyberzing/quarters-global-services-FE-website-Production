@@ -133,8 +133,8 @@ export default function OrderSummaryPage() {
 
       if (redirectURL) {
         clearPlatformServices();
-        localStorage.removeItem("applications");
-        localStorage.removeItem("platformServices");
+          localStorage.removeItem("applicationStatus")
+      localStorage.removeItem("applications")
         window.location.href = redirectURL; // 🔁 Redirect to Stripe Checkout
       } else {
         alert("✅ Shipping created, but no redirect URL found.");

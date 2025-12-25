@@ -18,7 +18,6 @@ const ForgetPasswordForm = () => {
       });
 
       const data = await res.json();
-      console.log(data, "ssss")
       if (res.ok) {
         router.push(`/verify-user?userId=${data.data.userId}`)
       } else {

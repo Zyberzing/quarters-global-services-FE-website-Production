@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { DynamicForm } from "@/components/DynamicForm/DynamicForm";
 import { serviceForms } from "@/lib/serviceForms";
 import { useCreateApplication2Mutation } from "@/services/applicationApi2";
@@ -12,6 +12,7 @@ import { useVerifyEmailMutation } from "@/services/verifyEmail";
 import EmailVerifyDialog from "@/components/StepForm/EmailVerifyDialog";
 import { vehicleList } from "@/lib/vehicleList";
 import { LoadScript } from "@react-google-maps/api";
+import GlobalLoader from "@/components/GlobalLoader";
 const libraries: ("places")[] = ["places"];
 
 export default function CreateApplication() {
@@ -24,7 +25,7 @@ export default function CreateApplication() {
   const [payload, setPayload] = useState<any>()
   const [selectedVehicle, setSelectedVehicle] = useState<string | null>(null);
   const id = params.get("id"); // ✅ query id
-
+  const router = useRouter()
 
 
   const [showAlert, setShowAlert] = useState(false);
@@ -107,7 +108,11 @@ export default function CreateApplication() {
           if (response?.status && response.data?.redirectURL) {
             // clearPlatformServices();
             // localStorage.removeItem("applications");
-            window.location.href = response.data.redirectURL;
+            if (type === "courier-and-document-delivery") {
+              window.location.href = response.data.redirectURL;
+            } else {
+              router.replace("/thank-you")
+            }
           }
 
         } else {
@@ -131,11 +136,19 @@ export default function CreateApplication() {
     if (response?.status && response.data?.redirectURL) {
       clearPlatformServices();
       localStorage.removeItem("applications");
-      window.location.href = response.data.redirectURL;
+      if (type === "courier-and-document-delivery") {
+        window.location.href = response.data.redirectURL;
+      } else {
+        router.replace("/thank-you")
+      }
     } else {
       toast.error("Application created but no redirect URL returned");
     }
   };
+
+  if (isLoading) {
+    return <GlobalLoader text="Submitting your application… Please wait..." show={true} />
+  }
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -203,14 +216,12 @@ export default function CreateApplication() {
 
 
 
- <LoadScript
-      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
-      libraries={libraries}
-       //@ts-ignore
-    >      <DynamicForm schema={schema} fields={fields} onSubmit={handleSubmit} serviceType={type} />
-
-
-    </LoadScript>
+      <LoadScript
+        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+        libraries={libraries}
+      //@ts-ignore
+      >      <DynamicForm schema={schema} fields={fields} onSubmit={handleSubmit} serviceType={type} />
+      </LoadScript>
 
       {isLoading && <p className="text-blue-600 mt-2">Submitting...</p>}
       {isError && (() => {

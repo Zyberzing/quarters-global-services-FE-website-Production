@@ -88,7 +88,10 @@ const Page = () => {
     if (values.documentMethod === "shipping") {
       router.push("/shipping/by-shipping-documents?");
     } else {
-      router.push("/login");
+      localStorage.removeItem("applicationStatus")
+      localStorage.removeItem("applications")
+
+      router.replace("/login");
     }
   };
 

@@ -10,8 +10,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { UserTypeENUM } from "@/lib/Types";
-import { saveSession } from "@/lib/session";
+
 
 const VerifyOtpForm = () => {
   const params = useSearchParams();
@@ -49,10 +48,8 @@ const VerifyOtpForm = () => {
         return;
       }
 
-
-      // ✅ Redirect AFTER token is saved
       router.replace(
-        `/reset-password?token=${encodeURIComponent(data.data.token)}`
+        `/reset-password?token=${encodeURIComponent(data.data.token)}&userId=${userId}`
       );
     } catch (error) {
       console.error(error);

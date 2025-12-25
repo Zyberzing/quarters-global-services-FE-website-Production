@@ -17,7 +17,7 @@ export const step1Schema = z.object({
     .string()
     .min(10, "Phone number must be at least 10 digits")
     .regex(/^\+?\d{10,15}$/, "Invalid phone number format"),
-  company: z.string().min(1, "Company is required"),
+company: z.string().optional().or(z.literal("")),
   departureDate: z.string().regex(
     /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/,
     "Date must be in YYYY-MM-DD format"

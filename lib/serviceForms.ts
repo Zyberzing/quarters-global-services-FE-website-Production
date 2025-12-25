@@ -23,10 +23,6 @@ export const commonApplicantSchema = z.object({
     .string()
     .min(1, "Phone number is required")
     .regex(/^[0-9+()\-\s]+$/, "Enter a valid phone number"),
-
-  status: z
-    .string()
-    .min(1, "Status is required"),
 });
 
 
@@ -36,7 +32,6 @@ export const commonApplicantFields: FieldConfig[] = [
   { name: "email", label: "Email", type: "email" },
   { name: "countryCode", label: "Country Code", type: "text" },
   { name: "phone", label: "Phone", type: "phone" },
-  { name: "status", label: "Status", type: "text" },
 
 ];
 
@@ -342,8 +337,7 @@ export const driverSchema = z.object({
   drivingExperienceYears: z.string(),
 
   // Other
-  status: z.enum(["Available", "Not Available"]),
-  photo: z.any().optional(),
+   photo: z.any().optional(),
   licence: z.any().optional(), // API spelling
 });
 
@@ -361,15 +355,7 @@ export const driverFields: FieldConfig[] = [
   { name: "drivingExperienceYears", label: "Experience (Years)", type: "text" },
 
   // Other
-  {
-    name: "status",
-    label: "Status",
-    type: "select",
-    options: [
-      { label: "Available", value: "Available" },
-      { label: "Not Available", value: "Not Available" },
-    ]
-  }, //@ts-ignore
+       //@ts-ignore
   { name: "photo", label: "Photo", type: "file" }, //@ts-ignore
   { name: "licence", label: "Licence File", type: "file" },
 ];
