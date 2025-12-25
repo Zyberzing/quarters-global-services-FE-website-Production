@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {  useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -10,6 +10,8 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import { UserTypeENUM } from "@/lib/Types";
+import { saveSession } from "@/lib/session";
 
 const VerifyOtpForm = () => {
   const params = useSearchParams();
@@ -17,6 +19,8 @@ const VerifyOtpForm = () => {
 
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,17 +48,20 @@ const VerifyOtpForm = () => {
         toast.error(data.message || "Invalid OTP");
         return;
       }
-console.log(data)
-      toast.success("Account Verified Successfully!");
-      // router.push("/reset-password?userId=userId&token=")
-      // window.location.href = "/auth/sign-in";
+
+
+      // ✅ Redirect AFTER token is saved
+      router.replace(
+        `/reset-password?token=${encodeURIComponent(data.data.token)}`
+      );
     } catch (error) {
-      console.log(error)
+      console.error(error);
       toast.error("Server error");
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <form onSubmit={handleVerify} className="space-y-8">

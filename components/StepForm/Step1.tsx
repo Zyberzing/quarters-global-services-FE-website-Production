@@ -15,9 +15,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { step1Schema, Step1Data } from "@/lib/validationSchemas";
 import { useCreateApplicationMutation } from "@/services/applicationApi";
-import { getPlatformServices } from "@/lib/platformServiceStorage";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteApplication, setActiveApplication, setFormData } from "@/store/slices/applicationSlice";
+import { deleteApplication, finalizeApplication, saveApplication, setActiveApplication, setFormData } from "@/store/slices/applicationSlice";
 import { useRouter } from "nextjs-toploader/app";
 import { toast } from "sonner";
 import EmailVerifyDialog from "./EmailVerifyDialog";
@@ -28,6 +27,7 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { LoadScript } from "@react-google-maps/api";
 import GoogleAddressInput from "../GoogleAddressInput";
+import GlobalLoader from "../GlobalLoader";
 
 const libraries: ("places")[] = ["places"];
 
@@ -74,7 +74,7 @@ const getAllStoredApplicationsDraf = () => {
     try {
         const parsed = JSON.parse(raw);
         return parsed?.
-            draftApplications
+            applications
             || [];
     } catch {
         return [];
@@ -179,8 +179,8 @@ export default function Step1() {
     const [verifyEmail] = useVerifyEmailMutation();
     const [emailOtpVerify, setEmailVerify] = useState(false)
     const [payload, setPayload] = useState<ApplicationPayload>()
-    const platformServices = getPlatformServices() || [];
     const [isSwitchingCard, setIsSwitchingCard] = useState(false);
+    const [loading, setLoading] = useState(false)
 
     const activeFormIdRef = useRef<string | null>(null);
 
@@ -204,8 +204,6 @@ export default function Step1() {
         watchedValues?.email ||
         watchedValues?.phone;
 
-
-    // --- Prefill from API ---
     useEffect(() => {
         if (data?.applications?.length) {
             setApplications(data.applications);
@@ -214,11 +212,11 @@ export default function Step1() {
         }
     }, [data, form]);
 
-    // --- Prefill from localStorage ---
-
-
     const onSubmit = async () => {
         try {
+            setLoading(true)
+
+            saveApplication()
             const storedApps = getAllStoredApplicationsDraf();
 
             if (!storedApps.length) {
@@ -233,30 +231,41 @@ export default function Step1() {
             setPayload(payload);
             const email = watchedValues?.email;
             const res = await verifyEmail({ email }).unwrap();
+
             if (res.status) {
                 if (res.message === "Email is already verified.") {
                     const response = await createApplication(payload).unwrap();
 
                     if (response?.status && response.data?.redirectURL) {
                         localStorage.removeItem("platformServices");
+
                         window.location.href = response.data.redirectURL;
+                        setLoading(false)
                     }
                 } else {
+                    setLoading(false)
                     setEmailVerify(true);
                 }
             }
         } catch (err: any) {
+            setLoading(false)
             toast.error(err?.message || "Submission failed");
+
         }
     };
 
     const handleVerify = async () => {
+        setLoading(true)
+
         const response = await createApplication(payload as ApplicationPayload).unwrap();
         if (response?.status && response.data?.redirectURL) {
             localStorage.removeItem("platformServices");
             window.location.href = response.data.redirectURL;
+            setLoading(false)
 
         } else {
+            setLoading(false)
+
             toast.error("Application created but no redirect URL returned");
         }
     };
@@ -299,6 +308,7 @@ export default function Step1() {
         if (isSwitchingCard) return;
         if (!isDirty) return; // 🔥 MAIN FIX
 
+
         const timeout = setTimeout(() => {
             dispatch(
                 setFormData({
@@ -312,6 +322,11 @@ export default function Step1() {
 
         return () => clearTimeout(timeout);
     }, [watchedValues, activeId, isDirty]);
+
+    useEffect(() => {
+        dispatch(finalizeApplication({ id: activeId }));
+
+    }, [])
 
 
 
@@ -746,6 +761,7 @@ export default function Step1() {
             </LoadScript>
 
 
+            <GlobalLoader show={isLoading || loading} text="Submitting your application..." />
 
             {emailOtpVerify && (
                 <EmailVerifyDialog

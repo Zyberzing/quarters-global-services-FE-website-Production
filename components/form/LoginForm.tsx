@@ -34,11 +34,20 @@ const LoginForm = () => {
 
   const onSubmit = handleAsync(async (values: z.infer<typeof formSchema>) => {
     try {
-      const res = await fetch(process.env.NEXT_PUBLIC_QUARTUS_API_URL + '/auth/sign-in', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      });
+
+      const payload = {
+        ...values,
+        email: values.email.toLowerCase().trim().replace(/\s+/g, ''),
+      };
+
+      const res = await fetch(
+        process.env.NEXT_PUBLIC_QUARTUS_API_URL + '/auth/sign-in',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (!res.ok) {
         throw new Error('Invalid credentials');
@@ -61,11 +70,11 @@ const LoginForm = () => {
       await saveSession(
         { id: userDataId, token: userDataToken },
         UserTypeENUM.ADMIN // or .USER or whatever role applies
-      ); 
+      );
 
-    
+
       toast.success('Login successfully');
-      window.location.href='/dashboard/applications'
+      window.location.href = '/dashboard/applications'
     } finally {
       console.log('done');
     }

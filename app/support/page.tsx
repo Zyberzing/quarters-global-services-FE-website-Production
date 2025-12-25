@@ -15,7 +15,7 @@ const SupportPage = () => {
       title: "Help Center",
       icon: <BookOpen className="w-8 h-8 text-blue-600" />,
       desc: "Find quick answers to common questions and guides on how to use our services efficiently.",
-      link: "/help",
+      link: "/help-center",
       color: "from-blue-50 to-blue-100",
     },
     {
@@ -23,7 +23,7 @@ const SupportPage = () => {
       title: "Support",
       icon: <Phone className="w-8 h-8 text-green-600" />,
       desc: "Need assistance? Our support team is here to help you resolve any issues or inquiries.",
-      link: "/contact",
+      link: "/contact-us",
       color: "from-green-50 to-green-100",
     },
     {

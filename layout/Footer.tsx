@@ -16,10 +16,9 @@ import { MapPin, Mail, Phone } from "lucide-react";
 ====================== */
 
 const socialLinks = [
-  { icon: <FaFacebookF />, href: "https://facebook.com" },
-  { icon: <FaTwitter />, href: "https://twitter.com" },
-  { icon: <FaInstagram />, href: "https://instagram.com" },
-  { icon: <FaLinkedinIn />, href: "https://linkedin.com" },
+  { icon: <FaFacebookF />, href: "https://www.facebook.com/quartusbusiness?mibextid=wwXIfr&rdid=TGdTZVLn0vdgycow&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17jMqFda5d%2F%3Fmibextid%3DwwXIfr%26ref%3Dwaios.fb_links_xma_control#" },
+  { icon: <FaInstagram />, href: "https://www.instagram.com/quartus_global_service/?igsh=emI0a2VicmFvcTNz&utm_source=qr#" },
+  { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/quartus-global-services/" },
 ];
 
 const services = [
@@ -87,8 +86,8 @@ export const Footer = () => {
           FOOTER
       ====================== */}
       <footer className="bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-20">
 
             {/* Logo & Contact */}
             <div className="space-y-4">
@@ -121,7 +120,10 @@ export const Footer = () => {
                     href="mailto:info@quartusglobalservices.com"
                     className="hover:text-white hover:underline"
                   >
+                    <span>
                     info@quartusglobalservices.com
+
+                    </span>
                   </a>
                 </p>
 

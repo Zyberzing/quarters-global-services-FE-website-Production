@@ -98,102 +98,132 @@ export default function CurrencyAndTime() {
     month: "long",
     day: "numeric",
   });
-  const week = `Week ${
-    Math.ceil(countryTime.getDate() / 7) + countryTime.getMonth() * 4
-  }`;
+  const week = `Week ${Math.ceil(countryTime.getDate() / 7) + countryTime.getMonth() * 4
+    }`;
 
   return (
-    <div className="grid md:grid-cols-2 gap-6 max-w-5xl m-auto mt-10">
+    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12 px-4">
+
       {/* Currency Exchange Card */}
-      <Card className="shadow-md border border-blue-100">
-        <CardHeader className="bg-blue-900 text-white rounded-t-lg py-2">
-          <CardTitle className="text-center text-sm font-semibold tracking-wide">
-            Currency Exchange Rate
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-5 space-y-4">
-          <div>
-            <Label className="text-sm font-medium">Amount</Label>
-            <Input
-              placeholder="Type amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="mt-1"
-              type="number"
-            />
-          </div>
+      <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 200 }} className="p">
+        <Card className="border border-red-200 shadow-xl rounded-2xl overflow-hidden bg-white p-0">
 
-          <div>
-            <Label className="text-sm font-medium">From</Label>
-            <Select value={fromCountry} onValueChange={setFromCountry}>
-              <SelectTrigger className="mt-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {countries.map((c) => (
-                  <SelectItem key={c.code} value={c.code}>
-                    {c.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+          <CardHeader className="bg-gradient-to-r from-black to-[#E7000B] text-white py-3">
+            <CardTitle className="text-center text-sm font-semibold tracking-wider uppercase">
+              Currency Exchange
+            </CardTitle>
+          </CardHeader>
 
-          <div>
-            <Label className="text-sm font-medium">To</Label>
-            <Select value={toCountry} onValueChange={setToCountry}>
-              <SelectTrigger className="mt-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {countries.map((c) => (
-                  <SelectItem key={c.code} value={c.code}>
-                    {c.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+          <CardContent className="p-6 space-y-4">
 
-          {converted !== null && (
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-3 text-center bg-blue-50 text-blue-800 rounded-lg p-3 font-medium shadow-sm"
-            >
-              {loading
-                ? "Converting..."
-                : `${amount} ${fromCountry} = ${converted} ${toCountry}`}
-            </motion.div>
-          )}
-        </CardContent>
-      </Card>
+            {/* Amount */}
+            <div className="space-y-1">
+              <Label className="text-xs font-semibold text-black">
+                Amount
+              </Label>
+              <Input
+                placeholder="Enter amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                type="number"
+                className="h-10 rounded-lg border-gray-300 focus:ring-2 focus:ring-red-600"
+              />
+            </div>
+
+            {/* From / To */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <Label className="text-xs font-semibold text-black">
+                  From
+                </Label>
+                <Select value={fromCountry} onValueChange={setFromCountry}>
+                  <SelectTrigger className="h-10 rounded-lg border-gray-300 w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {countries.map((c) => (
+                      <SelectItem key={c.code} value={c.code}>
+                        {c.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-1">
+                <Label className="text-xs font-semibold text-black">
+                  To
+                </Label>
+                <Select value={toCountry} onValueChange={setToCountry}>
+                  <SelectTrigger className="h-10 rounded-lg border-gray-300 w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {countries.map((c) => (
+                      <SelectItem key={c.code} value={c.code}>
+                        {c.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {/* Result */}
+            {converted !== null && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mt-3 text-center bg-red-50 text-red-800 rounded-xl p-4 font-semibold border border-red-200"
+              >
+                {loading
+                  ? "Converting..."
+                  : `${amount} ${fromCountry} = ${converted} ${toCountry}`}
+              </motion.div>
+            )}
+
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Current Time Card */}
-      <Card className="shadow-md border border-blue-100">
-        <CardHeader className="bg-blue-900 text-white rounded-t-lg py-2">
-          <CardTitle className="text-center text-sm font-semibold tracking-wide">
-            Current Time in {selectedCountry.name}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-5 text-center">
-          <motion.div
-            key={hours}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-3xl sm:text-4xl font-bold text-blue-900 bg-blue-100 rounded-lg py-2"
-          >
-            {hours}{" "}
-            <span className="text-sm text-gray-600 align-middle">
-              ({selectedCountry.timezone})
-            </span>
-          </motion.div>
+      <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 200 }}>
+        <Card className="border border-red-200 shadow-xl rounded-2xl overflow-hidden bg-white p-0 h-full">
 
-          <p className="mt-3 text-gray-700">
-            {date}, {week}
-          </p>
-        </CardContent>
-      </Card>
+          <CardHeader className="bg-gradient-to-r from-black to-[#E7000B] text-white py-3">
+            <CardTitle className="text-center text-sm font-semibold tracking-wider uppercase">
+               Local Time
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent className="p-6 text-center space-y-3">
+
+            <div className="text-xs uppercase tracking-wide text-gray-500">
+              {selectedCountry.name}
+            </div>
+
+            <motion.div
+              layout
+              className="text-4xl sm:text-5xl font-extrabold text-black bg-red-50 rounded-2xl py-4 border border-red-200"
+            >
+              {hours}
+              <div className="text-xs font-medium text-gray-600 mt-1">
+                {selectedCountry.timezone}
+              </div>
+            </motion.div>
+
+            <p className="text-sm font-medium text-black">
+              {date}
+            </p>
+            <p className="text-xs uppercase tracking-wide text-gray-500">
+              {week}
+            </p>
+
+          </CardContent>
+        </Card>
+      </motion.div>
+
     </div>
+
   );
 }

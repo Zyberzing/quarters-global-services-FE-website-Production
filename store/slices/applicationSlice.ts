@@ -46,7 +46,7 @@ const STATUS_KEY = "applicationStatus";
 const saveState = (state: ApplicationState) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {}
+  } catch { }
 };
 
 export const saveSingleApplication = (app: Application) => {
@@ -58,7 +58,7 @@ export const saveSingleApplication = (app: Application) => {
         data: app,
       })
     );
-  } catch {}
+  } catch { }
 };
 
 /* =======================
@@ -278,6 +278,36 @@ const applicationSlice = createSlice({
       return { applications: [], draftApplications: [], activeId: null };
     },
 
+    finalizeApplication(
+      state,
+      action: PayloadAction<{ id: string }>
+    ) {
+      const app = state.draftApplications.find(
+        (a) => a.id === action.payload.id
+      );
+
+      if (!app) return;
+
+      // ✅ avoid duplicate final save
+      const alreadySaved = state.applications.some(
+        (a) => a.id === app.id
+      );
+
+      if (!alreadySaved) {
+        state.applications.push({
+          ...app,
+        });
+      }
+
+      // ✅ KEEP draft (no removal)
+      // ❌ do NOT filter draftApplications
+
+      // ✅ keep activeId unchanged
+      state.activeId = app.id;
+
+      saveState(state);
+    },
+
     /* -------- DELETE APPLICATION -------- */
     deleteApplication(state, action: PayloadAction<string>) {
       const id = action.payload;
@@ -320,6 +350,7 @@ export const {
   deleteApplication,
   addAddon,
   removeAddon,
+  finalizeApplication
 } = applicationSlice.actions;
 
 export default applicationSlice.reducer;

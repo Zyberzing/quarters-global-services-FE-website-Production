@@ -84,7 +84,8 @@ export default function QuartusEnrollmentPage() {
     // Business
     if (!form.businessName.trim()) newErrors.businessName = "Business name is required";
     if (!form.businessPhone.trim()) newErrors.businessPhone = "Business phone is required";
-    if (!form.officeAddress.trim()) newErrors.officeAddress = "Office address is required";
+if (!form.businessEmail.trim())
+  newErrors.businessEmail = "Business Email is required";    if (!form.officeAddress.trim()) newErrors.officeAddress = "Office address is required";
 
     if (form.businessType.length === 0) {
       newErrors.businessType = "Select at least one business type";

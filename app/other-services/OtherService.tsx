@@ -3,7 +3,6 @@
 import BannerLayout from "@/components/Banner/BannerLayout";
 import ServiceSection from "@/components/ServiceSection";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 
@@ -22,6 +21,8 @@ type Service = {
 
 const OtherService = () => {
 
+    const [isVisible, setIsVisible] = useState(false);
+
     const { data, isLoading } = useGetPlatformServiceSubCategoriesQuery({
         platformServiceSlug: "other-services",
         toCountrySlug: "india",
@@ -34,15 +35,12 @@ const OtherService = () => {
         ...apiServices,
     ];
 
-    const [isVisible, setIsVisible] = useState(false);
+    const skeletons = Array.from({ length: 1 });
 
     useEffect(() => {
         setIsVisible(true);
     }, []);
-
-    const skeletons = Array.from({ length: 1 });
-
-
+    
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Banner */}
@@ -217,8 +215,6 @@ const OtherService = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Call to Action */}
 
         </div>
     );

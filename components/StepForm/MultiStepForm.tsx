@@ -150,13 +150,11 @@ const MultiStepForm = () => {
         </div>
       ) : (
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 lg:justify-between md:justify-center mt-6">
-
           {/* Form Steps */}
           <div className={`${step === 3 ? "w-full" : "w-full lg:w-1/2"} lg:ml-4`}>
             {step === 1 && <Step1 />}
             {step === 3 && <Step3 />}
           </div>
-
           {/* Order Summary */}
          <OrderSummary step={step}/>
 

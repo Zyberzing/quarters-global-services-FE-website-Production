@@ -182,28 +182,41 @@ export default function OrderSummaryPage() {
                         Shipping Selection
                     </h2>
 
+ 
                     {/* 🚚 Shipping List */}
-                    {Object.entries(shippingData).map(([carrier, services]) => (
-                        <div key={carrier} className="mb-4">
-                            <h4 className="font-semibold capitalize text-gray-800 mb-2">
-                                {carrier}
-                            </h4>
-                            <div className="grid sm:grid-cols-2 gap-2">
-                                {services.map((srv: any, i: number) => (
-                                    <button
-                                        key={i}
-                                        onClick={() => handleSelectService(carrier, srv)}
-                                        className={`border px-3 py-2 rounded text-sm ${selectedService?.serviceCode === srv.serviceCode
+                    {Object.entries(shippingData).map(([carrier, services]) => {
+                        const upsGround = services.find(
+                            (srv: any) => srv.serviceLabel === "UPS® Ground"
+                        );
+
+                        if (!upsGround) return null;
+
+                        const isSelected =
+                            selectedService?.serviceCode === upsGround.serviceCode;
+
+                        return (
+                            <div key={carrier} className="mb-4">
+                                <h4 className="font-semibold capitalize text-gray-800 mb-2">
+                                    {carrier}
+                                </h4>
+
+                                <button
+                                    onClick={() => handleSelectService(carrier, upsGround)}
+                                    className={`
+          w-full px-4 py-3 rounded-md text-sm font-medium border
+          transition-all duration-200
+          ${isSelected
                                             ? "bg-blue-600 text-white border-blue-600"
-                                            : "bg-white hover:bg-blue-50"
-                                            }`}
-                                    >
-                                        {srv.serviceLabel}
-                                    </button>
-                                ))}
+                                            : "bg-white text-gray-800 border-gray-300 hover:bg-blue-50"
+                                        }
+        `}
+                                >
+                                    UPS® Ground
+                                </button>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
+
 
                     {/* 📦 Package Selector */}
                     {selectedService && (
@@ -305,11 +318,11 @@ export default function OrderSummaryPage() {
                         />
                         <label htmlFor="agree" className="text-sm text-gray-700">
                             I acknowledge that I have reviewed and agree with the{" "}
-                            <a href="#" className="text-blue-600 underline">
+                            <a href="/terms-and-condition" className="text-blue-600 underline">
                                 Terms of Use
                             </a>{" "}
                             and{" "}
-                            <a href="#" className="text-blue-600 underline">
+                            <a href="/privacy-policy" className="text-blue-600 underline">
                                 Privacy Policy
                             </a>
                             .

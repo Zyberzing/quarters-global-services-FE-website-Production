@@ -1,15 +1,34 @@
 import { z } from "zod";
 import { FieldConfig } from "@/components/DynamicForm/DynamicForm";
 
-// ---------- Common Applicant Fields ----------
 export const commonApplicantSchema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-  email: z.string().email(),
-  countryCode: z.string(),
-  phone: z.string(),
-  status: z.string(),
+  firstName: z
+    .string()
+    .min(1, "First name is required"),
+
+  lastName: z
+    .string()
+    .min(1, "Last name is required"),
+
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Enter a valid email address"),
+
+  countryCode: z
+    .string()
+    .min(1, "Country code is required"),
+
+  phone: z
+    .string()
+    .min(1, "Phone number is required")
+    .regex(/^[0-9+()\-\s]+$/, "Enter a valid phone number"),
+
+  status: z
+    .string()
+    .min(1, "Status is required"),
 });
+
 
 export const commonApplicantFields: FieldConfig[] = [
   { name: "firstName", label: "First Name", type: "text" },
@@ -197,8 +216,8 @@ export const vehicleFields: FieldConfig[] = [
   { name: "numberOfPassengers", label: "Number of Passengers", type: "number" },
   { name: "pickUpDate", label: "Pick-up Date", type: "date" },
   { name: "dropDate", label: "Drop Date", type: "date" },
-  { name: "pickupLocation", label: "Pickup Location", type: "text" },
-  { name: "dropOffLocation", label: "Drop off Location", type: "text" },
+  { name: "pickupLocation", label: "Pickup Location", type: "address" },
+  { name: "dropOffLocation", label: "Drop off Location", type: "address" },
   { name: "purpose", label: "Purpose", type: "text" },
   { name: "preferredDriver", label: "Preferred Driver", type: "text" },
 ];
@@ -266,11 +285,7 @@ export const eventFieldsWithCommon = [...commonApplicantFields, ...eventFields];
 
 // ---------- Consultancy ----------
 export const consultancySchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().min(1, 'Email is required'),
-  phone: z.string().min(1, 'Phone Number is required'),
-  countryCode: z.string().optional(),
-  country: z.string().min(1, 'Country is required'),
+ 
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
   consultancyType: z.string().min(1, 'Consultancy Type is required'),
@@ -282,11 +297,7 @@ export const consultancySchema = z.object({
   purpose: z.string(),
 });
 export const consultancyFields = [
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+ 
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "consultancyType", label: "Consultancy Type", type: "text" },
@@ -338,10 +349,7 @@ export const driverSchema = z.object({
 
 export const driverFields: FieldConfig[] = [
   // Applicant Details
-  { name: "fullName", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "phone", label: "Phone Number", type: "phone" },
+  
   { name: "address", label: "Address", type: "address" },
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
@@ -497,11 +505,7 @@ export const idpSchema = z.object({
 
 export const idpFields = [
   // Common Applicant / License Holder Info
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+ 
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "typeOfLicense", label: "Type of License", type: "text" },
@@ -531,10 +535,7 @@ export const idpFieldsWithCommon = [...commonApplicantFields, ...idpFields];
 // ---------- Indian PAN Card ----------
 export const indianPanSchema = z.object({
   // Common Applicant Details
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().min(1, 'Email is required'),
-  phone: z.string().min(1, 'Phone Number is required'),
-  countryCode: z.string().optional(),
+
   country: z.string().min(1, 'Country is required'),
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
@@ -554,11 +555,7 @@ export const indianPanSchema = z.object({
 
 export const indianPanFields = [
   // Common Applicant Details
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+   { name: "country", label: "Country", type: "text" },
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "applicationType", label: "Application Type", type: "text" },
@@ -649,11 +646,7 @@ export const consultancyServiceFieldsWithCommon = [...commonApplicantFields, ...
 
 // ---------- Immigration Service ----------
 export const immigrationServiceSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().min(1, 'Email is required'),
-  phone: z.string().min(1, 'Phone Number is required'),
-  countryCode: z.string().optional(),
-  country: z.string().min(1, 'Country is required'),
+  
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
   visaCategory: z.string().min(1, 'Visa Category is required'),
@@ -666,11 +659,7 @@ export const immigrationServiceSchema = z.object({
 });
 
 export const immigrationServiceFields = [
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+ 
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "visaCategory", label: "Visa Category", type: "text" },
@@ -688,11 +677,7 @@ export const immigrationServiceFieldsWithCommon = [...commonApplicantFields, ...
 
 // Full Consular Services Schema (All Fields)
 export const consularServicesSchemaWithCommon = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().min(1, "Email is required"),
-  phone: z.string().min(1, "Phone Number is required"),
-  countryCode: z.string().optional(),
-  country: z.string().min(1, "Country is required"),
+  
   city: z.string().min(1, "City is required"),
   state: z.string().min(1, "State is required"),
   documentCategory: z.string().min(1, "Document Category is required"),
@@ -705,11 +690,7 @@ export const consularServicesSchemaWithCommon = z.object({
 
 // 🧩 Field Config for All Fields (used in Dynamic Form)
 export const consularServicesFieldsWithCommon: FieldConfig[] = [
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+  
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "documentCategory", label: "Document Category", type: "text" },
@@ -818,12 +799,8 @@ export const globalEntrySchema = z.object({
 
 export const globalEntryFields = [
   // Common Applicant Fields
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
-  { name: "city", label: "City", type: "text" },
+ 
+   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "programType", label: "Program Type", type: "text" },
   { name: "citizenship", label: "Citizenship", type: "text" },
@@ -851,11 +828,7 @@ export const fbiFingerprintingFieldsWithCommon = [...commonApplicantFields, ...f
 
 // ---------- Property Management & Investment ----------
 export const propertyManagementSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().min(1, "Email is required"),
-  phone: z.string().min(1, "Phone Number is required"),
-  countryCode: z.string().optional(),
-  country: z.string().min(1, "Country is required"),
+            
   city: z.string().min(1, "City is required"),
   state: z.string().min(1, "State is required"),
   propertyType: z.string().min(1, "Property Type is required"),
@@ -869,11 +842,7 @@ export const propertyManagementSchema = z.object({
 });
 
 export const propertyManagementFields: FieldConfig[] = [
-  { name: "name", label: "Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+  
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "propertyType", label: "Property Type", type: "text" },
@@ -892,11 +861,7 @@ export const propertyManagementFieldsWithCommon = [...commonApplicantFields, ...
 
 // ---------- Fast Track Immigration (FTI-TTP) ----------
 export const fastTrackSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().min(1, 'Email is required'),
-  phone: z.string().min(1, 'Phone Number is required'),
-  countryCode: z.string().optional(),
-  country: z.string().min(1, 'Country is required'),
+   
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
   programType: z.string().min(1, 'Program Type is required'),
@@ -911,11 +876,7 @@ export const fastTrackSchema = z.object({
 });
 
 export const fastTrackFields = [
-  { name: "name", label: "Full Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "phone", label: "Phone Number", type: "phone" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "country", label: "Country", type: "text" },
+   
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "programType", label: "Program Type (Global Entry/TSA PreCheck)", type: "text" },
@@ -956,7 +917,7 @@ export const serviceForms = {
   "idp-international-driving-license)": { schema: idpSchemaWithCommon, fields: idpFieldsWithCommon },
   "indian-pan-card": { schema: indianPanSchemaWithCommon, fields: indianPanFieldsWithCommon },
   "concert-program-tickets": { schema: concertTicketsSchemaWithCommon, fields: concertTicketsFieldsWithCommon },
-  "fast-track-immigration": { schema: fastTrackSchemaWithCommon, fields: fastTrackFieldsWithCommon },
+  "fast-track-immigration-fti-ttp": { schema: fastTrackSchemaWithCommon, fields: fastTrackFieldsWithCommon },
   "consultancy-service": { schema: consultancyServiceSchemaWithCommon, fields: consultancyServiceFieldsWithCommon },
   "immigration-service": { schema: immigrationServiceSchemaWithCommon, fields: immigrationServiceFieldsWithCommon },
   "consular-services": { schema: consularServicesSchemaWithCommon, fields: consularServicesFieldsWithCommon },
