@@ -2,6 +2,7 @@ import React from 'react';
 import { getSupportById } from '@/services/supportsService';
 import { hasSession } from '@/lib/session';
 import { redirect } from 'next/navigation';
+
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -14,12 +15,13 @@ const ViewSupportPage = async ({ params }: { params: Promise<{ id: string }> }) 
   if (!session?.id) {
     return redirect('/');
   }
-  
+
+
 
   const supportData = await getSupportById(id);
 
   if (!supportData) {
-    return redirect('/admin/support');
+    return redirect('/dashboard/support');
   }
 
   const formatDate = (dateString: string) => {
@@ -32,7 +34,6 @@ const ViewSupportPage = async ({ params }: { params: Promise<{ id: string }> }) 
       minute: '2-digit',
     });
   };
-
   return (
     <DashboardLayout>
       <div className="mb-4">
@@ -99,6 +100,10 @@ const ViewSupportPage = async ({ params }: { params: Promise<{ id: string }> }) 
                 <label className="text-sm font-medium text-gray-600">Last Updated</label>
                 <p className="text-sm">{formatDate(supportData.updatedAt)}</p>
               </div>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-600">Message</label>
+              <p className="text-sm">{supportData.message || '-'}</p>
             </div>
           </div>
         </div>

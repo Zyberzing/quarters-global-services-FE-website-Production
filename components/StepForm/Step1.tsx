@@ -121,6 +121,7 @@ export const mapStoredAppToApi = (app: any) => {
                 platformServiceCategoryId: app.platformServiceCategoryId||"68e966dde7bd0d029655d36d",
                 platformServiceCategoryPackageId:
                     app.platformServiceCategoryPackageId||"68e966dde7bd0d029655d370",
+                    platformServiceSubCategoryId:app.platformServiceSubCategoryId||"68e966dfe7bd0d029655d37f",
 
                 // ✅ FIX HERE: only ID array
                 platformServiceCategoryPackageAddonsId:

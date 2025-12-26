@@ -7,22 +7,38 @@ import DashboardLayout from '@/layout/DashboardLayout';
 const page = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; applicationSources?: ApplicationSource }>;
+  searchParams: Promise<{
+    page?: string;
+    applicationSources?: ApplicationSource;
+    q?: string;
+    from?: string;
+    to?: string;
+    status?: string;
+  }>;
 }) => {
-const page = (await searchParams).page || '1';
-  const applicationSources = "Website";
+  const page = (await searchParams).page || '1';
+  const applicationSources = (await searchParams).applicationSources || 'Website';
+  const search = (await searchParams).q || '';
+  const from = (await searchParams).from || '';
+  const to = (await searchParams).to || '';
+  const status = (await searchParams).status || '';
+
 
 
   const applications = await getApplications({
     page: page,
     applicationSources,
+    isSubmittedFromApplication: '1',
+    search,
+    from,
+    to,
+    status,
   });
 
   return (
     <DashboardLayout>
-      <div className="min-h-screen ">
-        <Application applicationsData={applications} selectedApplicationSources={applicationSources} />
-      </div>
+    <Application applicationsData={applications} selectedApplicationSources={applicationSources} />
+
     </DashboardLayout>
   );
 };

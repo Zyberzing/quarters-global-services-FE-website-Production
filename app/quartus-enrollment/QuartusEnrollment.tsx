@@ -1,7 +1,10 @@
 "use client";
 
+import EmailVerifyDialog from "@/components/StepForm/EmailVerifyDialog";
+import { useVerifyEmailMutation } from "@/services/verifyEmail";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+import { toast } from "sonner";
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
 type FormState = {
@@ -51,9 +54,11 @@ const initialState: FormState = {
 export default function QuartusEnrollmentPage() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
-
+  const [payload, setPayload] = useState<any>()
   const [errors, setErrors] = useState<FormErrors>({});
 
+  const [verifyEmail] = useVerifyEmailMutation();
+  const [emailOtpVerify, setEmailVerify] = useState(false)
 
   function handleChange<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((s) => ({ ...s, [key]: value }));
@@ -84,8 +89,8 @@ export default function QuartusEnrollmentPage() {
     // Business
     if (!form.businessName.trim()) newErrors.businessName = "Business name is required";
     if (!form.businessPhone.trim()) newErrors.businessPhone = "Business phone is required";
-if (!form.businessEmail.trim())
-  newErrors.businessEmail = "Business Email is required";    if (!form.officeAddress.trim()) newErrors.officeAddress = "Office address is required";
+    if (!form.businessEmail.trim())
+      newErrors.businessEmail = "Business Email is required"; if (!form.officeAddress.trim()) newErrors.officeAddress = "Office address is required";
 
     if (form.businessType.length === 0) {
       newErrors.businessType = "Select at least one business type";
@@ -182,7 +187,40 @@ if (!form.businessEmail.trim())
 
       selectedPackage: selectedPackage ?? "",
     };
+    setPayload(payload)
 
+    const res = await verifyEmail({ email: form.email }).unwrap();
+
+    if (res.status) {
+
+      if (res.message === "Email is already verified.") {
+        const base = process.env.NEXT_PUBLIC_QUARTUS_API_URL;
+        const response = await fetch(`${base}/tax-bureau`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to submit");
+        }
+
+        const result = await response.json();
+
+        if (result?.data?.redirectURL) {
+          setForm(initialState);
+          window.location.href = result.data.redirectURL;
+          return;
+        }
+      } else {
+        setEmailVerify(true);
+      }
+
+    }
+
+  }
+
+  const handleVerify = async () => {
     try {
       const base = process.env.NEXT_PUBLIC_QUARTUS_API_URL;
       const response = await fetch(`${base}/tax-bureau`, {
@@ -203,11 +241,10 @@ if (!form.businessEmail.trim())
         return;
       }
     } catch (err) {
-      alert("Submit failed — please try again.");
+      toast.error("Submit failed — please try again.");
       console.error(err);
     }
-  }
-
+  };
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -628,6 +665,14 @@ if (!form.businessEmail.trim())
           <p>Quartus Tax Service Bureau — Enrollment & Interest Form</p>
         </footer>
       </div>
+      {emailOtpVerify && (
+        <EmailVerifyDialog
+          email={payload.email}
+          handleSubmite={handleVerify}
+          onClose={() => setEmailVerify(false)}
+          emailOtpVerify={emailOtpVerify}
+        />
+      )}
     </div>
   );
 }

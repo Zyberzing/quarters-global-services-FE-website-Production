@@ -1,9 +1,16 @@
-import React, { ReactNode } from 'react';
-import ChatLayout from './ChatLayout';
-import DashboardLayout from '@/layout/DashboardLayout';
+import DashboardLayout from "@/layout/DashboardLayout";
+import { ReactNode } from "react";
 
-const layout = ({ children }: { children: ReactNode }) => {
-  return <DashboardLayout><ChatLayout>{children}</ChatLayout></DashboardLayout>
+type Props = {
+  children: ReactNode;
 };
 
-export default layout;
+const ChatLayout = ({ children }: Props) => {
+  return (
+    <DashboardLayout>
+      {children}
+    </DashboardLayout>
+  );
+};
+
+export default ChatLayout;

@@ -25,6 +25,8 @@ export interface Application {
   platformServiceCategoryId: string | null;
   platformServiceCategoryPackageId: string | null;
   platformServiceId: string | null;
+    platformServiceSubCategoryId: string | null; // ✅ NEW
+
 
   addons: AddonItem[];
   form: Record<string, any>;
@@ -136,6 +138,8 @@ const applicationSlice = createSlice({
         platformServiceCategoryId: null,
         platformServiceCategoryPackageId: null,
         platformServiceId: action.payload.platformServiceId,
+          platformServiceSubCategoryId: null, // ✅ NEW
+
       };
 
       state.draftApplications.push(app);
@@ -168,6 +172,25 @@ const applicationSlice = createSlice({
         saveSingleApplication(app);
       }
     },
+setSubCategory(
+  state,
+  action: PayloadAction<{
+    id: string;
+    platformServiceSubCategoryId: string;
+  }>
+) {
+  const app = state.draftApplications.find(
+    (a) => a.id === action.payload.id
+  );
+
+  if (app) {
+    app.platformServiceSubCategoryId =
+      action.payload.platformServiceSubCategoryId;
+
+    saveSingleApplication(app);
+    saveState(state);
+  }
+},
 
     /* -------- PACKAGE -------- */
     setPackage(
@@ -350,7 +373,8 @@ export const {
   deleteApplication,
   addAddon,
   removeAddon,
-  finalizeApplication
+  finalizeApplication,
+  setSubCategory
 } = applicationSlice.actions;
 
 export default applicationSlice.reducer;

@@ -1,26 +1,43 @@
 'use server';
 import { fetcher } from '@/lib/fetcher';
 import { commonEmptyResponse } from './helper';
-import { ApiPagination } from '@/lib/Types';
+import { revalidatePath } from 'next/cache';
+import { ApiPagination, UserDataType } from '@/lib/Types';
 
-export interface TicketAttachments {
-  passportScan?: string;
-  serviceForm?: string;
-  signature?: string;
-}
+// export interface TicketAttachments {
+//   passportScan?: string;
+//   serviceForm?: string;
+//   signature?: string;
+// }
 
 export interface TicketDataType {
   _id: string;
   status: 'Open' | 'Closed' | 'Resolved' | 'Waiting on Customer' | 'Urgent';
   priority: 'Low' | 'Normal' | 'High' | 'Urgent';
-  customer: string;
+  customer: UserDataType;
   applicationId: string;
   category: string;
   subCategory?: string;
   assignedStaff?: string;
   subject: string;
   description?: string;
-  attachments: TicketAttachments;
+  // attachments: TicketAttachments;
+  passportScan?: {
+    file: string;
+    filename: string;
+    mimeType: string;
+  };
+  serviceForm?: {
+    file: string;
+    filename: string;
+    mimeType: string;
+  };
+  signature?: {
+    file: string;
+    filename: string;
+    mimeType: string;
+  };
+
   isDeleted: boolean;
   deletedBy?: string | null;
   deletedAt?: string | null;
@@ -31,14 +48,23 @@ export interface TicketDataType {
 
 export const getTickets = async ({
   page,
+  search = '',
+  from = '',
+  to = '',
 }: {
   page: string;
+  search?: string;
+  from?: string;
+  to?: string;
 }): Promise<ApiPagination & { data: TicketDataType[] }> => {
   try {
-    const response = await fetcher(`/ticket/get-tickets?page=${page}`, {
-      cache: 'no-cache',
-      revalidate: 60,
-    });
+    const response = await fetcher(
+      `/ticket/get-tickets?page=${page}&search=${search}&from=${from}&to=${to}`,
+      {
+        cache: 'no-cache',
+        revalidate: 60,
+      },
+    );
     console.log(response, 'Tickets data');
 
     // Transform the API response to match our expected structure
@@ -94,6 +120,7 @@ export const createTicket = async (payload: CreateTicketPayload) => {
       method: 'POST',
       body: payload,
     });
+    revalidatePath('/admin/tickets');
     return result;
   } catch (error) {
     throw error;
@@ -102,10 +129,23 @@ export const createTicket = async (payload: CreateTicketPayload) => {
 
 export const updateTicket = async (id: string, payload: CreateTicketPayload) => {
   try {
-    const result = await fetcher(`/ticket/update/${id}`, {
+    const result = await fetcher(`/ticket/update-ticket/${id}`, {
       method: 'PUT',
       body: payload,
     });
+    revalidatePath('/admin/tickets');
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteTicket = async (id: string) => {
+  try {
+    const result = await fetcher(`/ticket/delete-ticket/${id}`, {
+      method: 'DELETE',
+    });
+    revalidatePath('/dashboard/tickets');
     return result;
   } catch (error) {
     throw error;

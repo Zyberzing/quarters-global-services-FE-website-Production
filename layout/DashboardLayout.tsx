@@ -133,26 +133,29 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             !sidebarOpen && "hidden lg:flex"
           )}
         >
-          <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
-            {topNavItems.map((item) => {
-              const isActive = pathname === item.path;
-              return (
-                <button
-                  key={item.name}
-                  onClick={() => router.push(item.path)}
-                  className={clsx(
-                    "flex items-center w-full px-4 py-2 rounded-md transition-colors",
-                    isActive
-                      ? "bg-red-100 text-red-600 font-medium"
-                      : "text-gray-600 hover:bg-red-50 hover:text-red-600"
-                  )}
-                >
-                  <item.icon className="h-5 w-5" />
-                  <span className="ml-3">{item.name}</span>
-                </button>
-              );
-            })}
-          </nav>
+         <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
+  {topNavItems.map((item) => {
+    const isActive =
+      pathname === item.path || pathname.startsWith(item.path + "/");
+
+    return (
+      <button
+        key={item.name}
+        onClick={() => router.push(item.path)}
+        className={clsx(
+          "flex items-center w-full px-4 py-2 rounded-md transition-colors",
+          isActive
+            ? "bg-red-100 text-red-600 font-medium"
+            : "text-gray-600 hover:bg-red-50 hover:text-red-600"
+        )}
+      >
+        <item.icon className="h-5 w-5" />
+        <span className="ml-3">{item.name}</span>
+      </button>
+    );
+  })}
+</nav>
+
         </aside>
 
         {/* ================= MAIN ================= */}

@@ -1,45 +1,43 @@
-import React from 'react';
 import TicketForm from '@/components/forms/ticketForm/TicketForm';
 import { getTicketById } from '@/services/ticketsService';
 import { getAllCustomers } from '@/services/customerService';
-import { getUsers } from '@/services/usersService';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
+import { getAgents } from '@/services/agencyService';
+import DashboardLayout from '@/layout/DashboardLayout';
 
 const EditTicketPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
- 
 
   // Fetch ticket data and dropdown data in parallel
-  const [ticketData, customersResponse, staffResponse] = await Promise.all([
-    getTicketById(id),
-    getAllCustomers({ page: '1' }),
-    getUsers({ page: '1' }),
-  ]);
-
+  const ticketData = await getTicketById(id);
   if (!ticketData) {
     return redirect('/admin/tickets');
   }
+
+  const [customersResponse, staffResponse] = await Promise.all([
+    getAllCustomers({ search: ticketData.customer?._id || '', page: '1' }),
+    getAgents({ search: ticketData.assignedStaff || '', page: '1' }),
+  ]);
 
   // Filter customers to only include users with role 'user'
   const customers = customersResponse.data?.data?.filter((user) => user.role === 'user') || [];
   const staff = staffResponse.data || [];
 
   return (
-    <div>
+    <DashboardLayout>
       <div className="mb-4">
         <div className="flex items-center gap-2 ">
-          <Link href="/admin/tickets">
+          <Link href="/dashboard/tickets">
             <ChevronLeft className="h-6 w-6 text-black" />
           </Link>
           <h1 className="text-2xl font-semibold">Edit Ticket</h1>
         </div>
-        <p className="text-gray-600">Ticket ID: #{ticketData._id.slice(-8)}</p>
       </div>
       <TicketForm ticketData={ticketData} isEdit={true} customers={customers} staff={staff} />
-    </div>
+    </DashboardLayout>
   );
 };
 

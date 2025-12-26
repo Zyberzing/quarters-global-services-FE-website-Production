@@ -10,6 +10,7 @@ export interface SupportDataType {
   email: string;
   supportType: string;
   date: string;
+  message?: string;
   avatar?: string;
   isDeleted: boolean;
   deletedBy?: string | null;
@@ -21,14 +22,23 @@ export interface SupportDataType {
 
 export const getSupports = async ({
   page,
+  search = '',
+  from = '',
+  to = '',
 }: {
   page: string;
+  search?: string;
+  from?: string;
+  to?: string;
 }): Promise<ApiPagination & { data: SupportDataType[] }> => {
   try {
-    const response = await fetcher(`/support/get-supports?page=${page}`, {
-      cache: 'no-cache',
-      revalidate: 60,
-    });
+    const response = await fetcher(
+      `/support/get-supports?page=${page}&search=${search}&from=${from}&to=${to}`,
+      {
+        cache: 'no-cache',
+        revalidate: 60,
+      },
+    );
     console.log(response, 'Supports data');
 
     // Transform the API response to match our expected structure

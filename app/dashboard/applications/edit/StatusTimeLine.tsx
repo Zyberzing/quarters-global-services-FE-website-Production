@@ -1,6 +1,6 @@
- import Timeline from '@/components/ui/timeline';
+import Timeline from '@/components/ui/timeline';
 import { ApplicationStatus, applicationStatuses } from '@/lib/Types';
- import { Clock } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import React from 'react';
 
 const StatusTimeLine = ({ activeStatus }: { activeStatus: ApplicationStatus }) => {

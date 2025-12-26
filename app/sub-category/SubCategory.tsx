@@ -12,8 +12,10 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import { getVisaDetails } from "@/lib/getVisaDetails";
 import { savePlatformServiceStep } from "@/lib/platformServiceStorage";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
+import { setSubCategory } from "@/store/slices/applicationSlice";
 import { useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 interface services {
   _id: string;
@@ -28,12 +30,12 @@ const SubCategory = () => {
   const subCategorySlug = searchParams.get("subCategorySlug") || "";
   const [activeTab, setActiveTab] = useState<"Services" | "apostille" | "e-visa">("Services");
 
-
+  const dispatch = useDispatch();
+  const { activeId } = useSelector((state: any) => state.application);
 
   const country = searchParams.get("toCountrySlug") || "";
   const platformServiceCategorySlug = searchParams.get("platformServiceCategorySlug") || "";
   const visaData = getVisaDetails(subCategorySlug, country);
-console.log(visaData,"visaData")
   const { data, isLoading } = useGetPlatformServiceSubCategoriesQuery(
     {
       platformServiceSlug: platformServiceCategorySlug,
@@ -42,9 +44,14 @@ console.log(visaData,"visaData")
   );
   const visaService = data?.data?.data.filter((service: services) => service.slug === subCategorySlug);
 
-  const save = (id: string) => {
-    savePlatformServiceStep({ platformServiceSubCategoryId: String(id) });
-  }
+const save = (id: string) => {
+  dispatch(
+    setSubCategory({
+      id: activeId,
+      platformServiceSubCategoryId: String(id),
+    })
+  );
+};
 
   return (
     <>

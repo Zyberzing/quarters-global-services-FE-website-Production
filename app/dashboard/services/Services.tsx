@@ -2,32 +2,35 @@
 import CommonTable from '@/components/common/CommonTable';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
-import { ExternalLink } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Plus } from 'lucide-react';
 import Link from 'next/link';
 import Icon from '@/components/common/Icon';
 import DeleteConfirm from '@/components/common/DeleteConfirm';
+
 import Paginator from '@/components/shared/paginator';
 import { deleteApplication } from '@/services/applicatonService';
 import { toast } from 'sonner';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ApiPagination, ApplicationSource } from '@/lib/Types';
+import CommonFilters from '@/components/common/CommonFilters';
+import { ExcelExportButton } from '@/components/shared/ExcelExportButton';
+import { ApiPagination, ApplicationSource, applicationSources, applicationStatuses } from '@/lib/Types';
+import { vehicleBooking_platformServiceCategoryPackageId } from '@/lib/staticIds';
 
 // Component
 const ServicesPage = ({
   applicationsData,
+  selectedApplicationSources,
 }: {
   applicationsData: ApiPagination & { data: any[] };
   selectedApplicationSources: ApplicationSource;
 }) => {
   const [isDeleting, setIsDeleting] = useState(false);
-  console.log(isDeleting);
   const router = useRouter();
 
   // Delete handler function
   const handleDeleteApplication = async (id: string) => {
-    console.log('Deleting application:', id);
     setIsDeleting(true);
     try {
       await deleteApplication(id);
@@ -108,15 +111,14 @@ const ServicesPage = ({
             confirmLabel="Delete"
             onConfirm={() => handleDeleteApplication(row.id)}
           >
-            <button type="button" className="cursor-pointer hover:opacity-70 transition-opacity">
+            <span className="cursor-pointer hover:opacity-70 transition-opacity">
               <Icon name="delete" />
-            </button>
+            </span>
           </DeleteConfirm>
         </div>
       ),
     },
   ];
-
   // Dummy data
   const applications = (applicationsData.data || []).map((data) => ({
     id: data._id,
@@ -138,24 +140,27 @@ const ServicesPage = ({
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          <Button>
-            <ExternalLink />
-            Export
-          </Button>
+          <ExcelExportButton
+            rows={applicationsData?.data || []}
+            filename="services-applications.xlsx"
+          />
 
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline">Filter</Button>
-            </PopoverTrigger>
-            <PopoverContent className="max-w-sm">Filter options here</PopoverContent>
-          </Popover>
+          <CommonFilters
+            selects={[
+              {
+                name: 'status',
+                label: 'Status',
+                options: applicationStatuses.map((status) => ({ label: status, value: status })),
+              },
+            ]}
+          />
 
-          {/* <Button asChild>
+          <Button asChild>
             <Link href="/dashboard/services/add-service">
               <Plus />
               <span className="ml-1">Add Service</span>
             </Link>
-          </Button> */}
+          </Button>
         </div>
       </div>
 

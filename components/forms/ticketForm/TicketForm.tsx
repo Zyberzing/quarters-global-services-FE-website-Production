@@ -28,50 +28,35 @@ import { Button } from '@/components/ui/button';
 import { FileInput } from '@/components/ui/file-input';
 import { useRouter } from 'next/navigation';
 import { CustomerDataType } from '@/services/customerService';
-
 import { fetcher } from '@/lib/fetcher';
-import { UserDataType } from '@/lib/Types';
+import { commonFieldSchema } from '@/lib/formSchemaFunctions';
+import { TicketDataType } from '@/services/ticketsService';
+import Link from 'next/link';
+import { UserDataType, UserTypeENUM } from '@/lib/Types';
 import { uploadFile } from '@/lib/uploadFile';
+import { FormCombobox } from '@/components/common/FormComboBox';
 
 const ticketFormSchema = z.object({
   status: z.enum(['Open', 'Closed', 'Resolved', 'Waiting on Customer', 'Urgent']),
   priority: z.enum(['Low', 'Normal', 'High', 'Urgent']),
-  customer: z.string().min(1, 'Customer is required'),
-  applicationId: z.string().optional(),
-  category: z.string().min(1, 'Category is required'),
-  subCategory: z.string().optional(),
-  assignedStaff: z.string().optional(),
-  subject: z.string().min(1, 'Subject is required'),
-  description: z.string().optional(),
+  customer: commonFieldSchema().min(1, 'Customer is required'),
+  applicationId: commonFieldSchema(),
+  category: commonFieldSchema(),
+  subCategory: commonFieldSchema().optional().or(z.literal('')),
+  assignedStaff: commonFieldSchema(),
+  subject: commonFieldSchema().optional().or(z.literal('')),
+  description: commonFieldSchema().optional().or(z.literal('')),
   passportScan: z.any().optional(),
   serviceForm: z.any().optional(),
   signature: z.any().optional(),
 });
-
-type TicketFormData = z.infer<typeof ticketFormSchema>;
 
 interface TicketFormProps {
   isView?: boolean;
   isEdit?: boolean;
   customers?: CustomerDataType[];
   staff?: UserDataType[];
-  ticketData?: {
-    _id?: string;
-    status?: TicketFormData['status'];
-    priority?: TicketFormData['priority'];
-    customer?: string;
-    applicationId?: string;
-    category?: string;
-    subCategory?: string;
-    assignedStaff?: string;
-    subject?: string;
-    description?: string;
-    attachments?: {
-      passportScan?: string;
-      serviceForm?: string;
-      signature?: string;
-    };
-  };
+  ticketData?: TicketDataType;
 }
 
 const TicketForm = ({
@@ -89,7 +74,7 @@ const TicketForm = ({
     defaultValues: {
       status: ticketData?.status || 'Open',
       priority: ticketData?.priority || 'Normal',
-      customer: ticketData?.customer || '',
+      customer: ticketData?.customer?._id || '',
       applicationId: ticketData?.applicationId || '',
       category: ticketData?.category || '',
       subCategory: ticketData?.subCategory || '',
@@ -109,26 +94,36 @@ const TicketForm = ({
       setIsLoading(true);
 
       // Step 1: Upload files if they are new File objects
-      let passportScanUrl = ticketData?.attachments?.passportScan || '';
-      let serviceFormUrl = ticketData?.attachments?.serviceForm || '';
-      let signatureUrl = ticketData?.attachments?.signature || '';
+      let passportScanUrl = ticketData?.passportScan?.file || '';
+      let passportScanFileName = ticketData?.passportScan?.filename || '';
+      let passportScanFileType = ticketData?.passportScan?.mimeType || '';
+
+      let serviceFormUrl = ticketData?.serviceForm?.file || '';
+      let serviceFormUrlName = ticketData?.serviceForm?.filename || '';
+      let serviceFormUrlType = ticketData?.serviceForm?.mimeType || '';
+
+      let signatureUrl = ticketData?.signature?.file || '';
+      let signatureUrlName = ticketData?.signature?.filename || '';
+      let signatureUrlType = ticketData?.signature?.mimeType || '';
 
       if (data.passportScan instanceof File) {
-        console.log('Uploading passport scan...');
         const uploadedUrl = await uploadFile(data.passportScan, 'ticket-passport-scan');
         if (!uploadedUrl) {
           throw new Error('Failed to upload passport scan');
         }
         passportScanUrl = uploadedUrl;
+        passportScanFileName = data.passportScan.name;
+        passportScanFileType = data.passportScan.type;
       }
 
       if (data.serviceForm instanceof File) {
-        console.log('Uploading service form...');
         const uploadedUrl = await uploadFile(data.serviceForm, 'ticket-service-form');
         if (!uploadedUrl) {
           throw new Error('Failed to upload service form');
         }
         serviceFormUrl = uploadedUrl;
+        serviceFormUrlName = data.serviceForm.name;
+        serviceFormUrlType = data.serviceForm.type;
       }
 
       if (data.signature instanceof File) {
@@ -138,6 +133,8 @@ const TicketForm = ({
           throw new Error('Failed to upload signature');
         }
         signatureUrl = uploadedUrl;
+        signatureUrlName = data.signature.name;
+        signatureUrlType = data.signature.type;
       }
 
       // Step 2: Prepare the payload with uploaded URLs
@@ -151,20 +148,39 @@ const TicketForm = ({
         description: data.description || '',
         priority: data.priority,
         status: data.status,
-        attachments: {
-          passportScan: passportScanUrl,
-          serviceForm: serviceFormUrl,
-          signature: signatureUrl,
-        },
+        // attachments: {
+        //   passportScan: passportScanUrl,
+        //   serviceForm: serviceFormUrl,
+        //   signature: signatureUrl,
+        // },
+        passportScan: passportScanUrl
+          ? {
+              file: passportScanUrl,
+              fileName: passportScanFileName,
+              mimeType: passportScanFileType,
+            }
+          : null,
+        serviceForm: serviceFormUrl
+          ? {
+              file: serviceFormUrl,
+              fileName: serviceFormUrlName,
+              mimeType: serviceFormUrlType,
+            }
+          : null,
+        signature: signatureUrl
+          ? {
+              file: signatureUrl,
+              fileName: signatureUrlName,
+              mimeType: signatureUrlType,
+            }
+          : null,
       };
-
-      console.log('Payload being sent:', payload);
 
       if (isEdit && ticketData?._id) {
         // Update existing ticket
-        await fetcher(`/ticket/update-ticket/${ticketData._id}`, {
+        await fetcher(`/ticket/update-ticket`, {
           method: 'PUT',
-          body: payload,
+          body: { ...payload, id: ticketData._id },
         });
         toast.success('Ticket Updated Successfully');
       } else {
@@ -185,10 +201,6 @@ const TicketForm = ({
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleBackToTickets = () => {
-    router.push('/admin/tickets');
   };
 
   return (
@@ -239,27 +251,13 @@ const TicketForm = ({
               />
             </div>
           </div>
-          <FormField
+          <FormCombobox
             control={form.control}
             name="customer"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Select Customer</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Choose..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {customers.map((customer) => (
-                      <SelectItem key={customer._id} value={customer._id}>
-                        {customer.firstName} {customer.lastName} ({customer.email})
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
+            label="Select Customer"
+            apiUrl="/user/get-all-user?roles=user"
+            initialOptions={customers}
+            formatLabel={(item) => `${item.firstName} ${item.lastName} (${item.email})`}
           />
           <FormField
             control={form.control}
@@ -270,6 +268,7 @@ const TicketForm = ({
                 <FormControl>
                   <Input placeholder="App ID" {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -280,16 +279,19 @@ const TicketForm = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Select Category</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Application Process">Application Process</SelectItem>
-                    <SelectItem value="Status Inquiry">Status Inquiry</SelectItem>
-                    <SelectItem value="Complaint">Complaint</SelectItem>
-                  </SelectContent>
-                </Select>
+                <FormControl>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Application Process">Application Process</SelectItem>
+                      <SelectItem value="Status Inquiry">Status Inquiry</SelectItem>
+                      <SelectItem value="Complaint">Complaint</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -302,30 +304,20 @@ const TicketForm = ({
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
-          <FormField
+
+          <FormCombobox
             control={form.control}
             name="assignedStaff"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Assigned Staff</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select staff..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {staff.map((staffMember) => (
-                      <SelectItem key={staffMember._id} value={staffMember._id}>
-                        {staffMember.firstName} {staffMember.lastName} ({staffMember.email})
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormItem>
-            )}
+            label="Select Staff"
+            apiUrl={`/user/get-all-user?roles=${UserTypeENUM.AGENT}`}
+            initialOptions={staff}
+            formatLabel={(item) => `${item.firstName ?? ''} ${item.lastName ?? ''} (${item.email})`}
           />
+
           <FormField
             control={form.control}
             name="subject"
@@ -335,6 +327,7 @@ const TicketForm = ({
                 <FormControl>
                   <Textarea rows={4} placeholder="" {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -347,6 +340,7 @@ const TicketForm = ({
                 <FormControl>
                   <Textarea rows={4} placeholder="" {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -366,8 +360,8 @@ const TicketForm = ({
                   <FormControl>
                     <FileInput
                       onFileChange={field.onChange}
-                      existingFileUrl={ticketData?.attachments?.passportScan}
-                      existingFileName="passport-scan.pdf"
+                      existingFileUrl={ticketData?.passportScan?.file}
+                      existingFileName={ticketData?.passportScan?.filename || 'passport-scan.pdf'}
                     />
                   </FormControl>
                 </FormItem>
@@ -382,8 +376,8 @@ const TicketForm = ({
                   <FormControl>
                     <FileInput
                       onFileChange={field.onChange}
-                      existingFileUrl={ticketData?.attachments?.serviceForm}
-                      existingFileName="service-form.pdf"
+                      existingFileUrl={ticketData?.serviceForm?.file}
+                      existingFileName={ticketData?.serviceForm?.filename || 'service-form.pdf'}
                     />
                   </FormControl>
                 </FormItem>
@@ -398,8 +392,8 @@ const TicketForm = ({
                   <FormControl>
                     <FileInput
                       onFileChange={field.onChange}
-                      existingFileUrl={ticketData?.attachments?.signature}
-                      existingFileName="signature.pdf"
+                      existingFileUrl={ticketData?.signature?.file}
+                      existingFileName={ticketData?.signature?.filename || 'signature.png'}
                     />
                   </FormControl>
                 </FormItem>
@@ -411,13 +405,8 @@ const TicketForm = ({
         {/* Buttons */}
         {!isView && (
           <div className="flex justify-end gap-2">
-            <Button
-              type="button"
-              variant="outline"
-              disabled={isLoading}
-              onClick={handleBackToTickets}
-            >
-              Cancel
+            <Button asChild type="button" variant="outline" disabled={isLoading}>
+              <Link href="/admin/tickets">Cancel</Link>
             </Button>
             <Button type="submit" disabled={isLoading}>
               {isLoading

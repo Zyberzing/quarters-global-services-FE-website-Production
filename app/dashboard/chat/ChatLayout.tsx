@@ -1,103 +1,53 @@
-'use client';
 import React, { ReactNode } from 'react';
-import { ChatSidebar } from '@/components/chat/ChatSidebar';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
-import { PanelLeftOpen } from 'lucide-react';
+import { ChatSidebar } from './components/ChatSidebar';
+import { getSession } from '@/lib/session';
+import { redirect } from 'next/navigation';
+import { NewChatDialog } from './components/NewChatDialog';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Link from 'next/link';
+import { UserTypeENUM } from '@/lib/Types';
+import { getChatsList } from '@/services/chatService';
 
-export interface Contact {
-  id: string;
-  name: string;
-  avatar?: string;
-  lastMessage: string;
-  timestamp: string;
-  unread?: number;
-  online?: boolean;
-}
+// Next.js Server Component
+const ChatLayout = async ({
+  children,
+  searchParams,
+}: {
+  children: ReactNode;
+  searchParams: Promise<{ tab?: UserTypeENUM }>;
+}) => {
+  const session = await getSession();
+  4;
+  if (!session) {
+    return redirect('/login');
+  }
 
-const mockContacts: Contact[] = [
-  {
-    id: '1',
-    name: 'Mr. Rosemary Koss',
-    lastMessage: 'Hi, I want to ask something...',
-    timestamp: '13:34',
-    unread: 1,
-    online: true,
-  },
-  {
-    id: '1',
-    name: 'Mr. Rosemary Koss',
-    lastMessage: 'Hi, I want to ask something...',
-    timestamp: '13:34',
-    unread: 1,
-    online: true,
-  },
-  {
-    id: '1',
-    name: 'Mr. Rosemary Koss',
-    lastMessage: 'Hi, I want to ask something...',
-    timestamp: '13:34',
-    unread: 1,
-    online: true,
-  },
-  {
-    id: '2',
-    name: "Ms. Dorin O'Keefe",
-    lastMessage: 'Hi, I want to ask something...',
-    timestamp: '13:34',
-    unread: 1,
-    online: false,
-  },
-  {
-    id: '3',
-    name: 'Irene Dicki',
-    lastMessage: 'Hi, I want to ask something...',
-    timestamp: '13:34',
-    unread: 1,
-    online: true,
-  },
-  {
-    id: '4',
-    name: 'Cora Goyette',
-    lastMessage: 'Speaking to a Representative',
-    timestamp: '13:34',
-    online: true,
-  },
-];
+  const activeTab = (await searchParams).tab || UserTypeENUM.AGENT;
 
-const ChatLayout = ({ children }: { children: ReactNode }) => {
+  // Fetch data on the server
+  const { data: chats } = await getChatsList(activeTab);
+
   return (
-    <div className="h-[88svh] flex flex-col lg:flex-row gap-4">
-      {/* After 1024px */}
-      <div className="bg-secondary border rounded-lg w-[360px] hidden lg:block">
-        <ChatSidebar contacts={mockContacts} chatUrl=" /dashboard/chat" />
+    <div className="h-[calc(100vh-2rem)] grid grid-cols-1 lg:grid-cols-[360px_1fr] grid-rows-[auto_1fr] gap-4">
+      <div className="col-span-2 h-fit flex items-center justify-between gap-2">
+        <Tabs defaultValue={activeTab}>
+          <TabsList>
+            <Link href={`/dashboard/chat?tab=${UserTypeENUM.AGENT}`}>
+              <TabsTrigger value={UserTypeENUM.AGENT}>Agents</TabsTrigger>
+            </Link>
+            <Link href={`/dashboard/chat?tab=${UserTypeENUM.USER}`}>
+              <TabsTrigger value={UserTypeENUM.USER}>Customer</TabsTrigger>
+            </Link>
+          </TabsList>
+        </Tabs>
+        <NewChatDialog currentUserId={session.id} role={activeTab} title="Chat with" />
       </div>
-      {/* Below 1020px */}
-      <div className="block lg:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline">
-              <PanelLeftOpen />
-              <span>Chats</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle className="sr-only"></SheetTitle>
-              <SheetDescription className="sr-only"></SheetDescription>
-              <ChatSidebar contacts={mockContacts} chatUrl="/dashboard/chat" />
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+      <div className="hidden lg:flex flex-col bg-background border rounded-lg overflow-hidden h-full">
+        <ChatSidebar chats={chats} currentUserId={session.id} />
       </div>
-      <div className="flex-1 flex flex-col min-w-0 border rounded-lg overflow-auto">{children}</div>
+      <div className="flex flex-col bg-background border rounded-lg overflow-hidden h-full min-w-0">
+        {children}
+      </div>
     </div>
   );
 };

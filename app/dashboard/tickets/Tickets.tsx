@@ -1,17 +1,15 @@
 import CommonTable from '@/components/common/CommonTable';
-import DeleteConfirm from '@/components/common/DeleteConfirm';
 import Icon from '@/components/common/Icon';
 import Paginator from '@/components/shared/paginator';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { ApiPagination } from '@/lib/Types';
 import { TicketDataType } from '@/services/ticketsService';
-
 
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
+import DeleteTicket from './DeleteTicket';
+import CommonFilters from '@/components/common/CommonFilters';
+import { ApiPagination } from '@/lib/Types';
 
 interface TicketsProps {
   ticketsData: ApiPagination & { data: TicketDataType[] };
@@ -24,14 +22,9 @@ const columns = [
   },
   {
     header: 'Customer',
-    accessor: 'customer',
+    accessor: 'name',
     render: (row: any) => (
-      <div className="flex items-center gap-2">
-        <Avatar>
-          <AvatarFallback>CU</AvatarFallback>
-        </Avatar>
-        <span className="font-medium">{row.customer.slice(-8)}</span>
-      </div>
+      <span className="capitalize">{row.customer.firstName + ' ' + row.customer.lastName}</span>
     ),
   },
   {
@@ -95,23 +88,6 @@ const columns = [
     },
   },
   {
-    header: 'Attachments',
-    accessor: 'attachments',
-    render: (row: any) => {
-      const attachments = row.attachments || {};
-      const attachmentCount = Object.values(attachments).filter(Boolean).length;
-
-      if (attachmentCount > 0) {
-        return (
-          <Badge variant="outline" className="text-xs">
-            {attachmentCount} file{attachmentCount > 1 ? 's' : ''}
-          </Badge>
-        );
-      }
-      return <span className="text-gray-400">-</span>;
-    },
-  },
-  {
     header: 'Action',
     accessor: 'action',
     className: 'text-center',
@@ -120,10 +96,10 @@ const columns = [
         <Link href={`/dashboard/tickets/edit/${row._id}`}>
           <Icon name="edit" />
         </Link>
-        <Icon name="view" />
-        <DeleteConfirm>
-          <Icon name="delete" />
-        </DeleteConfirm>
+        <Link href={`/dashboard/tickets/${row._id}`}>
+          <Icon name="view" />
+        </Link>
+        <DeleteTicket id={row._id} />
       </div>
     ),
   },
@@ -136,18 +112,9 @@ const Tickets = ({ ticketsData }: TicketsProps) => {
       <div className="flex justify-between  ">
         <div></div>
         <div className="flex items-center gap-2">
-          <Popover>
-            <PopoverTrigger>
-              <Button variant="outline" className="border-primary-100 text-primary-100">
-                Filter
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="max-w-fit" align="end">
-              <div className="flex items-center gap-2">Filters...</div>
-            </PopoverContent>
-          </Popover>
+          <CommonFilters showDateFilters={false} />
 
-          <Button asChild className="bg-black text-white">
+          <Button asChild >
             <Link href="/dashboard/tickets/create-ticket">
               <Plus />
               <span>Create Tickets</span>

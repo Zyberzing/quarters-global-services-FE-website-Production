@@ -11,16 +11,26 @@ export const getApplications = async ({
   search = '',
   isSubmittedFromApplication,
   isSubmittedFromService,
+  platformServiceCategoryPackageId,
+  from = '',
+  to = '',
+  status = '',
+  createdBy = '',
 }: {
   page: string;
   applicationSources: ApplicationSource | '';
   search?: string;
   isSubmittedFromApplication?: '1';
   isSubmittedFromService?: '1';
+  platformServiceCategoryPackageId?: string;
+  from?: string;
+  to?: string;
+  status?: string;
+  createdBy?: string;
 }): Promise<ApiPagination & { data: UserDataType[] }> => {
   try {
     const data = await fetcher(
-      `/application/get-application?page=${page}&applicationSources=${applicationSources}&search=${search || ''}&isSubmittedFromApplication=${isSubmittedFromApplication || '0'}&isSubmittedFromService=${isSubmittedFromService || '0'}`,
+      `/application/get-application?page=${page}&applicationSources=${applicationSources}&search=${search || ''}&isSubmittedFromApplication=${isSubmittedFromApplication || '0'}&isSubmittedFromService=${isSubmittedFromService || '0'}&platformServiceCategoryPackageId=${platformServiceCategoryPackageId}&from=${from}&to=${to}&status=${status}&createdBy=${createdBy}`,
       {
         cache: 'no-cache',
         revalidate: 60,
@@ -62,7 +72,6 @@ export const createApplication = async (body: any) => {
 };
 
 export const editApplication = async (body: any) => {
-  console.log(JSON.stringify(body), 'body');
   try {
     const result = await fetcher(`/application/update-application`, {
       method: 'PUT',

@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Loader2, Search as SearchIcon, X } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -37,6 +38,7 @@ type Props = {
   selects?: FilterSelectConfig[];
   children?: React.ReactNode; // any extra custom filters
   autoCloseOnChange?: boolean; // close popover after any change (default false)
+  showDateFilters?: boolean; // show date filters (default true)
 };
 
 const buildURL = (
@@ -67,6 +69,7 @@ export default function QueryFiltersPopover({
   selects = [],
   children,
   autoCloseOnChange = false,
+  showDateFilters = true,
 }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -232,21 +235,23 @@ export default function QueryFiltersPopover({
             </div>
 
             {/* Dates */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <Label className="mb-1 block">From</Label>
-                <Input type="date" value={from} onChange={(e) => onFromChange(e.target.value)} />
+            {showDateFilters && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <Label className="mb-1 block">From</Label>
+                  <Input type="date" value={from} onChange={(e) => onFromChange(e.target.value)} />
+                </div>
+                <div>
+                  <Label className="mb-1 block">To</Label>
+                  <Input
+                    type="date"
+                    min={from}
+                    value={to}
+                    onChange={(e) => onToChange(e.target.value)}
+                  />
+                </div>
               </div>
-              <div>
-                <Label className="mb-1 block">To</Label>
-                <Input
-                  type="date"
-                  min={from}
-                  value={to}
-                  onChange={(e) => onToChange(e.target.value)}
-                />
-              </div>
-            </div>
+            )}
 
             {/* Selects */}
             {selects.length > 0 && (
