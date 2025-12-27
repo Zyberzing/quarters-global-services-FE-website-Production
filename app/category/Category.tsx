@@ -11,8 +11,10 @@ import WeatherStrip from "@/components/WeatherStrip";
 import { getVisaDetails } from "@/lib/getVisaDetails";
 import { savePlatformServiceStep } from "@/lib/platformServiceStorage";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
+import { setCategory } from "@/store/slices/applicationSlice";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Category = () => {
     const searchParams = useSearchParams();
@@ -20,7 +22,8 @@ const Category = () => {
     const platformServiceCategorySlug = searchParams.get("Slug") || "";
     const visaSlug = searchParams.get("Slug") || "";
     const [activeTab, setActiveTab] = useState<"Services" | "apostille" | "e-visa">("Services");
-
+    const dispatch = useDispatch();
+    const { activeId } = useSelector((state: any) => state.application);
 
     const { data, error, isLoading } = useGetPlatformServiceSubCategoriesQuery(
         {
@@ -32,8 +35,10 @@ const Category = () => {
     // ✅ Get dynamic visa data
     const visaData = getVisaDetails(visaSlug, country);
 
-    const save = (id: string) => {
-        savePlatformServiceStep({ platformServiceCategoryId: String(id) });
+    const save = (id: string, title:string) => {
+        dispatch(
+            setCategory({ id: activeId, name: title, platformServiceCategoryId: id })
+        );
     }
     const packages = data?.data?.data;
     if (error) return <p>Something went wrong</p>;
@@ -56,9 +61,9 @@ const Category = () => {
 
                 <div className="px-4 sm:px-6 md:px-8">
                     {
-                        visaSlug==="e-visa"?"":<DropdownForm setActiveTab={setActiveTab} activeTab={activeTab} />
+                        visaSlug === "e-visa" ? "" : <DropdownForm setActiveTab={setActiveTab} activeTab={activeTab} />
                     }
-                    
+
                 </div>
             </BannerLayout>
 

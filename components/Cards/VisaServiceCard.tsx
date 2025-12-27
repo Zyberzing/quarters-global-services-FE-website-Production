@@ -11,7 +11,7 @@ interface VisaServiceCardProps {
   description: string;
   link?: string;
   shouldStartApplication?: boolean; // ✅ renamed
-  save?: (id: string) => void;
+  save?: (id: string,title:string) => void;
   mainType?: boolean;
 }
 
@@ -26,12 +26,12 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
   mainType = false,
 }) => {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const { activeId } = useSelector((state: any) => state.application);
+
+    const dispatch = useDispatch();
+
+  
   const handleApplyNow = () => {
-    dispatch(
-      setCategory({ id: activeId, name: title, platformServiceCategoryId: id })
-    );
+   
     if (link) {
       router.push(link);
     }
@@ -88,7 +88,7 @@ const VisaServiceCard: React.FC<VisaServiceCardProps> = ({
               sessionStorage.setItem("main_service_type", title);
             }
             if (save) {
-              save(id);
+              save(id,title);
             }
             // Then navigate
             handleApplyNow();

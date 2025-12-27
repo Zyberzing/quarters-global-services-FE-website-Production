@@ -348,7 +348,7 @@ export const Banner_data = {
       description: "UAE e-Visa application available online for tourists and visitors.",
       image: "/images/uae-evisa.jpg",
     },
-    united_kingdom: {
+    "united-kingdom": {
       title: "E-Visa — United Kingdom",
       description: "Apply online for a UK e-Visa or travel authorization.",
       image: "/images/uk-evisa.jpg",

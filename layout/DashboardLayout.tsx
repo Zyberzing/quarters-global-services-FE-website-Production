@@ -9,6 +9,7 @@ import {
   MessageCircle,
   Ticket,
   Headphones,
+  CreditCard,
 } from "lucide-react";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
@@ -48,6 +49,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
   const topNavItems = [
     { name: "Applications", icon: Users, path: "/dashboard/applications" },
+    { name: 'Payments', icon: CreditCard, path: '/dashboard/payments' }, // ✅ ADDED
     { name: "Services", icon: Briefcase, path: "/dashboard/services" },
     { name: "Chat", icon: MessageCircle, path: "/dashboard/chat" },
     { name: "Tickets", icon: Ticket, path: "/dashboard/tickets" },
@@ -125,43 +127,72 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       </Dialog>
 
       {/* ================= LAYOUT ================= */}
-      <div className="flex h-screen w-full overflow-hidden bg-gray-100">
+      <div className="flex h-screen w-full overflow-hidden bg-gray-100 ">
         {/* ================= SIDEBAR ================= */}
         <aside
           className={clsx(
-            "flex flex-col bg-white border-r shadow-md transition-all duration-300 w-64",
+            "flex flex-col bg-white border-r shadow-lg transition-all duration-300 w-64",
             !sidebarOpen && "hidden lg:flex"
           )}
         >
-         <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
-  {topNavItems.map((item) => {
-    const isActive =
-      pathname === item.path || pathname.startsWith(item.path + "/");
+          <nav className="flex-1 overflow-y-auto px-3   space-y-1 pt-3">
+            {topNavItems.map((item) => {
+              const isActive =
+                pathname === item.path || pathname.startsWith(item.path + "/");
 
-    return (
-      <button
-        key={item.name}
-        onClick={() => router.push(item.path)}
-        className={clsx(
-          "flex items-center w-full px-4 py-2 rounded-md transition-colors",
-          isActive
-            ? "bg-red-100 text-red-600 font-medium"
-            : "text-gray-600 hover:bg-red-50 hover:text-red-600"
-        )}
-      >
-        <item.icon className="h-5 w-5" />
-        <span className="ml-3">{item.name}</span>
-      </button>
-    );
-  })}
-</nav>
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => router.push(item.path)}
+                  className={clsx(
+                    "group relative flex items-center w-full px-4 py-3 rounded-lg transition-all duration-200 ",
+                    isActive
+                      ? "bg-red-50 text-red-600 font-semibold shadow-sm"
+                      : "text-gray-600 hover:bg-red-50 hover:text-red-600 hover:shadow-sm"
+                  )}
+                >
+                  {/* Left Active Border */}
+                  <span
+                    className={clsx(
+                      "absolute left-0 top-2 bottom-2 w-1 rounded-r-md transition-all",
+                      isActive ? "bg-red-600" : "bg-transparent group-hover:bg-red-300"
+                    )}
+                  />
 
+                  {/* Icon */}
+                  <div
+                    className={clsx(
+                      "flex items-center justify-center h-9 w-9 rounded-md transition-all",
+                      isActive
+                        ? "bg-red-100 text-red-600"
+                        : "bg-gray-100 text-gray-500 group-hover:bg-red-100 group-hover:text-red-600"
+                    )}
+                  >
+                    <item.icon className="h-5 w-5" />
+                  </div>
+
+                  {/* Label */}
+                  <span
+                    className={clsx(
+                      "ml-3 text-sm transition-all",
+                      isActive
+                        ? "tracking-wide"
+                        : "group-hover:tracking-wide"
+                    )}
+                  >
+                    {item.name}
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
         </aside>
+
 
         {/* ================= MAIN ================= */}
         <div className="flex-1 flex flex-col overflow-hidden">
           {/* ================= HEADER ================= */}
-          <header className="flex items-center justify-between px-6 h-16 bg-white border-b shadow-sm">
+          <header className="flex items-center justify-between px-6 h-18 bg-white border-b shadow-sm  ">
             <button
               className="lg:hidden p-2 text-gray-600"
               onClick={() => setSidebarOpen(!sidebarOpen)}

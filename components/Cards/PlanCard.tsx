@@ -46,17 +46,9 @@ const PlanCard = ({ plan }: { plan: VisaPlan; type: string }) => {
         package: plan.name,
         price: plan.price,
         platformServiceCategoryPackageId: plan._id,
-        platformServiceId: plan.platformServiceId,
-        platformServiceCategoryId: plan.platformServiceCategoryId,
+        
       })
     );
-
-    savePlatformServiceStep({
-      platformServiceCategoryPackageId: plan._id,
-      price: Number(plan.price),
-      currency: "USD",
-      Price_name: plan.name,
-    });
 
     router.push(
       `/additional-services?slug=${plan.slug}&toCountrySlug=${country}&platformServiceCategorySlug=${platformServiceCategorySlug}`

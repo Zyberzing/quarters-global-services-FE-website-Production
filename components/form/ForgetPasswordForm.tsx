@@ -49,7 +49,7 @@ const ForgetPasswordForm = () => {
         type="submit"
         className="w-full bg-black hover:bg-gray-900 text-white py-2 rounded-lg font-medium transition"
       >
-        Send Reset Link
+       Reset Password
       </button>
     </form>
   );

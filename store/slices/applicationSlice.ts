@@ -25,7 +25,7 @@ export interface Application {
   platformServiceCategoryId: string | null;
   platformServiceCategoryPackageId: string | null;
   platformServiceId: string | null;
-    platformServiceSubCategoryId: string | null; // ✅ NEW
+  platformServiceSubCategoryId: string | null; // ✅ NEW
 
 
   addons: AddonItem[];
@@ -138,7 +138,7 @@ const applicationSlice = createSlice({
         platformServiceCategoryId: null,
         platformServiceCategoryPackageId: null,
         platformServiceId: action.payload.platformServiceId,
-          platformServiceSubCategoryId: null, // ✅ NEW
+        platformServiceSubCategoryId: null, // ✅ NEW
 
       };
 
@@ -172,36 +172,11 @@ const applicationSlice = createSlice({
         saveSingleApplication(app);
       }
     },
-setSubCategory(
-  state,
-  action: PayloadAction<{
-    id: string;
-    platformServiceSubCategoryId: string;
-  }>
-) {
-  const app = state.draftApplications.find(
-    (a) => a.id === action.payload.id
-  );
-
-  if (app) {
-    app.platformServiceSubCategoryId =
-      action.payload.platformServiceSubCategoryId;
-
-    saveSingleApplication(app);
-    saveState(state);
-  }
-},
-
-    /* -------- PACKAGE -------- */
-    setPackage(
+    setSubCategory(
       state,
       action: PayloadAction<{
         id: string;
-        package: string;
-        price: string;
-        platformServiceCategoryId: string;
-        platformServiceCategoryPackageId: string;
-        platformServiceId: string;
+        platformServiceSubCategoryId: string;
       }>
     ) {
       const app = state.draftApplications.find(
@@ -209,18 +184,40 @@ setSubCategory(
       );
 
       if (app) {
-        app.package = action.payload.package;
-        app.price = Number(action.payload.price);
-        app.platformServiceCategoryId =
-          action.payload.platformServiceCategoryId;
-        app.platformServiceCategoryPackageId =
-          action.payload.platformServiceCategoryPackageId;
-        app.platformServiceId = action.payload.platformServiceId;
+        app.platformServiceSubCategoryId =
+          action.payload.platformServiceSubCategoryId;
 
         saveSingleApplication(app);
+        saveState(state);
       }
     },
 
+    /* -------- PACKAGE -------- */
+   setPackage(
+  state,
+  action: PayloadAction<{
+    id: string;
+    package: string;
+    price: string;
+    platformServiceCategoryPackageId: string; // ✅ PLAN ID ONLY
+  }>
+) {
+  const app = state.draftApplications.find(
+    (a) => a.id === action.payload.id
+  );
+
+  if (app) {
+    app.package = action.payload.package;
+    app.price = Number(action.payload.price);
+    app.platformServiceCategoryPackageId =
+      action.payload.platformServiceCategoryPackageId;
+
+    // ❌ DO NOT update service / category / subcategory here
+
+    saveSingleApplication(app);
+    saveState(state);
+  }
+},
     /* -------- COUNTRY UPDATE -------- */
     setCountry(
       state,

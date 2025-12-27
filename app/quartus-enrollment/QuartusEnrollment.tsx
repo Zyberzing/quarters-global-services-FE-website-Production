@@ -281,30 +281,47 @@ export default function QuartusEnrollmentPage() {
 
               <label className="block">
                 <span className="text-sm text-gray-700">Date of Birth</span>
+
                 <input
                   type="date"
+                  max={new Date().toISOString().split("T")[0]} // ❌ future dates disabled
                   value={form.dob}
                   onChange={(e) => handleChange("dob", e.target.value)}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
+                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm px-3 py-2 bg-white
+      hover:border-[#E7000B]/50 transition-all duration-200
+      focus:ring-2 focus:ring-[#E7000B]"
                 />
                 {errors.dob && (
                   <p className="mt-1 text-xs text-red-600">{errors.dob}</p>
                 )}
               </label>
 
+
               <label className="block">
                 <span className="text-sm text-gray-700">Phone Number</span>
+
                 <input
-                  type="number"
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  minLength={10}
+                  maxLength={10}
                   value={form.phone}
-                  onChange={(e) => handleChange("phone", e.target.value)}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+                    handleChange("phone", value);
+                  }}
+                  placeholder="Enter 10 digit number"
+                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm px-3 py-2 bg-white
+      hover:border-[#E7000B]/50 transition-all duration-200
+      focus:ring-2 focus:ring-[#E7000B]"
                 />
 
                 {errors.phone && (
                   <p className="mt-1 text-xs text-red-600">{errors.phone}</p>
                 )}
               </label>
+
 
               <label className="block">
                 <span className="text-sm text-gray-700">Email Address</span>
@@ -354,17 +371,29 @@ export default function QuartusEnrollmentPage() {
 
               <label className="block">
                 <span className="text-sm text-gray-700">Business Phone Number</span>
+
                 <input
-                  type="number"
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  minLength={10}
+                  maxLength={10}
+                  placeholder="Enter 10 digit business number"
                   value={form.businessPhone}
-                  onChange={(e) => handleChange("businessPhone", e.target.value)}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+                    handleChange("businessPhone", value);
+                  }}
+                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm px-3 py-2 bg-white
+      hover:border-[#E7000B]/50 transition-all duration-200
+      focus:ring-2 focus:ring-[#E7000B]"
                 />
 
                 {errors.businessPhone && (
                   <p className="mt-1 text-xs text-red-600">{errors.businessPhone}</p>
                 )}
               </label>
+
 
               <label className="block">
                 <span className="text-sm text-gray-700">Business Email (if different)</span>
@@ -442,6 +471,7 @@ export default function QuartusEnrollmentPage() {
                 <span className="text-sm text-gray-700">EFIN Number (if available)</span>
                 <input
                   value={form.efin}
+                  type="number"
                   onChange={(e) => handleChange("efin", e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 rounded-lg bg-white hover:border-[#E7000B]/50 transition-all duration-200 focus:ring-2 focus:ring-[#E7000B]"
                 />
