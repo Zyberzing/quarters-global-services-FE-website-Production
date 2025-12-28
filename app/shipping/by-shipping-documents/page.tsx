@@ -219,8 +219,6 @@ export default function OrderSummaryPage() {
             </Button>
           )}
 
-
-
           <div>
             <h3 className="text-lg font-semibold mb-3 text-gray-800">
               Billing Address

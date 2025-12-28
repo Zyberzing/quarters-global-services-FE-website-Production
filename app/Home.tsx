@@ -17,6 +17,7 @@ import TrustedSection from "@/components/TrustedSection";
 import SupportForm from "@/components/SupportForm";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ServicesSection from "@/components/ServicesSection";
 
 export const blogPosts = [
   {
@@ -60,6 +61,7 @@ export default function Home() {
   const router = useRouter()
   return (
     <>
+
       <BannerLayout
         bg={
           activeTab === "Services"

@@ -85,7 +85,7 @@ export function FormCombobox<T extends FieldValues>({
       }));
       setOptions(mappedOptions);
     }
-  });
+  },[]);
 
   // Helper to get label from item
   const getItemLabel = React.useCallback(
