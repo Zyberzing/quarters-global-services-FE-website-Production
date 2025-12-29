@@ -30,16 +30,6 @@ const ChatLayout = async ({
   return (
     <div className="h-[calc(100vh-2rem)] grid grid-cols-1 lg:grid-cols-[360px_1fr] grid-rows-[auto_1fr] gap-4">
       <div className="col-span-2 h-fit flex items-center justify-between gap-2">
-        <Tabs defaultValue={activeTab}>
-          <TabsList>
-            <Link href={`/dashboard/chat?tab=${UserTypeENUM.AGENT}`}>
-              <TabsTrigger value={UserTypeENUM.AGENT}>Agents</TabsTrigger>
-            </Link>
-            <Link href={`/dashboard/chat?tab=${UserTypeENUM.USER}`}>
-              <TabsTrigger value={UserTypeENUM.USER}>Customer</TabsTrigger>
-            </Link>
-          </TabsList>
-        </Tabs>
         <NewChatDialog currentUserId={session.id} role={activeTab} title="Chat with" />
       </div>
       <div className="hidden lg:flex flex-col bg-background border rounded-lg overflow-hidden h-full">

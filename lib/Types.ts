@@ -138,3 +138,52 @@ export type RoleDataType = {
   updatedAt: string;
   __v: number;
 };
+
+
+
+export type TaxBureauDataType = {
+  _id: string;
+  userId: string;
+  fullName: string;
+  dateOfBirth: string;
+  countryCode: string;
+  phoneNumber: string;
+  email: string;
+  homeAddress: string;
+  businessName: string;
+  businessPhone: string;
+  businessEmail: string;
+  officeAddress: string;
+  businessType: string;
+  ptinNumber: string;
+  efinNumber: string;
+  efinStatus: string;
+  enrolledServices: string[];
+  experienceLevel: string;
+  expectedVolume: string;
+  softwarePreference: string;
+  description: string;
+  agreementName: string;
+  agreementSignature: string;
+  agreementDate: string;
+  selectedPackage: string;
+  selectedPackagePrice: string;
+  submittedSource: string;
+  status: string;
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+export const taxBureauStatuses = ['Approved', 'Pending'] as const;
+export const taxPackagesWithPrices = {
+  personal_tax_filing: 150,
+  business_tax_filing: 250,
+  licensing_and_certification: 1000,
+} as const;
+
+export const taxPackagesWithPricesKeys = Object.keys(taxPackagesWithPrices) as [
+  keyof typeof taxPackagesWithPrices,
+  ...(keyof typeof taxPackagesWithPrices)[],
+];

@@ -119,16 +119,7 @@ const ApplicationsPage = ({
           <Link href={`/dashboard/applications/edit?application=${row.id}&isView=1`}>
             <Icon name="view" />
           </Link>
-          <DeleteConfirm
-            title="Delete Application"
-            description="Are you sure you want to delete this application? This action cannot be undone."
-            confirmLabel="Delete"
-            onConfirm={() => handleDeleteApplication(row.id)}
-          >
-            <span className="cursor-pointer hover:opacity-70 transition-opacity">
-              <Icon name="delete" />
-            </span>
-          </DeleteConfirm>
+         
         </div>
       ),
     },

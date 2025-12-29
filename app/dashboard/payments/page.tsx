@@ -124,16 +124,7 @@ const PaymentPage = () => {
             <Icon name="view" />
           </Link>
 
-          <DeleteConfirm
-            title="Delete Payment"
-            description="Are you sure you want to delete this payment?"
-            confirmLabel="Delete"
-            onConfirm={() => handleDeletePayment(row.id)}
-          >
-            <span className="cursor-pointer">
-              <Icon name="delete" />
-            </span>
-          </DeleteConfirm>
+         
         </div>
       ),
     },

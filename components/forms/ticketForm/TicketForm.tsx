@@ -155,24 +155,24 @@ const TicketForm = ({
         // },
         passportScan: passportScanUrl
           ? {
-              file: passportScanUrl,
-              fileName: passportScanFileName,
-              mimeType: passportScanFileType,
-            }
+            file: passportScanUrl,
+            fileName: passportScanFileName,
+            mimeType: passportScanFileType,
+          }
           : null,
         serviceForm: serviceFormUrl
           ? {
-              file: serviceFormUrl,
-              fileName: serviceFormUrlName,
-              mimeType: serviceFormUrlType,
-            }
+            file: serviceFormUrl,
+            fileName: serviceFormUrlName,
+            mimeType: serviceFormUrlType,
+          }
           : null,
         signature: signatureUrl
           ? {
-              file: signatureUrl,
-              fileName: signatureUrlName,
-              mimeType: signatureUrlType,
-            }
+            file: signatureUrl,
+            fileName: signatureUrlName,
+            mimeType: signatureUrlType,
+          }
           : null,
       };
 
@@ -251,50 +251,42 @@ const TicketForm = ({
               />
             </div>
           </div>
-          <FormCombobox
-            control={form.control}
-            name="customer"
-            label="Select Customer"
-            apiUrl="/user/get-all-user?roles=user"
-            initialOptions={customers}
-            formatLabel={(item) => `${item.firstName} ${item.lastName} (${item.email})`}
-          />
-          <FormField
-            control={form.control}
-            name="applicationId"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Linked Application ID</FormLabel>
-                <FormControl>
-                  <Input placeholder="App ID" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
           <FormField
             control={form.control}
             name="category"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel>Select Category</FormLabel>
+
                 <FormControl>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <SelectTrigger>
-                      <SelectValue />
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select a category" />
                     </SelectTrigger>
+
                     <SelectContent>
-                      <SelectItem value="Application Process">Application Process</SelectItem>
-                      <SelectItem value="Status Inquiry">Status Inquiry</SelectItem>
-                      <SelectItem value="Complaint">Complaint</SelectItem>
+                      <SelectItem value="Application Process">
+                        Application Process
+                      </SelectItem>
+                      <SelectItem value="Status Inquiry">
+                        Status Inquiry
+                      </SelectItem>
+                      <SelectItem value="Complaint">
+                        Complaint
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>
+
                 <FormMessage />
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="subCategory"
@@ -309,15 +301,7 @@ const TicketForm = ({
             )}
           />
 
-          <FormCombobox
-            control={form.control}
-            name="assignedStaff"
-            label="Select Staff"
-            apiUrl={`/user/get-all-user?roles=${UserTypeENUM.AGENT}`}
-            initialOptions={staff}
-            formatLabel={(item) => `${item.firstName ?? ''} ${item.lastName ?? ''} (${item.email})`}
-          />
-
+         
           <FormField
             control={form.control}
             name="subject"

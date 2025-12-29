@@ -99,7 +99,7 @@ const columns = [
         <Link href={`/dashboard/tickets/${row._id}`}>
           <Icon name="view" />
         </Link>
-        <DeleteTicket id={row._id} />
+       
       </div>
     ),
   },
