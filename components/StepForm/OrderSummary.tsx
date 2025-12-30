@@ -26,7 +26,7 @@ const OrderSummary = ({ step }: { step: number }) => {
   }, 0);
 
   return (
-    <div className="w-full lg:w-1/3 mt-6 lg:mt-0">
+    <div className="w-full lg:w-1/3 mt-6 lg:mt-0 mr-4">
       <div className="relative lg:sticky lg:top-20 rigth-10">
 
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">

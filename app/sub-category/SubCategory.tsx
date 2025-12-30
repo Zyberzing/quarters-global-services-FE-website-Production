@@ -50,6 +50,7 @@ const save = (id: string) => {
       id: activeId,
       platformServiceSubCategoryId: String(id),
     })
+    
   );
 };
 

@@ -182,9 +182,14 @@ const Details = () => {
 
           {/* Title */}
           <h4 className="text-2xl sm:text-3xl font-semibold capitalize">
-            {slug.includes("driver")
-              ? "Driver Registration"
-              : slug.replaceAll("-", " ")}
+            {
+              slug.includes("driver")
+                ? "Driver Registration"
+                : slug
+                  .replaceAll("-", " ")
+                  .replaceAll("_", " ")
+                  .replace(/\b\w/g, char => char.toUpperCase())
+            }
 
           </h4>
 

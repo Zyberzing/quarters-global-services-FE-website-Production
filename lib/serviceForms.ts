@@ -15,9 +15,9 @@ export const commonApplicantSchema = z.object({
     .min(1, "Email is required")
     .email("Enter a valid email address"),
 
-  countryCode: z
+  country: z
     .string()
-    .min(1, "Country code is required"),
+    .min(1, "Country is required"),
 
   phone: z
     .string()
@@ -30,10 +30,23 @@ export const commonApplicantFields: FieldConfig[] = [
   { name: "firstName", label: "First Name", type: "text" },
   { name: "lastName", label: "Last Name", type: "text" },
   { name: "email", label: "Email", type: "email" },
-  { name: "countryCode", label: "Country Code", type: "text" },
-  { name: "phone", label: "Phone", type: "phone" },
 
+  {
+    name: "country",
+    label: "Country",
+    type: "select",
+    options: [
+      { label: "India", value: "IN" },
+      { label: "United States", value: "US" },
+      { label: "United Kingdom", value: "UK" },
+      { label: "Canada", value: "CA" },
+      { label: "Australia", value: "AU" },
+    ],
+  },
+
+  { name: "phone", label: "Phone", type: "phone" },
 ];
+
 
 // ---------- OCI ----------
 export const ociSchema = z.object({
@@ -277,34 +290,56 @@ export const eventFields: FieldConfig[] = [
 ];
 export const eventSchemaWithCommon = commonApplicantSchema.merge(eventSchema);
 export const eventFieldsWithCommon = [...commonApplicantFields, ...eventFields];
+const appointmentModeEnum = ["call", "video", "in_person"] as const;
 
 // ---------- Consultancy ----------
 export const consultancySchema = z.object({
- 
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
   consultancyType: z.string().min(1, 'Consultancy Type is required'),
-  appointmentMode: z.string().min(1, 'Preferred Appointment Mode is required'),
+
+  appointmentMode: z
+    .enum(appointmentModeEnum)
+    .refine(val => !!val, {
+      message: "Preferred Appointment Mode is required",
+    }),
+
   appointmentDatePreference: z.string().min(1, 'Appointment Date Preference is required'),
   message: z.string().optional(),
   serviceType: z.string(),
   inquiryType: z.string(),
   purpose: z.string(),
 });
+
 export const consultancyFields = [
- 
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "consultancyType", label: "Consultancy Type", type: "text" },
-  { name: "appointmentMode", label: "Preferred Appointment Mode", type: "text" },
+
+  {
+    name: "appointmentMode",
+    label: "Preferred Appointment Mode",
+    type: "select",
+    options: [
+      { label: "Call", value: "call" },
+      { label: "Video", value: "video" },
+      { label: "In Person", value: "in_person" },
+    ],
+  },
+
   { name: "appointmentDatePreference", label: "Appointment Date Preference", type: "date" },
   { name: "message", label: "Message", type: "textarea" },
   { name: "inquiryType", label: "Inquiry Type", type: "text" },
   { name: "purpose", label: "Purpose", type: "text" },
 ];
 
-export const consultancySchemaWithCommon = commonApplicantSchema.merge(consultancySchema);
-export const consultancyFieldsWithCommon = [...commonApplicantFields, ...consultancyFields];
+export const consultancySchemaWithCommon =
+  commonApplicantSchema.merge(consultancySchema);
+
+export const consultancyFieldsWithCommon = [
+  ...commonApplicantFields,
+  ...consultancyFields,
+];
 
 // ---------- Miscellaneous ----------
 export const miscellaneousSchema = z.object({
@@ -337,13 +372,13 @@ export const driverSchema = z.object({
   drivingExperienceYears: z.string(),
 
   // Other
-   photo: z.any().optional(),
+  photo: z.any().optional(),
   licence: z.any().optional(), // API spelling
 });
 
 export const driverFields: FieldConfig[] = [
   // Applicant Details
-  
+
   { name: "address", label: "Address", type: "address" },
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
@@ -355,7 +390,7 @@ export const driverFields: FieldConfig[] = [
   { name: "drivingExperienceYears", label: "Experience (Years)", type: "text" },
 
   // Other
-       //@ts-ignore
+  //@ts-ignore
   { name: "photo", label: "Photo", type: "file" }, //@ts-ignore
   { name: "licence", label: "Licence File", type: "file" },
 ];
@@ -491,7 +526,7 @@ export const idpSchema = z.object({
 
 export const idpFields = [
   // Common Applicant / License Holder Info
- 
+
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "typeOfLicense", label: "Type of License", type: "text" },
@@ -541,7 +576,7 @@ export const indianPanSchema = z.object({
 
 export const indianPanFields = [
   // Common Applicant Details
-   { name: "country", label: "Country", type: "text" },
+  { name: "country", label: "Country", type: "text" },
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "applicationType", label: "Application Type", type: "text" },
@@ -632,7 +667,7 @@ export const consultancyServiceFieldsWithCommon = [...commonApplicantFields, ...
 
 // ---------- Immigration Service ----------
 export const immigrationServiceSchema = z.object({
-  
+
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
   visaCategory: z.string().min(1, 'Visa Category is required'),
@@ -645,7 +680,7 @@ export const immigrationServiceSchema = z.object({
 });
 
 export const immigrationServiceFields = [
- 
+
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "visaCategory", label: "Visa Category", type: "text" },
@@ -663,7 +698,7 @@ export const immigrationServiceFieldsWithCommon = [...commonApplicantFields, ...
 
 // Full Consular Services Schema (All Fields)
 export const consularServicesSchemaWithCommon = z.object({
-  
+
   city: z.string().min(1, "City is required"),
   state: z.string().min(1, "State is required"),
   documentCategory: z.string().min(1, "Document Category is required"),
@@ -676,7 +711,7 @@ export const consularServicesSchemaWithCommon = z.object({
 
 // 🧩 Field Config for All Fields (used in Dynamic Form)
 export const consularServicesFieldsWithCommon: FieldConfig[] = [
-  
+
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "documentCategory", label: "Document Category", type: "text" },
@@ -785,8 +820,8 @@ export const globalEntrySchema = z.object({
 
 export const globalEntryFields = [
   // Common Applicant Fields
- 
-   { name: "city", label: "City", type: "text" },
+
+  { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "programType", label: "Program Type", type: "text" },
   { name: "citizenship", label: "Citizenship", type: "text" },
@@ -814,7 +849,7 @@ export const fbiFingerprintingFieldsWithCommon = [...commonApplicantFields, ...f
 
 // ---------- Property Management & Investment ----------
 export const propertyManagementSchema = z.object({
-            
+
   city: z.string().min(1, "City is required"),
   state: z.string().min(1, "State is required"),
   propertyType: z.string().min(1, "Property Type is required"),
@@ -828,7 +863,7 @@ export const propertyManagementSchema = z.object({
 });
 
 export const propertyManagementFields: FieldConfig[] = [
-  
+
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "propertyType", label: "Property Type", type: "text" },
@@ -847,7 +882,7 @@ export const propertyManagementFieldsWithCommon = [...commonApplicantFields, ...
 
 // ---------- Fast Track Immigration (FTI-TTP) ----------
 export const fastTrackSchema = z.object({
-   
+
   city: z.string().min(1, 'City is required'),
   state: z.string().min(1, 'State is required'),
   programType: z.string().min(1, 'Program Type is required'),
@@ -862,7 +897,7 @@ export const fastTrackSchema = z.object({
 });
 
 export const fastTrackFields = [
-   
+
   { name: "city", label: "City", type: "text" },
   { name: "state", label: "State", type: "text" },
   { name: "programType", label: "Program Type (Global Entry/TSA PreCheck)", type: "text" },

@@ -14,6 +14,11 @@ import { vehicleList } from "@/lib/vehicleList";
 import { LoadScript } from "@react-google-maps/api";
 import GlobalLoader from "@/components/GlobalLoader";
 const libraries: ("places")[] = ["places"];
+const formatSlug = (value: string) =>
+  value
+    .replaceAll("-", " ")
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
 
 export default function CreateApplication() {
   const params = useSearchParams();
@@ -152,7 +157,7 @@ export default function CreateApplication() {
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4 capitalize">{type.replaceAll("-", " ")} Form</h1>
+      <h1 className="text-2xl font-bold mb-4 capitalize">{formatSlug(type)} Form</h1>
 
 
       {showAlert && (
