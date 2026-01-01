@@ -12,7 +12,7 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import { getVisaDetails } from "@/lib/getVisaDetails";
 import { savePlatformServiceStep } from "@/lib/platformServiceStorage";
 import { useGetPlatformServiceSubCategoriesQuery } from "@/services/platformSubCategorysApi";
-import { setSubCategory } from "@/store/slices/applicationSlice";
+import { setCategory, setSubCategory } from "@/store/slices/applicationSlice";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,7 +31,15 @@ const SubCategory = () => {
   const [activeTab, setActiveTab] = useState<"Services" | "apostille" | "e-visa">("Services");
 
   const dispatch = useDispatch();
-  const { activeId } = useSelector((state: any) => state.application);
+  const { activeId, draftApplications } = useSelector((state: any) => state.application);
+
+
+
+
+  const activeApplication = draftApplications.find(
+    (app: any) => app.id === activeId
+  );
+
 
   const country = searchParams.get("toCountrySlug") || "";
   const platformServiceCategorySlug = searchParams.get("platformServiceCategorySlug") || "";
@@ -44,15 +52,30 @@ const SubCategory = () => {
   );
   const visaService = data?.data?.data.filter((service: services) => service.slug === subCategorySlug);
 
-const save = (id: string) => {
-  dispatch(
-    setSubCategory({
-      id: activeId,
-      platformServiceSubCategoryId: String(id),
-    })
-    
-  );
-};
+  const save = (id: string, title: string) => {
+    if (!activeApplication || !activeId) return;
+
+    // 1️⃣ Save sub-category (correct)
+    dispatch(
+      setSubCategory({
+        id: activeId,
+        platformServiceSubCategoryId: String(id),
+      })
+    );
+
+    // 2️⃣ Rename title ONLY (keep previous values)
+    dispatch(
+      setCategory({
+        id: activeApplication.id, // ✅ existing
+        name: title,              // ✅ renamed title
+        platformServiceCategoryId:
+          activeApplication.platformServiceCategoryId!, // ✅ existing
+      })
+    );
+  };
+
+
+
 
   return (
     <>

@@ -79,7 +79,7 @@ const getAllStoredApplicationsDraf = () => {
     }
 };
 const hasValidForm = (form: Record<string, any>) =>
-  form && Object.keys(form).length > 0;
+    form && Object.keys(form).length > 0;
 
 
 export const mapStoredAppToApi = (app: any) => {
@@ -117,11 +117,11 @@ export const mapStoredAppToApi = (app: any) => {
 
         platformServices: [
             {
-                platformServiceId: app.platformServiceId||"68e966dde7bd0d029655d367",
-                platformServiceCategoryId: app.platformServiceCategoryId||"68e966dde7bd0d029655d36d",
+                platformServiceId: app.platformServiceId || "68e966dde7bd0d029655d367",
+                platformServiceCategoryId: app.platformServiceCategoryId || "68e966dde7bd0d029655d36d",
                 platformServiceCategoryPackageId:
-                    app.platformServiceCategoryPackageId||"68e966dde7bd0d029655d370",
-                    platformServiceSubCategoryId:app.platformServiceSubCategoryId||"68e966dfe7bd0d029655d37f",
+                    app.platformServiceCategoryPackageId || "68e966dde7bd0d029655d370",
+                platformServiceSubCategoryId: app.platformServiceSubCategoryId || "68e966dfe7bd0d029655d37f",
 
                 // ✅ FIX HERE: only ID array
                 platformServiceCategoryPackageAddonsId:
@@ -193,13 +193,15 @@ export default function Step1() {
 
     const form = useForm<Step1Data>({
         resolver: zodResolver(step1Schema),
+        shouldFocusError: true, // ✅ enables focus
+
     });
     const { isDirty } = form.formState;
 
     const watchedValues = useWatch({
         control: form.control,
     });
-       
+
 
     useEffect(() => {
         if (data?.applications?.length) {
@@ -239,7 +241,7 @@ export default function Step1() {
 
             setPayload(payload);
             const email = watchedValues?.email;
-            const res = await verifyEmail({ email:payload.applications[0].email }).unwrap();
+            const res = await verifyEmail({ email: payload.applications[0].email }).unwrap();
 
             if (res.status) {
                 if (res.message === "Email is already verified.") {
@@ -334,6 +336,23 @@ export default function Step1() {
         dispatch(finalizeApplication({ id: activeId }));
 
     }, [])
+    useEffect(() => {
+        const errors = form.formState.errors;
+
+        if (Object.keys(errors).length > 0) {
+            const firstErrorField = Object.keys(errors)[0];
+            const errorElement = document.querySelector(
+                `[name="${firstErrorField}"]`
+            );
+
+            if (errorElement) {
+                errorElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                });
+            }
+        }
+    }, [form.formState.errors]);
 
 
 

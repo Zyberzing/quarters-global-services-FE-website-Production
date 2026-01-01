@@ -40,26 +40,12 @@ const defaultTestimonials = [
     text: "A seamless experience from start to finish. Clear communication and fast turnaround times.",
   },
   {
-    name: "Devon Lane",
-    image: "/p1.jpg",
-    text: "Excellent service for OCI application. Their team is responsive, and the portal makes everything easy and secure.",
-  },
-  {
-    name: "Kathryn Murphy",
-    image: "/p2.jpg",
-    text: "The process was super smooth and fast. I applied for my US tourist visa, uploaded my documents, and tracked everything online. Highly recommend Quartus!",
-  },
-  {
-    name: "Annette Black",
-    image: "/p3.jpg",
-    text: "Needed my documents apostilled quickly—Quartus handled it end-to-end with real-time updates. Very reliable.",
-  },
-  {
-    name: "Guy Hawkins",
-    image: "/p4.jpg",
-    text: "A seamless experience from start to finish. Clear communication and fast turnaround times.",
+    name: "Eleanor Pena",
+    image: "/p5.webp",
+    text: "Great support throughout my visa process. The team guided me clearly at every step and saved a lot of time.",
   },
 ];
+
 
 const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
   testimonials = defaultTestimonials,

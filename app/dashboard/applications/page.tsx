@@ -37,8 +37,7 @@ const page = async ({
 
   return (
     <DashboardLayout>
-    <Application applicationsData={applications} selectedApplicationSources={applicationSources} />
-
+      <Application applicationsData={applications} selectedApplicationSources={applicationSources} />
     </DashboardLayout>
   );
 };

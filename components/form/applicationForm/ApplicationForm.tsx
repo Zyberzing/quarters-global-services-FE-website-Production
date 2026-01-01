@@ -63,7 +63,6 @@ const ApplicationForm = ({
   isEdit?: boolean;
   applicationData?: any;
 }) => {
-  console.log(applicationData, "applicationData");
 
   // Helper function to extract addon IDs from application data
 
@@ -797,22 +796,25 @@ const ApplicationForm = ({
         <div className="flex items-center justify-between mb-6">
           <p className="text-lg font-semibold">Application</p>
           <div className="flex gap-2  ">
-            <Select
-              onValueChange={handleApplicationStatusChange}
-              defaultValue={applicationData?.status || "Submitted"}
-              disabled={isView || !isEdit}
-            >
-              <SelectTrigger className="w-fit min-w-44">
-                <SelectValue placeholder="Select Country" />
-              </SelectTrigger>
-              <SelectContent>
-                {applicationStatuses.map((status) => (
-                  <SelectItem key={status} value={status}>
-                    {status}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {isEdit && (
+              <Select
+                onValueChange={handleApplicationStatusChange}
+                defaultValue={applicationData?.status || "Apply"}
+                disabled={isView}
+              >
+                <SelectTrigger className="w-fit min-w-44">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {applicationStatuses.map((status) => (
+                    <SelectItem key={status} value={status}>
+                      {status}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+
             <Link
               target="_blank"
               href={
@@ -866,8 +868,8 @@ const ApplicationForm = ({
               apiPath={
                 form.watch("toCountryId")
                   ? `/platform-service/get-platform-service?toCountryId=${form.watch(
-                      "toCountryId"
-                    )}`
+                    "toCountryId"
+                  )}`
                   : ""
               }
               onSlugSelect={(slug) => setServiceSlug(slug)}
@@ -882,8 +884,8 @@ const ApplicationForm = ({
               apiPath={
                 form.watch("platformServiceId")
                   ? `/platform-service-category/get-platform-service-category?platformServiceId=${form.watch(
-                      "platformServiceId"
-                    )}&toCountryId=${form.watch("toCountryId")}`
+                    "platformServiceId"
+                  )}&toCountryId=${form.watch("toCountryId")}`
                   : ""
               }
               onSelectIsHaveSubCategory={setIsSubCategoriesAvailable}
@@ -905,16 +907,16 @@ const ApplicationForm = ({
                   isEdit
                     ? false
                     : form.watch("platformServiceCategoryId")
-                    ? true
-                    : false
+                      ? true
+                      : false
                 }
                 apiPath={
                   form.watch("platformServiceCategoryId")
                     ? `/platform-service-category/get-platform-service-category?platformServiceCategoryId=${form.watch(
-                        "platformServiceCategoryId"
-                      )}&platformServiceId=${form.watch(
-                        "platformServiceId"
-                      )}&toCountryId=${form.watch("toCountryId")}`
+                      "platformServiceCategoryId"
+                    )}&platformServiceId=${form.watch(
+                      "platformServiceId"
+                    )}&toCountryId=${form.watch("toCountryId")}`
                     : ""
                 }
                 onSlugSelect={(e) => {
@@ -938,8 +940,8 @@ const ApplicationForm = ({
                   apiPath={
                     categoryValue
                       ? `/platform-service-category-package/get-platform-service-category-package?toCountryId=${form.watch(
-                          "toCountryId"
-                        )}&platformServiceCategoryId=${categoryValue}`
+                        "toCountryId"
+                      )}&platformServiceCategoryId=${categoryValue}`
                       : ""
                   }
                 />

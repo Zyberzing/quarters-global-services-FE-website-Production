@@ -334,6 +334,124 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-14 px-4 lg:px-28 bg-white">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+
+          {/* 🚗 Car Booking */}
+          <div className="rounded-3xl border border-gray-200 p-8 flex flex-col justify-between hover:shadow-xl transition-all">
+            <div>
+              <Image
+                src="/car-booking.jpg"
+                alt="Car Booking"
+                width={500}
+                height={300}
+                className="rounded-2xl mb-6"
+              />
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Car Booking Services
+              </h3>
+
+              <p className="text-gray-600 mb-6">
+                Book verified drivers and vehicles for airport transfers, city travel,
+                and long-distance journeys with complete safety and transparency.
+              </p>
+            </div>
+
+            <Link href="/other-services/vehicle-booking?id=68e96938e7bd0d0296560113" className="inline-flex">
+              <button
+                className="
+      inline-flex items-center gap-2
+      px-6 py-3
+      text-sm font-semibold text-white
+      bg-[#D31021]
+      rounded-full
+      shadow-md
+      hover:bg-[#b90e1c]
+      hover:scale-105
+      transition-all duration-300
+      focus:outline-none
+    "
+              >
+                Book a Car
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 12H17M17 12L13 8M17 12L13 16"
+                      stroke="white"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </Link>
+
+
+
+
+          </div>
+
+          {/* 🧑‍✈️ Driver Registration */}
+          <div className="rounded-3xl border border-gray-200 p-8 flex flex-col justify-between hover:shadow-xl transition-all bg-[#F9FAFB]">
+            <div>
+              <Image
+                src="/driver-registration.jpg"
+                alt="Driver Registration"
+                width={500}
+                height={300}
+                className="rounded-2xl mb-6"
+              />
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Driver Registration
+              </h3>
+
+              <p className="text-gray-600 mb-6">
+                Register as a verified driver with Quartus. Upload documents,
+                complete verification, and start receiving bookings easily.
+              </p>
+            </div>
+
+            <Link href="/other-services/driver?id=692c9e0469b78087c79f7f4a" className="inline-flex">
+              <button
+                className="
+      inline-flex items-center gap-2
+      px-6 py-3
+      text-sm font-semibold
+      text-[#022146]
+      bg-white
+      border border-[#022146]/20
+      rounded-full
+      shadow-sm
+      hover:bg-[#D31021]
+      hover:text-white
+      hover:scale-105
+      transition-all duration-300
+      focus:outline-none
+    "
+              >
+                Register as Driver
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#022146]/10 group-hover:bg-white/20">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 12H17M17 12L13 8M17 12L13 16"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </Link>
+
+          </div>
+
+        </div>
+      </section>
+
       <div className="md:max-w-7xl w-full mx-auto md:px-10 py-12  ">
         <SectionTitle
           subtitle="Our Testimonials"
@@ -355,15 +473,15 @@ export default function Home() {
             >
               <div
                 className="
-  w-full max-w-[464px] min-h-[460px]
-  bg-white rounded-[36px] p-4
-  flex flex-col gap-6 sm:gap-8
-  border border-[#F2F2F2] shadow-sm
-  hover:shadow-xl hover:-translate-y-1 hover:scale-[1.01]
-  hover:border-[#E7000B]
-  transition-all duration-300 ease-in-out
-  cursor-pointer
-"
+    w-full max-w-[464px] min-h-[460px]
+    bg-white rounded-[36px] p-4
+    flex flex-col gap-6 sm:gap-8
+    border border-[#F2F2F2] shadow-sm
+    hover:shadow-xl hover:-translate-y-1 hover:scale-[1.01]
+    hover:border-[#E7000B]
+    transition-all duration-300 ease-in-out
+    cursor-pointer
+  "
               >
 
                 <Image
@@ -438,6 +556,8 @@ export default function Home() {
       </div>
 
       <TrustedSection />
+
+
 
       <section className="mt-10">
         <SectionHeading
