@@ -135,7 +135,6 @@ export default function CreateApplication() {
     }
   };
 
-
   const handleVerify = async () => {
     const response = await createApplication(payload as ApplicationPayload).unwrap();
     if (response?.status && response.data?.redirectURL) {

@@ -1,10 +1,6 @@
 
-import React from 'react';
 import { redirect } from 'next/navigation';
-import hasAccess from '@/hooks/useAccessControl/hasAccess';
-import { PERMISSIONS_LIST_ENUM } from '@/hooks/useAccessControl/permissions';
 import Link from 'next/link';
-import { ChevronLeft } from 'lucide-react';
 import { getSession } from '@/lib/session';
 import { getUserById } from '@/services/usersService';
 import { Card, CardContent } from '@/components/ui/card';
@@ -21,11 +17,9 @@ const page = async () => {
     if (!userData) {
         return redirect('/dashboard/home');
     }
-    console.log(userData, 'userData');
     return (
         <DashboardLayout>
             <div className="space-y-6">
-                
                 <Card>
                     <CardContent className="grid gap-8">
                         {/* Left Side - Profile */}

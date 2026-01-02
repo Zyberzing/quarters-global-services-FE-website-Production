@@ -248,7 +248,6 @@ export default function Step1() {
                     const response = await createApplication(payload).unwrap();
 
                     if (response?.status && response.data?.redirectURL) {
-                        localStorage.removeItem("platformServices");
 
                         window.location.href = response.data.redirectURL;
                         setLoading(false)
@@ -282,7 +281,6 @@ export default function Step1() {
 
     const handleDelete = (id: string) => {
         dispatch(deleteApplication(id));
-        localStorage.removeItem("platformServices")
     };
 
     useEffect(() => {

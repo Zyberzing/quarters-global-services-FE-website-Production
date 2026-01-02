@@ -17,7 +17,7 @@ import TrustedSection from "@/components/TrustedSection";
 import SupportForm from "@/components/SupportForm";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import ServicesSection from "@/components/ServicesSection";
+import VideoDemoSection from "@/components/VideoDemoSection";
 
 export const blogPosts = [
   {
@@ -333,6 +333,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <VideoDemoSection/>
 
       <section className="py-14 px-4 lg:px-28 bg-white">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
@@ -452,15 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="md:max-w-7xl w-full mx-auto md:px-10 py-12  ">
-        <SectionTitle
-          subtitle="Our Testimonials"
-          title="Real Stories. Real Success."
-          highlight="Quartus"
-          align="center"
-        />
-        <TestimonialSlider />
-      </div>
+  
 
       <div className="bg-[linear-gradient(180deg,#DEEBFF_0%,#FFE3E3_100%)] py-12 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
@@ -555,10 +548,19 @@ export default function Home() {
         </div>
       </div>
 
+
       <TrustedSection />
 
 
-
+    <div className="md:max-w-7xl w-full mx-auto md:px-10 py-12  ">
+        <SectionTitle
+          subtitle="Our Testimonials"
+          title="Real Stories. Real Success."
+          highlight="Quartus"
+          align="center"
+        />
+        <TestimonialSlider />
+      </div>
       <section className="mt-10">
         <SectionHeading
           label="Contact Us"

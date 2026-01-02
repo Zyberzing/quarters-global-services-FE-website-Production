@@ -356,9 +356,7 @@ export const miscellaneousFieldsWithCommon = [...commonApplicantFields, ...misce
 // ---------- Driver ----------
 export const driverSchema = z.object({
   // Applicant Details
-  fullName: z.string(),
   email: z.string(),
-  countryCode: z.string(),
   phone: z.string(),
   address: z.string(),
   city: z.string(),

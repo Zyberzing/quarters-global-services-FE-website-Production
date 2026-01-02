@@ -84,7 +84,7 @@ const ProfileForm = ({
 
     form.reset({});
 
-    router.push('/admin/profile');
+    router.push('/dashboard/profile');
   });
 
   return (
