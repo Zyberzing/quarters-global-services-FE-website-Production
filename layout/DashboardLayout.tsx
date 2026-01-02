@@ -53,7 +53,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     { name: "Services", icon: Briefcase, path: "/dashboard/services" },
     { name: "Chat", icon: MessageCircle, path: "/dashboard/chat" },
     { name: "Tickets", icon: Ticket, path: "/dashboard/tickets" },
-        { name: 'Payments', icon: CreditCard, path: '/dashboard/payments' }, // ✅ ADDED
+        // { name: 'Payments', icon: CreditCard, path: '/dashboard/payments' }, // ✅ ADDED
  {
     name: "Tax Bureau",
     icon: Landmark, // 🏛️ suitable government/tax icon
