@@ -9,7 +9,7 @@ const page = async () => {
   const session = await getSession();
   const userData = await getUserById(session?.id || '');
   if (!userData) {
-    return redirect('/admin/profile');
+    return redirect('/dashboard/profile');
   }
 
   return (

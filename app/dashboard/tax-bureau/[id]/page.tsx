@@ -15,14 +15,14 @@ const ViewTaxBureauPage = async ({ params }: { params: Promise<{ id: string }> }
   const [taxBureauData] = await Promise.all([getTaxBureauById(id)]);
 
   if (!taxBureauData) {
-    return redirect('/admin/tax-bureau');
+    return redirect('/dashboard/tax-bureau');
   }
 
   return (
     <DashboardLayout>
       <div className="mb-4">
         <div className="flex items-center gap-2 ">
-          <Link href="/admin/tax-bureau">
+          <Link href="/dashboard/tax-bureau">
             <ChevronLeft className="h-6 w-6 text-black" />
           </Link>
           <h1 className="text-2xl font-semibold">View</h1>

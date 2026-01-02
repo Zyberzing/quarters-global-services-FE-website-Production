@@ -64,7 +64,7 @@ export const createApplication = async (body: any) => {
       method: 'POST',
       body,
     });
-    revalidatePath('/admin/applications');
+    revalidatePath('/dashboard/applications');
     return result;
   } catch (error) {
     throw error;
@@ -77,7 +77,7 @@ export const editApplication = async (body: any) => {
       method: 'PUT',
       body,
     });
-    revalidatePath('/admin/applications');
+    revalidatePath('/dashboard/applications');
     return result;
   } catch (error) {
     throw error;
@@ -90,7 +90,7 @@ export const changeStatusApplication = async (body: any) => {
       method: 'PUT',
       body,
     });
-    revalidatePath('/admin/applications');
+    revalidatePath('/dashboard/applications');
     return result;
   } catch (error) {
     throw error;
@@ -104,7 +104,7 @@ export const deleteApplication = async (id: string) => {
       method: 'DELETE',
     });
     console.log('Delete API response:', result);
-    revalidatePath('/admin/applications');
+    revalidatePath('/dashboard/applications');
     return result;
   } catch (error) {
     console.error('Delete API error:', error);
@@ -115,7 +115,7 @@ export const deleteApplication = async (id: string) => {
         method: 'DELETE',
       });
       console.log('Alternative API response:', result);
-      revalidatePath('/admin/applications');
+      revalidatePath('/dashboard/applications');
       return result;
     } catch (altError) {
       console.error('Alternative delete API error:', altError);
