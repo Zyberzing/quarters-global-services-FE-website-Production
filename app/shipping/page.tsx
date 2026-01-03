@@ -1,6 +1,6 @@
 "use client";
 
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +17,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "nextjs-toploader/app";
 import { CHECKLIST_PACKAGES } from "../data/checklists";
+import { useSearchParams } from "next/navigation";
 
 const formSchema = z.object({
   documentMethod: z
@@ -34,6 +35,10 @@ const Page = () => {
 
   const [documentList, setDocumentList] = useState<string[]>([]);
   const [activeAppName, setActiveAppName] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+
+  const applicationIds = searchParams.get("applicationIds");
+  const token = searchParams.get("token");
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -62,7 +67,7 @@ const Page = () => {
       const country = window.localStorage.getItem("county") ?? "";
       const serviceName = app.type;
       const checklistArray = CHECKLIST_PACKAGES[serviceName]?.[country]
-      
+
       if (Array.isArray(checklistArray)) {
         checklistArray.forEach((item) => {
           // Direct title match (case-insensitive)
@@ -86,10 +91,20 @@ const Page = () => {
 
   const onSubmit = (values: FormValues) => {
     if (values.documentMethod === "shipping") {
-      router.push("/shipping/by-shipping-documents?");
+      const query = new URLSearchParams();
+
+      if (applicationIds) {
+        query.set("applicationIds", applicationIds);
+      }
+
+      if (token) {
+        query.set("token", token);
+      }
+
+      router.push(`/shipping/by-shipping-documents?${query.toString()}`);
     } else {
-      localStorage.removeItem("applicationStatus")
-      localStorage.removeItem("applications")
+      localStorage.removeItem("applicationStatus");
+      localStorage.removeItem("applications");
 
       router.replace("/login");
     }

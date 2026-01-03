@@ -5,6 +5,7 @@ import axios from "axios";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { clearPlatformServices } from "@/lib/platformServiceStorage";
+import { useSearchParams } from "next/navigation";
 
 export default function OrderSummaryPage() {
   const [useDifferentAddress, setUseDifferentAddress] = useState(false);
@@ -17,6 +18,20 @@ export default function OrderSummaryPage() {
 
   const [quote, setQuote] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const searchParams = useSearchParams();
+
+  const applicationIdsParam = searchParams.get("applicationIds");
+  const tokenParam = searchParams.get("token");
+
+  // Convert applicationIds to array
+  const applicationIds = applicationIdsParam
+    ? applicationIdsParam.split(",")
+    : [];
+
+  // Decode token (Bearer ...)
+  const token = tokenParam ? decodeURIComponent(tokenParam) : "";
+
 
   // User input for address
   const [sender,] = useState({
@@ -110,12 +125,13 @@ export default function OrderSummaryPage() {
 
     try {
       const payload = {
-        applicationIds: ["68e834654610ca2ccaea567a"], // TODO: Replace dynamically
+        applicationIds, // ✅ dynamic from URL
         carrierCode: selectedCarrier,
         packageTypeCode: selectedPackage,
-        totalAmount: Number(quote.totalAmount || 0),
+        totalAmount: Number(quote?.totalAmount || 0),
         sender,
       };
+
 
       const res = await axios.post(
         `${API_BASE}/application-shipping/create-application-shipping`,
@@ -133,8 +149,8 @@ export default function OrderSummaryPage() {
 
       if (redirectURL) {
         clearPlatformServices();
-          localStorage.removeItem("applicationStatus")
-      localStorage.removeItem("applications")
+        localStorage.removeItem("applicationStatus")
+        localStorage.removeItem("applications")
         window.location.href = redirectURL; // 🔁 Redirect to Stripe Checkout
       } else {
         alert("✅ Shipping created, but no redirect URL found.");

@@ -26,7 +26,7 @@ function PaymentDetailsModal({ children, transaction }: Props) {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger >{children}</DialogTrigger>
       <DialogContent className="max-w-md rounded-2xl">
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold">Transaction Details</DialogTitle>
