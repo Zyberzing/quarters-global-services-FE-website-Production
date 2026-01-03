@@ -18,11 +18,11 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { setFormData } from "@/store/slices/applicationSlice";
 import { useVerifyEmailMutation } from "@/services/verifyEmail";
-import { ApplicationPayload } from "@/lib/Types";
 import { clearPlatformServices, getPlatformServices } from "@/lib/platformServiceStorage";
 import { toast } from "sonner";
 import { store } from "@/store/store";
 import EmailVerifyDialog from "../StepForm/EmailVerifyDialog";
+import { ApplicationPayload } from "@/services/applicationApi2";
 
 
 // --- Types for API ---
