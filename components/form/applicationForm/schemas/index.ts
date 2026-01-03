@@ -1,299 +1,221 @@
 // Main schemas index file - exports all schemas and types
 import { z } from 'zod';
-
-// Export all schemas and common types
-export * from './usa/visa';
-export * from './usa/passport';
-export * from './india/visa';
-export * from './india/passport';
-export * from './common';
-
-// Import additional schema functions
-
-// Import all schemas for the discriminated union
-import {
-  // USA Visa Schemas
-  visaUSB1B2Schema,
-  visaUSStudentSchema,
-  visaUSExchangeVisitorSchema,
-  visaUSBusinessSchema,
-  visaUSTemporaryWorkerSchema,
-  visaUSIntraCompanyTransferSchema,
-  visaUSExtraordinaryAbilitySchema,
-  visaUSAthleteArtistSchema,
-  visaUSReligiousWorkerSchema,
-  visaUSNAFTASchema,
-  visaUSImmediateRelativeSchema,
-  visaUSFamilyPreferenceSchema,
-  visaUSEmploymentBasedSchema,
-  visaUSDiversityLotterySchema,
-  visaUSFianceSchema,
-  visaUSSpouseSchema,
-  visaUSWitnessInformantSchema,
-  visaUSTraffickingVictimsSchema,
-  visaUSCrimeVictimsSchema,
-} from './usa/visa';
-
-import {
-  // USA Passport Schemas
-  passportUSANewDS11Schema,
-  passportUSARenewalDS82Schema,
-  passportUSAChildUnder16Schema,
-  passportUSALostStolenDamagedSchema,
-  passportUSACardSchema,
-  passportUSANameChangeCorrectionSchema,
-  passportUSASecondValidSchema,
-  passportUSAExpeditedServiceSchema,
-  passportUSAEmergencySameDaySchema,
-} from './usa/passport';
-
-import {
-  // India Visa Schemas
-  visaIndiaTouristSchema,
-  visaIndiaBusinessSchema,
-  visaIndiaStudentSchema,
-  visaIndiaMedicalSchema,
-  visaIndiaConferenceSchema,
-  visaIndiaEmploymentSchema,
-  // visaIndiaEVisaTouristSchema,
-  // visaIndiaEVisaBusinessSchema,
-  // visaIndiaEVisaMedicalSchema,
-} from './india/visa';
-
-import {
-  // India Passport Schemas
-  passportIndiaNewAdultSchema,
-  passportIndiaNewMinorSchema,
-  passportIndiaRenewalAdultSchema,
-  passportIndiaRenewalMinorSchema,
-  passportIndiaLostDamagedSchema,
-  passportIndiaTatkalSchema,
-  passportIndiaNameChangeSchema,
-} from './india/passport';
 import { emptySchema } from './common';
+// USA Visa
+import * as usaVisa from './usa/visa';
+// USA Passport
+import * as usaPassport from './usa/passport';
+// India Visa
+import * as indiaVisa from './india/visa';
+// India E-Visa
+import * as indiaEVisa from './india/evisa';
+// India Passport
+import * as indiaPassport from './india/passport';
+// OCI
+import * as indiaOci from './india/oci';
+// Consular
+import * as indiaConsular from './india/consular';
+// ICP
+import * as indiaIcp from './india/icp';
+// Other countries
+import * as otherVisa from './other/visa';
+import { commonFieldSchema, emailSchema } from '@/lib/formSchemaFunctions';
+
+export function extractSchemas(module: Record<string, unknown>) {
+  return Object.values(module).filter((v): v is z.ZodObject<any> => {
+    if (!(v instanceof z.ZodObject)) return false;
+    const shape = v.shape as any;
+    return shape?.serviceType instanceof z.ZodLiteral;
+  });
+}
 
 // ---- Union ----
 export const serviceDocumentsSchemas = z.discriminatedUnion('serviceType', [
-  emptySchema, // Default empty schema
-  // USA Visa Schemas
-  visaUSB1B2Schema,
-  visaUSStudentSchema,
-  visaUSExchangeVisitorSchema,
-  visaUSBusinessSchema,
-  visaUSTemporaryWorkerSchema,
-  visaUSIntraCompanyTransferSchema,
-  visaUSExtraordinaryAbilitySchema,
-  visaUSAthleteArtistSchema,
-  visaUSReligiousWorkerSchema,
-  visaUSNAFTASchema,
-  visaUSImmediateRelativeSchema,
-  visaUSFamilyPreferenceSchema,
-  visaUSEmploymentBasedSchema,
-  visaUSDiversityLotterySchema,
-  visaUSFianceSchema,
-  visaUSSpouseSchema,
-  visaUSWitnessInformantSchema,
-  visaUSTraffickingVictimsSchema,
-  visaUSCrimeVictimsSchema,
-  // India Visa Schemas
-  visaIndiaTouristSchema,
-  visaIndiaBusinessSchema,
-  visaIndiaStudentSchema,
-  visaIndiaMedicalSchema,
-  visaIndiaConferenceSchema,
-  visaIndiaEmploymentSchema,
-  // visaIndiaEVisaTouristSchema,
-  // visaIndiaEVisaBusinessSchema,
-  // visaIndiaEVisaMedicalSchema,
-  // USA Passport Schemas
-  passportUSANewDS11Schema,
-  passportUSARenewalDS82Schema,
-  passportUSAChildUnder16Schema,
-  passportUSALostStolenDamagedSchema,
-  passportUSACardSchema,
-  passportUSANameChangeCorrectionSchema,
-  passportUSASecondValidSchema,
-  passportUSAExpeditedServiceSchema,
-  passportUSAEmergencySameDaySchema,
-  // India Passport Schemas
-  passportIndiaNewAdultSchema,
-  passportIndiaNewMinorSchema,
-  passportIndiaRenewalAdultSchema,
-  passportIndiaRenewalMinorSchema,
-  passportIndiaLostDamagedSchema,
-  passportIndiaTatkalSchema,
-  passportIndiaNameChangeSchema,
-]);
+  emptySchema,
+  ...extractSchemas(usaVisa),
+  ...extractSchemas(usaPassport),
+  ...extractSchemas(indiaVisa),
+  ...extractSchemas(indiaEVisa),
+  ...extractSchemas(indiaPassport),
+  ...extractSchemas(indiaOci),
+  ...extractSchemas(indiaConsular),
+  ...extractSchemas(indiaIcp),
+  ...extractSchemas(otherVisa),
+] as const);
+
+console.log(serviceDocumentsSchemas, 'serviceDocumentsSchemas');
 
 // Base schema for application form
 const baseSchema = z.object({
   // Service
-  toCountryId: z.string().min(1, 'This field is required'),
-  platformServiceId: z.string().min(1, 'This field is required'),
-  platformServiceCategoryId: z.string().min(1, 'This field is required'),
-  platformServiceSubCategoryId: z.string().optional(),
-  platformServiceCategoryPackageId: z.string().min(1, 'This field is required'),
-  platformServiceCategoryPackageAddonsId: z.array(z.string().min(1, 'This field is required')),
+  fromCountryId: commonFieldSchema(),
+  toCountryId: commonFieldSchema(),
+  platformServiceId: commonFieldSchema(),
+  platformServiceCategoryId: commonFieldSchema(),
+  platformServiceSubCategoryId: commonFieldSchema().optional().or(z.literal('')),
+  platformServiceCategoryPackageId: commonFieldSchema(),
+  platformServiceCategoryPackageAddonsId: z.array(commonFieldSchema()),
 
-  firstName: z.string().min(1, 'This field is required'),
-  lastName: z.string().min(1, 'This field is required'),
-  email: z.string().email('Invalid email'),
-  phone: z.string().min(1, 'This field is required'),
-  country: z.string().min(1, 'This field is required'),
-  address: z.string().min(1, 'This field is required'),
-  city: z.string().min(1, 'This field is required'),
-  state: z.string().min(1, 'This field is required'),
-  pincode: z.string().min(1, 'This field is required'),
-  notes: z.string().optional(),
+  firstName: commonFieldSchema(),
+  lastName: commonFieldSchema(),
+  email: emailSchema(),
+  phone: commonFieldSchema(),
+  country: commonFieldSchema(),
+  address: commonFieldSchema(),
+  city: commonFieldSchema(),
+  state: commonFieldSchema(),
+  pincode: commonFieldSchema(),
+  notes: commonFieldSchema().optional().or(z.literal('')),
 
   // Personal Information fields
-  middleName: z.string().optional(),
-  previousNames: z.string().optional(),
-  sex: z.string().optional(),
-  dob: z.string().optional(),
-  birthCity: z.string().optional(),
-  birthState: z.string().optional(),
-  countryOfBirth: z.string().optional(),
-  countryOfBirthOther: z.string().optional(),
-  nationalId: z.string().optional(),
-  religion: z.string().optional(),
-  visibleMarks: z.string().optional(),
-  educationLevel: z.string().optional(),
-  educationOther: z.string().optional(),
-  citizenshipCountry: z.string().optional(),
-  citizenshipCountryOther: z.string().optional(),
-  citizenshipAcquiredBy: z.string().optional(),
-  previousCitizenship: z.string().optional(),
-  previousCitizenshipOther: z.string().optional(),
+  middleName: commonFieldSchema().optional().or(z.literal('')),
+  previousNames: commonFieldSchema().optional().or(z.literal('')),
+  sex: commonFieldSchema().optional().or(z.literal('')),
+  dob: commonFieldSchema().optional().or(z.literal('')),
+  birthCity: commonFieldSchema().optional().or(z.literal('')),
+  birthState: commonFieldSchema().optional().or(z.literal('')),
+  countryOfBirth: commonFieldSchema().optional().or(z.literal('')),
+  countryOfBirthOther: commonFieldSchema().optional().or(z.literal('')),
+  nationalId: commonFieldSchema().optional().or(z.literal('')),
+  religion: commonFieldSchema().optional().or(z.literal('')),
+  visibleMarks: commonFieldSchema().optional().or(z.literal('')),
+  educationLevel: commonFieldSchema().optional().or(z.literal('')),
+  educationOther: commonFieldSchema().optional().or(z.literal('')),
+  citizenshipCountry: commonFieldSchema().optional().or(z.literal('')),
+  citizenshipCountryOther: commonFieldSchema().optional().or(z.literal('')),
+  citizenshipAcquiredBy: commonFieldSchema().optional().or(z.literal('')),
+  previousCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  previousCitizenshipOther: commonFieldSchema().optional().or(z.literal('')),
 
   // Passport Details fields
-  passportNumber: z.string().optional(),
-  passportIssuingAuthority: z.string().optional(),
-  passportIssueDate: z.string().optional(),
-  passportExpiryDate: z.string().optional(),
-  holdsOtherPassport: z.string().optional(),
-  otherPassportNumber: z.string().optional(),
-  otherPassportIssuingAuthority: z.string().optional(),
-  otherPassportIssueDate: z.string().optional(),
-  otherPassportExpiryDate: z.string().optional(),
+  passportNumber: commonFieldSchema().optional().or(z.literal('')),
+  passportIssuingAuthority: commonFieldSchema().optional().or(z.literal('')),
+  passportIssueDate: commonFieldSchema().optional().or(z.literal('')),
+  passportExpiryDate: commonFieldSchema().optional().or(z.literal('')),
+  holdsOtherPassport: commonFieldSchema().optional().or(z.literal('')),
+  otherPassportNumber: commonFieldSchema().optional().or(z.literal('')),
+  otherPassportIssuingAuthority: commonFieldSchema().optional().or(z.literal('')),
+  otherPassportIssueDate: commonFieldSchema().optional().or(z.literal('')),
+  otherPassportExpiryDate: commonFieldSchema().optional().or(z.literal('')),
 
   // Contact Information fields
-  homeAddress: z.string().optional(),
-  homeCity: z.string().optional(),
-  homeState: z.string().optional(),
-  homeZip: z.string().optional(),
-  isPermanentAddress: z.string().optional(),
-  permAddress: z.string().optional(),
-  permCity: z.string().optional(),
-  permState: z.string().optional(),
-  permZip: z.string().optional(),
-  permCountry: z.string().optional(),
-  homePhone: z.string().optional(),
-  mobilePhone: z.string().optional(),
-  homeEmail: z.string().optional(),
+  homeAddress: commonFieldSchema().optional().or(z.literal('')),
+  homeCity: commonFieldSchema().optional().or(z.literal('')),
+  homeState: commonFieldSchema().optional().or(z.literal('')),
+  homeZip: commonFieldSchema().optional().or(z.literal('')),
+  isPermanentAddress: commonFieldSchema().optional().or(z.literal('')),
+  permAddress: commonFieldSchema().optional().or(z.literal('')),
+  permCity: commonFieldSchema().optional().or(z.literal('')),
+  permState: commonFieldSchema().optional().or(z.literal('')),
+  permZip: commonFieldSchema().optional().or(z.literal('')),
+  permCountry: commonFieldSchema().optional().or(z.literal('')),
+  homePhone: commonFieldSchema().optional().or(z.literal('')),
+  mobilePhone: commonFieldSchema().optional().or(z.literal('')),
+  homeEmail: commonFieldSchema().optional().or(z.literal('')),
 
   // Family Information fields
-  fatherName: z.string().optional(),
-  fatherBirthCity: z.string().optional(),
-  fatherBirthState: z.string().optional(),
-  fatherBirthCountry: z.string().optional(),
-  fatherCitizenship: z.string().optional(),
-  fatherPrevCitizenship: z.string().optional(),
-  motherName: z.string().optional(),
-  motherBirthCity: z.string().optional(),
-  motherBirthState: z.string().optional(),
-  motherBirthCountry: z.string().optional(),
-  motherCitizenship: z.string().optional(),
-  motherPrevCitizenship: z.string().optional(),
-  maritalStatus: z.string().optional(),
-  spouseName: z.string().optional(),
-  spouseCitizenship: z.string().optional(),
-  spousePrevCitizenship: z.string().optional(),
-  spouseBirthCity: z.string().optional(),
-  spouseBirthState: z.string().optional(),
-  spouseBirthCountry: z.string().optional(),
-  grandparentsPakistan: z.string().optional(),
-  grandparentsPakistanDetails: z.string().optional(),
+  fatherName: commonFieldSchema().optional().or(z.literal('')),
+  fatherBirthCity: commonFieldSchema().optional().or(z.literal('')),
+  fatherBirthState: commonFieldSchema().optional().or(z.literal('')),
+  fatherBirthCountry: commonFieldSchema().optional().or(z.literal('')),
+  fatherCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  fatherPrevCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  motherName: commonFieldSchema().optional().or(z.literal('')),
+  motherBirthCity: commonFieldSchema().optional().or(z.literal('')),
+  motherBirthState: commonFieldSchema().optional().or(z.literal('')),
+  motherBirthCountry: commonFieldSchema().optional().or(z.literal('')),
+  motherCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  motherPrevCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  maritalStatus: commonFieldSchema().optional().or(z.literal('')),
+  spouseName: commonFieldSchema().optional().or(z.literal('')),
+  spouseCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  spousePrevCitizenship: commonFieldSchema().optional().or(z.literal('')),
+  spouseBirthCity: commonFieldSchema().optional().or(z.literal('')),
+  spouseBirthState: commonFieldSchema().optional().or(z.literal('')),
+  spouseBirthCountry: commonFieldSchema().optional().or(z.literal('')),
+  grandparentsPakistan: commonFieldSchema().optional().or(z.literal('')),
+  grandparentsPakistanDetails: commonFieldSchema().optional().or(z.literal('')),
 
   // Work/School Information fields
-  occupation: z.string().optional(),
-  jobTitle: z.string().optional(),
-  employerOrSchool: z.string().optional(),
-  workAddress: z.string().optional(),
-  workCity: z.string().optional(),
-  workState: z.string().optional(),
-  workZip: z.string().optional(),
-  workPhone: z.string().optional(),
-  workEmail: z.string().optional(),
-  previousOccupation: z.string().optional(),
-  militaryService: z.string().optional(),
-  militaryCountryBranch: z.string().optional(),
-  militarySpecialization: z.string().optional(),
-  militaryHighestRank: z.string().optional(),
-  militaryCity: z.string().optional(),
-  militaryState: z.string().optional(),
-  militaryCountry: z.string().optional(),
+  occupation: commonFieldSchema().optional().or(z.literal('')),
+  jobTitle: commonFieldSchema().optional().or(z.literal('')),
+  employerOrSchool: commonFieldSchema().optional().or(z.literal('')),
+  workAddress: commonFieldSchema().optional().or(z.literal('')),
+  workCity: commonFieldSchema().optional().or(z.literal('')),
+  workState: commonFieldSchema().optional().or(z.literal('')),
+  workZip: commonFieldSchema().optional().or(z.literal('')),
+  workPhone: commonFieldSchema().optional().or(z.literal('')),
+  workEmail: commonFieldSchema().optional().or(z.literal('')),
+  previousOccupation: commonFieldSchema().optional().or(z.literal('')),
+  militaryService: commonFieldSchema().optional().or(z.literal('')),
+  militaryCountryBranch: commonFieldSchema().optional().or(z.literal('')),
+  militarySpecialization: commonFieldSchema().optional().or(z.literal('')),
+  militaryHighestRank: commonFieldSchema().optional().or(z.literal('')),
+  militaryCity: commonFieldSchema().optional().or(z.literal('')),
+  militaryState: commonFieldSchema().optional().or(z.literal('')),
+  militaryCountry: commonFieldSchema().optional().or(z.literal('')),
 
   // Travel to India fields
-  visaType: z.string().optional(),
-  expectedArrivalDate: z.string().optional(),
-  arrivalCity: z.string().optional(),
-  exitCity: z.string().optional(),
-  otherIndianCities: z.string().optional(),
-  purposeOfVisit: z.string().optional(),
-  previousVisitToIndia: z.string().optional(),
-  prevHotelAddress: z.string().optional(),
-  prevCitiesVisited: z.string().optional(),
-  prevVisaNumber: z.string().optional(),
-  prevVisaIssuedBy: z.string().optional(),
-  prevVisaType: z.string().optional(),
-  prevVisaIssuedDate: z.string().optional(),
-  visaRefused: z.string().optional(),
-  visaRefusalDetails: z.string().optional(),
-  countriesVisited10Years: z.string().optional(),
+  visaType: commonFieldSchema().optional().or(z.literal('')),
+  expectedArrivalDate: commonFieldSchema().optional().or(z.literal('')),
+  arrivalCity: commonFieldSchema().optional().or(z.literal('')),
+  exitCity: commonFieldSchema().optional().or(z.literal('')),
+  otherIndianCities: commonFieldSchema().optional().or(z.literal('')),
+  purposeOfVisit: commonFieldSchema().optional().or(z.literal('')),
+  previousVisitToIndia: commonFieldSchema().optional().or(z.literal('')),
+  prevHotelAddress: commonFieldSchema().optional().or(z.literal('')),
+  prevCitiesVisited: commonFieldSchema().optional().or(z.literal('')),
+  prevVisaNumber: commonFieldSchema().optional().or(z.literal('')),
+  prevVisaIssuedBy: commonFieldSchema().optional().or(z.literal('')),
+  prevVisaType: commonFieldSchema().optional().or(z.literal('')),
+  prevVisaIssuedDate: commonFieldSchema().optional().or(z.literal('')),
+  visaRefused: commonFieldSchema().optional().or(z.literal('')),
+  visaRefusalDetails: commonFieldSchema().optional().or(z.literal('')),
+  countriesVisited10Years: commonFieldSchema().optional().or(z.literal('')),
 
   // Reference in India fields
-  refIndiaName: z.string().optional(),
-  refIndiaCompany: z.string().optional(),
-  refIndiaAddress1: z.string().optional(),
-  refIndiaAddress2: z.string().optional(),
-  refIndiaPhone: z.string().optional(),
-  refIndiaEmail: z.string().optional(),
+  refIndiaName: commonFieldSchema().optional().or(z.literal('')),
+  refIndiaCompany: commonFieldSchema().optional().or(z.literal('')),
+  refIndiaAddress1: commonFieldSchema().optional().or(z.literal('')),
+  refIndiaAddress2: commonFieldSchema().optional().or(z.literal('')),
+  refIndiaPhone: commonFieldSchema().optional().or(z.literal('')),
+  refIndiaEmail: commonFieldSchema().optional().or(z.literal('')),
 
   // Reference in USA fields
-  refUSAName: z.string().optional(),
-  refUSACompany: z.string().optional(),
-  refUSAAddress: z.string().optional(),
-  refUSACity: z.string().optional(),
-  refUSAState: z.string().optional(),
-  refUSAZip: z.string().optional(),
-  refUSAPhone: z.string().optional(),
-  refUSAEmail: z.string().optional(),
+  refUSAName: commonFieldSchema().optional().or(z.literal('')),
+  refUSACompany: commonFieldSchema().optional().or(z.literal('')),
+  refUSAAddress: commonFieldSchema().optional().or(z.literal('')),
+  refUSACity: commonFieldSchema().optional().or(z.literal('')),
+  refUSAState: commonFieldSchema().optional().or(z.literal('')),
+  refUSAZip: commonFieldSchema().optional().or(z.literal('')),
+  refUSAPhone: commonFieldSchema().optional().or(z.literal('')),
+  refUSAEmail: commonFieldSchema().optional().or(z.literal('')),
 
   // Additional Questions fields
-  refusedEntryDeported: z.string().optional(),
-  refusedEntryDetails: z.string().optional(),
-  everArrested: z.string().optional(),
-  arrestedDetails: z.string().optional(),
-  everConvicted: z.string().optional(),
-  convictedDetails: z.string().optional(),
+  refusedEntryDeported: commonFieldSchema().optional().or(z.literal('')),
+  refusedEntryDetails: commonFieldSchema().optional().or(z.literal('')),
+  everArrested: commonFieldSchema().optional().or(z.literal('')),
+  arrestedDetails: commonFieldSchema().optional().or(z.literal('')),
+  everConvicted: commonFieldSchema().optional().or(z.literal('')),
+  convictedDetails: commonFieldSchema().optional().or(z.literal('')),
 
   // Additional service fields
   additionalServiceFields: z
     .object({
-      paymentMethod: z.string().optional(),
-      paymentStatus: z.string().optional(),
-      totalAmount: z.string().optional(),
-      paidAmount: z.string().optional(),
-      paymentId: z.string().optional(),
-      courierId: z.string().optional(),
-      passportNumber: z.string().optional(),
+      paymentMethod: commonFieldSchema().optional().or(z.literal('')),
+      paymentStatus: commonFieldSchema().optional().or(z.literal('')),
+      totalAmount: commonFieldSchema().optional().or(z.literal('')),
+      paidAmount: commonFieldSchema().optional().or(z.literal('')),
+      paymentId: commonFieldSchema().optional().or(z.literal('')),
+      courierId: commonFieldSchema().optional().or(z.literal('')),
+      passportNumber: commonFieldSchema().optional().or(z.literal('')),
     })
-    .optional(),
+    .optional()
+    .or(z.literal('')),
 });
 
-// Create the application validator
 
+// Create the application validator
 export const createApplicationValidator = baseSchema.extend({
   documents: serviceDocumentsSchemas,
 });
