@@ -149,7 +149,7 @@ const ConsularServicesForm = ({
       if (applicationSource === 'AgentPortal') {
         router.push('/agent/services');
       } else {
-        router.push('/admin/services');
+        router.push('/dashboard/services');
       }
     } catch (error) {
       toast.error('Failed to submit Application. Please try again.');

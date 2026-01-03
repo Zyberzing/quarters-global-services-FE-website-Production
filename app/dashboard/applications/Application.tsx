@@ -50,19 +50,6 @@ const ApplicationsPage = ({
       header: 'Application ID',
       accessor: 'id',
     },
-    // {
-    //   header: 'Applicant Name',
-    //   accessor: 'name',
-    //   render: (row: any) => (
-    //     <div className="flex items-center gap-2 font-medium">
-    //       <Avatar>
-    //         <AvatarImage src={row.avatar || 'https://github.com/shadcn.png'} />
-    //         <AvatarFallback>CN</AvatarFallback>
-    //       </Avatar>
-    //       <span>{row.name}</span>
-    //     </div>
-    //   ),
-    // },
     {
       header: 'Applicant Name',
       accessor: 'name',
@@ -151,12 +138,9 @@ const ApplicationsPage = ({
     <div className="space-y-4">
       {/* Top Bar */}
       <div className="flex items-center justify-between flex-wrap gap-2">
-  
-
         {/* Actions */}
         <div className="flex items-center gap-2">
           <ExcelExportButton rows={applications} filename="applications.xlsx" />
-
           <CommonFilters
             selects={[
               {
@@ -166,13 +150,6 @@ const ApplicationsPage = ({
               },
             ]}
           />
-
-          <Button asChild>
-            <Link href="/dashboard/applications/create">
-              <Plus className="mr-2 h-4 w-4" />
-              New  Application
-            </Link>
-          </Button>
         </div>
       </div>
 

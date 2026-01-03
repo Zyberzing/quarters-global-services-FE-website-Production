@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { getSession } from '@/lib/session';

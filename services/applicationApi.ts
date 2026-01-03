@@ -1,5 +1,5 @@
- import { ApplicationPayload } from "@/lib/Types";
 import { emptySplitApi } from "@/store/rtk/emptySplitApi.ts";
+import { ApplicationPayload } from "./applicationApi2";
  
 
 export const applicationApi = emptySplitApi.injectEndpoints({

@@ -1,69 +1,110 @@
 import { z } from 'zod';
-import { requiredFileSchema, serviceTypes } from '../common';
+import { requiredFileSchema } from '../common';
 
-// ---- INDIA VISA SCHEMAS ----
+// =======================================================
+// INDIA TOURIST VISA
+// =======================================================
 
-// India Tourist Visa
 export const visaIndiaTouristSchema = z.object({
-  serviceType: z.literal(serviceTypes['tourist-visa']),
+  serviceType: z.literal('tourist-visa'),
+
   validPassport: requiredFileSchema,
   visaApplicationForm: requiredFileSchema,
   recentPassportPhoto: requiredFileSchema,
   travelItinerary: requiredFileSchema,
   proofOfFunds: requiredFileSchema,
   hotelBookingInvitationLetter: requiredFileSchema,
+
+  // ✅ Excel
+  returnFlightTicket: requiredFileSchema.optional(),
 });
 
-// India Business Visa
+// =======================================================
+// INDIA BUSINESS VISA
+// =======================================================
+
 export const visaIndiaBusinessSchema = z.object({
-  serviceType: z.literal(serviceTypes['business-visa']),
+  serviceType: z.literal('business-visa'),
+
   validPassport: requiredFileSchema,
   visaApplicationForm: requiredFileSchema,
   passportPhotos: requiredFileSchema,
   invitationLetterFromIndianCompany: requiredFileSchema,
   incorporationCertificateOfIndianCompany: requiredFileSchema,
   proofOfFunds: requiredFileSchema,
+
+  // ✅ Excel
+  businessCoverLetter: requiredFileSchema.optional(),
 });
 
-// India Student Visa
+// =======================================================
+// INDIA STUDENT VISA
+// =======================================================
+
 export const visaIndiaStudentSchema = z.object({
-  serviceType: z.literal(serviceTypes['student-visa']),
+  serviceType: z.literal('student-visa'),
+
   validPassport: requiredFileSchema,
   visaApplicationForm: requiredFileSchema,
   passportPhotos: requiredFileSchema,
   admissionLetterFromIndianInstitution: requiredFileSchema,
   proofOfFunds: requiredFileSchema,
   academicCertificates: requiredFileSchema,
+
+  // ✅ Excel
+  bonafideCertificate: requiredFileSchema.optional(),
 });
 
-// India Medical Visa
+// =======================================================
+// INDIA MEDICAL VISA
+// =======================================================
+
 export const visaIndiaMedicalSchema = z.object({
-  serviceType: z.literal(serviceTypes['medical-visa']),
+  serviceType: z.literal('medical-visa'),
+
   validPassport: requiredFileSchema,
   visaApplicationForm: requiredFileSchema,
   passportPhotos: requiredFileSchema,
   medicalTreatmentLetterFromIndianHospital: requiredFileSchema,
   proofOfFunds: requiredFileSchema,
   medicalReports: requiredFileSchema,
+
+  // ✅ Excel
+  attendantDetailsLetter: requiredFileSchema.optional(),
 });
 
-// India Conference Visa
+// =======================================================
+// INDIA CONFERENCE VISA
+// =======================================================
+
 export const visaIndiaConferenceSchema = z.object({
-  serviceType: z.literal(serviceTypes['conference-visa']),
+  serviceType: z.literal('conference-visa'),
+
   validPassport: requiredFileSchema,
   visaApplicationForm: requiredFileSchema,
   passportPhotos: requiredFileSchema,
   invitationLetterToConference: requiredFileSchema,
+
   governmentClearance: requiredFileSchema.optional(),
+
+  // ✅ Excel
+  conferenceRegistrationProof: requiredFileSchema.optional(),
 });
 
-// India Employment Visa
+// =======================================================
+// INDIA EMPLOYMENT VISA
+// =======================================================
+
 export const visaIndiaEmploymentSchema = z.object({
-  serviceType: z.literal(serviceTypes['employment-visa']),
+  serviceType: z.literal('employment-visa'),
+
   validPassport: requiredFileSchema,
   visaApplicationForm: requiredFileSchema,
   passportPhotos: requiredFileSchema,
   appointmentLetter: requiredFileSchema,
   companyRegistrationProof: requiredFileSchema,
   proofOfFunds: requiredFileSchema,
+
+  // ✅ Excel
+  employmentContract: requiredFileSchema.optional(),
 });

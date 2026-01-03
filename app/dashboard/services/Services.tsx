@@ -146,12 +146,6 @@ const ServicesPage = ({
             ]}
           />
 
-          <Button asChild>
-            <Link href="/dashboard/services/add-service">
-              <Plus />
-              <span className="ml-1">Add Service</span>
-            </Link>
-          </Button>
         </div>
       </div>
 

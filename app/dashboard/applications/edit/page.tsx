@@ -22,8 +22,6 @@ const page = async ({
   const application = (await searchParams).application || '';
   const isView = (await searchParams).isView || '';
 
-
-
   const applicationData = await getApplicationById(application);
 
   if (!applicationData) {

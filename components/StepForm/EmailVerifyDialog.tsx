@@ -72,30 +72,35 @@ export default function EmailVerifyDialog({
   /* ======================
      BACKSPACE HANDLER ✅
   ====================== */
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-    index: number,
-  ) => {
-    if (e.key !== "Backspace") return;
+ const handleKeyDown = (
+  e: React.KeyboardEvent<HTMLInputElement>,
+  index: number
+) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    handleVerify(); // ✅ submit on Enter
+    return;
+  }
 
-    const newOtp = [...otp];
+  if (e.key !== "Backspace") return;
 
-    if (otp[index]) {
-      // Clear current box
-      newOtp[index] = "";
-      setOtp(newOtp);
-      return;
-    }
+  const newOtp = [...otp];
 
-    // Move to previous box
-    if (index > 0) {
-      newOtp[index - 1] = "";
-      setOtp(newOtp);
+  if (otp[index]) {
+    newOtp[index] = "";
+    setOtp(newOtp);
+    return;
+  }
 
-      const prev = document.getElementById(`otp-${index - 1}`);
-      (prev as HTMLInputElement)?.focus();
-    }
-  };
+  if (index > 0) {
+    newOtp[index - 1] = "";
+    setOtp(newOtp);
+
+    const prev = document.getElementById(`otp-${index - 1}`);
+    (prev as HTMLInputElement)?.focus();
+  }
+};
+
 
   /* ======================
      VERIFY OTP

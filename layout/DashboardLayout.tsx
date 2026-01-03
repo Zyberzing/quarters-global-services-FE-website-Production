@@ -11,6 +11,7 @@ import {
   Headphones,
   CreditCard,
   Landmark,
+  KeyRound,
 } from "lucide-react";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
@@ -53,12 +54,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     { name: "Services", icon: Briefcase, path: "/dashboard/services" },
     { name: "Chat", icon: MessageCircle, path: "/dashboard/chat" },
     { name: "Tickets", icon: Ticket, path: "/dashboard/tickets" },
-        // { name: 'Payments', icon: CreditCard, path: '/dashboard/payments' }, // ✅ ADDED
- {
-    name: "Tax Bureau",
-    icon: Landmark, // 🏛️ suitable government/tax icon
-    path: "/dashboard/tax-bureau",
-  },
+    { name: 'Payments', icon: CreditCard, path: '/dashboard/payments' },
+    {
+      name: "Tax Bureau",
+      icon: Landmark, // 🏛️ suitable government/tax icon
+      path: "/dashboard/tax-bureau",
+    },
     { name: "Support", icon: Headphones, path: "/dashboard/supports" },
   ];
 
@@ -228,25 +229,38 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
               {profileMenuOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50">
+                  {/* Header */}
                   <div className="px-4 py-3 border-b">
                     <p className="text-sm font-medium text-gray-800">
-                      {user
-                        ? `${user.firstName} ${user.lastName}`
-                        : "Loading..."}
+                      {user ? `${user.firstName} ${user.lastName}` : "Loading..."}
                     </p>
                     <p className="text-xs text-gray-500">Account</p>
                   </div>
 
+                  {/* Profile Settings */}
                   <button
                     onClick={() => {
                       setProfileMenuOpen(false);
                       router.push("/dashboard/profile");
                     }}
-                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
                   >
                     ⚙️ Settings
                   </button>
 
+                  {/* Change Password */}
+                  <button
+                    onClick={() => {
+                      setProfileMenuOpen(false);
+                      router.push("/dashboard/change-password");
+                    }}
+                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                  >
+                    <KeyRound className="w-4 h-4 text-gray-600" />
+                    Change Password
+                  </button>
+
+                  {/* Logout */}
                   <button
                     onClick={() => {
                       setProfileMenuOpen(false);
@@ -259,6 +273,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   </button>
                 </div>
               )}
+
             </div>
           </header>
 

@@ -28,6 +28,8 @@ import "react-phone-number-input/style.css";
 import { LoadScript } from "@react-google-maps/api";
 import GoogleAddressInput from "../GoogleAddressInput";
 import GlobalLoader from "../GlobalLoader";
+import { getSession } from "@/lib/session";
+import { getUserById } from "@/services/usersService";
 
 const libraries: ("places")[] = ["places"];
 
@@ -183,12 +185,14 @@ export default function Step1() {
     const [payload, setPayload] = useState<ApplicationPayload>()
     const [isSwitchingCard, setIsSwitchingCard] = useState(false);
     const [loading, setLoading] = useState(false)
-
+    const [userData, setUserData] = useState<any>(null);
+    const [isEmailLocked, setIsEmailLocked] = useState(false);
     const activeFormIdRef = useRef<string | null>(null);
 
     const { draftApplications, activeId, a } = useSelector(
         (state: any) => state.application
     );
+
 
 
     const form = useForm<Step1Data>({
@@ -332,8 +336,8 @@ export default function Step1() {
 
     useEffect(() => {
         dispatch(finalizeApplication({ id: activeId }));
-
     }, [])
+
     useEffect(() => {
         const errors = form.formState.errors;
 
@@ -351,6 +355,53 @@ export default function Step1() {
             }
         }
     }, [form.formState.errors]);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const sessionData = await getSession();
+                console.log("Session Data:", sessionData);
+                if (sessionData?.id) {
+                    const user = await getUserById(sessionData.id);
+                    setUserData(user);
+                }
+            } catch (error) {
+                console.error("Error fetching session/user:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUser();
+    }, []);
+
+    useEffect(() => {
+        if (!userData?.email || !activeId) return;
+
+        // 1️⃣ Update react-hook-form
+        form.setValue("email", userData.email, {
+            shouldDirty: false,
+            shouldTouch: false,
+            shouldValidate: true,
+        });
+
+        // 2️⃣ Force update redux draft (🔥 THIS FIXES BACKEND ISSUE)
+        dispatch(
+            setFormData({
+                id: activeId,
+                form: {
+                    applications: [
+                        {
+                            ...form.getValues(),
+                            email: userData.email,
+                        },
+                    ],
+                },
+            })
+        );
+
+        setIsEmailLocked(true);
+    }, [userData, activeId, dispatch, form]);
 
 
 
@@ -502,6 +553,7 @@ export default function Step1() {
                                         <Input
                                             placeholder="you@example.com"
                                             {...field}
+                                            disabled={isEmailLocked}
                                             className="w-full text-sm sm:text-base"
                                         />
                                     </FormControl>

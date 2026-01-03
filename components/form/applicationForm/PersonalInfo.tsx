@@ -10,8 +10,16 @@ import {
   SelectItem,
 } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { format } from 'date-fns';
+import { PhoneInput2 } from '@/components/ui/PhoneInput2';
 
-export default function PersonalInfo({ isView = false }: { isView?: boolean }) {
+export default function PersonalInfo({
+  isView = false,
+  isEdit = false,
+}: {
+  isView?: boolean;
+  isEdit?: boolean;
+}) {
   const form = useFormContext();
   return (
     <div className="p-4 border rounded-lg grid sm:grid-cols-2 gap-4">
@@ -70,14 +78,26 @@ export default function PersonalInfo({ isView = false }: { isView?: boolean }) {
           </FormItem>
         )}
       />
-
+      <FormField
+        name="email"
+        control={form.control}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input type="email" readOnly={isView} disabled={!!isEdit} {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
       {/* Sex */}
       <FormField
         name="sex"
         control={form.control}
         render={({ field }) => (
-          <FormItem className="col-span-2">
-            <FormLabel>Sex</FormLabel>
+          <FormItem>
+            <FormLabel>Gender</FormLabel>
             <FormControl>
               <RadioGroup
                 value={field.value ?? ''}
@@ -107,7 +127,12 @@ export default function PersonalInfo({ isView = false }: { isView?: boolean }) {
           <FormItem>
             <FormLabel>Date of Birth</FormLabel>
             <FormControl>
-              <Input type="date" readOnly={isView} {...field} />
+              <Input
+                type="date"
+                readOnly={isView}
+                max={format(new Date(), 'yyyy-MM-dd')}
+                {...field}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -435,20 +460,13 @@ export default function PersonalInfo({ isView = false }: { isView?: boolean }) {
           <FormItem>
             <FormLabel>Phone</FormLabel>
             <FormControl>
-              <Input readOnly={isView} {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        name="email"
-        control={form.control}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email</FormLabel>
-            <FormControl>
-              <Input type="email" readOnly={isView} {...field} />
+              <PhoneInput2
+                disabled={isView}
+                value={field.value}
+                onChange={(val) => {
+                  field.onChange(val ? `+${val}` : '');
+                }}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
